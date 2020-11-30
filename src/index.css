@@ -1,0 +1,1247 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+html {
+  background-image: linear-gradient(25deg,
+  rgba(97,154,70, 0.4),
+  rgba(67,128,41, 0.4)),
+  url('./images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-size: 15x;
+}
+
+/*
+  browns:
+rgb(225,193,88); -> text/button
+rgb(212,175,55); -> text/button
+rgb(178,151,0);
+
+  greens:
+rgb(125,170,106); -> card
+rgb(97,154,70); -> form
+rgb(67,128,41); -> background
+rgb(5,53,39); -> header/footer
+*/
+
+.App {
+  width: 1450px;
+  height: 850px;
+  margin: 0 auto;
+}
+
+.quote-container {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.quote {
+  font-style: italic;
+  font-size: 1.3rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.quote-credit {
+  font-style: normal;
+  font-size: 1.1rem;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.credit {
+  text-decoration: none;
+  position: fixed;
+  bottom: 5px;
+  left: 5px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.github-link,
+.github-link:visited {
+  color: rgb(26,20,189);
+  text-decoration: none;
+}
+
+.github-link:hover {
+  color: rgb(66, 60, 241);
+}
+
+@media only screen and (max-device-width: 550px) {
+  .credit {
+    position: absolute;
+    top: 4px;
+  }
+
+  .quote-container {
+    position: absolute;
+    top: 5%;
+    left: 0;
+  }
+
+  .quote {}
+
+  .quote-credit {}
+}
+
+.display-container {
+  width: 1200px;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-wrap: 1;
+  flex-direction: row;
+}
+
+.tutorial-container {
+  margin: 60px auto 0 auto;
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center;  */
+  text-align: center;
+  width: auto;
+  line-height: 3rem;
+  font-family: 'Open Sans', sans-serif;
+  /* position: relative; */
+  /* left: 17%; */
+}
+
+.tutorial-header {
+  text-align: center;
+  margin: 10px auto;
+  top: 5%;
+  font-size: 2.75rem;
+  height: auto;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.tutorial {
+  font-size: 2.25rem;
+  margin: 0 auto;
+  position: relative;
+  top: 10%;
+  height: 75%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.tutorial li {
+  list-style-type: none;
+}
+
+.return-btn-container {
+  position: absolute;
+  left: 2.5%;
+  top: 2.5%;
+}
+
+.return-btn {
+  width: 130px;
+  height: 60px;
+  position: absolute;
+  left: 2.5%;
+  top: 2.5%;
+  border-radius: 5px;
+  background-color: rgb(42, 136, 184);
+  box-shadow: 2px 2px 100px 1px white;
+  color: white;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.create-link {
+  font-size: 1.3rem;
+  padding: 20px;
+  background: rgba(5, 53, 39, 0.8);
+  color: gold;
+  border-radius: 5px;
+  font-weight: 600;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 40px;
+  left: 40px;
+  box-shadow: 2px 2px 100px 1px white;
+  font-family: 'Open Sans';
+}
+
+.create-link-container:hover {
+  background: rgba(8, 87, 64, 0.8);
+}
+
+@media only screen and (max-device-width: 550px) {
+  .creature-list-divider {
+    display: inline-block;
+    margin: 0 auto;
+    position: static;
+    top: 0;
+  }
+
+  .create-btn {
+    height: 100px;
+    width: 275px;
+    margin: 150px auto 0 auto;
+    font-size: 1.75rem;
+    text-decoration: none;
+  }
+
+  .create-btn-container {
+    text-align: center;
+    display: block;
+    position: fixed;
+    left: 12%;
+    top: 0;
+  }
+
+  .tutorial {
+    font-size: 1.75rem; 
+    margin: 60px auto 0 auto;
+    padding: 0;
+    width: 275px;
+  }
+
+  .tutorial-container {
+    width: 275px;
+    line-height: 2rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .tutorial li {
+    margin: 0 auto;
+    padding: 0;
+    width: 275px;
+  }
+
+  .display-container {
+    margin: 90px auto 0 auto;
+    position: relative;
+    left: 2.5%;
+    width: auto;
+    height: auto;
+    display: inline-block;
+  }
+  /* width: 1200px; */
+  /* height: auto; */
+  /* margin: 0 auto; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* flex: 1; */
+  /* flex-wrap: 1; */
+  /* flex-direction: row; */
+}
+
+.tutorial li {
+  margin: 100px auto;
+}
+
+.return-btn-container {
+  position: absolute;
+  left: 2.5%;
+  top: 2.5%;
+}
+
+.team-full {
+  width: auto;
+  height: 50px;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  top: 75px;
+  left: 20px;
+}
+
+.full-text{
+  font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.full-text a:link {
+  text-decoration: none;
+  cursor: alias;
+}
+
+.max-text {
+  font-size: 2rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+@media only screen and (max-device-width: 550px) {
+  .team-full {
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 20px;
+  }
+
+  .full-text {
+    text-align: center;
+  }
+}
+
+/* Add New Creature Form */
+
+.max-creatures-msg,
+.creature-form {
+  background-color: rgba(5,53,39, 0.9);
+  color: rgb(212,175,55);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 1450px;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 10px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.form-title {
+  font-size: 2.2rem;
+  color: white;
+  display: block;
+  margin: 20px auto 40px auto;
+}
+
+.creature-form form {
+  display: block;
+  width: 1350px;
+  height: auto;
+  margin-top: 50px;
+  font-size: 1.3rem;
+}
+
+.creature-inputs {
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.creature-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px;
+}
+
+.creature-form form label {
+  margin: 5px;
+}
+
+.creature-form form input {
+  font-size: 1.2rem;
+}
+
+.creature-form form select {
+  font-size: 1.2rem;
+  width: auto;
+}
+
+.info {
+  font-size: 0.75em;
+  margin: 2px 8px;
+  display: block;
+}
+
+.select-creature {
+  display: flex;
+  width: 150px;
+  height: auto;
+}
+
+.select-purpose {}
+
+.creature-label {
+  width: 100px;
+  height: auto;
+}
+
+.creature-select {
+  font-size: 1.2rem;
+}
+
+.mega-input {
+  width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.evo-label {
+  display: inline-block;
+  width: 300px;
+  position: relative;
+  left: 60px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.evo-label-text {
+  display: block;
+  width: 300px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.label-container {
+  display: inline-block;
+  width: 300px;
+  position: relative;
+  right: 80px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.mega-input-text {
+  display: block;
+  width: 300px;
+  text-align: right;
+  font-size: 1rem;
+}
+
+.mega {
+  margin: 7px;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.purpose-label {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.purpose-select {
+  margin: 0 auto;
+  margin-bottom: 35px;
+  font-size: 1.2rem;
+}
+
+.name-label {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.name-input {
+  margin: 0 auto;
+  margin-bottom: 35px;
+  font-size: 1.2rem;
+}
+
+.title-label {
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.title-input {
+  margin: 0 auto;
+  margin-bottom: 40px;
+  font-size: 1rem;
+}
+
+.submit-form-btn {
+  margin: 0 auto 40px auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: gold;
+  color: black;
+  font-weight: 600;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  width: auto;
+  height: 50px;
+}
+
+@media only screen and (max-device-width: 550px) {
+  .App {
+    width: 85vw;
+    height: 90vh;
+  }
+
+  .display-container {
+    width: 80vw;
+  }
+  
+  .return-btn-container {
+    position: absolute;
+    float: right;
+    left: 21%;
+    top: 2%;
+    height: 40px;
+    width: auto;
+  }
+  
+  .return-btn {
+    width: 200px;
+    height: 80px;
+    position: absolute;
+    top: -8%;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 1.75rem;
+    text-align: center;
+    text-shadow: none;
+  }
+
+  .creature-form-container {
+    width: 90vw;
+    margin: 0 auto;
+    position: absolute;
+    top: 22%;
+  }
+
+  .max-creatures-msg,
+  .creature-form {
+    background-color: rgb(5,53,39);
+    color: rgb(212,175,55);
+    font-size: 1.33rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: auto;
+    height: auto;
+    margin: 110px auto 40px auto;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .form-title {
+    font-size: 2rem;
+    color: white;
+    display: block;
+    margin: 10px auto 20px auto;
+  }
+
+  .creature-form form {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 30px auto;
+    font-size: 1.25rem;
+  }
+
+  .mega-input-text {
+    display: none;
+    /* width: 150px; */
+    /* text-align: center; */
+    /* font-size: 1rem; */
+    /* position: relative; */
+    /* left: 34%; */
+  }
+
+  .creature-inputs {
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 10px;
+    float: left;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .creature-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+    padding: 3px;
+  }
+
+  .creature-form form label {
+    margin: 5px;
+  }
+
+  .creature-form form input {
+    font-size: 1.125rem;
+  }
+
+  .creature-form form select {
+    font-size: 1.125rem;
+    width: auto;
+  }
+
+  .info {
+    font-size: 0.85rem;
+    margin: 5px;
+  }
+
+  .select-creature {
+    display: flex;
+    width: 150px;
+    height: auto;
+  }
+
+  .select-purpose {}
+
+  .creature-label {
+    width: 100px;
+    height: auto;
+  }
+
+  .creature-select {
+    font-size: 1.125rem;
+  }
+
+  .mega-input {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .label-container {
+    display: block;
+    width: 300px;
+    position: relative;
+    left: 60px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .mega {
+    margin: 7px 0 10px 2px;
+    width: 250px;
+    font-size: 1.125rem;
+    display: block;
+  }
+
+  .purpose-label {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .purpose-select {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .name-label {
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .name-input {
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+
+  .title-label {
+    margin: 0 auto;
+    margin-bottom: 10px;
+  }
+
+  .title-input {
+    margin: 0 auto;
+    margin-bottom: 15px;
+  }
+
+  .submit-form-btn {
+    margin: 40px auto 0 auto;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: gold;
+    color: black;
+    border-radius: 5px;
+    font-size: 1.125rem;
+    height: 50px;
+    width: 150px;
+  }
+}
+
+/* Creature List */
+
+.creature-coral {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto 20px auto;
+  width: 1000px;
+  height: 700px;
+} /* ul */
+
+@media only screen and (min-device-width: 1200px) {
+  .creature-coral {
+    white-space: nowrap;
+  }
+
+  .display-container {
+    white-space: nowrap;
+  }
+
+  .creature-form {
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (max-device-width: 550px) {
+  .update-return-btn {
+    position: absolute;
+    left: 2px;
+    top: 10px;
+    width: 200px;
+    height: 80px;
+  }
+
+  .creature-coral {
+    width: 95%;
+    display: block;
+    position: absolute;
+    top: 160px;
+  }
+}
+
+.objective-bg-modal {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.objective-modal-content {
+  width: 400px;
+  height: 400px;
+  background-color: white;
+  border-radius: 4px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.close-modal-button {
+  position: absolute;
+  top: 0;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+.close-actions {}
+
+.close {}
+
+.objectives {} /* ul */
+
+/* Creature Update Page */
+
+.update-container {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 0 40px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 1200px) {
+  .update-container {
+    background-color: rgba(5,53,39, 0.3);
+    border-radius: 15px;
+    white-space: nowrap;
+  }
+}
+
+@media only screen and (max-device-width: 550px) {
+  .update-container {
+    flex-direction: row;
+    position: absolute;
+    top: 100px;
+    left: 0;
+  }
+}
+
+/* Adjacent Creature Display */
+
+.adjacent-creature-container {
+  margin: 60px auto 0 auto;
+  height: 675px;
+}
+
+.adjacent-creature-container-fluid {
+}
+
+.adjacent-creature-display {
+}
+
+.adjacent-creature-age {
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.kill-btn-container {
+  text-align: center;
+  margin: 20px auto;
+}
+
+.kill-btn {
+  background-color: rgb(220,53,69);
+  font-size: 1rem;
+  color: white;
+  width: 150px;
+  height: 40px;
+  font-weight: 600;
+}
+
+.kill-btn:hover {
+  background: rgb(129, 31, 41);
+}
+
+.kill-btn:active {
+  background: rgb(97, 26, 33);
+}
+
+@media only screen and (max-device-width: 550px) {
+  .adjacent-creature-container {
+    margin: 130px auto 0 auto;
+  }
+}
+
+/* Delete Creature Modal */
+
+.confirm-delete-modal {
+  height: auto;
+  width: auto;
+  text-align: center;
+  display: flex;
+}
+
+.confirm-delete {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: 20px auto;
+}
+
+.delete-form {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.delete-btn {
+  text-align: center;
+  margin-top: 10px;
+  background-color: rgb(158, 27, 40);
+  color: white;
+  height: 30px;
+  font-weight: 600;
+}
+
+@media (min-width: 1300px) {
+  .confirm-delete-modal {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+}
+
+/* Objective List */
+
+@media (max-width: 1300px) {
+  .objectives-container {
+    margin-top: 80px;
+  }
+}
+
+@media only screen and (max-device-width: 550px) {
+  .objectives-container {
+    margin-top: 0;
+  }
+}
+
+.objectives-container {
+  width: auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.obj-list-container {
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5); 
+  width: 700px;
+  height: 600px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+.objectives-list {
+  height: 490px;
+  width: 525px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.obj-list-title {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+}
+
+.no-obj-text {
+  text-align: center;
+  font-size: 2rem;
+  color: black;
+  width: auto;
+  word-break: normal;
+  display: block;
+  margin: 100px auto;
+}
+
+.swipe-text {
+  display: none;
+}
+
+/* Objective */
+
+.objective {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 10px auto;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  width: 575px;
+}
+
+.objective-delete-btn {
+  width: auto;
+  height: auto;
+  font-size: 1.25rem;
+  background: rgba(255, 0, 0, 0.7);
+  color: white;
+  font-weight: 600;
+  position: relative;
+  left: -80px;
+  margin: 0 auto;
+}
+
+.objective-data {
+  margin: 10px auto 10px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  width: auto;
+  padding: 15px 25px;
+  height: auto;
+  position: relative;
+  left: -30px;
+}
+
+.objective-text {
+  font-size: 1.1rem;
+}
+
+.objective-difficulty {
+  display: block;
+  font-size: 0.80rem;
+}
+
+/* Complete Objective Form */
+
+.complete-obj-container {}
+
+.complete-obj-form {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.complete-obj-btn {
+  display: block;
+  margin: 0 auto;
+  background-color: rgba(128,229,96, 0.6);
+  width: auto;
+  height: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.time-text {
+  display: block;
+  font-size: 0.9rem;
+}
+
+.time-input {
+  width: 50px;
+}
+
+/* .objective-complete-form-container { */
+  /* display: block; */
+  /* width: 125px; */
+  /* font-family: 'Open Sans', sans-serif; */
+/* } */
+/*  */
+/* .objective-complete-form { */
+  /* margin: 0 auto; */
+  /* display: block; */
+  /* font-family: 'Open Sans', sans-serif; */
+/* } */
+/*  */
+/* .objective-complete-form form { */
+  /* margin: 0 auto; */
+  /* display: block; */
+/* } */
+/*  */
+/* .objective-complete-form input { */
+  /* display: block; */
+  /* margin: 0 auto 10px auto; */
+/* } */
+
+/* New Objective Form */
+
+.objective-form-container {
+  margin: 80px auto 0 auto;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 300px;
+  height: auto;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.add-obj-title {
+  font-size: 2rem;
+  color: white;
+}
+
+.objective-form {
+  font-size: 1.125rem;
+}
+
+.objective-form form {
+}
+
+.obj-text-input {
+  font-size: 1.125rem;
+  margin: 25px auto;
+}
+
+.obj-time-input {
+  margin: 25px auto;
+}
+
+.obj-time-input-text {
+  margin: 0 auto 0 7px;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.obj-difficulty-select {
+  font-size: 1.125rem;
+  margin: 0 auto;
+}
+
+.obj-difficulty-select-text {
+  font-size: 1.125rem;
+  margin: 20px auto 2px auto;
+  display: block;
+  color: white;
+}
+
+.add-obj-btn {
+  font-size: 1.2rem;
+  background-color: rgb(5,53,39);
+  color: gold;
+  border-radius: 5px;
+  margin: 80px auto 30px auto;
+  width: 150px;
+  height: 50px;
+  font-weight: 600;
+  border: 2px groove gold;
+}
+
+/*
+rgb(67,128,41); -> background
+rgb(5,53,39);
+*/
+
+@media only screen and (max-device-width: 550px) {
+  .obj-list-container {
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.5); 
+    width: 90vw;
+    height: auto;
+    margin: 0 auto 40px auto;
+    overflow: auto;
+  }
+
+  .swipe-text {
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 5px;
+    color: rgba(0, 0, 0, 0.7);
+    font-style: italic;
+  }
+  
+  .objectives-list {
+    height: 490px;
+    width: 525px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .obj-list-title {
+    text-align: center;
+    font-size: 1.75rem;
+    color: white;
+  }
+  
+  .no-obj-text {
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    width: 200px;
+    display: block;
+    margin: 100px auto;
+  }
+
+  .objective {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+  
+  .objective-delete-btn {
+    width: auto;
+    height: auto;
+    font-size: 1.25rem;
+    color: white;
+    margin: 0;
+    float: left;
+  }
+  
+  .objective-data {
+    margin: 10px auto 20px auto;
+    display: block;
+    width: auto;
+    height: auto;
+  }
+  
+  .objective-text {
+    font-size: 1.3rem;
+  }
+  
+  .objective-difficulty {
+    display: block;
+    font-size: 0.90rem;
+  }
+
+  /* Complete Objective Form */
+
+  .objective-complete-form-container {
+    display: block;
+    width: 125px;
+  }
+  
+  .objective-complete-form {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .objective-complete-form form {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .objective-complete-form input {
+    display: block;
+    margin: 0 auto 10px auto;
+  }
+  
+  .time-text {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  .time-input {
+    width: 75px;
+  }
+  
+  .objective-complete-form button {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .objective-complete-btn-container {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .objective-complete-btn-container form {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .objective-complete-btn-container button {
+    display: block;
+    margin: 0 auto;
+  }
+}
