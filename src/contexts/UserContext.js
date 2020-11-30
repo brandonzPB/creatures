@@ -10,97 +10,74 @@ const UserContextProvider = (props) => {
     return storedUser ? JSON.parse(storedUser) : {};
   });
 
-  const [thisUser, setThisUser] = useState({
-    isLoggedIn: false,
-    username: '',
-    password: ''
-  });
-
-  const [signup, setSignup] = useState(true);
+  const [error, setError] = useState({ error: null });
 
   useEffect(() => {
     localStorage.setItem('my-user', JSON.stringify(user));
+
+    console.log(user);
   }, [user]);
 
-  const toggleSignup = () => {
-    return setSignup(!signup);
-  }
-
   const addUser = async (userObject) => {
-    userService
-      .createUser(userObject)
-      .then(res => { return console.log('Successfully added new user') })
-      .catch(err => console.err(err));
-  }
 
-  const login = async (userObject) => {
-    const { username, email, password } = userObject;
-
-    userService.login({
-      username: username || email,
-      password
-    })
+    userService.createUser(userObject)
       .then(res => {
-        console.log(res);
+        if (res === false) {
+          setError({
+            ...error,
+            error: true
+          });
+        } else {
+          setError({
+            ...error,
+            error: null
+          });
+        }
       })
-      .catch(err => {
-        console.error(err);
-      });
-
-    /* try {
-      const user = await userService.login({
-        username: username || email,
-        password
-      });
-
-      setThisUser({
-        ...thisUser,
-        isLoggedIn: true,
-        username: username || email,
-        password: password
-      });
-
-      console.log(user);
-
-    } catch (exception) {
-      throw new Error('Wrong credentials');
-    } */
-
-    /* const users = await userService.getAll();
-
-    const thisUser = users.filter(acct => acct.username === user.username);
-    
-    if (!thisUser) return false; */
-
-    /* getLocalCreatures(); */
-
-    /* userService
-      .login(thisUser)
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        return console.error(err);
-      }); */
-
-    /* dispatch({ type: 'LOG_IN', user: {
-      username, email, password,
-      creatures: thisUser.creatures,
-    }}); */
+      .catch(err => console.error(err));
   }
 
   const getLocalCreatures = () => {
     const creatureStorage = localStorage.getItem('my-creatures');
     
-    const storedCreatures = creatureStorage ? JSON.parse(creatureStorage) : [];
+    return creatureStorage ? JSON.parse(creatureStorage) : null;
+  }
 
-    console.log(storedCreatures);
+  const getUserInfo = async (res) => {
+    console.log('Successfully logged in', res.db_id, res.accessToken);
 
-    dispatch({ type: 'GET_LOCAL_CREATURES', user: {
-      creatures: storedCreatures
-    }});
+    const storedCreatures = await getLocalCreatures();
 
-    return false;
+    console.log('Retrieved localStorage creatures');
+
+    userService.readUser(res.db_id, res.accessToken)
+      .then(response => {
+
+        dispatch({ type: 'LOG_IN', user: {
+          username: response.username,
+          email: response.email,
+          db_id: res.db_id,
+          accessToken: res.accessToken,
+        }});
+
+        console.log('Successfully retrieved user data');
+      })
+      .catch(err => console.err(err));
+  }
+
+  const login = async (userObject) => {
+    const { username, password } = userObject;
+
+    await userService.login({
+      username,
+      password
+    })
+      .then(res => { 
+        return getUserInfo(res); 
+      })
+      .catch(err => {
+        console.error(err);
+      });
   }
 
   const deleteUser = userObject => {}
@@ -108,9 +85,8 @@ const UserContextProvider = (props) => {
   return (
     <UserContext.Provider value={{
       user,
-      thisUser,
-      signup,
-      toggleSignup,
+      error,
+      setError,
       addUser,
       login,
       deleteUser,

@@ -4,22 +4,35 @@ import LoginForm from './user/LoginForm';
 import { UserContext } from '../contexts/UserContext';
 
 const Welcome = () => {
-  const { thisUser } = useContext(UserContext);
+  const { user, error, setError } = useContext(UserContext);
+
+  useEffect(() => {
+    setError({
+      ...error,
+      error: null
+    });
+  }, []);
 
   return (
     <div className="index-container">
       {
-        thisUser.isLoggedIn ? 
+         user.accessToken ? 
           <Route exact path="/">
             <Redirect to="/creatures" />
           </Route> :
-          <div className="welcome">
-            <LoginForm />
-            <h1>Don't have an account?</h1>
-            <Link to="/user/create">
-              <p>Create an Account</p>
-            </Link>
-          </div>
+
+          error === true ?
+            <Route exact path="/">
+              <Redirect to="/user/create" />
+            </Route> :
+
+            <div className="welcome">
+              <LoginForm />
+              <h1>Don't have an account?</h1>
+              <Link to="/user/create">
+                <p>Create an Account</p>
+              </Link>
+            </div>
       }
     </div>
   )

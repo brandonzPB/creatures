@@ -8,7 +8,6 @@ export const CreatureContext = createContext();
 const CreatureContextProvider = (props) => {
   const [creatures, dispatch] = useReducer(creatureReducer, [], () => {
     const storedCreatures = localStorage.getItem('my-creatures');
-    // localStorage.clear();
     return storedCreatures ? JSON.parse(storedCreatures) : [];
   });
 

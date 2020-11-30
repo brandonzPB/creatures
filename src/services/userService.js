@@ -1,13 +1,6 @@
 import axios from 'axios';
 const baseUrl = '/dashboard/user';
 
-// GET all users
-const getAll = () => {
-  const req = axios.get('/dashboard/users');
-  return req.then(res => res.data)
-    .catch(err => console.error(err));
-};
-
 // CREATE user
 const createUser = (userObject) => {
   const req = axios.post(`${baseUrl}/create`, userObject);
@@ -22,23 +15,46 @@ const login = (credentials) => {
     .catch(err => console.error(err));
 }
 
+// GET all users
+const getAll = (token) => {
+  const req = axios.get('/dashboard/users', {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+  return req.then(res => res.data)
+    .catch(err => console.error(err));
+};
+
 // READ user
-const readUser = (userId) => {
-  const req = axios.get(`${baseUrl}/${userId}`);
+const readUser = (userId, token) => {
+  const req = axios.get(`${baseUrl}/${userId}`, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };
 
 // UPDATE user
-const updateUser = (userId, userObject) => {
-  const req = axios.put(`${baseUrl}/${userId}/update`, userObject);
+const updateUser = (userId, userObject, token) => {
+  const req = axios.put(`${baseUrl}/${userId}/update`, userObject, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };
 
 // DELETE user
-const deleteUser = (userId, userObject) => {
-  const req = axios.delete(`${baseUrl}/${userId}/delete`, userObject);
+const deleteUser = (userId, userObject, token) => {
+  const req = axios.delete(`${baseUrl}/${userId}/delete`, userObject, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };

@@ -3,16 +3,13 @@ const userReducer = (state, action) => {
     case 'LOG_IN':
       return {
         ...state,
+        accessToken: action.user.accessToken,
+        db_id: action.user.db_id,
         username: action.user.username,
         email: action.user.email,
         password: action.user.password,
-        creatures: action.user.creatures,
+        creatures: action.user.storedCreatures,
       }
-    case 'GET_LOCAL_CREATURES':
-      return {
-        ...state,
-        creatures: action.user.creatures
-      };
     default:
       return state;
   }
