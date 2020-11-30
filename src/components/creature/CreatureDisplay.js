@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './creature.css';
 import CountUp from 'react-countup';
+import { CreatureContext } from '../../contexts/CreatureContext';
 
 const CreatureDisplay = ({ creature, displayCreatureActions }) => {
+  const { currentId } = useContext(CreatureContext);
   const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
 
   let fireImg;
@@ -75,7 +77,15 @@ const CreatureDisplay = ({ creature, displayCreatureActions }) => {
           </div>
 
           <div className="view-info-btn-container">
-            <Link to="/creature/update"><button className="view-info-btn" onClick={displayCreatureActions}>View Info</button></Link>
+            {
+              currentId ?
+                <Link to="/creature/update">
+                  <button className="view-info-btn">Edit Creature</button>
+                </Link> :
+                <Link to="/creature/info">
+                  <button className="view-info-btn" onClick={displayCreatureActions}>View Info</button>
+                </Link>
+            }
           </div>
         </div>
           

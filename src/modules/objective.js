@@ -14,7 +14,7 @@ const getStreakMultiplier = streak => {
   if (streak < 7) {
     return 1;
   } else {
-    return 1 + Math.floor(0.03 * 3**((Math.floor(streak / 7))))
+    return 1 + Math.floor(0.015 * 3**((Math.floor(streak / 7))))
   }
 }
 
