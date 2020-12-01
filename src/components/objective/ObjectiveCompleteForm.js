@@ -16,7 +16,7 @@ const ObjectiveCompleteForm = ({ creature, objective }) => {
     if (!play) togglePlay();
     if (!expUpdate) toggleExpUpdate();
 
-    if (!objective.isTimed) {
+    if (!objective.is_timed) {
       getExp(creature, objective, 1);
       return togglePlay();
     }
@@ -28,7 +28,7 @@ const ObjectiveCompleteForm = ({ creature, objective }) => {
     setTime(0);
   }
 
-  if (objective.isTimed) {
+  if (objective.is_timed) {
     return (
       <div className="complete-obj-container">
         <form onSubmit={completeObjective} className="complete-obj-form">

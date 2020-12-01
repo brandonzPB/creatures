@@ -7,9 +7,23 @@ const userReducer = (state, action) => {
         db_id: action.user.db_id,
         username: action.user.username,
         email: action.user.email,
-        password: action.user.password,
-        creatures: action.user.storedCreatures,
+        creatures: action.user.creatures,
       }
+    case 'POST_LOCAL_CREATURES':
+      return {
+        ...state,
+        creatures: action.creatures.creatures
+      };
+    case 'LOG_OUT':
+      return {
+        ...state,
+        accessToken: null,
+        db_id: null,
+        username: null,
+        email: null,
+        password: null,
+        creatures: null
+      };
     default:
       return state;
   }

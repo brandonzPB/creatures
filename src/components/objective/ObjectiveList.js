@@ -6,6 +6,7 @@ import Objective from './Objective';
 import ObjectiveForm from './ObjectiveForm';
 import ConfirmDisplay from '../creature/ConfirmDisplay';
 import Creature from '../creature/Creature';
+import * as ageMethods from '../../modules/age';
 
 const ActionList = () => {
   const { dispatch, creatures, currentId, sendCreatureId, deleteCreature } = useContext(CreatureContext);
@@ -47,9 +48,9 @@ const ActionList = () => {
       return null;
     });
 
-    birthdate = creatureInfo.birthdate;
+    birthdate = creatureInfo.birth_date.length ? ageMethods.convertBirthdate(creatureInfo.birth_date) : creatureInfo.birth_date;
     age = creatureInfo.age;
-    creatureName = creatureInfo.creatureName;
+    creatureName = creatureInfo.creature_name;
   }
 
   const postDelete = () => {

@@ -35,7 +35,11 @@ const readUser = (userId, token) => {
     }
   });
 
-  return req.then(res => res.data)
+  return req.then(res => {
+    console.log(res.data);
+
+    return res.data;
+  })
     .catch(err => console.error(err));
 };
 

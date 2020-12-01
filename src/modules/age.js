@@ -1,12 +1,26 @@
 const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 exports.getBirthdate = () => {
-  const date = new Date();
+  /* const date = new Date();
 
   const monthIndex = date.getMonth();
   const month = months[monthIndex];
 
-  return `${date.getDate()} ${month}, ${date.getFullYear()}`;
+  return `${date.getDate()} ${month}, ${date.getFullYear()}`; */
+
+  const birthdate = new Date().toISOString();
+
+  const monthIndex = Number(birthdate.slice(5, 7)) - 1;
+
+  return `${birthdate.slice(8, 10)} ${months[monthIndex]}, ${birthdate.slice(0, 4)}`;
+}
+
+exports.convertBirthdate = () => {
+  const birthdate = new Date().toISOString();
+
+  const monthIndex = Number(birthdate.slice(5, 7)) - 1;
+
+  return `${birthdate.slice(8, 10)} ${months[monthIndex]}, ${birthdate.slice(0, 4)}`;
 }
 
 exports.getAge = (birthTime, string = true) => {

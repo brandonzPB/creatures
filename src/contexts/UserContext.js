@@ -52,6 +52,8 @@ const UserContextProvider = (props) => {
       .storeLocalCreatures(userId, creatures, token)
       .then(res => res)
       .catch(err => console.error(err));
+
+    dispatch({ type: 'POST_LOCAL_CREATURES', creatures: { creatures }});
   }
 
   // GET user info
@@ -63,21 +65,22 @@ const UserContextProvider = (props) => {
     console.log(storedCreatures);
 
     if (storedCreatures.length >= 1) {
-      postLocalCreatures(res.db_id, storedCreatures, res.accessToken);
-      localStorage.removeItem('my-creatures');
-    }
+      postLocalCreatures(res.db_ib, storedCreatures, res.accessToken);
+      console.log('Retrieved localStorage creatures');
 
-    console.log('Retrieved localStorage creatures');
+      localStorage.removeItem('my-creatures');
+      console.log('Cleared \'my-creatures\' from localStorage');
+    }
 
     await userService.readUser(res.db_id, res.accessToken)
       .then(response => {
 
         dispatch({ type: 'LOG_IN', user: {
-          username: response.username,
-          email: response.email,
+          username: response.user.username,
+          email: response.user.email,
           db_id: res.db_id,
           accessToken: res.accessToken,
-          creatures: storedCreatures.length >= 1 ? storedCreatures : response.creatures,
+          creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures
         }});
 
         console.log('Successfully retrieved user data');
@@ -88,6 +91,8 @@ const UserContextProvider = (props) => {
   // POST user login
   const login = async (userObject) => {
     const { username, password } = userObject;
+
+    localStorage.removeItem('my-user');
 
     await userService.login({
       username,
@@ -104,6 +109,12 @@ const UserContextProvider = (props) => {
   // DELETE user
   const deleteUser = userObject => {}
 
+  // LOG OUT
+  const logout = () => {
+    localStorage.removeItem('my-user');
+    dispatch({ type: 'LOG_OUT' });
+  }
+
   return (
     <UserContext.Provider value={{
       user,
@@ -111,7 +122,9 @@ const UserContextProvider = (props) => {
       setError,
       addUser,
       login,
+      postLocalCreatures,
       deleteUser,
+      logout,
     }}>
       {props.children}
     </UserContext.Provider>

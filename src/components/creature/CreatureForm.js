@@ -2,6 +2,7 @@ import pokemon from 'pokemon';
 import React, { useState, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
+import { UserContext } from '../../contexts/UserContext';
 import * as stats from '../../modules/stats';
 import * as age from '../../modules/age';
 import { Link } from 'react-router-dom';
@@ -10,6 +11,7 @@ import { otherVersions } from '../../modules/pokemonList';
 
 const CreatureForm = () => {
   const { creatures, formDisplay, toggleFormDisplay, dispatch } = useContext(CreatureContext);
+  const { user } = useContext(UserContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 
@@ -82,7 +84,7 @@ const CreatureForm = () => {
   }
 
   const putMegas = megas => {
-    const evolutionaryLine = [];
+    const evolutions = [];
 
     for (let i = 0; i < megas.length; i++) {
       const place = i === 0 ? 'first' :
@@ -101,10 +103,10 @@ const CreatureForm = () => {
 
       const version = `${creature[creatureInput]}${selectedVersion}`;
 
-      evolutionaryLine.push(version.toLowerCase());
+      evolutions.push(version.toLowerCase());
     }
 
-    return evolutionaryLine;
+    return evolutions;
   }
 
   const addCreature = (event) => {
@@ -136,7 +138,7 @@ const CreatureForm = () => {
       creatureName: creature.creatureName.trim() || 'Anonymous Creature',
       purpose: creature.purpose,
       purposeName: creature.purposeName.trim() || 'Base Existence',
-      evolutionaryLine: [...evolutions],
+      evolutions: [...evolutions],
       difficulty,
       multiplier,
       birthdate,
@@ -167,6 +169,14 @@ const CreatureForm = () => {
     return (
       <Route exact path="/creature/create">
         <Redirect to="/creatures" />
+      </Route>
+    )
+  }
+  
+  if (!user.accessToken) {
+    return (
+      <Route exact path="/creature/create">
+        <Redirect to="/" />
       </Route>
     )
   }

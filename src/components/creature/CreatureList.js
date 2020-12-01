@@ -1,11 +1,13 @@
 import React, { useEffect, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
+import { UserContext } from '../../contexts/UserContext';
 import Creature from './Creature';
 import CreateButton from './CreateButton';
 
 const CreatureList = () => {
   const { creatures, formDisplay, toggleFormDisplay } = useContext(CreatureContext);
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     if (!formDisplay) toggleFormDisplay();
@@ -19,6 +21,14 @@ const CreatureList = () => {
       />
     );
   });
+
+  if (!user.accessToken) {
+    return (
+      <Route exact path="/creatures">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
 
   return (
     <div className="display-container">

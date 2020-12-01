@@ -10,12 +10,10 @@ const CreatureDisplay = ({ creature, displayCreatureActions }) => {
 
   let fireImg;
   
-  if (creature.streak) {
-    if (creature.streak.count === 0) {
-      fireImg = require('../../images/fire_end.jpg');
-    } else {
-      fireImg = require('../../images/fire2.jpg');
-    }
+  if (creature.streak_count === 0) {
+    fireImg = require('../../images/fire_end.jpg');
+  } else {
+    fireImg = require('../../images/fire2.jpg');
   }
 
   return (
@@ -25,13 +23,13 @@ const CreatureDisplay = ({ creature, displayCreatureActions }) => {
       }}>
       <div className="header-container">
         <div className="creature-name">
-          <h2>{creature.creatureName}</h2>
+          <h2>{creature.creature_name}</h2>
         </div>
 
         <div className="creature-purpose-name">
           <h3 style={{
             fontStyle: 'italic'
-          }}>{creature.purposeName}</h3>
+          }}>{creature.purpose_name}</h3>
         </div>
 
         <div className="creature-level">
@@ -48,12 +46,12 @@ const CreatureDisplay = ({ creature, displayCreatureActions }) => {
           <div className="creature-exp">
             <h5>
               <CountUp 
-                start={creature.prevGoal}
+                start={creature.prev_exp_goal}
                 end={creature.exp}
                 duration={1.00}
               /> / <CountUp 
-                start={creature.prevGoal}
-                end={creature.expGoal}
+                start={creature.prev_exp_goal}
+                end={creature.exp_goal}
                 duration={1.00}
               /> Exp
             </h5>
@@ -64,7 +62,7 @@ const CreatureDisplay = ({ creature, displayCreatureActions }) => {
               className="exp-filled">
               <div className="exp-animation"
                 style={{
-                width: `${(creature.expSurplus / (creature.expGoal - creature.prevGoal)) * 150}px`,
+                width: `${(creature.exp_surplus / (creature.exp_goal - creature.prev_goal)) * 150}px`,
               }}>
               </div>
             </div>
@@ -91,18 +89,14 @@ const CreatureDisplay = ({ creature, displayCreatureActions }) => {
           
 
         <div className="streak-container-fluid">
-          {
-            creature.streak ?
-              <div className="streak-container">
-                <div className="streak-icon-container">
-                  <img src={fireImg} alt="Streak" className="streak-icon" />
-                </div>
-                <div className="streak-count-container">
-                  <span className="streak-count">{creature.streak.count}</span>
-                </div>
-              </div> :
-              <div className="empty" style={{ display: 'none' }}></div>
-          }
+          <div className="streak-container">
+            <div className="streak-icon-container">
+              <img src={fireImg} alt="Streak" className="streak-icon" />
+            </div>
+            <div className="streak-count-container">
+              <span className="streak-count">{creature.streak_count}</span>
+            </div>
+          </div>
         </div>
       </div>
       </li>

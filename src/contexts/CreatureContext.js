@@ -8,25 +8,28 @@ import UserContextProvider, { UserContext } from './UserContext';
 export const CreatureContext = createContext();
 
 const CreatureContextProvider = (props) => {
-  const { user } = useContext(UserContext);
+  const { user, postLocalCreatures } = useContext(UserContext);
 
-  const [creatures, dispatch] = useReducer(creatureReducer, user.creatures || [], () => {
-    const storedCreatures = localStorage.getItem('my-user');
-    return storedCreatures.creatures ? JSON.parse(storedCreatures).creatures : [];
+  const [creatures, dispatch] = useReducer(creatureReducer, user.creatures || []);
+
+  useEffect(() => {
+    postLocalCreatures(creatures);
+    localStorage.setItem('my-user', JSON.stringify(user));
+  }, [creatures]);
+
+  /* const [creatures, dispatch] = useReducer(creatureReducer, [], () => {
+    const storedCreatures = localStorage.getItem('my-creatures');
+    return storedCreatures ? JSON.parse(storedCreatures) : [];
   });
 
-  // set localstorage creatures and test if they are added to new account
+  useEffect(() => {
+    localStorage.setItem('my-creatures', JSON.stringify(creatures));
+  }, [creatures]); */
 
   const [currentId, setCurrentId] = useState('');
   const [play, setPlay] = useState(false);
   const [formDisplay, setFormDisplay] = useState(true);
   const [expUpdate, setExpUpdate] = useState(false);
-
-  useEffect(() => {
-    localStorage.setItem('my-user', JSON.stringify(user));
-    const storage = JSON.parse(localStorage.getItem('my-user'));
-    console.log(storage);
-  }, [creatures]);
 
   // DELETE creature
   const deleteCreature = async (creatureId) => {
@@ -42,16 +45,16 @@ const CreatureContextProvider = (props) => {
   }
 
   const getExp = (creature, habit, time) => { 
-    if (creature.isNoob) return getFirstExp(creature);
+    if (creature.is_noob) return getFirstExp(creature);
 
-    const streakCount = creature.streak ? creature.streak.count : 0;
+    const streakCount = creature.streak_count;
 
     const newExp = objective.calcExp(creature.multiplier, streakCount, habit.difficulty, time);
     const newTotal = creature.exp + newExp;
 
-    const newSurplus = (newTotal >= creature.expGoal) ? 
-      newTotal - creature.expGoal :
-      creature.expSurplus + newExp;
+    const newSurplus = (newTotal >= creature.exp_goal) ? 
+      newTotal - creature.exp_goal :
+      creature.exp_surplus + newExp;
 
     dispatch({ type: 'ADD_EXP', creature: {
       id: creature.id,

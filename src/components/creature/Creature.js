@@ -37,8 +37,8 @@ const Creature = ({ creature }) => {
   const checkCreatureStreak = () => {
     // checks if streak is broken ('broken', 'constant', or 'increment')
 
-    const streakTimestamp = creature.streak.timestamp;
-    const streakDay = creature.streak.day;
+    const streakTimestamp = creature.streak_timestamp;
+    const streakDay = creature.streak_day;
     const thisDay = (new Date()).getDay();
 
     if (streakDay === 6) { // Streak continues if current week day is 0 and less than 24 hours passed
@@ -74,30 +74,30 @@ const Creature = ({ creature }) => {
   }
 
   const updateCreatureStreak = () => {
-    const newStreak = {
-      count: creature.streak.count + 1,
-      timestamp: Date.now(),
-      day: (new Date()).getDay()
-    };
+    const newCount = creature.streak_count + 1;
+    const newTimestamp = Date.now();
+    const newDay = (new Date()).getDay();
 
     dispatch({ type: 'UPDATE_STREAK', creature: {
       id: creature.id,
-      newStreak
+      newCount,
+      newTimestamp,
+      newDay,
     }});
 
     return creature;
   }
 
   const resetCreatureStreak = () => {
-    const newStreak = {
-      count: 0,
-      timesetamp: Date.now(),
-      day: (new Date()).getDay()
-    };
+    const newCount = 0;
+    const newTimestamp = Date.now();
+    const newDay = (new Date()).getDay();
 
-    dispatch({ type: 'RESET_STREAK', creature: {
+    dispatch({ type: 'UPDATE_STREAK', creature: {
       id: creature.id,
-      newStreak
+      newCount,
+      newTimestamp,
+      newDay,
     }});
     
     return creature;
@@ -107,24 +107,19 @@ const Creature = ({ creature }) => {
 
   // Updates age, streak, exp, and level
   useEffect(() => { 
-    const birthTime = creature.birthTime;
+    const birthTime = creature.birth_time;
     const newAge = age.getAge(birthTime);
 
     dispatch({ type: 'UPDATE_AGE', creature: { newAge, id: creature.id } });
 
-    let streak;
-    if (creature.streak) {
-      streak = checkCreatureStreak();
-      if (streak === 'broken') resetCreatureStreak();
-    } else {
-      resetCreatureStreak();
-    }
+    const streak = checkCreatureStreak();
+    if (streak === 'broken') resetCreatureStreak();
 
     if (!expUpdate) return;
     
     if (streak === 'increment' || creature.streak.count === 0) updateCreatureStreak();
 
-    if (creature.exp >= creature.expGoal || creature.isNoob) {
+    if (creature.exp >= creature.exp_goal || creature.is_noob) {
       levelUpSound.currentTime = 1;
         levelUpSound.play();
         
@@ -148,8 +143,8 @@ const Creature = ({ creature }) => {
 
       dispatch({ type: 'UPGRADE_MULTIPLIERS', creature: { id: creature.id, difficulty, multiplier }});
 
-      const prevGoal = (creature.isNoob) ? 1 : creature.expGoal;
-      const newGoal = (creature.isNoob) ? 9 : stats.getExpGoal(creature.level, difficulty);
+      const prevGoal = (creature.is_noob) ? 1 : creature.exp_goal;
+      const newGoal = (creature.is_noob) ? 9 : stats.getExpGoal(creature.level, difficulty);
 
       dispatch({ type: 'LEVEL_UPDATES', creature: {
         id: creature.id,
@@ -164,7 +159,7 @@ const Creature = ({ creature }) => {
         const newPokeball = (creature.level === 30) ? 14
           : (creature.level === 50) ? 15 
           : (creature.level === 80) ? 16 
-          : creature.pokeballNumber;
+          : creature.pokeball_number;
 
         dispatch({ type: 'UPDATE_POKEBALL', creature: {
           id: creature.id,
@@ -182,11 +177,11 @@ const Creature = ({ creature }) => {
   useEffect(() => {
     if (!evolve) return;
     
-    const nextCreatureIndex = creature.evolutionaryLine.findIndex(being => being === creature.creature) + 1;
-    if (!creature.evolutionaryLine[nextCreatureIndex]) return toggleEvolve();
+    const nextCreatureIndex = creature.evolutions.findIndex(being => being === creature.creature) + 1;
+    if (!creature.evolutions[nextCreatureIndex]) return toggleEvolve();
 
-    if (creature.evolutionaryLine[nextCreatureIndex] === 'none') {
-      let newEvoLine = creature.evolutionaryLine;
+    if (creature.evolutions[nextCreatureIndex] === 'none') {
+      let newEvoLine = creature.evolutions;
         newEvoLine.splice(nextCreatureIndex, 1);
       console.log('newEvoLine', newEvoLine);
 
@@ -196,7 +191,7 @@ const Creature = ({ creature }) => {
     setTimeout(() => {
       evolveSound.play();
 
-      const nextCreature = creature.evolutionaryLine[nextCreatureIndex];
+      const nextCreature = creature.evolutions[nextCreatureIndex];
 
       dispatch({
         type: 'EVOLVE',
