@@ -5,38 +5,36 @@ const creatureReducer = (state, action) => {
     case 'ADD_CREATURE':
       return [...state, {
         creature: action.creature.creature,
-        creatureName: action.creature.creatureName,
+        creature_name: action.creature.creatureName,
         purpose: action.creature.purpose,
-        purposeName: action.creature.purposeName,
+        purpose_name: action.creature.purposeName,
         id: uuidv4(),
         sprite: `./sprites/pkmnXY/${action.creature.creature.toLowerCase()}.gif`,
         level: 1,
         exp: 0,
-        expGoal: 1,
-        prevGoal: 0,
-        expSurplus: 0,
+        exp_goal: 1,
+        prev_exp_goal: 0,
+        exp_surplus: 0,
         difficulty: action.creature.difficulty,
         multiplier: action.creature.multiplier,
         objectives: [],
-        birthdate: action.creature.birthdate,
-        birthTime: action.creature.birthTime,
+        birth_date: action.creature.birthdate,
+        birth_time: action.creature.birthTime,
         age: 0,
-        isNoob: true,
-        evolutionaryLine: [...action.creature.evolutionaryLine],
-        pokeballNumber: action.creature.pokeballNumber,
-        streak: {
-          count: 0,
-          timestamp: Date.now(),
-          day: (new Date()).getDay()
-        }
+        is_noob: true,
+        evolutions: [...action.creature.evolutions],
+        pokeball_number: action.creature.pokeballNumber,
+        streak_count: 0,
+        streak_timestamp: Date.now(),
+        streak_day: (new Date()).getDay(),
       }];
     case 'RESET_BAR':
       return state.map(creature => {
         if (creature.id === action.creature.id) {
           return {
             ...creature,
-            prevGoal: action.creature.prevGoal,
-            expSurplus: action.creature.surplus,
+            prev_exp_goal: action.creature.prevGoal,
+            exp_surplus: action.creature.surplus,
           }
         }
 
@@ -59,7 +57,7 @@ const creatureReducer = (state, action) => {
           return {
             ...creature,
             exp: action.creature.newTotal,
-            expSurplus: action.creature.newSurplus,
+            exp_surplus: action.creature.newSurplus,
           }
         }
 
@@ -70,7 +68,9 @@ const creatureReducer = (state, action) => {
         if (creature.id === action.creature.id) {
           return {
             ...creature,
-            streak: action.creature.newStreak
+            streak_count: action.creature.newCount,
+            streak_timestamp: action.creature.newTimestamp,
+            streak_day: action.creature.newDay
           }
         }
 
@@ -81,7 +81,9 @@ const creatureReducer = (state, action) => {
         if (creature.id === action.creature.id) {
           return {
             ...creature,
-            streak: action.creature.newStreak
+            streak_count: action.creature.newCount,
+            streak_timestamp: action.creature.newTimestamp,
+            streak_day: action.creature.newDay
           }
         }
 
@@ -115,9 +117,9 @@ const creatureReducer = (state, action) => {
         if (creature.id === action.creature.id) {
           return {
             ...creature,
-            prevGoal: action.creature.prevGoal,
-            expGoal: action.creature.newGoal,
-            isNoob: false,
+            prev_exp_goal: action.creature.prevGoal,
+            exp_goal: action.creature.newGoal,
+            is_noob: false,
           }
         }
 
@@ -128,7 +130,7 @@ const creatureReducer = (state, action) => {
         if (creature.id === action.creature.id) {
           return {
             ...creature,
-            pokeballNumber: action.creature.newPokeball
+            pokeball_number: action.creature.newPokeball
           }
         }
 
