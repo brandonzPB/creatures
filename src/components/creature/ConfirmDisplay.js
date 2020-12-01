@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { ConfirmDisplayContext } from '../../contexts/ConfirmDisplayContext';
 
-const ConfirmDeleteCreature = ({ deleteCreature }) => {
-  const { confirmDisplay, toggleConfirmDisplay } = useContext(ConfirmDisplayContext);
+const ConfirmDeleteCreature = ({ postDelete }) => {
+  const { confirmDisplay, toggleConfirmDisplay, currentId } = useContext(ConfirmDisplayContext);
   
   const confirmDelete = (event) => {
     event.preventDefault();
     toggleConfirmDisplay();
-    deleteCreature();
+    postDelete();
   }
 
   return (

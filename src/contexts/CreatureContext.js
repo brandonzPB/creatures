@@ -10,18 +10,36 @@ export const CreatureContext = createContext();
 const CreatureContextProvider = (props) => {
   const { user } = useContext(UserContext);
 
-  const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
+  const [creatures, dispatch] = useReducer(creatureReducer, user.creatures || [], () => {
+    const storedCreatures = localStorage.getItem('my-user');
+    return storedCreatures.creatures ? JSON.parse(storedCreatures).creatures : [];
+  });
+
+  // set localstorage creatures and test if they are added to new account
 
   const [currentId, setCurrentId] = useState('');
   const [play, setPlay] = useState(false);
   const [formDisplay, setFormDisplay] = useState(true);
   const [expUpdate, setExpUpdate] = useState(false);
 
-  // Remove this hook once user is able to log in
-  // And creatures are stored to database under account
-  // useEffect(() => {
-  //   localStorage.setItem('my-creatures', JSON.stringify(creatures));
-  // }, [creatures]);
+  useEffect(() => {
+    localStorage.setItem('my-user', JSON.stringify(user));
+    const storage = JSON.parse(localStorage.getItem('my-user'));
+    console.log(storage);
+  }, [creatures]);
+
+  // DELETE creature
+  const deleteCreature = async (creatureId) => {
+    const creature = user.creatures.filter(being => being.id === creatureId);
+
+    await creatureService.deleteCreature(user.db_id, creature._id, creature, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+    
+    dispatch({ type: 'DELETE_CREATURE', creature: { creature }});
+
+    console.log('Successfully deleted creature: ' + creature);
+  }
 
   const getExp = (creature, habit, time) => { 
     if (creature.isNoob) return getFirstExp(creature);
@@ -79,7 +97,8 @@ const CreatureContextProvider = (props) => {
   return (
     <CreatureContext.Provider 
       value={{
-        creatures, 
+        creatures,
+        deleteCreature, 
         currentId,
         play,
         togglePlay,

@@ -8,7 +8,7 @@ import ConfirmDisplay from '../creature/ConfirmDisplay';
 import Creature from '../creature/Creature';
 
 const ActionList = () => {
-  const { dispatch, creatures, currentId, sendCreatureId } = useContext(CreatureContext);
+  const { dispatch, creatures, currentId, sendCreatureId, deleteCreature } = useContext(CreatureContext);
   const { confirmDisplay, toggleConfirmDisplay } = useContext(ConfirmDisplayContext);
 
   let creatureInfo;
@@ -52,9 +52,10 @@ const ActionList = () => {
     creatureName = creatureInfo.creatureName;
   }
 
-  const deleteCreature = () => {
+  const postDelete = () => {
     sendCreatureId('');
-    dispatch({type: 'DELETE_CREATURE', id: creatureInfo.id});
+    
+    deleteCreature(currentId);
   }
 
   if (currentId) {
@@ -89,7 +90,7 @@ const ActionList = () => {
                 display: confirmDisplay.confirmIsDisplayed ? 'flex' : 'none'
               }}>
                 <ConfirmDisplay 
-                  deleteCreature={deleteCreature}
+                  postDelete={postDelete}
                 />
               </div>
             </div>
