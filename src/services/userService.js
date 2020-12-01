@@ -22,6 +22,7 @@ const getAll = (token) => {
       'Authorization': `Bearer ${token}`
     }
   });
+
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };
@@ -33,9 +34,22 @@ const readUser = (userId, token) => {
       'Authorization': `Bearer ${token}`
     }
   });
+
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };
+
+// POST localStorage creatures
+const storeLocalCreatures = (userId, creatures, token) => {
+  const req = axios.post(`${baseUrl}/${userId}`, creatures, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  return req.then(res => res.data)
+    .catch(err => console.error(err));
+}
 
 // UPDATE user
 const updateUser = (userId, userObject, token) => {
@@ -44,6 +58,7 @@ const updateUser = (userId, userObject, token) => {
       'Authorization': `Bearer ${token}`
     }
   });
+
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };
@@ -55,8 +70,17 @@ const deleteUser = (userId, userObject, token) => {
       'Authorization': `Bearer ${token}`
     }
   });
+
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };
 
-export default { getAll, createUser, login, readUser, updateUser, deleteUser };
+export default { 
+  getAll,
+  createUser,
+  login,
+  readUser,
+  storeLocalCreatures,
+  updateUser,
+  deleteUser 
+};

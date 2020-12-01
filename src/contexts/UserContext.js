@@ -15,9 +15,11 @@ const UserContextProvider = (props) => {
   useEffect(() => {
     localStorage.setItem('my-user', JSON.stringify(user));
 
-    console.log(user);
+    console.log('user', user);
+    console.log(user.accessToken);
   }, [user]);
 
+  // POST new user
   const addUser = async (userObject) => {
 
     userService.createUser(userObject)
@@ -37,20 +39,37 @@ const UserContextProvider = (props) => {
       .catch(err => console.error(err));
   }
 
+  // GET localStorage creatures
   const getLocalCreatures = () => {
     const creatureStorage = localStorage.getItem('my-creatures');
     
-    return creatureStorage ? JSON.parse(creatureStorage) : null;
+    return creatureStorage ? JSON.parse(creatureStorage) : [];
   }
 
+  // POST localStorage creatures
+  const postLocalCreatures = async (userId, creatures, token) => {
+    await userService
+      .storeLocalCreatures(userId, creatures, token)
+      .then(res => res)
+      .catch(err => console.error(err));
+  }
+
+  // GET user info
   const getUserInfo = async (res) => {
     console.log('Successfully logged in', res.db_id, res.accessToken);
 
     const storedCreatures = await getLocalCreatures();
 
+    console.log(storedCreatures);
+
+    if (storedCreatures.length >= 1) {
+      postLocalCreatures(res.db_id, storedCreatures, res.accessToken);
+      localStorage.removeItem('my-creatures');
+    }
+
     console.log('Retrieved localStorage creatures');
 
-    userService.readUser(res.db_id, res.accessToken)
+    await userService.readUser(res.db_id, res.accessToken)
       .then(response => {
 
         dispatch({ type: 'LOG_IN', user: {
@@ -58,13 +77,15 @@ const UserContextProvider = (props) => {
           email: response.email,
           db_id: res.db_id,
           accessToken: res.accessToken,
+          creatures: storedCreatures.length >= 1 ? storedCreatures : response.creatures,
         }});
 
         console.log('Successfully retrieved user data');
       })
-      .catch(err => console.err(err));
+      .catch(err => console.error(err));
   }
 
+  // POST user login
   const login = async (userObject) => {
     const { username, password } = userObject;
 
@@ -80,6 +101,7 @@ const UserContextProvider = (props) => {
       });
   }
 
+  // DELETE user
   const deleteUser = userObject => {}
 
   return (

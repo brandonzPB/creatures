@@ -1,15 +1,16 @@
-import React, { useState, useReducer, useEffect, createContext } from 'react';
+import React, { useState, useReducer, useEffect, useContext, createContext } from 'react';
 import creatureReducer from '../reducers/creatureReducer';
 import * as objective from '../modules/objective'
 import * as streakTime from '../modules/age';
+import creatureService from '../services/creatureService';
+import UserContextProvider, { UserContext } from './UserContext';
 
 export const CreatureContext = createContext();
 
 const CreatureContextProvider = (props) => {
-  const [creatures, dispatch] = useReducer(creatureReducer, [], () => {
-    const storedCreatures = localStorage.getItem('my-creatures');
-    return storedCreatures ? JSON.parse(storedCreatures) : [];
-  });
+  const { user } = useContext(UserContext);
+
+  const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
 
   const [currentId, setCurrentId] = useState('');
   const [play, setPlay] = useState(false);
@@ -18,9 +19,9 @@ const CreatureContextProvider = (props) => {
 
   // Remove this hook once user is able to log in
   // And creatures are stored to database under account
-  useEffect(() => {
-    localStorage.setItem('my-creatures', JSON.stringify(creatures));
-  }, [creatures]);
+  // useEffect(() => {
+  //   localStorage.setItem('my-creatures', JSON.stringify(creatures));
+  // }, [creatures]);
 
   const getExp = (creature, habit, time) => { 
     if (creature.isNoob) return getFirstExp(creature);

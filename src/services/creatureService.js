@@ -1,6 +1,18 @@
 import axios from 'axios';
 const baseUrl = '/dashboard/user';
 
+// GET all creatures
+const getAll = (userId, token) => {
+  const req = axios.get(`${baseUrl}/${userId}/creatures`, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  return req.then(res => res.data)
+    .catch(err => console.error(err));
+}
+
 // CREATE creature
 const createCreature = (userId, creatureObject, token) => {
   const req = axios.post(`${baseUrl}/${userId}/creature`, creatureObject, {
@@ -62,6 +74,7 @@ const deleteCreature = (userId, creatureId, creatureObject, token) => {
 };
 
 export default {
+  getAll,
   createCreature,
   readCreature,
   updateCreatureStats,
