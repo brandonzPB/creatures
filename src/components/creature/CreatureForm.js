@@ -12,7 +12,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 const CreatureForm = () => {
   const { creatures, formDisplay, toggleFormDisplay, dispatch, createCreature } = useContext(CreatureContext);
-  const { user } = useContext(UserContext);
+  const { user, userDispatch } = useContext(UserContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 
@@ -128,14 +128,6 @@ const CreatureForm = () => {
 
     console.log('evolutions', evolutions);
 
-    const birthdate = age.getBirthdate();
-
-    const birthTime = Date.now();
-
-    const pokeballNumber = 1;
-
-    const creatureId = uuidv4();
-
     const newCreature = {
       creature: evolutions[0],
       creature_name: creature.creatureName.trim() || 'Anonymous Creature',
@@ -144,10 +136,10 @@ const CreatureForm = () => {
       evolutions: [...evolutions],
       difficulty,
       multiplier,
-      birth_date: birthdate,
-      birth_time: birthTime,
-      pokeball_number: pokeballNumber,
-      id: creatureId,
+      birth_date: age.getBirthdate(),
+      birth_time: Date.now(),
+      pokeball_number: 1,
+      id: uuidv4(),
       level: 1,
       exp: 0,
       exp_goal: 1,
@@ -161,18 +153,18 @@ const CreatureForm = () => {
       streak_day: (new Date()).getDay(),
     }
 
-    dispatch({type: 'ADD_CREATURE', creature: {
+    userDispatch({type: 'ADD_CREATURE', creature: {
       creature: evolutions[0],
-      creatureName: creature.creatureName.trim() || 'Anonymous Creature',
+      creature_name: creature.creatureName.trim() || 'Anonymous Creature',
       purpose: creature.purpose,
-      purposeName: creature.purposeName.trim() || 'Base Existence',
+      purpose_name: creature.purposeName.trim() || 'Base Existence',
       evolutions: [...evolutions],
       difficulty,
       multiplier,
-      birthdate,
-      birthTime,
-      pokeballNumber,
-      id: creatureId,
+      birth_date: age.getBirthdate(),
+      birth_time: Date.now(),
+      pokeball_number: 1,
+      id: uuidv4(),
     }});
     
     setCreature({
@@ -215,7 +207,7 @@ const CreatureForm = () => {
     <div className="create-page">
       {
         !formDisplay ? 
-          <Route exact path="/creature/create"> <Redirect to="/" /> </Route> :
+          <Route exact path="/creature/create"> <Redirect to="/creatures" /> </Route> :
           <div className="creature-form-container">
             <Link to="/creatures"><button className="return-btn">Return Home</button></Link>
             

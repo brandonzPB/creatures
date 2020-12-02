@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { CreatureContext } from '../../contexts/CreatureContext';
+import { UserContext } from '../../contexts/UserContext';
 import * as stats from '../../modules/stats';
 import CreatureDisplay from './CreatureDisplay';
 import './creature.css';
@@ -12,7 +13,8 @@ const evolveMusicSrc = require('../../sounds/evolve.mp3');
 const evolveSound = new Audio(evolveMusicSrc);
 
 const Creature = ({ creature }) => {
-  const { displayObjectives, sendCreatureId, expUpdate, toggleExpUpdate, dispatch } = useContext(CreatureContext);
+  const { displayObjectives, sendCreatureId, expUpdate, toggleExpUpdate } = useContext(CreatureContext);
+  const { user, userDispatch } = useContext(UserContext);
 
   const [levelUpdate, setLevelUpdate] = useState(false);
   const [evolve, setEvolve] = useState(false);
@@ -78,7 +80,7 @@ const Creature = ({ creature }) => {
     const newTimestamp = Date.now();
     const newDay = (new Date()).getDay();
 
-    dispatch({ type: 'UPDATE_STREAK', creature: {
+    userDispatch({ type: 'UPDATE_STREAK', creature: {
       id: creature.id,
       newCount,
       newTimestamp,
@@ -93,7 +95,7 @@ const Creature = ({ creature }) => {
     const newTimestamp = Date.now();
     const newDay = (new Date()).getDay();
 
-    dispatch({ type: 'UPDATE_STREAK', creature: {
+    userDispatch({ type: 'UPDATE_STREAK', creature: {
       id: creature.id,
       newCount,
       newTimestamp,
@@ -110,7 +112,7 @@ const Creature = ({ creature }) => {
     const birthTime = creature.birth_time;
     const newAge = age.getAge(birthTime);
 
-    dispatch({ type: 'UPDATE_AGE', creature: { newAge, id: creature.id } });
+    userDispatch({ type: 'UPDATE_AGE', creature: { newAge, id: creature.id } });
 
     const streak = checkCreatureStreak();
     if (streak === 'broken') resetCreatureStreak();
@@ -125,7 +127,7 @@ const Creature = ({ creature }) => {
         
       const newLevel = creature.level + 1;
 
-      dispatch({ type: 'LEVEL_UP', creature: { id: creature.id, level: newLevel }});
+      userDispatch({ type: 'LEVEL_UP', creature: { id: creature.id, level: newLevel }});
 
       return toggleLevelUpdate();
     }
@@ -141,12 +143,12 @@ const Creature = ({ creature }) => {
       const difficulty = stats.getCreatureDifficulty(creature.purpose, creature.level);
       const multiplier = stats.getExpMultiplier(creature.level);
 
-      dispatch({ type: 'UPGRADE_MULTIPLIERS', creature: { id: creature.id, difficulty, multiplier }});
+      userDispatch({ type: 'UPGRADE_MULTIPLIERS', creature: { id: creature.id, difficulty, multiplier }});
 
       const prevGoal = (creature.is_noob) ? 1 : creature.exp_goal;
       const newGoal = (creature.is_noob) ? 9 : stats.getExpGoal(creature.level, difficulty);
 
-      dispatch({ type: 'LEVEL_UPDATES', creature: {
+      userDispatch({ type: 'LEVEL_UPDATES', creature: {
         id: creature.id,
         prevGoal,
         newGoal,
@@ -161,7 +163,7 @@ const Creature = ({ creature }) => {
           : (creature.level === 80) ? 16 
           : creature.pokeball_number;
 
-        dispatch({ type: 'UPDATE_POKEBALL', creature: {
+        userDispatch({ type: 'UPDATE_POKEBALL', creature: {
           id: creature.id,
           newPokeball
         }});
@@ -193,7 +195,7 @@ const Creature = ({ creature }) => {
 
       const nextCreature = creature.evolutions[nextCreatureIndex];
 
-      dispatch({
+      userDispatch({
         type: 'EVOLVE',
         creature: {
           id: creature.id,

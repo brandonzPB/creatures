@@ -6,10 +6,12 @@ import ConfirmDisplayContextProvider from './contexts/ConfirmDisplayContext';
 import UserContextProvider from './contexts/UserContext';
 import ThemeContextProvider from './contexts/ThemeContext';
 
-import LogoutButton from './components/user/LogoutButton';
 import Welcome from './components/Welcome';
 import UserCreateForm from './components/user/UserCreateForm';
 import LoginForm from './components/user/LoginForm';
+
+import User from './components/user/User';
+import LogoutButton from './components/user/LogoutButton';
 
 import ResetCode from './components/user/ResetCode';
 import ResetPassword from './components/user/ResetPassword';
@@ -38,6 +40,7 @@ function App() {
 
                 <Route exact path="/" component={Welcome} />
 
+                <Route exact path="/user" component={User} />
                 <Route exact path="/user/create" component={UserCreateForm} />
                 <Route exact path="/user/login" component={LoginForm} />
                 <Route exact path="/user/update" component={UserUpdateForm} />

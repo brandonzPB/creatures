@@ -3,23 +3,29 @@ import creatureReducer from '../reducers/creatureReducer';
 import * as objective from '../modules/objective'
 import * as streakTime from '../modules/age';
 import creatureService from '../services/creatureService';
-import UserContextProvider, { UserContext } from './UserContext';
+import { UserContext } from './UserContext';
 
 export const CreatureContext = createContext();
 
 const CreatureContextProvider = (props) => {
   const { user, userDispatch } = useContext(UserContext);
 
-  const [creatures, dispatch] = useReducer(creatureReducer, [], () => {
-    const creatures = localStorage.getItem('my-user');
-    const storedCreatures = creatures ? JSON.parse(creatures) : [];
-    return storedCreatures.creatures;
-  });
+  const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
+  //   const creatures = localStorage.getItem('my-user');
+  //   const storedCreatures = creatures ? JSON.parse(creatures) : [];
+  //   return storedCreatures.creatures;
+  // });
+
+  /* useEffect(() => {
+    console.log('creatures', creatures)
+
+    dispatch({ type: 'UPDATE_STATE', creatures: { creatures: user.creatures }});
+  }, [])
 
   useEffect(() => {
-    userDispatch({ type: 'UPDATE_CREATURES', creatures: { creatures: creatures }});
+    userDispatch({ type: 'UPDATE_CREATURES', creatures: { creatures: user.creatures }});
     localStorage.setItem('my-user', JSON.stringify(user));
-  }, [creatures]);
+  }, [user.creatures]); */
 
   /* const [creatures, dispatch] = useReducer(creatureReducer, [], () => {
     const storedCreatures = localStorage.getItem('my-creatures');
@@ -37,15 +43,11 @@ const CreatureContextProvider = (props) => {
 
   // CREATE creature
   const createCreature = creatureObject => {
-    console.log('creatures', creatures);
-
-    console.log('creature', creatureObject);
-
     creatureService.createCreature(user.db_id, creatureObject, user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
 
-    console.log('Successfully added creature');
+    console.log('Successfully added creature', creatureObject);
   }
 
   // UPDATE creature stats
@@ -56,7 +58,7 @@ const CreatureContextProvider = (props) => {
       .then(res => res)
       .catch(err => console.error(err));
 
-    dispatch({ type: 'UPDATE_CREATURE', creature: {
+    userDispatch({ type: 'UPDATE_CREATURE', creature: {
       exp: creature.exp,
       exp_goal: creature.exp_goal,
       exp_surplus: creature.exp_surplus,
@@ -77,7 +79,7 @@ const CreatureContextProvider = (props) => {
       .then(res => res)
       .catch(err => console.error(err));
 
-    dispatch({ type: 'UPDATE_CREATURE', creature: {
+    userDispatch({ type: 'UPDATE_CREATURE', creature: {
       objectives: creature.objectives,
     }});
 
@@ -92,7 +94,7 @@ const CreatureContextProvider = (props) => {
       .then(res => res)
       .catch(err => console.error(err));
 
-    dispatch({ type: 'UPDATE_CREATURE', creature: {
+    userDispatch({ type: 'UPDATE_CREATURE', creature: {
       creature_name: creature.creature_name,
       evolutions: creature.evolutions,
     }});
@@ -104,11 +106,11 @@ const CreatureContextProvider = (props) => {
   const deleteCreature = async (creatureId) => {
     const creature = user.creatures.filter(being => being.id === creatureId);
 
-    await creatureService.deleteCreature(user.db_id, creature._id, creature, user.accessToken)
+    await creatureService.deleteCreature(user.db_id, creature._id, user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
     
-    dispatch({ type: 'DELETE_CREATURE', creature: { creature }});
+    userDispatch({ type: 'DELETE_CREATURE', creature: { id: creatureId }});
 
     console.log('Successfully deleted creature: ' + creature);
   }
@@ -125,7 +127,7 @@ const CreatureContextProvider = (props) => {
       newTotal - creature.exp_goal :
       creature.exp_surplus + newExp;
 
-    dispatch({ type: 'ADD_EXP', creature: {
+    userDispatch({ type: 'ADD_EXP', creature: {
       id: creature.id,
       newTotal,
       newSurplus
@@ -138,7 +140,7 @@ const CreatureContextProvider = (props) => {
     const newTotal = 1;
     const newSurplus = 0;
 
-    dispatch({ type: 'ADD_EXP', creature: { id: creature.id, newTotal, newSurplus } });
+    userDispatch({ type: 'ADD_EXP', creature: { id: creature.id, newTotal, newSurplus } });
 
     return creature;
   }

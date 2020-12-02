@@ -13,8 +13,8 @@ const CreatureList = () => {
     if (!formDisplay) toggleFormDisplay();
   }, []);
   
-  const CreatureComponents = creatures.length >= 1
-    ? creatures.map(creature => {
+  const CreatureComponents = user.creatures.length >= 1
+    ? user.creatures.map(creature => {
       return (
         <Creature 
           key={creature.id}
@@ -35,11 +35,11 @@ const CreatureList = () => {
   return (
     <div className="display-container">
       {
-        creatures.length < 6 || creatures.length === undefined ?
+        user.creatures.length < 6 || user.creatures.length === undefined ?
           <Link to="/creature/create">
             <p className="create-link">New Creature</p>
           </Link> :
-          creatures.length === 6 ?
+          user.creatures.length === 6 ?
           <div className="team-full">
             <span className="full-text">Your team of Creatures is full :)</span>
           </div> :
@@ -48,7 +48,7 @@ const CreatureList = () => {
 
       <div className="creature-list-divider">
         {
-          creatures.length < 1 ?
+          user.creatures.length < 1 ?
             <div className="tutorial-container">
               <h2 className="tutorial-header">Welcome to Creatures of Habit!</h2>
               <ul className="tutorial">

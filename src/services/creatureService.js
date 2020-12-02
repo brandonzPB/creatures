@@ -35,7 +35,7 @@ const readCreature = (userId, creatureId, token) => {
 
 // UPDATE creature stats
 const updateCreatureStats = (userId, creatureId, creatureObject, token) => {
-  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}`, creatureObject, {
+  const req = axios.post(`${baseUrl}/${userId}/creature/${creatureId}`, creatureObject, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -45,7 +45,7 @@ const updateCreatureStats = (userId, creatureId, creatureObject, token) => {
 
 // UPDATE creature objectives
 const updateCreatureObjectves = (userId, creatureId, creatureObject, token) => {
-  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}/objectives`, creatureObject, {
+  const req = axios.post(`${baseUrl}/${userId}/creature/${creatureId}/objectives`, creatureObject, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -55,7 +55,7 @@ const updateCreatureObjectves = (userId, creatureId, creatureObject, token) => {
 
 // UPDATE creature info
 const updateCreatureInfo = (userId, creatureId, creatureObject, token) => {
-  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}/info`, creatureObject, {
+  const req = axios.post(`${baseUrl}/${userId}/creature/${creatureId}/info`, creatureObject, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -64,8 +64,8 @@ const updateCreatureInfo = (userId, creatureId, creatureObject, token) => {
 };
 
 // DELETE creature
-const deleteCreature = (userId, creatureId, creatureObject, token) => {
-  const req = axios.delete(`${baseUrl}/${userId}/creature/${creatureId}`, creatureObject, {
+const deleteCreature = (userId, creatureId, token) => {
+  const req = axios.post(`${baseUrl}/${userId}/creature/${creatureId}/delete`, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
