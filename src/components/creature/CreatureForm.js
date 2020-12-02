@@ -164,19 +164,18 @@ const CreatureForm = () => {
     toggleFormDisplay();
   }
   
+  if (!user.accessToken) {
+    return (
+      <Route exact path="/creature/create">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
   
   if (creatures.length === 6) {
     return (
       <Route exact path="/creature/create">
         <Redirect to="/creatures" />
-      </Route>
-    )
-  }
-  
-  if (!user.accessToken) {
-    return (
-      <Route exact path="/creature/create">
-        <Redirect to="/" />
       </Route>
     )
   }
