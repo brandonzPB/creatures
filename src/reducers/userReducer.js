@@ -14,6 +14,11 @@ const userReducer = (state, action) => {
         ...state,
         creatures: action.creatures.creatures
       };
+    case 'UPDATE_CREATURES':
+      return {
+        ...state,
+        creatures: action.creatures.creatures
+      };
     case 'LOG_OUT':
       return {
         ...state,
@@ -22,7 +27,7 @@ const userReducer = (state, action) => {
         username: null,
         email: null,
         password: null,
-        creatures: null
+        creatures: [],
       };
     default:
       return state;

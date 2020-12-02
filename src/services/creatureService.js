@@ -15,7 +15,7 @@ const getAll = (userId, token) => {
 
 // CREATE creature
 const createCreature = (userId, creatureObject, token) => {
-  const req = axios.post(`${baseUrl}/${userId}/creature`, creatureObject, {
+  const req = axios.post(`${baseUrl}/${userId}/creature/create`, creatureObject, {
     headers: {
       'Authorization': `Bearer ${token}`
     }

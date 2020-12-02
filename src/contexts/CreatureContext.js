@@ -8,12 +8,16 @@ import UserContextProvider, { UserContext } from './UserContext';
 export const CreatureContext = createContext();
 
 const CreatureContextProvider = (props) => {
-  const { user, postLocalCreatures } = useContext(UserContext);
+  const { user, userDispatch } = useContext(UserContext);
 
-  const [creatures, dispatch] = useReducer(creatureReducer, user.creatures || []);
+  const [creatures, dispatch] = useReducer(creatureReducer, [], () => {
+    const creatures = localStorage.getItem('my-user');
+    const storedCreatures = creatures ? JSON.parse(creatures) : [];
+    return storedCreatures.creatures;
+  });
 
   useEffect(() => {
-    postLocalCreatures(creatures);
+    userDispatch({ type: 'UPDATE_CREATURES', creatures: { creatures: creatures }});
     localStorage.setItem('my-user', JSON.stringify(user));
   }, [creatures]);
 
@@ -30,6 +34,71 @@ const CreatureContextProvider = (props) => {
   const [play, setPlay] = useState(false);
   const [formDisplay, setFormDisplay] = useState(true);
   const [expUpdate, setExpUpdate] = useState(false);
+
+  // CREATE creature
+  const createCreature = creatureObject => {
+    console.log('creatures', creatures);
+
+    console.log('creature', creatureObject);
+
+    creatureService.createCreature(user.db_id, creatureObject, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+
+    console.log('Successfully added creature');
+  }
+
+  // UPDATE creature stats
+  const updateCreatureStats = async (creatureId) => {
+    const creature = creatures.filter(being => being.id === creatureId);
+
+    await creatureService.updateCreatureStats(user.db_id, creatureId, creature, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+
+    dispatch({ type: 'UPDATE_CREATURE', creature: {
+      exp: creature.exp,
+      exp_goal: creature.exp_goal,
+      exp_surplus: creature.exp_surplus,
+      prev_exp_goal: creature.prev_exp_goal,
+      difficulty: creature.difficulty,
+      multiplier: creature.multiplier,
+      pokeball_number: creature.pokeball_number,
+    }});
+
+    console.log('Successfully added creature');
+  }
+
+  // UPDATE creature objectives
+  const updateCreatureObjectves = async (creatureId) => {
+    const creature = creatures.filter(being => being.id === creatureId);
+
+    await creatureService.updateCreatureObjectves(user.db_id, creatureId, creature, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+
+    dispatch({ type: 'UPDATE_CREATURE', creature: {
+      objectives: creature.objectives,
+    }});
+
+    console.log('Successfully added creature');
+  }
+
+  // UPDATE creature info
+  const updateCreatureInfo = async (creatureId) => {
+    const creature = creatures.filter(being => being.id === creatureId);
+
+    await creatureService.updateCreatureObjectves(user.db_id, creatureId, creature, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+
+    dispatch({ type: 'UPDATE_CREATURE', creature: {
+      creature_name: creature.creature_name,
+      evolutions: creature.evolutions,
+    }});
+
+    console.log('Successfully added creature');
+  }
 
   // DELETE creature
   const deleteCreature = async (creatureId) => {
@@ -101,6 +170,10 @@ const CreatureContextProvider = (props) => {
     <CreatureContext.Provider 
       value={{
         creatures,
+        createCreature,
+        updateCreatureStats,
+        updateCreatureObjectves,
+        updateCreatureInfo,
         deleteCreature, 
         currentId,
         play,

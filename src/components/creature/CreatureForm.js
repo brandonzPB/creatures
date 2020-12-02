@@ -8,9 +8,10 @@ import * as age from '../../modules/age';
 import { Link } from 'react-router-dom';
 import CreatureOption from './CreatureOption';
 import { otherVersions } from '../../modules/pokemonList';
+import { v4 as uuidv4 } from 'uuid';
 
 const CreatureForm = () => {
-  const { creatures, formDisplay, toggleFormDisplay, dispatch } = useContext(CreatureContext);
+  const { creatures, formDisplay, toggleFormDisplay, dispatch, createCreature } = useContext(CreatureContext);
   const { user } = useContext(UserContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
@@ -133,6 +134,33 @@ const CreatureForm = () => {
 
     const pokeballNumber = 1;
 
+    const creatureId = uuidv4();
+
+    const newCreature = {
+      creature: evolutions[0],
+      creature_name: creature.creatureName.trim() || 'Anonymous Creature',
+      purpose: creature.purpose,
+      purpose_name: creature.purposeName.trim() || 'Base Existence',
+      evolutions: [...evolutions],
+      difficulty,
+      multiplier,
+      birth_date: birthdate,
+      birth_time: birthTime,
+      pokeball_number: pokeballNumber,
+      id: creatureId,
+      level: 1,
+      exp: 0,
+      exp_goal: 1,
+      prev_exp_goal: 1,
+      exp_surplus: 0,
+      objectives: [],
+      age: 0,
+      is_noob: true,
+      streak_count: 0,
+      streak_timestamp: Date.now(),
+      streak_day: (new Date()).getDay(),
+    }
+
     dispatch({type: 'ADD_CREATURE', creature: {
       creature: evolutions[0],
       creatureName: creature.creatureName.trim() || 'Anonymous Creature',
@@ -143,7 +171,8 @@ const CreatureForm = () => {
       multiplier,
       birthdate,
       birthTime,
-      pokeballNumber
+      pokeballNumber,
+      id: creatureId,
     }});
     
     setCreature({
@@ -160,6 +189,8 @@ const CreatureForm = () => {
       purpose: 'hobby',
       purposeName: ''
     });
+
+    createCreature(newCreature);
 
     toggleFormDisplay();
   }

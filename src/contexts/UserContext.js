@@ -5,7 +5,7 @@ import userReducer from '../reducers/userReducer';
 export const UserContext = createContext();
 
 const UserContextProvider = (props) => {
-  const [user, dispatch] = useReducer(userReducer, {}, () => {
+  const [user, userDispatch] = useReducer(userReducer, {}, () => {
     const storedUser = localStorage.getItem('my-user');
     return storedUser ? JSON.parse(storedUser) : {};
   });
@@ -53,7 +53,7 @@ const UserContextProvider = (props) => {
       .then(res => res)
       .catch(err => console.error(err));
 
-    dispatch({ type: 'POST_LOCAL_CREATURES', creatures: { creatures }});
+    userDispatch({ type: 'POST_LOCAL_CREATURES', creatures: { creatures }});
   }
 
   // GET user info
@@ -75,7 +75,7 @@ const UserContextProvider = (props) => {
     await userService.readUser(res.db_id, res.accessToken)
       .then(response => {
 
-        dispatch({ type: 'LOG_IN', user: {
+        userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
           email: response.user.email,
           db_id: res.db_id,
@@ -111,13 +111,14 @@ const UserContextProvider = (props) => {
 
   // LOG OUT
   const logout = () => {
+    userDispatch({ type: 'LOG_OUT' });
     localStorage.removeItem('my-user');
-    dispatch({ type: 'LOG_OUT' });
   }
 
   return (
     <UserContext.Provider value={{
       user,
+      userDispatch,
       error,
       setError,
       addUser,

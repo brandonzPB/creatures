@@ -8,7 +8,7 @@ const creatureReducer = (state, action) => {
         creature_name: action.creature.creatureName,
         purpose: action.creature.purpose,
         purpose_name: action.creature.purposeName,
-        id: uuidv4(),
+        id: action.creature.id,
         sprite: `./sprites/pkmnXY/${action.creature.creature.toLowerCase()}.gif`,
         level: 1,
         exp: 0,
@@ -188,6 +188,8 @@ const creatureReducer = (state, action) => {
       })
     case 'DELETE_CREATURE':
       return state.filter(creature => creature.id !== action.id);
+    case 'LOG_OUT':
+      return [];
     default:
       return state;
   }
