@@ -41,7 +41,7 @@ const CreatureContextProvider = (props) => {
   const [formDisplay, setFormDisplay] = useState(true);
   const [expUpdate, setExpUpdate] = useState(false);
 
-  // CREATE creature
+  // CREATE CREATURE
   const createCreature = creatureObject => {
     creatureService.createCreature(user.db_id, creatureObject, user.accessToken)
       .then(res => res)
@@ -50,7 +50,7 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully added creature', creatureObject);
   }
 
-  // UPDATE creature stats
+  // UPDATE CREATURE STATS
   const updateCreatureStats = async (creatureId) => {
     const creature = creatures.filter(being => being.id === creatureId);
 
@@ -71,7 +71,7 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully added creature');
   }
 
-  // UPDATE creature objectives
+  // UPDATE CREATURE OBJECTIVES
   const updateCreatureObjectves = async (creatureId) => {
     const creature = creatures.filter(being => being.id === creatureId);
 
@@ -86,7 +86,7 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully added creature');
   }
 
-  // UPDATE creature info
+  // UPDATE CREATURE INFO
   const updateCreatureInfo = async (creatureId) => {
     const creature = creatures.filter(being => being.id === creatureId);
 
@@ -102,15 +102,17 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully added creature');
   }
 
-  // DELETE creature
+  // DELETE CREATURE
   const deleteCreature = async (creatureId) => {
     const creature = user.creatures.filter(being => being.id === creatureId);
+    
+    console.log('creature', creature[0]);
 
-    await creatureService.deleteCreature(user.db_id, creature._id, user.accessToken)
+    userDispatch({ type: 'DELETE_CREATURE', creature: { id: creatureId }});
+
+    await creatureService.deleteCreature(user.db_id, creature[0]._id, user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
-    
-    userDispatch({ type: 'DELETE_CREATURE', creature: { id: creatureId }});
 
     console.log('Successfully deleted creature: ' + creature);
   }
@@ -153,7 +155,7 @@ const CreatureContextProvider = (props) => {
     setFormDisplay(!formDisplay);
   }
 
-  const sendCreatureId = id => {
+  const showCreatureObjectives = async (id) => {
     return setCurrentId(id);
   }
 
@@ -185,7 +187,7 @@ const CreatureContextProvider = (props) => {
         expUpdate,
         toggleExpUpdate,
         dispatch,
-        sendCreatureId,
+        showCreatureObjectives,
         getExp,
         checkObjectiveText,
       }}>

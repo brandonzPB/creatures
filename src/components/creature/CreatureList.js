@@ -6,11 +6,13 @@ import Creature from './Creature';
 import CreateButton from './CreateButton';
 
 const CreatureList = () => {
-  const { creatures, formDisplay, toggleFormDisplay } = useContext(CreatureContext);
+  const { creatures, formDisplay, toggleFormDisplay, showCreatureObjectives } = useContext(CreatureContext);
   const { user } = useContext(UserContext);
 
   useEffect(() => {
     if (!formDisplay) toggleFormDisplay();
+
+    showCreatureObjectives('');
   }, []);
   
   const CreatureComponents = user.creatures.length >= 1

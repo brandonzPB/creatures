@@ -13,7 +13,7 @@ const evolveMusicSrc = require('../../sounds/evolve.mp3');
 const evolveSound = new Audio(evolveMusicSrc);
 
 const Creature = ({ creature }) => {
-  const { displayObjectives, sendCreatureId, expUpdate, toggleExpUpdate } = useContext(CreatureContext);
+  const { displayObjectives, showCreatureObjectives, expUpdate, toggleExpUpdate } = useContext(CreatureContext);
   const { user, userDispatch } = useContext(UserContext);
 
   const [levelUpdate, setLevelUpdate] = useState(false);
@@ -209,8 +209,8 @@ const Creature = ({ creature }) => {
 
   // Sends creature id to context and allows for
   // The selected creature's objectives to be shown
-  const displayCreatureActions = () => {
-    sendCreatureId(creature.id);
+  const displayCreatureObjectives = () => {
+    showCreatureObjectives(creature.id);
   }
 
   return (
@@ -223,7 +223,7 @@ const Creature = ({ creature }) => {
       <CreatureDisplay 
         creature={creature}
         displayObjectives={displayObjectives}
-        displayCreatureActions={displayCreatureActions}
+        displayCreatureObjectives={displayCreatureObjectives}
       />
     </div>
   )

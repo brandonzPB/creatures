@@ -50,6 +50,21 @@ const userReducer = (state, action) => {
           }
         ]
       };
+    case 'ADD_EXP':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              exp: action.creature.newTotal,
+              exp_surplus: action.creature.newSurplus
+            }
+          }
+
+          return creature;
+        })
+      };
     case 'DELETE_CREATURE':
       return {
         ...state,

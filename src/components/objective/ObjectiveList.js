@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, Redirect, Route } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { ConfirmDisplayContext } from '../../contexts/ConfirmDisplayContext';
+import { UserContext } from '../../contexts/UserContext';
 import Objective from './Objective';
 import ObjectiveForm from './ObjectiveForm';
 import ConfirmDisplay from '../creature/ConfirmDisplay';
@@ -9,8 +10,9 @@ import Creature from '../creature/Creature';
 import * as ageMethods from '../../modules/age';
 
 const ActionList = () => {
-  const { dispatch, creatures, currentId, sendCreatureId, deleteCreature } = useContext(CreatureContext);
+  const { dispatch, creatures, currentId, showCreatureObjectives, deleteCreature } = useContext(CreatureContext);
   const { confirmDisplay, toggleConfirmDisplay } = useContext(ConfirmDisplayContext);
+  const { user } = useContext(UserContext);
 
   let creatureInfo;
   let ObjectiveComponents;
@@ -19,10 +21,20 @@ const ActionList = () => {
   let age;
   let creatureName;
 
-  if (currentId) {
-    creatureInfo = creatures.find(being => being.id === currentId);
+  if (!user.accessToken) {
+    return (
+      <Route exact path="/creature/info">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
 
-    ObjectiveComponents = creatureInfo.objectives.sort((a, b) => a.factor - b.factor);
+  if (currentId) {
+    creatureInfo = user.creatures.find(being => being.id === currentId);
+
+    ObjectiveComponents = creatureInfo.objectives.length >= 1
+      ? creatureInfo.objectives.sort((a, b) => a.factor - b.factor)
+      : [];
 
     ObjectiveComponents = ObjectiveComponents.map(objective => {
       return (
@@ -36,7 +48,7 @@ const ActionList = () => {
 
     if (creatureInfo.objectives.length < 1) ObjectiveComponents = null;
 
-    CreatureComponent = creatures.map(creature => {
+    CreatureComponent = user.creatures.map(creature => {
       if (creature.id === currentId) {
         return (
           <Creature 
@@ -54,9 +66,11 @@ const ActionList = () => {
   }
 
   const postDelete = () => {
-    sendCreatureId('');
-    
+    console.log('Deleting creature...', currentId);
     deleteCreature(currentId);
+
+    showCreatureObjectives('');
+    console.log('currentId', currentId)
   }
 
   if (currentId) {
@@ -121,7 +135,7 @@ const ActionList = () => {
   }
 
   return (
-    <Route exact path="/update">
+    <Route exact path="/creature/info">
       <Redirect to="/creatures" />
     </Route>
   )

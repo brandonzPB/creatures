@@ -14,6 +14,8 @@ const CreatureForm = () => {
   const { creatures, formDisplay, toggleFormDisplay, dispatch, createCreature } = useContext(CreatureContext);
   const { user, userDispatch } = useContext(UserContext);
 
+  
+
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 
       a < b ? -1 : 0;
@@ -41,6 +43,14 @@ const CreatureForm = () => {
     purpose: 'hobby',
     purposeName: ''
   })
+  
+  if (!user.accessToken) {
+    return (
+      <Route exact path="/creature/create">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
 
   const handleChange = (event) => {
     const { value, name } = event.target;
@@ -187,13 +197,7 @@ const CreatureForm = () => {
     toggleFormDisplay();
   }
   
-  if (!user.accessToken) {
-    return (
-      <Route exact path="/creature/create">
-        <Redirect to="/" />
-      </Route>
-    )
-  }
+  
   
   if (creatures.length === 6) {
     return (

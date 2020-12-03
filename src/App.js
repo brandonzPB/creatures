@@ -50,7 +50,7 @@ function App() {
                 <Route exact path="/creatures" component={CreatureList} />
                 <Route exact path="/creature/create" component={CreatureForm} />
                 <Route exact path="/creature/info" component={ObjectiveList} />
-                <Route exact path="/create/update" component={CreatureUpdateForm} />
+                <Route exact path="/creature/update" component={CreatureUpdateForm} />
               </ConfirmDisplayContextProvider>
             </CreatureContextProvider>
           </UserContextProvider>

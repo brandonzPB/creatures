@@ -4,7 +4,7 @@ import './creature.css';
 import CountUp from 'react-countup';
 import { CreatureContext } from '../../contexts/CreatureContext';
 
-const CreatureDisplay = ({ creature, displayCreatureActions }) => {
+const CreatureDisplay = ({ creature, displayCreatureObjectives }) => {
   const { currentId } = useContext(CreatureContext);
   const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
 
@@ -81,7 +81,7 @@ const CreatureDisplay = ({ creature, displayCreatureActions }) => {
                   <button className="view-info-btn">Edit Creature</button>
                 </Link> :
                 <Link to="/creature/info">
-                  <button className="view-info-btn" onClick={displayCreatureActions}>View Info</button>
+                  <button className="view-info-btn" onClick={displayCreatureObjectives}>View Info</button>
                 </Link>
             }
           </div>
