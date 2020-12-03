@@ -5,11 +5,13 @@ import { v4 as uuidv4 } from 'uuid';
 import * as obj from '../../modules/objective';
 
 const ObjectiveForm = ({ creatureId }) => {
-  const { dispatch, checkObjectiveText, updateCreatureObjectives } = useContext(CreatureContext);
+  const { dispatch, checkObjectiveText, updateObjectives, currentId } = useContext(CreatureContext);
   const { user, userDispatch } = useContext(UserContext);
+
+  const [done, setDone] = useState(false);
   
   const [objective, setObjective] = useState({
-    id: uuidv4(),
+    id: '',
     text: '',
     is_timed: false,
     difficulty: 'Medium-Easy',
@@ -41,9 +43,9 @@ const ObjectiveForm = ({ creatureId }) => {
     const factor = obj.getDifficultyFactor(objective.difficulty);
 
     userDispatch({ type: 'ADD_OBJECTIVE',
-      id: creatureId,
+      id: currentId,
       objective: {
-        id: objective.id,
+        id: uuidv4(),
         text: objective.text,
         is_timed: objective.is_timed,
         difficulty: objective.difficulty,
@@ -51,7 +53,7 @@ const ObjectiveForm = ({ creatureId }) => {
       }
     });
 
-    updateCreatureObjectives(creatureId);
+    setDone(!done);
     
     setObjective({
       id: uuidv4(),
@@ -60,6 +62,11 @@ const ObjectiveForm = ({ creatureId }) => {
       difficulty: 'Medium-Easy',
       factor: '',
     });
+  }
+
+  if (done) {
+    updateObjectives();
+    setDone(!done);
   }
 
   return (

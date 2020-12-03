@@ -43,11 +43,11 @@ const updateCreatureStats = (userId, creatureId, creatureObject, token) => {
   return req.then(res => res.data);
 };
 
-// UPDATE creature objectives
-const updateCreatureObjectives = (userId, creatureId, objectiveObject, token) => {
-  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}/objectives`, objectiveObject, {
+// UPDATE objective
+const updateObjectives = (userId, creatureId, objectives, token) => {
+  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}/objectives`, objectives, {
     headers: {
-      'Authorization': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`,
     }
   });
 
@@ -55,8 +55,8 @@ const updateCreatureObjectives = (userId, creatureId, objectiveObject, token) =>
 };
 
 // DELETE objective
-const deleteObjective = (userId, creatureId, objectiveObject, token) => {
-  const req = axios.delete(`${baseUrl}/${userId}/creature/${creatureId}/objectives`, objectiveObject, {
+const deleteObjective = (userId, creatureId, objectives, token) => {
+  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}/objective`, objectives, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
@@ -90,7 +90,7 @@ export default {
   createCreature,
   readCreature,
   updateCreatureStats,
-  updateCreatureObjectives,
+  updateObjectives,
   deleteObjective,
   updateCreatureInfo,
   deleteCreature,

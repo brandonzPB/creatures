@@ -1,19 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 import ObjectiveCompleteForm from './ObjectiveCompleteForm';
 
 const Objective = ({ objective, creature }) => {
-  const { updateCreatureObjectives } = useContext(CreatureContext);
+  const { updateObjectives } = useContext(CreatureContext);
   const { userDispatch } = useContext(UserContext);
 
-  const deleteObjective = () => {
+  const [done, setDone] = useState(false);
+
+  const sendDelete = () => {
     userDispatch({ type: 'DELETE_OBJECTIVE', 
       creatureId: creature.id,
       objectiveId: objective.id
     });
 
-    updateCreatureObjectives(creature.id);
+    setDone(!done);
+  }
+
+  if (done) {
+    updateObjectives();
+    setDone(!done);
   }
 
   const difficultyColor = objective.factor === 1 ? 'rgba(142, 104, 199, 0.3)'
@@ -24,7 +31,7 @@ const Objective = ({ objective, creature }) => {
   return (
     <div className="objective">
       <div className="delete-btn-container">
-        <button className="objective-delete-btn" onClick={deleteObjective}>&#10060;</button>
+        <button className="objective-delete-btn" onClick={sendDelete}>&#10060;</button>
       </div>
 
       <div className="objective-data" style={{

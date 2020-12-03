@@ -1,18 +1,17 @@
     Things to add:
 
+
+
+
+
 add choice to limit number of times you can complete an objective in one 24-hour period (PP; restores every 6/12/24 hours)
 
-exp count increases by quickly counting
 
 level up reward
 
 evolve levels reward
 
-delete display message
-
 rewards for each level
-
-CSS
 
 exp depreciates over time (faster if at a lower level)
   each objective records time logged
@@ -20,16 +19,6 @@ exp depreciates over time (faster if at a lower level)
   reduces exp based on level, time, and difficulty
 
 things to purchase (IRL)
-
-redefine exp system
-  getExpGoal(creature.level, creature.difficulty)
-  getExp(creature.levelFactor, objective.difficulty, time)
-    creature.levelFactor (tipping point design)
-  
-(exp?) rewards for streaks
-  good habit replaces a bad one (option in objective form)
-
-
 
 
 

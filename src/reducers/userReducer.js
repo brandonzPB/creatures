@@ -65,9 +65,9 @@ const userReducer = (state, action) => {
                   is_timed: action.objective.is_timed,
                   difficulty: action.objective.difficulty,
                   factor: action.objective.factor
-                }
-              ]
-            }
+                },
+              ],
+            };
           }
 
           return creature;

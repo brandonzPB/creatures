@@ -80,27 +80,18 @@ const CreatureContextProvider = (props) => {
     return (objectiveIndex >= 0) ? true : false;
   }
 
-  // UPDATE CREATURE OBJECTIVES
-  const updateCreatureObjectives = async (creatureId) => {
-    const creature = user.creatures.filter(being => being.id === creatureId);
+  // UPDATE OBJECTIVES
+  const updateObjectives = async () => {
+    const creature = user.creatures.filter(creature => creature.id === currentId);
 
     const objectives = creature[0].objectives;
+    console.log('objectives', objectives)
 
-    await creatureService.updateCreatureObjectives(user.db_id, creature[0]._id, objectives, user.accessToken)
-      .then(res => res)
+    await creatureService.updateObjectives(user.db_id, creature[0]._id, objectives, user.accessToken)
+      .then(res => console.log('res', res))
       .catch(err => console.error(err));
 
-    console.log('Successfully added objective');
-  }
-
-  const deleteObjective = async (creatureId, objective) => {
-    const creature = user.creatures.filter(being => being.id === creatureId);
-
-    await creatureService.deleteObjective(user.db_id, creature[0]._id, objective, user.accessToken)
-      .then(res => res)
-      .catch(err => console.error(err));
-
-    console.log('Successfully deleted objective');
+    console.log('Successfully updated objectives');
   }
 
   // UPDATE CREATURE INFO
@@ -183,9 +174,9 @@ const CreatureContextProvider = (props) => {
       value={{
         creatures,
         createCreature,
-        updateCreatureStats,
-        updateCreatureObjectives,
         updateCreatureInfo,
+        updateCreatureStats,
+        updateObjectives,
         deleteCreature, 
         currentId,
         play,
