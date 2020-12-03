@@ -50,6 +50,43 @@ const userReducer = (state, action) => {
           }
         ]
       };
+    case 'ADD_OBJECTIVE':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.id) {
+            return {
+              ...creature,
+              objectives: [
+                ...creature.objectives,
+                {
+                  id: action.objective.id,
+                  text: action.objective.text,
+                  is_timed: action.objective.is_timed,
+                  difficulty: action.objective.difficulty,
+                  factor: action.objective.factor
+                }
+              ]
+            }
+          }
+
+          return creature;
+        })
+      };
+    case 'DELETE_OBJECTIVE':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creatureId) {
+            return {
+              ...creature,
+              objectives: creature.objectives.filter(obj => obj.id !== action.objectiveId)
+            }
+          }
+
+          return creature;
+        })
+      };
     case 'ADD_EXP':
       return {
         ...state,
@@ -68,7 +105,7 @@ const userReducer = (state, action) => {
     case 'DELETE_CREATURE':
       return {
         ...state,
-        creatures: state.creatures.filter(creature => creature.id !== action.creature.id)
+        creatures: state.creatures.filter(creature => creature.id !== action.id)
       };
     case 'LOG_OUT':
       return {

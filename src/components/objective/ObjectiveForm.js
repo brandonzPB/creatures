@@ -1,15 +1,17 @@
 import React, { useState, useContext } from 'react';
 import { CreatureContext } from '../../contexts/CreatureContext';
+import { UserContext } from '../../contexts/UserContext';
 import { v4 as uuidv4 } from 'uuid';
 import * as obj from '../../modules/objective';
 
 const ObjectiveForm = ({ creatureId }) => {
-  const { dispatch, checkObjectiveText } = useContext(CreatureContext);
+  const { dispatch, checkObjectiveText, updateCreatureObjectives } = useContext(CreatureContext);
+  const { user, userDispatch } = useContext(UserContext);
   
   const [objective, setObjective] = useState({
     id: uuidv4(),
     text: '',
-    isTimed: false,
+    is_timed: false,
     difficulty: 'Medium-Easy',
     factor: '',
   });
@@ -20,7 +22,7 @@ const ObjectiveForm = ({ creatureId }) => {
     type === 'checkbox' ?
       setObjective({
         ...objective,
-        isTimed: checked
+        is_timed: checked
       }) :
       setObjective({
         ...objective,
@@ -38,24 +40,26 @@ const ObjectiveForm = ({ creatureId }) => {
 
     const factor = obj.getDifficultyFactor(objective.difficulty);
 
-    dispatch({
-      type: 'ADD_OBJECTIVE', 
-      creatureId,
+    userDispatch({ type: 'ADD_OBJECTIVE',
+      id: creatureId,
       objective: {
         id: objective.id,
         text: objective.text,
-        isTimed: objective.isTimed,
+        is_timed: objective.is_timed,
         difficulty: objective.difficulty,
         factor
       }
     });
+
+    updateCreatureObjectives(creatureId);
     
     setObjective({
       id: uuidv4(),
       text: '',
-      isTimed: false,
+      is_timed: false,
       difficulty: 'Medium-Easy',
-    })
+      factor: '',
+    });
   }
 
   return (

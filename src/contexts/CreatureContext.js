@@ -52,9 +52,9 @@ const CreatureContextProvider = (props) => {
 
   // UPDATE CREATURE STATS
   const updateCreatureStats = async (creatureId) => {
-    const creature = creatures.filter(being => being.id === creatureId);
+    const creature = user.creatures.filter(being => being.id === creatureId);
 
-    await creatureService.updateCreatureStats(user.db_id, creatureId, creature, user.accessToken)
+    await creatureService.updateCreatureStats(user.db_id, creatureId, creature[0], user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
 
@@ -71,33 +71,50 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully added creature');
   }
 
-  // UPDATE CREATURE OBJECTIVES
-  const updateCreatureObjectves = async (creatureId) => {
-    const creature = creatures.filter(being => being.id === creatureId);
+  /// OBJECTIVE METHODS ///
 
-    await creatureService.updateCreatureObjectves(user.db_id, creatureId, creature, user.accessToken)
+  const checkObjectiveText = (creatureId, text) => {
+    const thisCreature = user.creatures.filter(being => being.id === creatureId);
+
+    const objectiveIndex = thisCreature[0].objectives.findIndex(item => item.text.toLowerCase() === text.toLowerCase());
+    return (objectiveIndex >= 0) ? true : false;
+  }
+
+  // UPDATE CREATURE OBJECTIVES
+  const updateCreatureObjectives = async (creatureId) => {
+    const creature = user.creatures.filter(being => being.id === creatureId);
+
+    const objectives = creature[0].objectives;
+
+    await creatureService.updateCreatureObjectives(user.db_id, creature[0]._id, objectives, user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
 
-    userDispatch({ type: 'UPDATE_CREATURE', creature: {
-      objectives: creature.objectives,
-    }});
+    console.log('Successfully added objective');
+  }
 
-    console.log('Successfully added creature');
+  const deleteObjective = async (creatureId, objective) => {
+    const creature = user.creatures.filter(being => being.id === creatureId);
+
+    await creatureService.deleteObjective(user.db_id, creature[0]._id, objective, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+
+    console.log('Successfully deleted objective');
   }
 
   // UPDATE CREATURE INFO
   const updateCreatureInfo = async (creatureId) => {
-    const creature = creatures.filter(being => being.id === creatureId);
-
-    await creatureService.updateCreatureObjectves(user.db_id, creatureId, creature, user.accessToken)
-      .then(res => res)
-      .catch(err => console.error(err));
+    const creature = user.creatures.filter(being => being.id === creatureId);
 
     userDispatch({ type: 'UPDATE_CREATURE', creature: {
       creature_name: creature.creature_name,
       evolutions: creature.evolutions,
     }});
+
+    await creatureService.updateCreatureObjectives(user.db_id, creatureId, creature[0], user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
 
     console.log('Successfully added creature');
   }
@@ -105,10 +122,8 @@ const CreatureContextProvider = (props) => {
   // DELETE CREATURE
   const deleteCreature = async (creatureId) => {
     const creature = user.creatures.filter(being => being.id === creatureId);
-    
-    console.log('creature', creature[0]);
 
-    userDispatch({ type: 'DELETE_CREATURE', creature: { id: creatureId }});
+    userDispatch({ type: 'DELETE_CREATURE', id: creatureId });
 
     await creatureService.deleteCreature(user.db_id, creature[0]._id, user.accessToken)
       .then(res => res)
@@ -163,20 +178,13 @@ const CreatureContextProvider = (props) => {
     setPlay(!play);
   }
 
-  const checkObjectiveText = (creatureId, text) => {
-    const creatureInfo = creatures.filter(being => being.id === creatureId);
-
-    const objectiveIndex = creatureInfo[0].objectives.findIndex(item => item.text.toLowerCase() === text.toLowerCase());
-    return (objectiveIndex >= 0) ? true : false;
-  }
-
   return (
     <CreatureContext.Provider 
       value={{
         creatures,
         createCreature,
         updateCreatureStats,
-        updateCreatureObjectves,
+        updateCreatureObjectives,
         updateCreatureInfo,
         deleteCreature, 
         currentId,

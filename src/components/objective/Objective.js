@@ -1,16 +1,19 @@
 import React, { useContext } from 'react';
 import { CreatureContext } from '../../contexts/CreatureContext';
+import { UserContext } from '../../contexts/UserContext';
 import ObjectiveCompleteForm from './ObjectiveCompleteForm';
 
 const Objective = ({ objective, creature }) => {
-  const { dispatch } = useContext(CreatureContext);
-  
+  const { updateCreatureObjectives } = useContext(CreatureContext);
+  const { userDispatch } = useContext(UserContext);
+
   const deleteObjective = () => {
-    dispatch({
-      type: 'DELETE_OBJECTIVE', 
+    userDispatch({ type: 'DELETE_OBJECTIVE', 
       creatureId: creature.id,
-      item: objective.id
+      objectiveId: objective.id
     });
+
+    updateCreatureObjectives(creature.id);
   }
 
   const difficultyColor = objective.factor === 1 ? 'rgba(142, 104, 199, 0.3)'
