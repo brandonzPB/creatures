@@ -10,9 +10,9 @@ import Creature from '../creature/Creature';
 import * as ageMethods from '../../modules/age';
 
 const ActionList = () => {
-  const { dispatch, creatures, currentId, showCreatureObjectives, deleteCreature } = useContext(CreatureContext);
+  const { dispatch, creatures, currentId, showCreatureObjectives, deleteCreature, done, setDone, finish } = useContext(CreatureContext);
   const { confirmDisplay, toggleConfirmDisplay } = useContext(ConfirmDisplayContext);
-  const { user } = useContext(UserContext);
+  const { user, userDispatch } = useContext(UserContext);
 
   let creatureInfo;
   let ObjectiveComponents;
@@ -20,6 +20,15 @@ const ActionList = () => {
   let birthdate;
   let age;
   let creatureName;
+
+  const sendDelete = (objectiveId) => {
+    userDispatch({ type: 'DELETE_OBJECTIVE', 
+      creatureId: currentId,
+      objectiveId
+    });
+   
+    finish('objective');
+  }
 
   if (!user.accessToken) {
     return (
@@ -42,6 +51,7 @@ const ActionList = () => {
           key={objective.id}
           objective={objective}
           creature={creatureInfo}
+          sendDelete={sendDelete}
         />
       )
     });

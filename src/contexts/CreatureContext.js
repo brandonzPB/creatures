@@ -8,7 +8,7 @@ import { UserContext } from './UserContext';
 export const CreatureContext = createContext();
 
 const CreatureContextProvider = (props) => {
-  const { user, userDispatch } = useContext(UserContext);
+  const { user, userDispatch, updateUser } = useContext(UserContext);
 
   const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
   //   const creatures = localStorage.getItem('my-user');
@@ -41,10 +41,62 @@ const CreatureContextProvider = (props) => {
   const [formDisplay, setFormDisplay] = useState(true);
   const [expUpdate, setExpUpdate] = useState(false);
 
+  const [done, setDone] = useState({
+    type: '',
+    object: ''
+  });
+
+  useEffect(() => {
+    if (done.type === 'objective') {
+      updateObjectives();
+
+      return setDone({
+        ...done,
+        type: '',
+        object: null
+      });
+    } else if (done.type === 'creature') {
+      createCreature(done.object);
+
+      return setDone({
+        ...done,
+        type: '',
+        object: null
+      });
+    } else if (done.type === 'db') {
+      updateUser();
+
+      return setDone({
+        ...done,
+        type: '',
+        object: null
+      });
+    }
+
+    return false;
+  }, [done]);
+
   // CREATE CREATURE
+  const finish = (type, object = null) => {
+    return type = 'creature' ?
+      setDone({
+        ...done, 
+        type,
+        object
+      }) :
+      setDone({
+        ...done,
+        type
+      });
+  }
+
   const createCreature = creatureObject => {
     creatureService.createCreature(user.db_id, creatureObject, user.accessToken)
-      .then(res => res)
+      .then(res => {
+        console.log(res);
+        finish('db');
+        return res;
+      })
       .catch(err => console.error(err));
 
     console.log('Successfully added creature', creatureObject);
@@ -185,6 +237,9 @@ const CreatureContextProvider = (props) => {
         toggleFormDisplay,
         expUpdate,
         toggleExpUpdate,
+        done,
+        setDone,
+        finish,
         dispatch,
         showCreatureObjectives,
         getExp,

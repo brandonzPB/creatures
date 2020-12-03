@@ -19,6 +19,24 @@ const UserContextProvider = (props) => {
     console.log(user.accessToken);
   }, [user]);
 
+  const updateUser = () => {
+    userService.readUser(user.db_id, user.accessToken)
+      .then(res => {
+        console.log(res);
+
+        userDispatch({ type: 'LOG_IN', user: {
+          username: res.user.username,
+          email: res.user.email,
+          db_id: user.db_id,
+          accessToken: user.accessToken,
+          creatures: res.user_creatures
+        }});
+
+        return res;
+      })
+      .catch(err => console.error(err));
+  }
+
   // POST new user
   const addUser = async (userObject) => {
 
@@ -119,6 +137,7 @@ const UserContextProvider = (props) => {
     <UserContext.Provider value={{
       user,
       userDispatch,
+      updateUser,
       error,
       setError,
       addUser,

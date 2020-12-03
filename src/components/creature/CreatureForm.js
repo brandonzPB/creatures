@@ -11,10 +11,8 @@ import { otherVersions } from '../../modules/pokemonList';
 import { v4 as uuidv4 } from 'uuid';
 
 const CreatureForm = () => {
-  const { creatures, formDisplay, toggleFormDisplay, dispatch, createCreature } = useContext(CreatureContext);
+  const { creatures, formDisplay, toggleFormDisplay, dispatch, createCreature, finish } = useContext(CreatureContext);
   const { user, userDispatch } = useContext(UserContext);
-
-  
 
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 
@@ -192,14 +190,14 @@ const CreatureForm = () => {
       purposeName: ''
     });
 
-    createCreature(newCreature);
+    finish('creature', newCreature);
 
     toggleFormDisplay();
   }
   
   
   
-  if (creatures.length === 6) {
+  if (user.creatures.length === 6) {
     return (
       <Route exact path="/creature/create">
         <Redirect to="/creatures" />
