@@ -93,8 +93,7 @@ const UserContextProvider = (props) => {
 
     await userService.readUser(res.db_id, res.accessToken)
       .then(response => {
-
-        const myCreatures = storedCreatures.length >= 1 ? storedCreatures : response.user_creatures;
+        console.log(response);
 
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
@@ -102,6 +101,8 @@ const UserContextProvider = (props) => {
           db_id: res.db_id,
           accessToken: res.accessToken,
           creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures,
+          newDay: response.new_day,
+          newTime: response.new_time,
         }});
 
         console.log('Successfully retrieved user data');

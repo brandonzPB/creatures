@@ -1,3 +1,5 @@
+import * as streak from '../modules/streak';
+
 const userReducer = (state, action) => {
   switch(action.type) {
     case 'LOG_IN':
@@ -7,8 +9,20 @@ const userReducer = (state, action) => {
         db_id: action.user.db_id,
         username: action.user.username,
         email: action.user.email,
-        creatures: action.user.creatures,
-      }
+        creatures: action.user.creatures.map(creature => {
+          // updates streaks (if broken) and ages
+          return {
+            ...creature,
+            streak_count: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
+              ? 0 : creature.streak_count,
+            streak_timestamp: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
+              ? Date.now() - 86400000 : creature.streak_timestamp,
+            streak_day: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
+              ? (new Date()).getDay() : creature.streak_day,
+            age: (streak.getAge(action.user.newTime, creature.birth_time)),
+          }
+        }),
+      };
     case 'POST_LOCAL_CREATURES':
       return {
         ...state,
@@ -124,8 +138,8 @@ const userReducer = (state, action) => {
             return {
               ...creature,
               streak_count: action.creature.newCount,
-              streak_timestamp: action.creature.newTimestamp,
-              streak_day: action.creature.day,
+              streak_timestamp: Date.now(),
+              streak_day: (new Date()).getDay()
             }
           }
 

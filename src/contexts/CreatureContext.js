@@ -113,6 +113,22 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully updated creature');
   }
 
+  // UPDATE CREATURE INFO
+  const updateCreatureInfo = async (creatureId) => {
+    const creature = user.creatures.filter(being => being.id === creatureId);
+
+    userDispatch({ type: 'UPDATE_CREATURE', creature: {
+      creature_name: creature.creature_name,
+      evolutions: creature.evolutions,
+    }});
+
+    await creatureService.updateCreatureObjectives(user.db_id, creatureId, creature[0], user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+
+    console.log('Successfully added creature');
+  }
+
   /// OBJECTIVE METHODS ///
 
   const checkObjectiveText = (creatureId, text) => {
@@ -134,22 +150,6 @@ const CreatureContextProvider = (props) => {
       .catch(err => console.error(err));
 
     console.log('Successfully updated objectives');
-  }
-
-  // UPDATE CREATURE INFO
-  const updateCreatureInfo = async (creatureId) => {
-    const creature = user.creatures.filter(being => being.id === creatureId);
-
-    userDispatch({ type: 'UPDATE_CREATURE', creature: {
-      creature_name: creature.creature_name,
-      evolutions: creature.evolutions,
-    }});
-
-    await creatureService.updateCreatureObjectives(user.db_id, creatureId, creature[0], user.accessToken)
-      .then(res => res)
-      .catch(err => console.error(err));
-
-    console.log('Successfully added creature');
   }
 
   // DELETE CREATURE
