@@ -1,21 +1,23 @@
 import React, { useState, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
+
 import CreatureOption from './CreatureOption';
+
 import { otherVersions } from '../../modules/pokemonList';
 import pokemon from 'pokemon';
+import * as megaMethods from '../../modules/megas';
 
 const CreatureUpdateForm = () => {
-  const { user } = useContext(UserContext);
+  const { user, userDispatch } = useContext(UserContext);
   const { currentId, showCreatureObjectives } = useContext(CreatureContext);
 
   const creature = user.creatures.filter(creature => creature.id === currentId);
 
-  console.log('creature', creature)
-
   const [update, setUpdate] = useState({
-    firstCreature: '',
+    firstCreature: '', // This represents the creature's current pokemon
     firstMega: '',
     secondCreature: '',
     secondMega: '',
@@ -60,69 +62,54 @@ const CreatureUpdateForm = () => {
   const updateCreature = event => {
     event.preventDefault();
 
+    // check megas from inputs
+    const megas = megaMethods.getMegas(update);
+
+    // assign selected versions (if any) to one array
+    const evolutions = megaMethods.putMegas(update, megas).map(item => {
+      if (!item.trim()) { return 'none' }
+
+      return item;
+    });
+
+    // check if any of the updates match the current values of the actual, unupdated creature
+    // true -> return current value
+    // false -> return update
+    const current = evolutions[0] === creature[0].creature
+      ? creature[0].evolutions[0]
+      : evolutions[0];
+
+    const second = evolutions[1] === creature[0].evolutions[1]
+      ? creature[0].evolutions[1]
+      : evolutions[1];
+
+    const third = evolutions[2] === creature[0].evolutions[2]
+      ? creature[0].evolutions[2]
+      : evolutions[2];
+
+    const fourth = evolutions[3] === creature[0].evolutions[3]
+      ? creature[0].evolutions[3]
+      : evolutions[3];
+
+    userDispatch({ type: 'UPDATE_CREATURE_INFO', creature: {
+      current, second, third, fourth
+    }});
+
     setUpdate({
       ...update,
-      creature: '',
-      creatureName: '',
+      firstCreature: '',
+      firstMega: '',
       secondCreature: '',
+      secondMega: '',
       thirdCreature: '',
-      fourthCreature: ''
+      thirdMega: '',
+      fourthCreature: '',
+      fourthMega: '',
+      creatureName: ''
     });
 
     showCreatureObjectives(currentId);
   }
-
-  /*
-  <form>
-          <label>Creature Name:</label>
-          <input 
-            type="text"
-            name="creatureName"
-            value={update.creatureName}
-            onChange={handleChange}
-          />
-          <label>Current Creature</label>
-          <select
-            className="select-creature"
-            onChange={handleChange}
-            name="firstCreature"
-            value={update.firstCreature}
-          >
-            <option defaultValue={true} value="">{creature[0].evolutions[0]}</option>
-          </select>
-          
-          <label>Second Creature</label>
-          <select
-            className="select-creature"
-            onChange={handleChange}
-            name="secondCreature"
-            value={update.secondCreature}
-          >
-            <option disabled={creature[0].evolutions[1] === creature[0].creature} defaultValue={true} value="">{creature[0].evolutions[1]}</option>
-          </select>
-
-          <label>Third Creature</label>
-          <select
-            className="select-creature"
-            onChange={handleChange}
-            name="thirdCreature"
-            value={update.thirdCreature}
-          >
-            <option disabled={creature[0].evolutions[2] === creature[0].creature} defaultValue={true} value="">{creature[0].evolutions[2]}</option>
-          </select>
-
-          <label>Third Creature</label>
-          <select
-            className="select-creature"
-            onChange={handleChange}
-            name="fourthCreature"
-            value={update.fourthCreature}
-          >
-            <option disabled={creature[0].evolutions[3] === creature[0].creature} defaultValue={true} value="">{creature[0].evolutions[3]}</option>
-          </select>
-        </form>
-
-  */
  
   return (
     <div className="creature-info creature-form">
@@ -154,7 +141,7 @@ const CreatureUpdateForm = () => {
                   name="firstCreature"
                   value={update.firstCreature}
                 >
-                  <option defaultValue={true} value="">{creature[0].evolutions[0]}</option>
+                  <option defaultValue={true} value="">{creature[0].creature}</option>
                   {OptionComponents}
                 </select>
               </div>
@@ -183,8 +170,13 @@ const CreatureUpdateForm = () => {
                   onChange={handleChange}
                   name="secondCreature"
                   value={update.secondCreature}
+                  disabled={creature[0].level >= 15}
                 >
-                  <option disabled={creature[0].evolutions[1] === creature[0].creature} defaultValue={true} value="">{creature[0].evolutions[1]}</option>
+                  <option defaultValue={true} value="">
+                    {
+                      creature[0].level >= 15 ? 'Past evolution' : creature[0].evolutions[1]
+                    }
+                  </option>
                   {OptionComponents}
                 </select>
               </div>
@@ -213,8 +205,13 @@ const CreatureUpdateForm = () => {
                   onChange={handleChange}
                   name="thirdCreature"
                   value={update.thirdCreature}
+                  disabled={creature[0].level >= 30}
                 >
-                  <option disabled={creature[0].evolutions[2] === creature[0].creature} defaultValue={true} value="">{creature[0].evolutions[2]}</option>
+                  <option defaultValue={true} value="">
+                  {
+                      creature[0].level >= 30 ? 'Past evolution' : creature[0].evolutions[2]
+                    }
+                  </option>
                   {OptionComponents}
                 </select>
               </div>
@@ -243,8 +240,13 @@ const CreatureUpdateForm = () => {
                   onChange={handleChange}
                   name="fourthCreature"
                   value={update.fourthCreature}
+                  disabled={creature[0].level >= 50}
                 >
-                  <option disabled={creature[0].evolutions[3] === creature[0].creature} defaultValue={true} value="">{creature[0].evolutions[3]}</option>
+                  <option defaultValue={true} value="">
+                  {
+                      creature[0].level >= 50 ? 'Past evolution' : creature[0].evolutions[3]
+                    }
+                  </option>
                   {OptionComponents}
                 </select>
               </div>

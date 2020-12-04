@@ -79,6 +79,18 @@ const deleteUser = (userId, userObject, token) => {
     .catch(err => console.error(err));
 };
 
+// LOGOUT (update everything first)
+const logout = (userId, userObject, token) => {
+  const req = axios.put(`${baseUrl}/${userId}/logout`, userObject, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  return req.then(res => res.data)
+    .catch(err => console.error(err));
+}
+
 export default { 
   getAll,
   createUser,
