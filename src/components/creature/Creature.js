@@ -13,16 +13,16 @@ const evolveMusicSrc = require('../../sounds/evolve.mp3');
 const evolveSound = new Audio(evolveMusicSrc);
 
 const Creature = ({ creature }) => {
-  const { displayObjectives, showCreatureObjectives, expUpdate, toggleExpUpdate } = useContext(CreatureContext);
+  const { displayObjectives, showCreatureObjectives, expUpdate, toggleExpUpdate, finish } = useContext(CreatureContext);
   const { user, userDispatch } = useContext(UserContext);
 
   const [levelUpdate, setLevelUpdate] = useState(false);
   const [evolve, setEvolve] = useState(false);
 
-  const pokeball = (!creature.pokeballNumber) ? 13
-    : (creature.pokeballNumber < 14) ? 13 // pokeball
-    : (creature.pokeballNumber === 14) ? 1 // greatball
-    : (creature.pokeballNumber === 15) ? 0 : 11; // ultraball : masterball
+  const pokeball = (!creature.pokeball_number) ? 13
+    : (creature.pokeball_number < 14) ? 13 // pokeball
+    : (creature.pokeball_number === 14) ? 1 // greatball
+    : (creature.pokeball_number === 15) ? 0 : 11; // ultraball : masterball
 
   const img = require(`../../images/pokeballs/${pokeball}.png`);
 
@@ -36,45 +36,6 @@ const Creature = ({ creature }) => {
 
   /// STREAK METHODS ///
 
-  const checkCreatureStreak = () => {
-    // checks if streak is broken ('broken', 'constant', or 'increment')
-
-    const streakTimestamp = creature.streak_timestamp;
-    const streakDay = creature.streak_day;
-    const thisDay = (new Date()).getDay();
-
-    if (streakDay === 6) { // Streak continues if current week day is 0 and less than 24 hours passed
-
-      if (thisDay !== 0 && thisDay !== 6) { // Streak broken
-        return 'broken';
-      } else if (thisDay === 0) { // Next week day
-        // if more than 2 days passed; streak is over
-        // else, increment streak count
-
-        const minDifference = age.getAge(streakTimestamp, false);
-        return minDifference > 2880 ? 'broken' : 'increment';
-      } else { // Same day
-
-        return 'constant';
-      }
-
-    } else { // Streak continues if current week day is streak.timestamp + 1, and if less than 24 hours passed
-      
-      if (thisDay === streakDay + 1) {
-        // if more than 2 days passed; streak is over
-        // else, increment streak count
-
-        const minDifference = age.getAge(streakTimestamp, false);
-        return minDifference > 2880 ? 'broken' : 'increment';
-      } else if (streakDay === thisDay) { // Same day
-
-        return 'constant';
-      } else {
-        return 'broken';
-      }
-    }
-  }
-
   const updateCreatureStreak = () => {
     const newCount = creature.streak_count + 1;
     const newTimestamp = Date.now();
@@ -86,6 +47,8 @@ const Creature = ({ creature }) => {
       newTimestamp,
       newDay,
     }});
+
+    finish('creature', creature, 'stats');
 
     return creature;
   }
@@ -101,6 +64,8 @@ const Creature = ({ creature }) => {
       newTimestamp,
       newDay,
     }});
+
+    finish('creature', creature, 'stats');
     
     return creature;
   }
@@ -109,17 +74,21 @@ const Creature = ({ creature }) => {
 
   // Updates age, streak, exp, and level
   useEffect(() => { 
-    const birthTime = creature.birth_time;
+    /* const birthTime = creature.birth_time;
     const newAge = age.getAge(birthTime);
+
+    console.log(creature.is_noob);
 
     userDispatch({ type: 'UPDATE_AGE', creature: { newAge, id: creature.id } });
 
-    const streak = checkCreatureStreak();
-    if (streak === 'broken') resetCreatureStreak();
+    finish('creature', creature, 'stats'); */
+
+    /* const streak = checkCreatureStreak();
+    if (streak === 'broken') resetCreatureStreak(); */
 
     if (!expUpdate) return;
     
-    if (streak === 'increment' || creature.streak.count === 0) updateCreatureStreak();
+    // if (streak === 'increment' || creature.streak_count === 0) updateCreatureStreak();
 
     if (creature.exp >= creature.exp_goal || creature.is_noob) {
       levelUpSound.currentTime = 1;
@@ -129,10 +98,12 @@ const Creature = ({ creature }) => {
 
       userDispatch({ type: 'LEVEL_UP', creature: { id: creature.id, level: newLevel }});
 
+      finish('creature', creature, 'stats');
+
       return toggleLevelUpdate();
     }
 
-    toggleExpUpdate();
+     toggleExpUpdate();
   }, [creature.exp]);
 
   // Updates creature multipliers
@@ -145,6 +116,8 @@ const Creature = ({ creature }) => {
 
       userDispatch({ type: 'UPGRADE_MULTIPLIERS', creature: { id: creature.id, difficulty, multiplier }});
 
+      finish('creature', creature, 'stats');
+
       const prevGoal = (creature.is_noob) ? 1 : creature.exp_goal;
       const newGoal = (creature.is_noob) ? 9 : stats.getExpGoal(creature.level, difficulty);
 
@@ -153,6 +126,8 @@ const Creature = ({ creature }) => {
         prevGoal,
         newGoal,
       }});
+
+      finish('creature', creature, 'stats');
 
       toggleExpUpdate();
       toggleLevelUpdate();
@@ -167,6 +142,8 @@ const Creature = ({ creature }) => {
           id: creature.id,
           newPokeball
         }});
+
+        finish('creature', creature, 'stats');
 
         return toggleEvolve();
       }
@@ -195,13 +172,12 @@ const Creature = ({ creature }) => {
 
       const nextCreature = creature.evolutions[nextCreatureIndex];
 
-      userDispatch({
-        type: 'EVOLVE',
-        creature: {
-          id: creature.id,
-          nextCreature
-        }
-      });
+      userDispatch({ type: 'EVOLVE', creature: {
+        id: creature.id,
+        nextCreature
+      }});
+
+      finish('creature', creature, 'stats');
 
       return toggleEvolve();
     }, 800);

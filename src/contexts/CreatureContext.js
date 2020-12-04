@@ -43,33 +43,28 @@ const CreatureContextProvider = (props) => {
 
   const [done, setDone] = useState({
     type: '',
-    object: ''
+    object: '',
+    method: '',
   });
 
   useEffect(() => {
-    if (done.type === 'objective') {
-      updateObjectives();
+    if (done.type.trim()) {
 
-      return setDone({
-        ...done,
-        type: '',
-        object: null
-      });
-    } else if (done.type === 'creature') {
-      createCreature(done.object);
+      if (done.type === 'objective') {
+        updateObjectives();
 
-      return setDone({
-        ...done,
-        type: '',
-        object: null
-      });
-    } else if (done.type === 'db') {
-      updateUser();
+      } else if (done.type === 'creature') {
+        if (done.method === 'create') createCreature(done.object);
+        else if (done.method === 'stats') updateCreatureStats(done.object.id);
 
-      return setDone({
-        ...done,
+      } else if (done.type === 'db') {
+        updateUser();
+      }
+
+      return setDone({ ...done,
         type: '',
-        object: null
+        object: null,
+        method: '',
       });
     }
 
@@ -77,16 +72,19 @@ const CreatureContextProvider = (props) => {
   }, [done]);
 
   // CREATE CREATURE
-  const finish = (type, object = null) => {
+  const finish = (type, object = null, method = null) => {
     return type = 'creature' ?
       setDone({
         ...done, 
         type,
-        object
+        object,
+        method
       }) :
       setDone({
         ...done,
-        type
+        type,
+        object,
+        method
       });
   }
 
@@ -104,23 +102,15 @@ const CreatureContextProvider = (props) => {
 
   // UPDATE CREATURE STATS
   const updateCreatureStats = async (creatureId) => {
+    console.log('Updating creature...');
+
     const creature = user.creatures.filter(being => being.id === creatureId);
 
-    await creatureService.updateCreatureStats(user.db_id, creatureId, creature[0], user.accessToken)
+    await creatureService.updateCreatureStats(user.db_id, creature[0]._id, creature[0], user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
 
-    userDispatch({ type: 'UPDATE_CREATURE', creature: {
-      exp: creature.exp,
-      exp_goal: creature.exp_goal,
-      exp_surplus: creature.exp_surplus,
-      prev_exp_goal: creature.prev_exp_goal,
-      difficulty: creature.difficulty,
-      multiplier: creature.multiplier,
-      pokeball_number: creature.pokeball_number,
-    }});
-
-    console.log('Successfully added creature');
+    console.log('Successfully updated creature');
   }
 
   /// OBJECTIVE METHODS ///
@@ -175,20 +165,22 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully deleted creature: ' + creature);
   }
 
-  const getExp = (creature, habit, time) => { 
-    if (creature.is_noob) return getFirstExp(creature);
+  const getExp = (habit, time) => { 
+    const creature = user.creatures.filter(creature => creature.id === currentId);
 
-    const streakCount = creature.streak_count;
+    if (creature[0].is_noob) return getFirstExp(creature[0]);
 
-    const newExp = objective.calcExp(creature.multiplier, streakCount, habit.difficulty, time);
-    const newTotal = creature.exp + newExp;
+    const streakCount = creature[0].streak_count;
 
-    const newSurplus = (newTotal >= creature.exp_goal) ? 
-      newTotal - creature.exp_goal :
-      creature.exp_surplus + newExp;
+    const newExp = objective.calcExp(creature[0].multiplier, streakCount, habit.difficulty, time);
+    const newTotal = creature[0].exp + newExp;
+
+    const newSurplus = (newTotal >= creature[0].exp_goal) ? 
+      newTotal - creature[0].exp_goal :
+      creature[0].exp_surplus + newExp;
 
     userDispatch({ type: 'ADD_EXP', creature: {
-      id: creature.id,
+      id: currentId,
       newTotal,
       newSurplus
     }});

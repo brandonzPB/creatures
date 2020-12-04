@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { CreatureContext } from '../../contexts/CreatureContext';
 
 const ObjectiveCompleteForm = ({ creature, objective }) => {
-  const { getExp, play, togglePlay, expUpdate, toggleExpUpdate } = useContext(CreatureContext);
+  const { getExp, play, togglePlay, expUpdate, toggleExpUpdate, finish } = useContext(CreatureContext);
 
   const [time, setTime] = useState(0);
 
@@ -16,15 +16,18 @@ const ObjectiveCompleteForm = ({ creature, objective }) => {
     if (!play) togglePlay();
     if (!expUpdate) toggleExpUpdate();
 
+    console.log('completing objective')
+
     if (!objective.is_timed) {
-      getExp(creature, objective, 1);
+      getExp(objective, 1);
+      finish('creature', creature, 'stats');
       return togglePlay();
     }
 
     getExp(creature, objective, time);
+    finish('creature', creature, 'stats');
 
     togglePlay();
-
     setTime(0);
   }
 

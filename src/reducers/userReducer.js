@@ -50,6 +50,20 @@ const userReducer = (state, action) => {
           }
         ]
       };
+    case 'UPDATE_AGE':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              age: action.creature.newAge,
+            }
+          }
+
+          return creature;
+        })
+      };
     case 'ADD_OBJECTIVE':
       return {
         ...state,
@@ -96,6 +110,95 @@ const userReducer = (state, action) => {
               ...creature,
               exp: action.creature.newTotal,
               exp_surplus: action.creature.newSurplus
+            }
+          }
+
+          return creature;
+        })
+      };
+    case 'UPDATE_STREAK':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              streak_count: action.creature.newCount,
+              streak_timestamp: action.creature.newTimestamp,
+              streak_day: action.creature.day,
+            }
+          }
+
+          return creature;
+        })
+      };
+    case 'LEVEL_UP':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              level: action.creature.level,
+              is_noob: false
+            }
+          }
+
+          return creature;
+        })
+      };
+    case 'UPGRADE_MULTIPLIERS':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              difficulty: action.creature.difficulty,
+              multiplier: action.creature.multiplier,
+            }
+          }
+
+          return creature;
+        })
+      };
+    case 'LEVEL_UPDATES':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              prev_exp_goal: action.creature.prevGoal,
+              exp_goal: action.creature.newGoal,
+            }
+          }
+
+          return creature;
+        })
+      };
+    case 'UPDATE_POKEBALL':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              pokeball_number: action.creature.newPokeball,
+            }
+          }
+
+          return creature;
+        })
+      };
+    case 'EVOLVE':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              creature: action.creature.nextCreature,
             }
           }
 

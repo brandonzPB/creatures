@@ -35,11 +35,12 @@ const readCreature = (userId, creatureId, token) => {
 
 // UPDATE creature stats
 const updateCreatureStats = (userId, creatureId, creatureObject, token) => {
-  const req = axios.post(`${baseUrl}/${userId}/creature/${creatureId}`, creatureObject, {
+  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}`, creatureObject, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
   });
+  
   return req.then(res => res.data);
 };
 

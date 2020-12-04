@@ -1,14 +1,18 @@
-import pokemon from 'pokemon';
 import React, { useState, useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
+
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
+
 import * as stats from '../../modules/stats';
 import * as age from '../../modules/age';
-import { Link } from 'react-router-dom';
-import CreatureOption from './CreatureOption';
 import { otherVersions } from '../../modules/pokemonList';
+
+import CreatureOption from './CreatureOption';
+
 import { v4 as uuidv4 } from 'uuid';
+import pokemon from 'pokemon';
+
 
 const CreatureForm = () => {
   const { creatures, formDisplay, toggleFormDisplay, dispatch, createCreature, finish } = useContext(CreatureContext);
@@ -40,7 +44,7 @@ const CreatureForm = () => {
     creatureName: '',
     purpose: 'hobby',
     purposeName: ''
-  })
+  });
   
   if (!user.accessToken) {
     return (
@@ -59,6 +63,7 @@ const CreatureForm = () => {
     });
   }
 
+  // GET MEGAS
   const getMegas = () => {
     let inputs = ['first', 'second', 'third', 'fourth'];
     let selectedVersions = [];
@@ -92,6 +97,7 @@ const CreatureForm = () => {
     return selectedVersions;
   }
 
+  // PUT MEGAS
   const putMegas = megas => {
     const evolutions = [];
 
@@ -127,9 +133,7 @@ const CreatureForm = () => {
     const megas = getMegas();
  
     const evolutions = putMegas(megas).map(item => {
-      if (!item.trim()) {
-        return 'none';
-      }
+      if (!item.trim()) { return 'none'; }
 
       return item;
     });
@@ -190,12 +194,10 @@ const CreatureForm = () => {
       purposeName: ''
     });
 
-    finish('creature', newCreature);
+    finish('creature', newCreature, 'create');
 
     toggleFormDisplay();
   }
-  
-  
   
   if (user.creatures.length === 6) {
     return (
