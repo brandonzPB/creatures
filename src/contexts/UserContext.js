@@ -75,12 +75,6 @@ const UserContextProvider = (props) => {
     userDispatch({ type: 'POST_LOCAL_CREATURES', creatures: { creatures }});
   }
 
-  const updateStreaks = () => {
-    creatureService.updateStreaks(user.db_id, user.creatures, user.accessToken)
-      .then(res => res)
-      .catch(err => console.error(err));
-  }
-
   // GET user info
   const getUserInfo = async (res) => {
     console.log('Successfully logged in', res.db_id, res.accessToken);
@@ -107,11 +101,8 @@ const UserContextProvider = (props) => {
           email: response.user.email,
           db_id: res.db_id,
           accessToken: res.accessToken,
-          creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures
+          creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures,
         }});
-
-        updateStreaks();
-        // update ages
 
         console.log('Successfully retrieved user data');
       })
