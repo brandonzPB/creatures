@@ -33,6 +33,17 @@ const readCreature = (userId, creatureId, token) => {
   return req.then(res => res.data);
 };
 
+const updateStreaks = (userId, token) => {
+  const req = axios.get(`${baseUrl}/${userId}/creatures/streaks`, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  return req.then(res => res)
+    .catch(err => console.error(err));
+}
+
 // UPDATE creature stats
 const updateCreatureStats = (userId, creatureId, creatureObject, token) => {
   const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}`, creatureObject, {
@@ -90,6 +101,7 @@ export default {
   getAll,
   createCreature,
   readCreature,
+  updateStreaks,
   updateCreatureStats,
   updateObjectives,
   deleteObjective,

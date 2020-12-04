@@ -1,5 +1,6 @@
 import React, { useState, useReducer, createContext, useEffect } from 'react';
 import userService from '../services/userService';
+import creatureService from '../services/creatureService';
 import userReducer from '../reducers/userReducer';
 
 export const UserContext = createContext();
@@ -74,6 +75,12 @@ const UserContextProvider = (props) => {
     userDispatch({ type: 'POST_LOCAL_CREATURES', creatures: { creatures }});
   }
 
+  const updateStreaks = () => {
+    creatureService.updateStreaks(user.db_id, user.creatures, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+  }
+
   // GET user info
   const getUserInfo = async (res) => {
     console.log('Successfully logged in', res.db_id, res.accessToken);
@@ -93,6 +100,8 @@ const UserContextProvider = (props) => {
     await userService.readUser(res.db_id, res.accessToken)
       .then(response => {
 
+        const myCreatures = storedCreatures.length >= 1 ? storedCreatures : response.user_creatures;
+
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
           email: response.user.email,
@@ -100,6 +109,9 @@ const UserContextProvider = (props) => {
           accessToken: res.accessToken,
           creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures
         }});
+
+        updateStreaks();
+        // update ages
 
         console.log('Successfully retrieved user data');
       })
