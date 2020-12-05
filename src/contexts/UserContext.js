@@ -21,8 +21,13 @@ const UserContextProvider = (props) => {
   }, [user]);
 
   const checkUsername = () => {
+    console.log('Checking username availability...');
+
     userService.checkUsername(user.db_id, user, user.accessToken)
-      .then(res => res)
+      .then(res => {
+        console.log(res);
+        return res;
+      })
       .catch(err => console.error(err));
   }
 
@@ -63,8 +68,31 @@ const UserContextProvider = (props) => {
     userDispatch({ type: 'POST_LOCAL_CREATURES', creatures: { creatures }});
   }
 
+  const refreshUser = () => {
+    console.log('Refreshing!');
+
+    userService.readUser(user.db_id, user.accessToken)
+      .then(res => {
+        console.log(res);
+
+        userDispatch({ type: 'REFRESH_USER', user: {
+          username: res.user.username,
+          email: res.user.email,
+          password: res.user.password,
+          db_id: user.db_id,
+          accessToken: user.accessToken,
+          creatures: res.user_creatures
+        }});
+
+        return res;
+      })
+      .catch(err => console.error(err));
+  }
+
   const updateUser = () => {
-    userService.readUser(user.db_id, user, user.accessToken)
+    console.log('Updating user...');
+
+    userService.updateUser(user.db_id, user, user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
   }
@@ -92,6 +120,7 @@ const UserContextProvider = (props) => {
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
           email: response.user.email,
+          password: response.user.password,
           db_id: res.db_id,
           accessToken: res.accessToken,
           creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures,
@@ -150,6 +179,7 @@ const UserContextProvider = (props) => {
       user,
       userDispatch,
       checkUsername,
+      refreshUser,
       updateUser,
       error,
       setError,

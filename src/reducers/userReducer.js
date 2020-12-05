@@ -36,14 +36,11 @@ const userReducer = (state, action) => {
         ...state,
         creatures: action.creatures.creatures
       };
-    case 'UPDATE_USER':
+    case 'REFRESH_USER':
       return {
         ...state,
-        username: action.user.username,
-        email: action.user.email,
-        password: action.user.password,
         creatures: action.user.creatures,
-        updated: true
+        refreshed: true
       };
     case 'ADD_CREATURE':
       return {
@@ -249,7 +246,7 @@ const userReducer = (state, action) => {
         creatures: [],
         newDay: 0,
         newTime: 0,
-        updated: false,
+        refreshed: false,
       };
     default:
       return state;

@@ -4,11 +4,11 @@ import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 
 const User = () => {
-  const { user, userDispatch, updateUser } = useContext(UserContext);
+  const { user, userDispatch, refreshUser } = useContext(UserContext);
   const { creatures, finish } = useContext(CreatureContext);
 
-  const sendUpdate = () => {
-    updateUser();
+  const sendRefresh = () => {
+    refreshUser();
   }
 
   if (!user.accessToken) {
@@ -19,7 +19,7 @@ const User = () => {
     )
   }
 
-  if (user.updated) {
+  if (user.refreshed) {
     return (
       <Route exact path="/user">
         <Redirect to="/creatures" />
@@ -29,7 +29,7 @@ const User = () => {
 
   return (
     <div className="user-container">
-      <button onClick={sendUpdate}>View Creatures</button>
+      <button onClick={sendRefresh}>View Creatures</button>
       <Link to="/user/update">Edit User Info</Link>
     </div>
   )

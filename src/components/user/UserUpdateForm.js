@@ -50,6 +50,10 @@ const UserUpdateForm = () => {
     let email;
     let password;
 
+    if (!update.username.trim() && !update.email.trim() && !update.password.trim()) {
+      return false;
+    }
+
     if (update.username.trim()) {
       const usernameIsFree = checkUsername();
 

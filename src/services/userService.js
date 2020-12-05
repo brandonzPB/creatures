@@ -48,8 +48,9 @@ const readUser = (userId, token) => {
     .catch(err => console.error(err));
 };
 
-// GET USERNAMES; RETURN IF REQUEST IS AVAILABLE
+// GET USERNAMES
 const checkUsername = (userId, userObject, token) => {
+  // returns if request is available
   const req = axios.get(`${baseUrl}/usernames`, userObject, {
     headers: {
       'Authorization': `Bearer ${token}`
