@@ -46,6 +46,11 @@ const UserUpdateForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    setError({
+      ...error,
+      ref: '',
+    });
+
     let username;
     let email;
     let password;
@@ -55,42 +60,54 @@ const UserUpdateForm = () => {
     }
 
     if (update.username.trim()) {
-      const userExists = await userService.checkUsername('username', update.username, user, user.accessToken).then(res => res);
+      if (update.username !== user.username) {
+        const userExists = await userService.checkUsername('username', update.username, user, user.accessToken).then(res => res);
 
-      console.log('userExists', userExists)
+        if (userExists !== 'Available') {
+          console.log('Username is already taken');
 
-      if (userExists) {
-        console.log('Username is already taken');
-
-        return setError({
-          ...error,
-          ref: 'username'
-        });
+          return setError({
+            ...error,
+            ref: 'username'
+          });
+        } else {
+          console.log('Username is available');
+          username = update.username;
+        }
       } else {
-        console.log('Username is available');
+        username = update.username;
       }
+    } else {
+      username = user.username;
     }
 
     if (update.email.trim()) {
-      const emailExists = await userService.checkUsername('email', update.email, user, user.accessToken).then(res => res);
+      if (update.email !== user.email) {
+        const emailExists = await userService.checkUsername('email', update.email, user, user.accessToken).then(res => res);
 
-      if (emailExists) {
-        console.log('Email is already taken');
+        if (update.email !== update.confirmEmail) {
+          return setError({
+            ...error,
+            ref: 'email'
+          });
+        }
 
-        return setError({
-          ...error,
-          ref: 'email'
-        });
+        if (emailExists !== 'Available') {
+          console.log('Email is already taken');
+
+          return setError({
+            ...error,
+            ref: 'email'
+          });
+        } else {
+          console.log('Email is available');
+          email = update.email;
+        }
       } else {
-        console.log('Email is available');
+        email = update.email;
       }
-      
-      if (update.email !== update.confirmEmail) {
-        return setError({
-          ...error,
-          ref: 'email'
-        });
-      }
+    } else {
+      email = user.email;
     }
 
     if (update.password.trim()) {
@@ -100,25 +117,28 @@ const UserUpdateForm = () => {
           ref: 'password'
         });
       }
+    } else {
+      password = user.password;
     }
 
-    username = !update.username.trim() || update.username === user.username
-      ? user.username
-      : update.username;
-
-    email = !update.email.trim() || update.email === user.email
-      ? user.email
-      : update.email;
-    
-    password = !update.password.trim() || update.password === user.password
-      ? user.password
-      : update.password;
+    if (update.email.trim() !== update.confirmEmail) {
+      return setError({
+        ...error,
+        ref: 'email'
+      });
+    } else if (update.password.trim() !== update.confirmPassword) {
+      return setError({
+        ...error,
+        ref: 'password'
+      });
+    }
 
     userDispatch({ type: 'UPDATE_USER', user: {
       username, email, password
     }});
 
-    finish('db');
+    if (password !== user.password) finish('db', null, 'newPassword');
+    else finish('db', null, 'false');
 
     setUpdate({
       ...update,
@@ -127,8 +147,6 @@ const UserUpdateForm = () => {
       password: '',
     });
   }
-
-  const returnHome = () => {}
 
   const sendDelete = () => {
     if (deleteUser.confirmDelete) {
@@ -151,7 +169,7 @@ const UserUpdateForm = () => {
   }
 
   /*
-  check if password already exists
+  update user
   delete user
   */
 

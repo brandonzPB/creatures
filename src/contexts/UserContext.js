@@ -20,18 +20,6 @@ const UserContextProvider = (props) => {
     console.log(user.accessToken);
   }, [user]);
 
-  const checkUsername = () => {
-    console.log('Checking username availability...');
-
-    userService.checkUsername(user, user.accessToken)
-      .then(res => {
-        console.log('res', res);
-
-        return res;
-      })
-      .catch(err => console.error(err));
-  }
-
   // POST new user
   const addUser = async (userObject) => {
 
@@ -90,10 +78,10 @@ const UserContextProvider = (props) => {
       .catch(err => console.error(err));
   }
 
-  const updateUser = () => {
+  const updateUser = (method) => {
     console.log('Updating user...');
 
-    userService.updateUser(user.db_id, user, user.accessToken)
+    userService.updateUser(method, user.db_id, user, user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
   }
@@ -179,7 +167,6 @@ const UserContextProvider = (props) => {
     <UserContext.Provider value={{
       user,
       userDispatch,
-      checkUsername,
       refreshUser,
       updateUser,
       error,

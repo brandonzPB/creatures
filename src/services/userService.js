@@ -51,19 +51,18 @@ const readUser = (userId, token) => {
 // GET USERNAMES
 const checkUsername = (type, input, userObject, token) => {
   // returns if request is available
-
-  let thisUser = {};
+  let thisUser;
 
   type === 'username'
     ? thisUser = {
       ...userObject,
       username: input,
-      type
+      type: 'username',
     }
     : thisUser = {
       ...userObject,
       email: input,
-      type
+      type: 'email',
     };
 
   const req = axios.post(`${baseUrl}/usernames`, thisUser, {
@@ -72,7 +71,10 @@ const checkUsername = (type, input, userObject, token) => {
     }
   });
 
-  return req.then(res => res.data)
+  return req.then(res => {
+    console.log('res', res.data);
+    return res.data;
+  })
     .catch(err => console.error(err));
 }
 
@@ -89,8 +91,13 @@ const storeLocalCreatures = (userId, creatures, token) => {
 }
 
 // UPDATE user
-const updateUser = (userId, userObject, token) => {
-  const req = axios.put(`${baseUrl}/${userId}/update`, userObject, {
+const updateUser = (type = 'none', userId, userObject, token) => {
+  const thisUser = {
+    ...userObject,
+    type
+  };
+
+  const req = axios.put(`${baseUrl}/${userId}/update`, thisUser, {
     headers: {
       'Authorization': `Bearer ${token}`
     }

@@ -59,7 +59,7 @@ const CreatureContextProvider = (props) => {
         else if (done.method === 'info') updateCreatureInfo(done.object.id);
 
       } else if (done.type === 'db') {
-        updateUser();
+        updateUser(done.method);
       }
 
       return setDone({ ...done,

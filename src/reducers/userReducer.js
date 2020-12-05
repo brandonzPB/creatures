@@ -42,6 +42,13 @@ const userReducer = (state, action) => {
         creatures: action.user.creatures,
         refreshed: true
       };
+    case 'UPDATE_USER':
+      return {
+        ...state,
+        username: action.user.username,
+        email: action.user.email,
+        password: action.user.password
+      };
     case 'ADD_CREATURE':
       return {
         ...state,
