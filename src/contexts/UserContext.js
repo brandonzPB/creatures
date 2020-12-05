@@ -20,6 +20,12 @@ const UserContextProvider = (props) => {
     console.log(user.accessToken);
   }, [user]);
 
+  const checkUsername = () => {
+    userService.checkUsername(user.db_id, user, user.accessToken)
+      .then(res => res)
+      .catch(err => console.error(err));
+  }
+
   // POST new user
   const addUser = async (userObject) => {
 
@@ -58,21 +64,8 @@ const UserContextProvider = (props) => {
   }
 
   const updateUser = () => {
-    userService.readUser(user.db_id, user.accessToken)
-      .then(res => {
-        console.log(res);
-
-        userDispatch({ type: 'UPDATE_USER', user: {
-          username: res.user.username,
-          email: res.user.email,
-          password: res.user.password,
-          db_id: user.db_id,
-          accessToken: user.accessToken,
-          creatures: res.user_creatures
-        }});
-
-        return res;
-      })
+    userService.readUser(user.db_id, user, user.accessToken)
+      .then(res => res)
       .catch(err => console.error(err));
   }
 
@@ -130,7 +123,21 @@ const UserContextProvider = (props) => {
   }
 
   // DELETE user
-  const deleteUser = userObject => {}
+  const removeUser = userObject => {
+    console.log('Deleting user...');
+
+    userService.deleteUser(user.db_id, user, user.accessToken)
+      .then(res => {
+        console.log('res', res);
+
+        localStorage.removeItem('my-user');
+
+        return res;
+      })
+      .catch(err => console.error(err));
+
+    console.log('Successfully deleted user');
+  }
 
   // LOG OUT
   const logout = () => {
@@ -142,13 +149,14 @@ const UserContextProvider = (props) => {
     <UserContext.Provider value={{
       user,
       userDispatch,
+      checkUsername,
       updateUser,
       error,
       setError,
       addUser,
       login,
       postLocalCreatures,
-      deleteUser,
+      removeUser,
       logout,
     }}>
       {props.children}

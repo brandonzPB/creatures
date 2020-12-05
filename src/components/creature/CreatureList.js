@@ -36,6 +36,9 @@ const CreatureList = () => {
 
   return (
     <div className="display-container">
+      <Link to="user/update">
+        <p className="user-update-link">User Info</p>
+      </Link>
       {
         user.creatures.length < 6 || user.creatures.length === undefined ?
           <Link to="/creature/create">

@@ -48,6 +48,18 @@ const readUser = (userId, token) => {
     .catch(err => console.error(err));
 };
 
+// GET USERNAMES; RETURN IF REQUEST IS AVAILABLE
+const checkUsername = (userId, userObject, token) => {
+  const req = axios.get(`${baseUrl}/usernames`, userObject, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  return req.then(res => res.data)
+    .catch(err => console.error(err));
+}
+
 // POST localStorage creatures
 const storeLocalCreatures = (userId, creatures, token) => {
   const req = axios.post(`${baseUrl}/${userId}`, creatures, {
@@ -89,6 +101,7 @@ export default {
   createUser,
   login,
   readUser,
+  checkUsername,
   storeLocalCreatures,
   updateUser,
   deleteUser 
