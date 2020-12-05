@@ -162,7 +162,7 @@ const CreatureForm = () => {
       is_noob: true,
       streak_count: 0,
       streak_timestamp: Date.now(),
-      streak_day: (new Date()).getDay(),
+      streak_day: user.newDay,
     }
 
     userDispatch({type: 'ADD_CREATURE', creature: {

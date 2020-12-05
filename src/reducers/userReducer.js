@@ -22,6 +22,8 @@ const userReducer = (state, action) => {
             age: (streak.getAge(action.user.newTime, creature.birth_time)),
           }
         }),
+        new_day: action.user.newDay,
+        new_time: action.user.newTime,
       };
     case 'POST_LOCAL_CREATURES':
       return {
@@ -32,6 +34,14 @@ const userReducer = (state, action) => {
       return {
         ...state,
         creatures: action.creatures.creatures
+      };
+    case 'UPDATE_USER':
+      return {
+        ...state,
+        username: action.user.username,
+        email: action.user.email,
+        creatures: action.user.creatures,
+        updated: true
       };
     case 'ADD_CREATURE':
       return {
@@ -60,23 +70,9 @@ const userReducer = (state, action) => {
             is_noob: true,
             streak_count: 0,
             streak_timestamp: Date.now(),
-            streak_day: (new Date()).getDay(),
+            streak_day: action.creature.streak_day
           }
         ]
-      };
-    case 'UPDATE_AGE':
-      return {
-        ...state,
-        creatures: state.creatures.map(creature => {
-          if (creature.id === action.creature.id) {
-            return {
-              ...creature,
-              age: action.creature.newAge,
-            }
-          }
-
-          return creature;
-        })
       };
     case 'ADD_OBJECTIVE':
       return {
@@ -233,6 +229,9 @@ const userReducer = (state, action) => {
         email: null,
         password: null,
         creatures: [],
+        newDay: 0,
+        newTime: 0,
+        updated: false,
       };
     default:
       return state;

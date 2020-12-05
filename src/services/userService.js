@@ -11,7 +11,12 @@ const createUser = (userObject) => {
 // LOGIN
 const login = (credentials) => {
   const req = axios.post(`${baseUrl}/login`, credentials);
-  return req.then(res => res.data)
+
+  return req.then(res => {
+    console.log('res', res.data);
+
+    return res.data;
+  })
     .catch(err => console.error(err));
 }
 
@@ -78,18 +83,6 @@ const deleteUser = (userId, userObject, token) => {
   return req.then(res => res.data)
     .catch(err => console.error(err));
 };
-
-// LOGOUT (update everything first)
-const logout = (userId, userObject, token) => {
-  const req = axios.put(`${baseUrl}/${userId}/logout`, userObject, {
-    headers: {
-      'Authorization': `Bearer ${token}`
-    }
-  });
-
-  return req.then(res => res.data)
-    .catch(err => console.error(err));
-}
 
 export default { 
   getAll,

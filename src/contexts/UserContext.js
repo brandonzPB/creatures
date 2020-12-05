@@ -20,24 +20,6 @@ const UserContextProvider = (props) => {
     console.log(user.accessToken);
   }, [user]);
 
-  const updateUser = () => {
-    userService.readUser(user.db_id, user.accessToken)
-      .then(res => {
-        console.log(res);
-
-        userDispatch({ type: 'LOG_IN', user: {
-          username: res.user.username,
-          email: res.user.email,
-          db_id: user.db_id,
-          accessToken: user.accessToken,
-          creatures: res.user_creatures
-        }});
-
-        return res;
-      })
-      .catch(err => console.error(err));
-  }
-
   // POST new user
   const addUser = async (userObject) => {
 
@@ -75,6 +57,24 @@ const UserContextProvider = (props) => {
     userDispatch({ type: 'POST_LOCAL_CREATURES', creatures: { creatures }});
   }
 
+  const updateUser = () => {
+    userService.readUser(user.db_id, user.accessToken)
+      .then(res => {
+        console.log(res);
+
+        userDispatch({ type: 'UPDATE_USER', user: {
+          username: res.user.username,
+          email: res.user.email,
+          db_id: user.db_id,
+          accessToken: user.accessToken,
+          creatures: res.user_creatures
+        }});
+
+        return res;
+      })
+      .catch(err => console.error(err));
+  }
+
   // GET user info
   const getUserInfo = async (res) => {
     console.log('Successfully logged in', res.db_id, res.accessToken);
@@ -84,7 +84,7 @@ const UserContextProvider = (props) => {
     console.log(storedCreatures);
 
     if (storedCreatures.length >= 1) {
-      postLocalCreatures(res.db_ib, storedCreatures, res.accessToken);
+      postLocalCreatures(res.db_id, storedCreatures, res.accessToken);
       console.log('Retrieved localStorage creatures');
 
       localStorage.removeItem('my-creatures');
@@ -116,9 +116,9 @@ const UserContextProvider = (props) => {
 
     localStorage.removeItem('my-user');
 
-    await userService.login({
-      username,
-      password
+    await userService.login({ 
+      username, 
+      password 
     })
       .then(res => { 
         return getUserInfo(res); 

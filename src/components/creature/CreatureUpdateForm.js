@@ -91,6 +91,13 @@ const CreatureUpdateForm = () => {
       ? creature[0].evolutions[3]
       : evolutions[3];
 
+    // if current/second/... === 'none' -> set to current value
+
+    console.log('evolutions', [current, second, third, fourth]);
+    console.log('creatureName', update.creatureName);
+
+    return;
+
     userDispatch({ type: 'UPDATE_CREATURE_INFO', creature: {
       current, second, third, fourth
     }});

@@ -5,8 +5,6 @@ export const getMegas = creature => {
   let selectedVersions = [];
 
   inputs.map(i => {
-    console.log(`${i}Mega`, creature[`${i}Mega`]);
-
     const versionInput = creature[`${i}Mega`].toLowerCase();
 
     if (!creature[`${i}Mega`].trim()) return selectedVersions.push('normal');

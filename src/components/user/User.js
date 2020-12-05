@@ -4,8 +4,12 @@ import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 
 const User = () => {
-  const { user, userDispatch } = useContext(UserContext);
-  const { creatures } = useContext(CreatureContext);
+  const { user, userDispatch, updateUser } = useContext(UserContext);
+  const { creatures, finish } = useContext(CreatureContext);
+
+  const sendUpdate = () => {
+    updateUser();
+  }
 
   if (!user.accessToken) {
     return (
@@ -15,9 +19,17 @@ const User = () => {
     )
   }
 
+  if (user.updated) {
+    return (
+      <Route exact path="/user">
+        <Redirect to="/creatures" />
+      </Route>
+    )
+  }
+
   return (
     <div className="user-container">
-      <Link to="/creatures">View Creatures</Link>
+      <button onClick={sendUpdate}>View Creatures</button>
       <Link to="/user/update">Edit User Info</Link>
     </div>
   )
