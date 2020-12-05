@@ -43,7 +43,7 @@ const UserUpdateForm = () => {
     });
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     let username;
@@ -55,17 +55,36 @@ const UserUpdateForm = () => {
     }
 
     if (update.username.trim()) {
-      const usernameIsFree = checkUsername();
+      const userExists = await userService.checkUsername('username', update.username, user, user.accessToken).then(res => res);
 
-      if (!usernameIsFree) {
+      console.log('userExists', userExists)
+
+      if (userExists) {
+        console.log('Username is already taken');
+
         return setError({
           ...error,
           ref: 'username'
         });
+      } else {
+        console.log('Username is available');
       }
     }
 
     if (update.email.trim()) {
+      const emailExists = await userService.checkUsername('email', update.email, user, user.accessToken).then(res => res);
+
+      if (emailExists) {
+        console.log('Email is already taken');
+
+        return setError({
+          ...error,
+          ref: 'email'
+        });
+      } else {
+        console.log('Email is available');
+      }
+      
       if (update.email !== update.confirmEmail) {
         return setError({
           ...error,

@@ -49,9 +49,24 @@ const readUser = (userId, token) => {
 };
 
 // GET USERNAMES
-const checkUsername = (userId, userObject, token) => {
+const checkUsername = (type, input, userObject, token) => {
   // returns if request is available
-  const req = axios.get(`${baseUrl}/usernames`, userObject, {
+
+  let thisUser = {};
+
+  type === 'username'
+    ? thisUser = {
+      ...userObject,
+      username: input,
+      type
+    }
+    : thisUser = {
+      ...userObject,
+      email: input,
+      type
+    };
+
+  const req = axios.post(`${baseUrl}/usernames`, thisUser, {
     headers: {
       'Authorization': `Bearer ${token}`
     }

@@ -23,9 +23,10 @@ const UserContextProvider = (props) => {
   const checkUsername = () => {
     console.log('Checking username availability...');
 
-    userService.checkUsername(user.db_id, user, user.accessToken)
+    userService.checkUsername(user, user.accessToken)
       .then(res => {
-        console.log(res);
+        console.log('res', res);
+
         return res;
       })
       .catch(err => console.error(err));
