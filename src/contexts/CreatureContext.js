@@ -56,6 +56,7 @@ const CreatureContextProvider = (props) => {
       } else if (done.type === 'creature') {
         if (done.method === 'create') createCreature(done.object);
         else if (done.method === 'stats') updateCreatureStats(done.object.id);
+        else if (done.method === 'info') updateCreatureInfo(done.object.id);
 
       } else if (done.type === 'db') {
         updateUser();
@@ -115,18 +116,15 @@ const CreatureContextProvider = (props) => {
 
   // UPDATE CREATURE INFO
   const updateCreatureInfo = async (creatureId) => {
+    console.log('Updating creature...');
+
     const creature = user.creatures.filter(being => being.id === creatureId);
 
-    userDispatch({ type: 'UPDATE_CREATURE', creature: {
-      creature_name: creature.creature_name,
-      evolutions: creature.evolutions,
-    }});
-
-    await creatureService.updateCreatureObjectives(user.db_id, creatureId, creature[0], user.accessToken)
+    await creatureService.updateCreatureInfo(user.db_id, creature[0]._id, creature[0], user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
 
-    console.log('Successfully added creature');
+    console.log('Successfully updated creature');
   }
 
   /// OBJECTIVE METHODS ///

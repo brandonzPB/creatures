@@ -5,7 +5,7 @@ import { ConfirmDisplayContext } from '../../contexts/ConfirmDisplayContext';
 import { UserContext } from '../../contexts/UserContext';
 import Objective from './Objective';
 import ObjectiveForm from './ObjectiveForm';
-import ConfirmDisplay from '../creature/ConfirmDisplay';
+import ConfirmDisplay from '../ConfirmDisplay';
 import Creature from '../creature/Creature';
 import * as ageMethods from '../../modules/age';
 

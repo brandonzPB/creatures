@@ -6,6 +6,7 @@ import { UserContext } from '../../contexts/UserContext';
 
 import * as stats from '../../modules/stats';
 import * as age from '../../modules/age';
+import * as megaMethods from '../../modules/megas';
 import { otherVersions } from '../../modules/pokemonList';
 
 import CreatureOption from './CreatureOption';
@@ -55,73 +56,32 @@ const CreatureForm = () => {
   }
 
   const handleChange = (event) => {
-    const { value, name } = event.target;
+    const { value, name, className } = event.target;
 
-    setCreature({
-      ...creature,
-      [name]: value
-    });
-  }
+    if (className === 'select-creature') {
+      let megaPlace;
 
-  // GET MEGAS
-  const getMegas = () => {
-    let inputs = ['first', 'second', 'third', 'fourth'];
-    let selectedVersions = [];
-
-    inputs.map(i => {
-      const versionInput = creature[`${i}Mega`].toLowerCase();
-
-      if (!creature[`${i}Mega`].trim()) return selectedVersions.push('normal');
-
-      const creatureName = i === 'first' ? creature.firstCreature
-          : i === 'second' ? creature.secondCreature
-          : i === 'third' ? creature.thirdCreature
-          : creature.fourthCreature;
-
-      // get pokemon info from those that have other versions
-      const pkmnInfo = otherVersions.filter(pkmn => pkmn.name === creatureName.toLowerCase());
-
-      if (!pkmnInfo[0].name) return selectedVersions.push('normal');
-      
-      // check if versionInput exists in the pokemon's versions
-      const version = pkmnInfo[0].versions.filter(v => v === versionInput);
-
-      // if it does, length of version is greater than 0
-      if (version.length > 0) {
-        return selectedVersions.push(version);
+      if (name === 'firstCreature') {
+        megaPlace = 'firstMega';
+      } else if (name === 'secondCreature') {
+        megaPlace = 'secondMega';
+      } else if (name === 'thirdCreature') {
+        megaPlace = 'thirdMega';
+      } else {
+        megaPlace = 'fourthMega';
       }
 
-      return selectedVersions.push('normal');
-    });
-
-    return selectedVersions;
-  }
-
-  // PUT MEGAS
-  const putMegas = megas => {
-    const evolutions = [];
-
-    for (let i = 0; i < megas.length; i++) {
-      const place = i === 0 ? 'first' :
-        i === 1 ? 'second' :
-        i === 2 ? 'third' :
-        'fourth';
-
-      const selectedVersion = megas[i] === 'normal' ? ''
-        : megas[i] === 'none' ? '' 
-        : `-${megas[i]}`;
-
-      const creatureInput = place === 'first' ? 'firstCreature'
-        : place === 'second' ? 'secondCreature'
-        : place === 'third' ? 'thirdCreature'
-        : 'fourthCreature';
-
-      const version = `${creature[creatureInput]}${selectedVersion}`;
-
-      evolutions.push(version.toLowerCase());
+      setCreature({
+        ...creature,
+        [megaPlace]: '',
+        [name]: value
+      });
+    } else {
+      setCreature({
+        ...creature,
+        [name]: value
+      });
     }
-
-    return evolutions;
   }
 
   const addCreature = (event) => {
@@ -130,9 +90,9 @@ const CreatureForm = () => {
     const difficulty = stats.getCreatureDifficulty(creature.purpose, 1);
     const multiplier = stats.getExpMultiplier(1);
 
-    const megas = getMegas();
+    const megas = megaMethods.getMegas(creature);
  
-    const evolutions = putMegas(megas).map(item => {
+    const evolutions = megaMethods.putMegas(creature, megas).map(item => {
       if (!item.trim()) { return 'none'; }
 
       return item;

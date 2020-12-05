@@ -9,6 +9,7 @@ const userReducer = (state, action) => {
         db_id: action.user.db_id,
         username: action.user.username,
         email: action.user.email,
+        password: action.user.password,
         creatures: action.user.creatures.map(creature => {
           // updates streaks (if broken) and ages
           return {
@@ -40,6 +41,7 @@ const userReducer = (state, action) => {
         ...state,
         username: action.user.username,
         email: action.user.email,
+        password: action.user.password,
         creatures: action.user.creatures,
         updated: true
       };
@@ -73,6 +75,22 @@ const userReducer = (state, action) => {
             streak_day: action.creature.streak_day
           }
         ]
+      };
+    case 'UPDATE_CREATURE_INFO':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              creature: action.creature.current,
+              evolutions: action.creature.newEvos,
+              creature_name: action.creature.name
+            }
+          }
+
+          return creature;
+        })
       };
     case 'ADD_OBJECTIVE':
       return {

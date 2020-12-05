@@ -6,7 +6,7 @@ export const getMegas = creature => {
 
   inputs.map(i => {
     const versionInput = creature[`${i}Mega`].toLowerCase();
-
+    
     if (!creature[`${i}Mega`].trim()) return selectedVersions.push('normal');
 
     const creatureName = i === 'first' ? creature.firstCreature

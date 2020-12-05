@@ -65,6 +65,7 @@ const UserContextProvider = (props) => {
         userDispatch({ type: 'UPDATE_USER', user: {
           username: res.user.username,
           email: res.user.email,
+          password: res.user.password,
           db_id: user.db_id,
           accessToken: user.accessToken,
           creatures: res.user_creatures

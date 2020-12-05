@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ConfirmDisplayContext } from '../../contexts/ConfirmDisplayContext';
+import { ConfirmDisplayContext } from '../contexts/ConfirmDisplayContext';
 
 const ConfirmDeleteCreature = ({ postDelete }) => {
   const { confirmDisplay, toggleConfirmDisplay, currentId } = useContext(ConfirmDisplayContext);

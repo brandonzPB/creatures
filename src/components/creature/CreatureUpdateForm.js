@@ -12,7 +12,7 @@ import * as megaMethods from '../../modules/megas';
 
 const CreatureUpdateForm = () => {
   const { user, userDispatch } = useContext(UserContext);
-  const { currentId, showCreatureObjectives } = useContext(CreatureContext);
+  const { currentId, showCreatureObjectives, finish } = useContext(CreatureContext);
 
   const creature = user.creatures.filter(creature => creature.id === currentId);
 
@@ -51,12 +51,32 @@ const CreatureUpdateForm = () => {
   });
 
   const handleChange = event => {
-    const { value, name } = event.target;
+    const { value, name, className } = event.target;
 
-    setUpdate({
-      ...update,
-      [name]: value
-    });
+    if (className === 'select-creature') {
+      let megaPlace;
+
+      if (name === 'firstCreature') {
+        megaPlace = 'firstMega';
+      } else if (name === 'secondCreature') {
+        megaPlace = 'secondMega';
+      } else if (name === 'thirdCreature') {
+        megaPlace = 'thirdMega';
+      } else {
+        megaPlace = 'fourthMega';
+      }
+
+      setUpdate({
+        ...update,
+        [megaPlace]: '',
+        [name]: value
+      });
+    } else {
+      setUpdate({
+        ...update,
+        [name]: value
+      });
+    }
   }
 
   const updateCreature = event => {
@@ -75,32 +95,37 @@ const CreatureUpdateForm = () => {
     // check if any of the updates match the current values of the actual, unupdated creature
     // true -> return current value
     // false -> return update
-    const current = evolutions[0] === creature[0].creature
+    const current = evolutions[0] === creature[0].creature || evolutions[0] === 'none'
       ? creature[0].evolutions[0]
       : evolutions[0];
 
-    const second = evolutions[1] === creature[0].evolutions[1]
+    const second = evolutions[1] === creature[0].evolutions[1] || evolutions[1] === 'none'
       ? creature[0].evolutions[1]
       : evolutions[1];
 
-    const third = evolutions[2] === creature[0].evolutions[2]
+    const third = evolutions[2] === creature[0].evolutions[2] || evolutions[2] === 'none'
       ? creature[0].evolutions[2]
       : evolutions[2];
 
-    const fourth = evolutions[3] === creature[0].evolutions[3]
+    const fourth = evolutions[3] === creature[0].evolutions[3] || evolutions[3] === 'none'
       ? creature[0].evolutions[3]
       : evolutions[3];
 
-    // if current/second/... === 'none' -> set to current value
+    const name = update.creatureName === creature[0].creature_name
+      ? creature[0].creature_name
+      : update.creatureName
 
     console.log('evolutions', [current, second, third, fourth]);
     console.log('creatureName', update.creatureName);
 
-    return;
+    const newEvos = [current, second, third, fourth];
 
     userDispatch({ type: 'UPDATE_CREATURE_INFO', creature: {
-      current, second, third, fourth
+      id: creature[0].id,
+      current, newEvos, name
     }});
+
+    finish('creature', creature[0], 'info');
 
     setUpdate({
       ...update,

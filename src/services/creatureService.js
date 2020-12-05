@@ -68,7 +68,7 @@ const deleteObjective = (userId, creatureId, objectives, token) => {
 
 // UPDATE creature info
 const updateCreatureInfo = (userId, creatureId, creatureObject, token) => {
-  const req = axios.post(`${baseUrl}/${userId}/creature/${creatureId}/info`, creatureObject, {
+  const req = axios.put(`${baseUrl}/${userId}/creature/${creatureId}/info`, creatureObject, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
