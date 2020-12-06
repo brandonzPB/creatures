@@ -35,7 +35,14 @@ const UserUpdateForm = () => {
   }
 
   const handleChange = event => {
-    const { name, value } = event.target;
+    const { name, value, className } = event.target;
+
+    if (className === 'delete-user') {
+      return setDeleteUser({
+        ...deleteUser,
+        confirmDeletePassword: value
+      });
+    }
 
     setUpdate({
       ...update,
@@ -85,13 +92,6 @@ const UserUpdateForm = () => {
       if (update.email !== user.email) {
         const emailExists = await userService.checkUsername('email', update.email, user, user.accessToken).then(res => res);
 
-        if (update.email !== update.confirmEmail) {
-          return setError({
-            ...error,
-            ref: 'email'
-          });
-        }
-
         if (emailExists !== 'Available') {
           console.log('Email is already taken');
 
@@ -116,6 +116,8 @@ const UserUpdateForm = () => {
           ...error,
           ref: 'password'
         });
+      } else {
+        password = update.password;
       }
     } else {
       password = user.password;
@@ -126,39 +128,36 @@ const UserUpdateForm = () => {
         ...error,
         ref: 'email'
       });
-    } else if (update.password.trim() !== update.confirmPassword) {
-      return setError({
-        ...error,
-        ref: 'password'
-      });
     }
 
     userDispatch({ type: 'UPDATE_USER', user: {
       username, email, password
     }});
 
-    if (password !== user.password) finish('db', null, 'newPassword');
-    else finish('db', null, 'false');
+    if (password !== user.password) finish('db', null, 'updatePassword');
+    else finish('db', null, 'update');
 
     setUpdate({
       ...update,
       username: '',
       email: '',
+      confirmEmail: '',
       password: '',
+      confirmPassword: '',
     });
   }
 
   const sendDelete = () => {
-    if (deleteUser.confirmDelete) {
+    if (!deleteUser.confirmDelete) {
       return setDeleteUser({
         ...deleteUser,
-        confirmDelete: true
+        confirmDelete: true,
+        confirmDeletePassword: '',
       });
     }
 
     if (deleteUser.confirmDeletePassword === user.password) {
-      deleteUser();
-      // deletes localStorage too
+      removeUser();
     }
   }
 
@@ -169,7 +168,6 @@ const UserUpdateForm = () => {
   }
 
   /*
-  update user
   delete user
   */
 
@@ -270,18 +268,20 @@ const UserUpdateForm = () => {
         </form>
       </div>
 
-      <button onClick={sendDelete}>Delete User</button>
+      <button className="delete-user-btn" onClick={sendDelete}>Delete User</button>
       <div className="confirm-delete" style={{ display: deleteUser.confirmDelete ? 'flex' : 'none' }}>
         <label>Please enter your password to confirm</label>
         <input 
           type="password"
-          name="confirmDelete"
-          value={deleteUser.confirmDelete}
+          name="confirmDeletePassword"
+          className="delete-user"
+          value={deleteUser.confirmDeletePassword}
           onChange={handleChange}
           style={{
                 border: error.ref === 'delete' ? '2px solid red' : 'none'
           }}
         />
+        <button className="confirm-delete-user-btn" onClick={sendDelete}>Confirm Delete</button>
       </div>
     </div>
   )

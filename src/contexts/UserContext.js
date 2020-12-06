@@ -141,14 +141,14 @@ const UserContextProvider = (props) => {
   }
 
   // DELETE user
-  const removeUser = userObject => {
+  const removeUser = () => {
     console.log('Deleting user...');
 
     userService.deleteUser(user.db_id, user, user.accessToken)
       .then(res => {
         console.log('res', res);
 
-        localStorage.removeItem('my-user');
+        logout();
 
         return res;
       })

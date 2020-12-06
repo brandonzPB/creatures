@@ -8,7 +8,7 @@ import { UserContext } from './UserContext';
 export const CreatureContext = createContext();
 
 const CreatureContextProvider = (props) => {
-  const { user, userDispatch, updateUser } = useContext(UserContext);
+  const { user, userDispatch, updateUser, refreshUser } = useContext(UserContext);
 
   const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
   //   const creatures = localStorage.getItem('my-user');
@@ -59,7 +59,8 @@ const CreatureContextProvider = (props) => {
         else if (done.method === 'info') updateCreatureInfo(done.object.id);
 
       } else if (done.type === 'db') {
-        updateUser(done.method);
+        if (done.method === 'refresh') refreshUser();
+        else if (done.method === 'update' || done.method === 'updatePassword') updateUser(done.method);
       }
 
       return setDone({ ...done,
@@ -72,7 +73,6 @@ const CreatureContextProvider = (props) => {
     return false;
   }, [done]);
 
-  // CREATE CREATURE
   const finish = (type, object = null, method = null) => {
     return type = 'creature' ?
       setDone({
@@ -89,11 +89,13 @@ const CreatureContextProvider = (props) => {
       });
   }
 
+
+  // CREATE CREATURE
   const createCreature = creatureObject => {
     creatureService.createCreature(user.db_id, creatureObject, user.accessToken)
       .then(res => {
-        console.log(res);
-        finish('db');
+        console.log('res', res);
+        finish('db', null, 'refresh');
         return res;
       })
       .catch(err => console.error(err));
@@ -151,16 +153,25 @@ const CreatureContextProvider = (props) => {
   }
 
   // DELETE CREATURE
-  const deleteCreature = async (creatureId) => {
-    const creature = user.creatures.filter(being => being.id === creatureId);
+  const postDelete = () => {
+    console.log('Deleting creature', currentId);
 
-    userDispatch({ type: 'DELETE_CREATURE', id: creatureId });
+    const creature = user.creatures.filter(being => being.id === currentId);
+    const creatureDbId = creature[0]._id.toString();
 
-    await creatureService.deleteCreature(user.db_id, creature[0]._id, user.accessToken)
+    userDispatch({ type: 'DELETE_CREATURE', id: currentId });
+
+    deleteCreature(creatureDbId);
+
+    finish('db', null, 'refresh');
+  }
+
+  const deleteCreature = (creatureId) => {
+    creatureService.deleteCreature(user.db_id, creatureId, user.accessToken)
       .then(res => res)
       .catch(err => console.error(err));
 
-    console.log('Successfully deleted creature: ' + creature);
+    console.log('Successfully deleted creature.');
   }
 
   const getExp = (habit, time) => { 
@@ -219,6 +230,7 @@ const CreatureContextProvider = (props) => {
         updateCreatureInfo,
         updateCreatureStats,
         updateObjectives,
+        postDelete,
         deleteCreature, 
         currentId,
         play,

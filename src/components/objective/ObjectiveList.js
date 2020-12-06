@@ -10,7 +10,7 @@ import Creature from '../creature/Creature';
 import * as ageMethods from '../../modules/age';
 
 const ActionList = () => {
-  const { dispatch, creatures, currentId, showCreatureObjectives, deleteCreature, done, setDone, finish } = useContext(CreatureContext);
+  const { dispatch, creatures, currentId, showCreatureObjectives, deleteCreature, postDelete, finish } = useContext(CreatureContext);
   const { confirmDisplay, toggleConfirmDisplay } = useContext(ConfirmDisplayContext);
   const { user, userDispatch } = useContext(UserContext);
 
@@ -21,7 +21,7 @@ const ActionList = () => {
   let age;
   let creatureName;
 
-  const sendDelete = (objectiveId) => {
+  const sendDeleteObj = (objectiveId) => {
     userDispatch({ type: 'DELETE_OBJECTIVE', 
       creatureId: currentId,
       objectiveId
@@ -51,7 +51,7 @@ const ActionList = () => {
           key={objective.id}
           objective={objective}
           creature={creatureInfo}
-          sendDelete={sendDelete}
+          sendDeleteObj={sendDeleteObj}
         />
       )
     });
@@ -75,12 +75,14 @@ const ActionList = () => {
     creatureName = creatureInfo.creature_name;
   }
 
-  const postDelete = () => {
+  const sendDelete = () => {
     console.log('Deleting creature...', currentId);
-    deleteCreature(currentId);
+
+    const creatureId = currentId;
+
+    postDelete(creatureId);
 
     showCreatureObjectives('');
-    console.log('currentId', currentId)
   }
 
   if (currentId) {
@@ -115,7 +117,7 @@ const ActionList = () => {
                 display: confirmDisplay.confirmIsDisplayed ? 'flex' : 'none'
               }}>
                 <ConfirmDisplay 
-                  postDelete={postDelete}
+                  sendDelete={sendDelete}
                 />
               </div>
             </div>

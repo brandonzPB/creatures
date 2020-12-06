@@ -3,7 +3,7 @@ import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 import ObjectiveCompleteForm from './ObjectiveCompleteForm';
 
-const Objective = ({ objective, creature, sendDelete }) => {
+const Objective = ({ objective, creature, sendDeleteObj }) => {
   const { updateObjectives } = useContext(CreatureContext);
   const { userDispatch } = useContext(UserContext);
 
@@ -15,7 +15,7 @@ const Objective = ({ objective, creature, sendDelete }) => {
   return (
     <div className="objective">
       <div className="delete-btn-container">
-        <button className="objective-delete-btn" onClick={() => sendDelete(objective.id)}>&#10060;</button>
+        <button className="objective-delete-btn" onClick={() => sendDeleteObj(objective.id)}>&#10060;</button>
       </div>
 
       <div className="objective-data" style={{

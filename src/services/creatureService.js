@@ -78,7 +78,7 @@ const updateCreatureInfo = (userId, creatureId, creatureObject, token) => {
 
 // DELETE creature
 const deleteCreature = (userId, creatureId, token) => {
-  const req = axios.delete(`${baseUrl}/${userId}/creature/${creatureId}`, {
+  const req = axios.delete(`${baseUrl}/${userId}/creature/${creatureId}/delete`, {
     headers: {
       'Authorization': `Bearer ${token}`
     }
