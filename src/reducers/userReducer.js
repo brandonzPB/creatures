@@ -10,6 +10,7 @@ const userReducer = (state, action) => {
         username: action.user.username,
         email: action.user.email,
         password: action.user.password,
+        db_password: action.user.db_password,
         creatures: action.user.creatures.map(creature => {
           // updates streaks (if broken) and ages
           return {
@@ -250,6 +251,7 @@ const userReducer = (state, action) => {
         username: null,
         email: null,
         password: null,
+        db_password: null,
         creatures: [],
         newDay: 0,
         newTime: 0,

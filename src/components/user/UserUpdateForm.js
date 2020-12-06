@@ -147,7 +147,9 @@ const UserUpdateForm = () => {
     });
   }
 
-  const sendDelete = () => {
+  const sendDelete = event => {
+    event.preventDefault();
+
     if (!deleteUser.confirmDelete) {
       return setDeleteUser({
         ...deleteUser,
@@ -158,6 +160,8 @@ const UserUpdateForm = () => {
 
     if (deleteUser.confirmDeletePassword === user.password) {
       removeUser();
+
+      finish('db', null, 'delete');
     }
   }
 
@@ -166,10 +170,6 @@ const UserUpdateForm = () => {
 
     setShowPassword(!showPassword);
   }
-
-  /*
-  delete user
-  */
 
   return (
     <div className="user-info">

@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 
 const LoginForm = () => {
@@ -50,6 +51,7 @@ const LoginForm = () => {
           required={true}
           onChange={handleChange}
         />
+        <Link to="/user/reset/code">Forgot Password?</Link>
         <button>Login</button>
       </form>
     </div>

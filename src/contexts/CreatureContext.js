@@ -8,7 +8,7 @@ import { UserContext } from './UserContext';
 export const CreatureContext = createContext();
 
 const CreatureContextProvider = (props) => {
-  const { user, userDispatch, updateUser, refreshUser } = useContext(UserContext);
+  const { user, userDispatch, updateUser, refreshUser, logout } = useContext(UserContext);
 
   const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
   //   const creatures = localStorage.getItem('my-user');
@@ -61,6 +61,7 @@ const CreatureContextProvider = (props) => {
       } else if (done.type === 'db') {
         if (done.method === 'refresh') refreshUser();
         else if (done.method === 'update' || done.method === 'updatePassword') updateUser(done.method);
+        else if (done.method === 'delete') logout();
       }
 
       return setDone({ ...done,

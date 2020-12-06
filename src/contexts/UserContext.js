@@ -87,7 +87,7 @@ const UserContextProvider = (props) => {
   }
 
   // GET user info
-  const getUserInfo = async (res) => {
+  const getUserInfo = async (res, password) => {
     console.log('Successfully logged in', res.db_id, res.accessToken);
 
     const storedCreatures = await getLocalCreatures();
@@ -109,7 +109,8 @@ const UserContextProvider = (props) => {
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
           email: response.user.email,
-          password: response.user.password,
+          password,
+          db_password: response.user.password,
           db_id: res.db_id,
           accessToken: res.accessToken,
           creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures,
@@ -133,7 +134,7 @@ const UserContextProvider = (props) => {
       password 
     })
       .then(res => { 
-        return getUserInfo(res); 
+        return getUserInfo(res, password); 
       })
       .catch(err => {
         console.error(err);
@@ -143,15 +144,11 @@ const UserContextProvider = (props) => {
   // DELETE user
   const removeUser = () => {
     console.log('Deleting user...');
+    
+    localStorage.removeItem('my-user');
 
     userService.deleteUser(user.db_id, user, user.accessToken)
-      .then(res => {
-        console.log('res', res);
-
-        logout();
-
-        return res;
-      })
+      .then(res => res)
       .catch(err => console.error(err));
 
     console.log('Successfully deleted user');
