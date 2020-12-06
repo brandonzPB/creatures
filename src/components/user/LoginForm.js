@@ -51,7 +51,7 @@ const LoginForm = () => {
           required={true}
           onChange={handleChange}
         />
-        <Link to="/user/reset/code">Forgot Password?</Link>
+        <Link to="/user/reset/forgot">Forgot Password?</Link>
         <button>Login</button>
       </form>
     </div>

@@ -20,6 +20,24 @@ const login = (credentials) => {
     .catch(err => console.error(err));
 }
 
+// POST reset request
+const getResetCode = (email) => {
+  const reqUser = { email };
+
+  const req = axios.post(`${baseUrl}/reset_code`, reqUser);
+
+  return req.then(res => {
+    console.log('res', res.data);
+
+    return res.data;
+  })
+    .catch(err => console.error(err));
+}
+
+// GET reset code
+
+// POST reset code
+
 // GET all users
 const getAll = (token) => {
   const req = axios.get('/dashboard/users', {
@@ -108,7 +126,7 @@ const updateUser = (type = 'none', userId, userObject, token) => {
 };
 
 // DELETE user
-const deleteUser = (userId, userObject, token) => {
+const deleteUser = (userId, token) => {
   const req = axios.delete(`${baseUrl}/${userId}`, 
   {
     headers: {
@@ -124,6 +142,7 @@ export default {
   getAll,
   createUser,
   login,
+  getResetCode,
   readUser,
   checkUsername,
   storeLocalCreatures,

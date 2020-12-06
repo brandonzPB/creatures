@@ -10,12 +10,13 @@ import Welcome from './components/Welcome';
 import UserCreateForm from './components/user/UserCreateForm';
 import LoginForm from './components/user/LoginForm';
 
-import User from './components/user/User';
-import LogoutButton from './components/user/LogoutButton';
-
-import ResetCode from './components/user/ResetCode';
+import ForgotPassword from './components/user/ForgotPassword';
+import ResetCode from './components/user/ForgotPassword';
 import ResetPassword from './components/user/ResetPassword';
+
+import User from './components/user/User';
 import UserUpdateForm from './components/user/UserUpdateForm';
+import LogoutButton from './components/user/LogoutButton';
 
 import CreatureForm from './components/creature/CreatureForm';
 import CreatureList from './components/creature/CreatureList';
@@ -44,6 +45,8 @@ function App() {
                 <Route exact path="/user/create" component={UserCreateForm} />
                 <Route exact path="/user/login" component={LoginForm} />
                 <Route exact path="/user/update" component={UserUpdateForm} />
+
+                <Route exact path="/user/reset/forgot" component={ForgotPassword} />
                 <Route exact path="/user/reset/code" component={ResetCode} />
                 <Route exact path="/user/reset/password" component={ResetPassword} />
 

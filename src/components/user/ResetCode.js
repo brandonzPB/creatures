@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
-import { findRenderedDOMComponentWithClass } from 'react-dom/test-utils';
+import React, { useState, useContext } from 'react';
+import { Route, Redirect } from 'react-router-dom';
+import userService from '../../services/userService';
+import { UserContext } from '../../contexts/UserContext';
 
 const ResetCode = () => {
-  /*
-  enter email and receive reset code
-  enter code
-  if correct, redirect to ResetPassword
-  */
+  const { passwordReset } = useContext(UserContext);
 
-  const [form, setForm] = useState({
-    username: '',
-    email: '',
-  });
+  const [reset, setReset] = useState({ code: '' });
+
+  const [error, setError] = useState({ upset: false });
+
+  /*
+  show option to resend code
+  */
 
   const handleChange = event => {
     const { name, value } = event.target;
 
-    setForm({
-      ...form,
+    setReset({
+      ...reset,
       [name]: value
     });
   }
@@ -25,40 +26,40 @@ const ResetCode = () => {
   const handleSubmit = event => {
     event.preventDefault();
 
-    setForm({
-      ...form,
-      username: '',
-      email: '',
+    setError({
+      ...error,
+      upset: false
+    });
+
+    setReset({
+      ...reset,
+      code: ''
     });
   }
 
+  const renewCode = () => {}
+
+  if (passwordReset) {
+    return (
+      <Route exact path="/user/reset/code">
+        <Redirect to="/user/reset/password" />
+      </Route>
+    )
+  }
+
   return (
-    <div className="reset-code">
+    <div className="reset-code-form">
       <form onSubmit={handleSubmit}>
-        <div className="username-input">
-          <label>Username: </label>
-          <input 
+        <input 
           type="text"
-          name="username"
-          value={form.username}
+          name="code"
+          value={reset.code}
           onChange={handleChange}
         />
-        </div>
-
-        <div className="email-input">
-          <label>Or Email: </label>
-          <input 
-            type="text"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-          />
-        </div>
-
-        <div className="get-reset-code">
-          <button>Get Code</button>
-        </div>
+        <button>Submit Code</button>
       </form>
+
+      <button onClick={renewCode}>Need a new code?</button>
     </div>
   )
 }
