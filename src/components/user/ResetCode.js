@@ -4,26 +4,22 @@ import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
 
 const ResetCode = () => {
-  const { reset } = useContext(UserContext);
+  const { reset, setReset } = useContext(UserContext);
 
-  const [reset, setReset] = useState({ code: '' });
+  const [form, setForm] = useState({ code: '' });
 
   const [error, setError] = useState({ upset: false });
-
-  /*
-  show option to resend code
-  */
 
   const handleChange = event => {
     const { name, value } = event.target;
 
-    setReset({
-      ...reset,
+    setForm({
+      ...form,
       [name]: value
     });
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setError({
@@ -31,18 +27,44 @@ const ResetCode = () => {
       upset: false
     });
 
-    setReset({
-      ...reset,
+    if (form.code.trim()) {
+      const codeMatches = await userService.postResetCode(form.code, reset.resetToken);
+      console.log('codeMatches', codeMatches);
+      return;
+    } else {
+      setError({
+        ...error,
+        upset: true
+      });
+    }
+
+    setForm({
+      ...form,
       code: ''
     });
   }
 
-  const renewCode = () => {}
+  const renewCode = async () => {
+    const resetToken = await userService.getResetCode(reset.email);
 
-  if (reset.passwordReset) {
+    setReset({
+      ...reset,
+      resetToken: resetToken.reset_token
+    });
+  }
+
+  if (reset.codeSent) {
     return (
       <Route exact path="/user/reset/code">
         <Redirect to="/user/reset/password" />
+      </Route>
+    )
+  }
+
+  if (!reset.resetToken) {
+    return (
+      <Route exact path="/user/reset/code">
+        <Redirect to="/" />
       </Route>
     )
   }
@@ -53,13 +75,19 @@ const ResetCode = () => {
         <input 
           type="text"
           name="code"
-          value={reset.code}
+          value={form.code}
           onChange={handleChange}
+          style={{
+            border: error.upset ? '2px solid red' : 'none'
+          }}
         />
         <button>Submit Code</button>
       </form>
 
-      <button onClick={renewCode}>Need a new code?</button>
+      <div className="resend-code">
+        <span className="resend-code-text">Need a new code?</span>
+        <button onClick={renewCode}>Resend Code</button>
+      </div>
     </div>
   )
 }

@@ -10,8 +10,6 @@ const ForgotPassword = () => {
 
   const [error, setError] = useState({ upset: false });
 
-  const [codeSent, setCodeSent] = useState(false);
-
   const handleChange = event => {
     const { name, value } = event.target;
 
@@ -42,17 +40,16 @@ const ForgotPassword = () => {
 
     if (emailExists) {
       const resetToken = await userService.getResetCode(form.email);
-      
+
       setReset({
         ...reset,
-        resetToken: resetToken.reset_token
+        resetToken: resetToken.reset_token,
+        email: form.email
       });
-
-      setCodeSent(!codeSent);
     }
   }
 
-  if (codeSent) {
+  if (reset.resetToken.trim()) {
     return (
       <Route exact path="/user/reset/forgot">
         <Redirect to="/user/reset/code" />

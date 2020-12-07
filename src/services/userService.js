@@ -45,6 +45,18 @@ const getResetCode = (email) => {
 }
 
 // POST reset code
+const postResetCode = (code, token) => {
+  const reqUser = { reset_code: code };
+
+  const req = axios.post(`${baseUrl}/reset_code`, reqUser, {
+    headers: {
+      'Authoriation': `Bearer ${token}`
+    }
+  });
+
+  return req.then(res => res.data)
+    .catch(err => console.error(err));
+}
 
 // GET all users
 const getAll = (token) => {
@@ -152,6 +164,7 @@ export default {
   login,
   postResetRequest,
   getResetCode,
+  postResetCode,
   readUser,
   checkUsername,
   storeLocalCreatures,

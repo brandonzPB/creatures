@@ -15,7 +15,7 @@ const UserContextProvider = (props) => {
 
   const [reset, setReset] = useState({
     resetToken: '',
-    passwordReset: false
+    email: '',
   });
 
   useEffect(() => {
@@ -24,6 +24,12 @@ const UserContextProvider = (props) => {
     console.log('user', user);
     console.log(user.accessToken);
   }, [user]);
+
+  useEffect(() => {
+    localStorage.setItem('my-reset', JSON.stringify(reset));
+
+    console.log('reset', reset);
+  }, [reset]);
 
   // POST new user
   const addUser = async (userObject) => {
@@ -132,6 +138,7 @@ const UserContextProvider = (props) => {
   const login = async (userObject) => {
     const { username, password } = userObject;
 
+    localStorage.removeItem('my-reset');
     localStorage.removeItem('my-user');
 
     await userService.login({ 
@@ -151,6 +158,7 @@ const UserContextProvider = (props) => {
     console.log('Deleting user...');
     
     localStorage.removeItem('my-user');
+    localStorage.removeItem('my-reset');
 
     userService.deleteUser(user.db_id, user, user.accessToken)
       .then(res => res)
@@ -162,6 +170,7 @@ const UserContextProvider = (props) => {
   // LOG OUT
   const logout = () => {
     userDispatch({ type: 'LOG_OUT' });
+    localStorage.removeItem('my-reset');
     localStorage.removeItem('my-user');
   }
 

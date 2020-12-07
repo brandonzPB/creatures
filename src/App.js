@@ -11,7 +11,7 @@ import UserCreateForm from './components/user/UserCreateForm';
 import LoginForm from './components/user/LoginForm';
 
 import ForgotPassword from './components/user/ForgotPassword';
-import ResetCode from './components/user/ForgotPassword';
+import ResetCode from './components/user/ResetCode';
 import ResetPassword from './components/user/ResetPassword';
 
 import User from './components/user/User';
