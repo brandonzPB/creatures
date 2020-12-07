@@ -62,7 +62,7 @@ const CreatureDisplay = ({ creature, displayCreatureObjectives }) => {
               className="exp-filled">
               <div className="exp-animation"
                 style={{
-                width: `${(creature.exp_surplus / (creature.exp_goal - creature.prev_goal)) * 150}px`,
+                width: `${(creature.exp_surplus / (creature.exp_goal - creature.prev_exp_goal)) * 150}px`,
               }}>
               </div>
             </div>

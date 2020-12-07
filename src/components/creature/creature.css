@@ -109,7 +109,7 @@
 .view-info-btn {
   background-color: gold;
   color: black;
-  width: 85px;
+  width: auto;
   height: 30px;
   font-size: 0.85rem;
   font-weight: 600;

@@ -11,7 +11,7 @@ const UserContextProvider = (props) => {
     return storedUser ? JSON.parse(storedUser) : {};
   });
 
-  const [error, setError] = useState({ error: null });
+  const [createResult, setCreateResult] = useState({ success: false });
 
   const [reset, setReset] = useState({
     resetToken: '',
@@ -32,27 +32,7 @@ const UserContextProvider = (props) => {
 
     console.log('reset', reset);
   }, [reset]);
-
-  // POST new user
-  const addUser = async (userObject) => {
-
-    userService.createUser(userObject)
-      .then(res => {
-        if (res === false) {
-          setError({
-            ...error,
-            error: true
-          });
-        } else {
-          setError({
-            ...error,
-            error: null
-          });
-        }
-      })
-      .catch(err => console.error(err));
-  }
-
+  
   // GET localStorage creatures
   const getLocalCreatures = () => {
     const creatureStorage = localStorage.getItem('my-creatures');
@@ -182,11 +162,10 @@ const UserContextProvider = (props) => {
       userDispatch,
       refreshUser,
       updateUser,
-      error,
-      setError,
+      createResult,
+      setCreateResult,
       reset,
       setReset,
-      addUser,
       login,
       postLocalCreatures,
       removeUser,

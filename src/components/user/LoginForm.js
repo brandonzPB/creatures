@@ -34,24 +34,30 @@ const LoginForm = () => {
   return (
     <div className="login-form-container">
       <form onSubmit={handleSubmit}>
-        <label>Username: </label>
-        <input 
-          type="text"
-          name="username"
-          value={user.username}
-          required={true}
-          onChange={handleChange}
-        />
-        <br />
-        <label>Password: </label>
-        <input 
-          type="password"
-          name="password"
-          value={user.password}
-          required={true}
-          onChange={handleChange}
-        />
-        <Link to="/user/reset/forgot">Forgot Password?</Link>
+        <div className="username-login">
+          <label>Username: </label>
+          <input 
+            type="text"
+            name="username"
+            value={user.username}
+            required={true}
+            onChange={handleChange}
+          />
+        </div>
+
+        <div className="password-login">
+          <label>Password: </label>
+          <input 
+            type="password"
+            name="password"
+            value={user.password}
+            required={true}
+            onChange={handleChange}
+          />
+        </div>
+
+        <Link to="/user/reset/forgot">Forgot Username or Password?</Link>
+
         <button>Login</button>
       </form>
     </div>

@@ -18,9 +18,9 @@ const userReducer = (state, action) => {
             streak_count: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
               ? 0 : creature.streak_count,
             streak_timestamp: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
-              ? Date.now() - 86400000 : creature.streak_timestamp,
+              ? 0 : creature.streak_timestamp,
             streak_day: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
-              ? (new Date()).getDay() : creature.streak_day,
+              ? action.user.newday : creature.streak_day,
             age: (streak.getAge(action.user.newTime, creature.birth_time)),
           }
         }),
@@ -158,7 +158,7 @@ const userReducer = (state, action) => {
               ...creature,
               streak_count: action.creature.newCount,
               streak_timestamp: Date.now(),
-              streak_day: (new Date()).getDay()
+              streak_day: action.creature.newDay,
             }
           }
 

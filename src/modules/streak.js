@@ -52,9 +52,8 @@ exports.checkCreatureStreak = (thisDay, creature) => {
 
 exports.updateCreatureStreak = (creature, user, userDispatch, finish) => {
   const newCount = creature.streak_count + 1;
-  /* const newTimestamp = Date.now();
-  const newDay = (new Date()).getDay(); */
-  const newTimestamp = user.newTime;
+  const newTimestamp = Date.now();
+  /* const newDay = (new Date()).getDay(); */
   const newDay = user.newDay;
 
   userDispatch({ type: 'UPDATE_STREAK', creature: {

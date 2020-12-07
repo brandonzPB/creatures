@@ -5,13 +5,12 @@ import { UserContext } from '../contexts/UserContext';
 import { CreatureContext } from '../contexts/CreatureContext';
 
 const Welcome = () => {
-  const { user, error, setError } = useContext(UserContext);
-  const { creatures } = useContext(CreatureContext);
+  const { user, createResult, setCreateResult } = useContext(UserContext);
 
   useEffect(() => {
-    setError({
-      ...error,
-      error: null
+    setCreateResult({
+      ...createResult,
+      success: false
     });
   }, []);
 
@@ -25,21 +24,14 @@ const Welcome = () => {
 
   return (
     <div className="index-container">
-      {
-        error === true ?
-          <Route exact path="/">
-            <Redirect to="/user/create" />
-          </Route> :
+      <div className="welcome">
+        <LoginForm />
 
-          <div className="welcome">
-            <LoginForm />
-
-            <h1>Don't have an account?</h1>
-            <Link to="/user/create">
-              <p>Create an Account</p>
-            </Link>
-          </div>
-      }
+        <h1>Don't have an account?</h1>
+        <Link to="/user/create">
+          <p>Create an Account</p>
+        </Link>
+      </div>
     </div>
   )
 }
