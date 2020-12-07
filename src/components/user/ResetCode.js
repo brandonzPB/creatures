@@ -4,7 +4,7 @@ import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
 
 const ResetCode = () => {
-  const { passwordReset } = useContext(UserContext);
+  const { reset } = useContext(UserContext);
 
   const [reset, setReset] = useState({ code: '' });
 
@@ -39,7 +39,7 @@ const ResetCode = () => {
 
   const renewCode = () => {}
 
-  if (passwordReset) {
+  if (reset.passwordReset) {
     return (
       <Route exact path="/user/reset/code">
         <Redirect to="/user/reset/password" />

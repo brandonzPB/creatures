@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Link, Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
+import { UserContext } from '../../contexts/UserContext';
 
 const ForgotPassword = () => {
-  /*
-  enter email and receive reset code via email
-  if correct, redirect to reset code form
-  */
+  const { reset, setReset } = useContext(UserContext);
 
   const [form, setForm] = useState({ email: '' });
 
   const [error, setError] = useState({ upset: false });
+
+  const [codeSent, setCodeSent] = useState(false);
 
   const handleChange = event => {
     const { name, value } = event.target;
@@ -28,10 +29,10 @@ const ForgotPassword = () => {
       upset: false
     });
 
-   if (form.email.trim()) {
-      const emailExists = await userService.getResetCode(form.email);
+    let emailExists;
 
-      console.log('emailExists', emailExists)
+   if (form.email.trim()) {
+      emailExists = await userService.postResetRequest(form.email);
     } else {
       return setError({
         ...error,
@@ -39,35 +40,40 @@ const ForgotPassword = () => {
       });
     }
 
-    return;
+    if (emailExists) {
+      const resetToken = await userService.getResetCode(form.email);
+      
+      setReset({
+        ...reset,
+        resetToken: resetToken.reset_token
+      });
 
-    setForm({
-      ...form,
-      username: '',
-      email: '',
-    });
+      setCodeSent(!codeSent);
+    }
+  }
+
+  if (codeSent) {
+    return (
+      <Route exact path="/user/reset/forgot">
+        <Redirect to="/user/reset/code" />
+      </Route>
+    )
   }
 
   return (
     <div className="forgot-password-form">
+      <Link to="/">Return Home</Link>
       <form onSubmit={handleSubmit}>
-        <div className="username-input">
-          <label>Username: </label>
-          <input 
-          type="text"
-          name="username"
-          value={form.username}
-          onChange={handleChange}
-        />
-        </div>
-
         <div className="email-input">
-          <label>Or Email: </label>
+          <label>Enter Email: </label>
           <input 
             type="text"
             name="email"
             value={form.email}
             onChange={handleChange}
+            style={{
+              border: error.upset ? '2px solid red' : 'none'
+            }}
           />
         </div>
 

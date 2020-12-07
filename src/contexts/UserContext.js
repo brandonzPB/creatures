@@ -13,7 +13,10 @@ const UserContextProvider = (props) => {
 
   const [error, setError] = useState({ error: null });
 
-  const [passwordReset, setPasswordReset] = useState(false);
+  const [reset, setReset] = useState({
+    resetToken: '',
+    passwordReset: false
+  });
 
   useEffect(() => {
     localStorage.setItem('my-user', JSON.stringify(user));
@@ -170,7 +173,8 @@ const UserContextProvider = (props) => {
       updateUser,
       error,
       setError,
-      passwordReset,
+      reset,
+      setReset,
       addUser,
       login,
       postLocalCreatures,

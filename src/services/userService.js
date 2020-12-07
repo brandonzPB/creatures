@@ -21,10 +21,10 @@ const login = (credentials) => {
 }
 
 // POST reset request
-const getResetCode = (email) => {
+const postResetRequest = (email) => {
   const reqUser = { email };
 
-  const req = axios.post(`${baseUrl}/reset_code`, reqUser);
+  const req = axios.post(`${baseUrl}/reset`, reqUser);
 
   return req.then(res => {
     console.log('res', res.data);
@@ -34,7 +34,15 @@ const getResetCode = (email) => {
     .catch(err => console.error(err));
 }
 
-// GET reset code
+// GET reset code (POST email)
+const getResetCode = (email) => {
+  const reqUser = { email };
+
+  const req = axios.post(`${baseUrl}/reset_code_email`, reqUser);
+
+  return req.then(res => res.data)
+    .catch(err => console.error(err));
+}
 
 // POST reset code
 
@@ -142,6 +150,7 @@ export default {
   getAll,
   createUser,
   login,
+  postResetRequest,
   getResetCode,
   readUser,
   checkUsername,
