@@ -16,6 +16,8 @@ const UserContextProvider = (props) => {
   const [reset, setReset] = useState({
     resetToken: '',
     email: '',
+    code: '',
+    passwordReset: false
   });
 
   useEffect(() => {

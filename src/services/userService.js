@@ -50,11 +50,26 @@ const postResetCode = (code, token) => {
 
   const req = axios.post(`${baseUrl}/reset_code`, reqUser, {
     headers: {
-      'Authoriation': `Bearer ${token}`
+      'Authorization': `Bearer ${token}`
     }
   });
 
   return req.then(res => res.data)
+    .catch(err => console.error(err));
+}
+
+// PUT password resest
+const putPasswordReset = (userObject, token) => {
+  const req = axios.put(`${baseUrl}/reset_password`, userObject, {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  });
+
+  return req.then(res => {
+    console.log('res.data', res.data);
+    return res.data;
+  })
     .catch(err => console.error(err));
 }
 
@@ -165,6 +180,7 @@ export default {
   postResetRequest,
   getResetCode,
   postResetCode,
+  putPasswordReset,
   readUser,
   checkUsername,
   storeLocalCreatures,

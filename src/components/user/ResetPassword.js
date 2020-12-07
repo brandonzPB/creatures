@@ -1,7 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { Link, Route, Redirect } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
 
 const ResetPassword = () => {
+  const { reset, setReset } = useContext(UserContext);
+
   const [form, setForm] = useState({
     password: '',
     confirmPassword: ''
@@ -20,7 +24,7 @@ const ResetPassword = () => {
     });
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     setError({
@@ -28,11 +32,33 @@ const ResetPassword = () => {
       upset: false
     });
 
-    setForm({
-      ...form,
-      password: '',
-      confirmPassword: ''
-    });
+    if (form.password.trim() && form.confirmPassword.trim()) {
+      if (form.password === form.confirmPassword) {
+        const userObject = {
+          email: reset.email,
+          password: form.password
+        };
+
+        const passwordReset = await userService.putPasswordReset(userObject, reset.resetToken);
+
+        if (passwordReset === 'Complete') {
+          setReset({
+            ...reset,
+            passwordReset: true
+          });
+        } 
+      } else {
+        return setError({
+          ...error,
+          upset: true
+        });
+      }
+    } else {
+      return setError({
+        ...error,
+        upset: true
+      });
+    }
   }
   
   const viewPassword = event => {
@@ -41,8 +67,28 @@ const ResetPassword = () => {
     return setShowPassword(!showPassword);
   }
 
+  const cancelRequest = () => {
+    setReset({
+      ...reset,
+      resetToken: '',
+      email: '',
+      code: '',
+    });
+  }
+
+  if (!reset.resetToken || reset.passwordReset) {
+    return (
+      <Route exact path="/user/reset/password">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
+
   return (
     <div className="reset-password-container">
+      <Link to="/">Return Home</Link>
+      <button onClick={cancelRequest}>Cancel Reset</button>
+
       <form onSubmit={handleSubmit}>
         <div className="password-input">
           <label>New Password: </label>

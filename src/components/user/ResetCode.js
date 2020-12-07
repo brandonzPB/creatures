@@ -29,19 +29,24 @@ const ResetCode = () => {
 
     if (form.code.trim()) {
       const codeMatches = await userService.postResetCode(form.code, reset.resetToken);
-      console.log('codeMatches', codeMatches);
-      return;
+
+      if (codeMatches) {
+        return setReset({
+          ...reset,
+          code: form.code
+        });
+      } else {
+        return setError({
+          ...error,
+          upset: true
+        });
+      }
     } else {
-      setError({
+      return setError({
         ...error,
         upset: true
       });
     }
-
-    setForm({
-      ...form,
-      code: ''
-    });
   }
 
   const renewCode = async () => {
@@ -53,7 +58,7 @@ const ResetCode = () => {
     });
   }
 
-  if (reset.codeSent) {
+  if (reset.code) {
     return (
       <Route exact path="/user/reset/code">
         <Redirect to="/user/reset/password" />
