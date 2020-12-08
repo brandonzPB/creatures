@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
+import './user.css';
 
 const ForgotPassword = () => {
   const { reset, setReset } = useContext(UserContext);
@@ -59,9 +60,11 @@ const ForgotPassword = () => {
 
   return (
     <div className="forgot-password-form">
-      <Link to="/">Return Home</Link>
+      <Link to="/">
+        <p className="return-home-link">Return Home</p>
+      </Link>
       <form onSubmit={handleSubmit}>
-        <div className="email-input">
+        <div className="email-forgot-input">
           <label>Enter Email: </label>
           <input 
             type="text"
@@ -75,7 +78,7 @@ const ForgotPassword = () => {
         </div>
 
         <div className="get-reset-code">
-          <button>Get Code</button>
+          <button className="get-code-btn">Get Code</button>
         </div>
       </form>
     </div>

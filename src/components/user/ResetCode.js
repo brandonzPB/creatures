@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
+import './user.css';
 
 const ResetCode = () => {
   const { reset, setReset } = useContext(UserContext);
@@ -86,12 +87,12 @@ const ResetCode = () => {
             border: error.upset ? '2px solid red' : 'none'
           }}
         />
-        <button>Submit Code</button>
+        <button className="submit-code-btn">Submit Code</button>
       </form>
 
       <div className="resend-code">
         <span className="resend-code-text">Need a new code?</span>
-        <button onClick={renewCode}>Resend Code</button>
+        <button onClick={renewCode} className="resend-code-btn">Resend Code</button>
       </div>
     </div>
   )

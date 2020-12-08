@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import ConfirmDisplay from '../ConfirmDisplay';
 import userService from '../../services/userService';
+import './user.css';
 
 const UserUpdateForm = () => {
   const { user, userDispatch, removeUser, checkUsername } = useContext(UserContext);
@@ -173,11 +174,13 @@ const UserUpdateForm = () => {
 
   return (
     <div className="user-info">
-      <Link to="/creatures">View Creatures</Link>
+      <Link to="/creatures">
+        <p className="view-creatures-link">View Creatures</p>
+      </Link>
 
       <div className="user-update-form">
         <form onSubmit={handleSubmit}>
-          <h2 className="form-title">Edit User Info</h2>
+          <span className="form-title">Edit User Info</span>
           <span className="user-info-tip">Leave it blank if you don't want to change it</span>
 
           <div className="username-label">
@@ -219,7 +222,7 @@ const UserUpdateForm = () => {
             <label>Confirm New Email: </label>
           </div>
 
-          <div className="confirm-email-input">
+          <div className="email-input">
             <input 
               type="email"
               name="confirmEmail"
@@ -252,7 +255,7 @@ const UserUpdateForm = () => {
             <label>Confirm New Password: </label>
           </div>
 
-          <div className="confirm-password-input">
+          <div className="password-input">
             <input 
               type={showPassword ? 'text' : 'password'}
               name="confirmPassword"
@@ -264,11 +267,14 @@ const UserUpdateForm = () => {
             />
           </div>
 
-          <button onClick={handleSubmit} className="submit-form-btn">Update User</button>
+          <div className="update-user-btn-container">
+            <button onClick={handleSubmit} className="update-user-btn">Update User</button>
+          </div>
         </form>
       </div>
 
       <button className="delete-user-btn" onClick={sendDelete}>Delete User</button>
+      
       <div className="confirm-delete" style={{ display: deleteUser.confirmDelete ? 'flex' : 'none' }}>
         <label>Please enter your password to confirm</label>
         <input 

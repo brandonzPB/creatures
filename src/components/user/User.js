@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
+import './user.css';
 
 const User = () => {
   const { user, userDispatch, refreshUser } = useContext(UserContext);
@@ -29,8 +30,10 @@ const User = () => {
 
   return (
     <div className="user-container">
-      <button onClick={sendRefresh}>View Creatures</button>
-      <Link to="/user/update">Edit User Info</Link>
+      <button className="view-creatures-btn" onClick={sendRefresh}>View Creatures</button>
+      <Link to="/user/update">
+        <p className="edit-user-link">Edit User Info</p>
+      </Link>
     </div>
   )
 }

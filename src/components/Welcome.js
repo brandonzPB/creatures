@@ -3,6 +3,7 @@ import { Link, Route, Redirect } from 'react-router-dom';
 import LoginForm from './user/LoginForm';
 import { UserContext } from '../contexts/UserContext';
 import { CreatureContext } from '../contexts/CreatureContext';
+import './welcome.css';
 
 const Welcome = () => {
   const { user, createResult, setCreateResult } = useContext(UserContext);
@@ -27,9 +28,9 @@ const Welcome = () => {
       <div className="welcome">
         <LoginForm />
 
-        <h1>Don't have an account?</h1>
+        <h1 className="create-account-text">Don't have an account?</h1>
         <Link to="/user/create">
-          <p>Create an Account</p>
+          <p className="create-account-link">Create an Account Here</p>
         </Link>
       </div>
     </div>

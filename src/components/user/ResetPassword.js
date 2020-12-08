@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
+import './user.css';
 
 const ResetPassword = () => {
   const { reset, setReset } = useContext(UserContext);
@@ -86,8 +87,10 @@ const ResetPassword = () => {
 
   return (
     <div className="reset-password-container">
-      <Link to="/">Return Home</Link>
-      <button onClick={cancelRequest}>Cancel Reset</button>
+      <Link to="/">
+        <p className="return-home-link">Return Home</p>
+      </Link>
+      <button onClick={cancelRequest} className="cancel-reset-btn">Cancel Reset</button>
 
       <form onSubmit={handleSubmit}>
         <div className="password-input">
@@ -98,7 +101,7 @@ const ResetPassword = () => {
             value={form.password}
             onChange={handleChange}
           />
-          <button onClick={viewPassword}>&#128065;</button>
+          <button className="show-password" onClick={viewPassword}>&#128065;</button>
         </div>
 
         <div className="confirm-password-input">
@@ -112,7 +115,7 @@ const ResetPassword = () => {
         </div>
 
         <div className="submit-password-reset">
-          <button onClick={handleSubmit}>Reset Password</button>
+          <button className="submit-reset-btn" onClick={handleSubmit}>Reset Password</button>
         </div>
       </form>
     </div>

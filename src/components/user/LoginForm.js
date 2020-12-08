@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
+import './user.css';
 
 const LoginForm = () => {
   const { getUserInfo } = useContext(UserContext);
@@ -119,9 +120,13 @@ const LoginForm = () => {
           />
         </div>
 
-        <Link to="/user/reset/forgot">Forgot Password?</Link>
+        <Link to="/user/reset/forgot" className="forgot-password-link">
+          <p className="forgot-password-link">Forgot Password?</p>
+        </Link>
 
-        <button>Login</button>
+        <div className="login-btn-container">
+          <button className="login-btn">Login</button>
+        </div>
       </form>
     </div>
   )

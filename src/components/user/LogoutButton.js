@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
+import './user.css';
 
 const LogoutButton = () => {
   const { user, logout } = useContext(UserContext);
@@ -15,8 +16,8 @@ const LogoutButton = () => {
     <div className="logout-container">
       {
         user.accessToken ?
-          <div className="logout-btn">
-            <button onClick={sendLogout}>Log Out</button>
+          <div className="logout-btn-container">
+            <button className="logout-btn" onClick={sendLogout}>Log Out</button>
           </div> :
           <div className="empty"></div>
       }

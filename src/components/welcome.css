@@ -1,0 +1,29 @@
+.index-container {
+  width: 45%;
+  height: auto;
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+  background: linear-gradient(-45deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9),
+  rgba(97,154,70, 0.7));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: 10px;
+}
+
+.welcome {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  text-align: center;
+}
+
+.create-account-text {}
+
+.create-account-link {
+  text-decoration: none;
+}

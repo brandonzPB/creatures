@@ -1,0 +1,247 @@
+.return-home-link {}
+
+.logout-container {}
+
+.logout-btn-container {}
+
+.logout-btn {}
+
+/* LOGIN FORM */
+
+.login-form-container {
+  display: block;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+}
+
+.login-form-container form {
+  display: flex;
+  width: 35%;
+  height: auto;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.username-login {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.username-login label {
+  margin: 10px auto;
+  display: block;
+}
+
+.username-login input {
+  display: block;
+  margin: 10px auto;
+  font-size: 1.25rem;
+}
+
+.email-login {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.email-login label {
+  display: block;
+  margin: 10px auto;
+}
+
+.email-login input {
+  display: block;
+  margin: 10px auto;
+  font-size: 1.25rem;
+}
+
+.password-login {
+  text-align: center;
+  margin: 10px auto 0 auto;
+}
+
+.password-login label {
+  display: block;
+  margin: 10px auto;
+}
+
+.password-login input {
+  display: block;
+  margin: 10px auto;
+  font-size: 1.25rem;
+}
+
+.forgot-password-link {
+  font-size: 1rem;
+  width: 100%;
+}
+
+.login-btn {}
+
+/* CREATE USER FORM */
+
+.user-create-page {}
+
+.create-user-form-container {}
+
+.create-container {}
+
+.username-err,
+.email-err {}
+
+.create-error-text {}
+
+.create-user-form {}
+
+.create-user-form form {}
+
+.username-create {}
+
+.username-create label {}
+
+.username-create input {}
+
+.email-create {}
+
+.email-create label {}
+
+.email-create input {}
+
+.password-create {}
+
+.password-create label {}
+
+.password-create input {}
+
+.confirm-password-create {}
+
+.confirm-password-create label {}
+
+.confirm-password-create input {}
+
+.create-user-btn-container {}
+
+.create-user-btn {}
+
+/* USER MAIN PAGE */
+
+.user-container {}
+
+.view-creatures-btn {}
+
+.edit-user-link {}
+
+/* EDIT USER PAGE */
+
+.user-info {}
+
+.view-creatures-link {}
+
+.user-update-form {}
+
+.user-update-form form {}
+
+.form-title {}
+
+.user-info-tip {}
+
+.username-label {}
+
+.username-label label {}
+
+.username-input {}
+
+.username-input input {}
+
+.email-label {}
+
+.email-label label {}
+
+.email-input {}
+
+.email-input input {}
+
+.password-label {}
+
+.password-label label {}
+
+.password-input {}
+
+.password-input input {}
+
+.update-user-btn-container {}
+
+.update-user-btn {}
+
+.delete-user-btn {}
+
+.confirm-delete {}
+
+.confirm-delete label {}
+
+.confirm-delete input {}
+
+.confirm-delete-user-btn {}
+
+/* FORGOT PASWORD FORM */
+
+.forgot-password-form {}
+
+.forgot-password-form form {}
+
+.email-forgot-input {}
+
+.email-forgot-input label {}
+
+.email-forgot-input input {}
+
+.get-reset-code {}
+
+.get-code-btn {}
+
+/* RESET CODE FORM */
+
+.reset-code-form {}
+
+.reset-code-form form {}
+
+.reset-code-form input {}
+
+.submit-code-btn {}
+
+.resend-code {}
+
+.resend-code-text {}
+
+.resend-code-btn {}
+
+/* RESET PASSWORD FORM */
+
+.reset-password-container {}
+
+.cancel-reset-btn {}
+
+.reset-password-container form {}
+
+.password-input {}
+
+.password-input label {}
+
+.password-input input {}
+
+.show-password {}
+
+.confirm-password-input {}
+
+.confirm-password-input label {}
+
+.confirm-password-input input {}
+
+.submit-password-reset {}
+
+.submit-reset-btn {}

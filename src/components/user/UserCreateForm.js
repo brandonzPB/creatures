@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { Link, Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
+import './user.css';
 
 const UserCreateForm = () => {
   const { createResult, setCreateResult } = useContext(UserContext);
@@ -10,6 +11,7 @@ const UserCreateForm = () => {
     username: '',
     email: '',
     password: '',
+    confirmPassword: '',
   });
 
   const [error, setError] = useState({ ref: '' });
@@ -32,6 +34,13 @@ const UserCreateForm = () => {
     });
 
     if (newUser.username.trim() && newUser.email.trim() && newUser.password.trim()) {
+      if (newUser.password !== newUser.confirmPassword) {
+        return setError({
+          ...error,
+          ref: 'password'
+        });
+      }
+
       const result = await userService.createUser(newUser);
 
       if (result.result === 'Success') {
@@ -69,16 +78,16 @@ const UserCreateForm = () => {
             <Route exact path="/user/create">
               <Redirect to="/" />
             </Route> :
-            <div className="create-form">
+            <div className="create-container">
               <Link to="/">
-                <p>Return Home</p>
+                <p className="return-home-link">Return Home</p>
               </Link>
 
               <div className="username-err" style={{ display: error.ref === 'username' ? 'flex' : 'none'}}>
-                <h2>Username already exists</h2>
+                <span className="create-error-text">Username already exists</span>
               </div>
               <div className="email-err" style={{ display: error.ref === 'email' ? 'flex' : 'none'}}>
-                <h2>Email already exists</h2>
+                <span className="create-error-text">Email already exists</span>
               </div>
 
               <div className="create-user-form">
@@ -126,9 +135,24 @@ const UserCreateForm = () => {
                       }}
                     />
                   </div>
+
+                  <div className="confirm-password-create">
+                    <label>Confirm Password: </label>
+                    <input 
+                      type="password"
+                      name="confirmPassword"
+                      value={newUser.confirmPassword}
+                      required={true}
+                      minLength={5}
+                      onChange={handleChange}
+                      style={{
+                        border: error.ref === 'password' ? '2px solid red' : 'none'
+                      }}
+                    />
+                  </div>
                 
-                  <div className="create-user-btn">
-                    <button>Create User</button>
+                  <div className="create-user-btn-container">
+                    <button className="create-user-btn">Create User</button>
                   </div>
                 </form>
               </div>
