@@ -9,8 +9,14 @@ const createUser = (userObject) => {
 };
 
 // LOGIN
-const login = (credentials) => {
-  const req = axios.post(`${baseUrl}/login`, credentials);
+const login = (type, credentials) => {
+  let reqUser = { password: credentials.password, type };
+
+  type === 'username'
+    ? reqUser.username = credentials.username
+    : reqUser.email = credentials.email;
+
+  const req = axios.post(`${baseUrl}/login`, reqUser);
 
   return req.then(res => {
     console.log('res', res.data);

@@ -1,4 +1,5 @@
 import * as streak from '../modules/streak';
+import * as ages from '../modules/age';
 
 const userReducer = (state, action) => {
   switch(action.type) {
@@ -15,13 +16,9 @@ const userReducer = (state, action) => {
           // updates streaks (if broken) and ages
           return {
             ...creature,
-            streak_count: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
+            streak_count: (streak.checkCreatureStreak((action.user.newDay), creature) === 'broken') 
               ? 0 : creature.streak_count,
-            streak_timestamp: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
-              ? 0 : creature.streak_timestamp,
-            streak_day: (streak.checkCreatureStreak(action.user.newDay, creature) === 'broken') 
-              ? action.user.newday : creature.streak_day,
-            age: (streak.getAge(action.user.newTime, creature.birth_time)),
+            age: (ages.getAge(creature.birth_time)),
           }
         }),
         new_day: action.user.newDay,
@@ -253,8 +250,8 @@ const userReducer = (state, action) => {
         password: null,
         db_password: null,
         creatures: [],
-        newDay: 0,
-        newTime: 0,
+        new_day: 0,
+        new_time: 0,
         refreshed: false,
       };
     default:

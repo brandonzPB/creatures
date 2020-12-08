@@ -99,6 +99,9 @@ const UserContextProvider = (props) => {
       .then(response => {
         console.log(response);
 
+        const newDay = (new Date()).getDay();
+        const newTime = Date.now();
+
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
           email: response.user.email,
@@ -107,32 +110,13 @@ const UserContextProvider = (props) => {
           db_id: res.db_id,
           accessToken: res.accessToken,
           creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures,
-          newDay: response.new_day,
-          newTime: response.new_time,
+          newDay,
+          newTime,
         }});
 
         console.log('Successfully retrieved user data');
       })
       .catch(err => console.error(err));
-  }
-
-  // POST user login
-  const login = async (userObject) => {
-    const { username, password } = userObject;
-
-    localStorage.removeItem('my-reset');
-    localStorage.removeItem('my-user');
-
-    await userService.login({ 
-      username, 
-      password 
-    })
-      .then(res => { 
-        return getUserInfo(res, password); 
-      })
-      .catch(err => {
-        console.error(err);
-      });
   }
 
   // DELETE user
@@ -160,13 +144,13 @@ const UserContextProvider = (props) => {
     <UserContext.Provider value={{
       user,
       userDispatch,
+      getUserInfo,
       refreshUser,
       updateUser,
       createResult,
       setCreateResult,
       reset,
       setReset,
-      login,
       postLocalCreatures,
       removeUser,
       logout,

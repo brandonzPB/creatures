@@ -1,5 +1,5 @@
-exports.getAge = (currentTime, birthTime, string = true) => {
-  // const currentTime = Date.now();
+const getAge = (birthTime, string = true) => {
+  const currentTime = Date.now();
   const difference = currentTime - birthTime;
 
   const dayDifference = (difference / 1000) / 86400;
@@ -16,7 +16,6 @@ exports.checkCreatureStreak = (thisDay, creature) => {
 
   const streakTimestamp = creature.streak_timestamp;
   const streakDay = creature.streak_day;
-  /* const thisDay = (new Date()).getDay(); */
 
   if (streakDay === 6) { // Streak continues if current week day is 0 and less than 24 hours passed
 
@@ -26,7 +25,7 @@ exports.checkCreatureStreak = (thisDay, creature) => {
       // if more than 2 days passed; streak is over
       // else, increment streak count
 
-      const minDifference = this.getAge(streakTimestamp, false);
+      const minDifference = getAge(streakTimestamp, false);
       return minDifference > 2880 ? 'broken' : 'increment';
     } else { // Same day
 
@@ -39,7 +38,7 @@ exports.checkCreatureStreak = (thisDay, creature) => {
       // if more than 2 days passed; streak is over
       // else, increment streak count
 
-      const minDifference = this.getAge(streakTimestamp, false);
+      const minDifference = getAge(streakTimestamp, false);
       return minDifference > 2880 ? 'broken' : 'increment';
     } else if (streakDay === thisDay) { // Same day
 
@@ -50,11 +49,10 @@ exports.checkCreatureStreak = (thisDay, creature) => {
   }
 }
 
-exports.updateCreatureStreak = (creature, user, userDispatch, finish) => {
+exports.updateCreatureStreak = (creature, userDispatch, finish) => {
   const newCount = creature.streak_count + 1;
   const newTimestamp = Date.now();
-  /* const newDay = (new Date()).getDay(); */
-  const newDay = user.newDay;
+  const newDay = (new Date()).getDay();
 
   userDispatch({ type: 'UPDATE_STREAK', creature: {
     id: creature.id,
@@ -68,11 +66,10 @@ exports.updateCreatureStreak = (creature, user, userDispatch, finish) => {
   return creature;
 }
 
-exports.resetCreatureStreak = (creature, user, userDispatch, finish) => {
+exports.resetCreatureStreak = (creature, userDispatch, finish) => {
   const newCount = 0;
-  /* const newTimestamp = Date.now() - 86400000; */
-  const newTimestamp = user.newTime - 86400000;
-  const newDay = user.newDay;
+  const newTimestamp = Date.now();
+  const newDay = (new Date()).getDay();
 
   userDispatch({ type: 'UPDATE_STREAK', creature: {
     id: creature.id,
