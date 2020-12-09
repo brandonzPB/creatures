@@ -5,9 +5,9 @@
   margin: 60px auto;
   text-align: center;
   background: linear-gradient(-45deg,
-  rgba(5,53,39, 0.9),
-  rgba(67,128,41, 0.8),
-  rgba(97,154,70, 0.5));
+    rgba(1,0,121, 0.8),
+    rgba(27,115,211, 0.7),
+    rgba(50, 135, 226, 0.6));
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

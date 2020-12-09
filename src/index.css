@@ -26,19 +26,6 @@ html {
   font-size: 15x;
 }
 
-/*
-  browns:
-rgb(225,193,88); -> text/button
-rgb(212,175,55); -> text/button
-rgb(178,151,0);
-
-  greens:
-rgb(125,170,106); -> card
-rgb(97,154,70); -> form
-rgb(67,128,41); -> background
-rgb(5,53,39); -> header/footer
-*/
-
 .App {
   width: 1450px;
   height: 850px;
@@ -170,9 +157,9 @@ rgb(5,53,39); -> header/footer
 .create-link {
   font-size: 1.3rem;
   padding: 20px;
-  background: linear-gradient(-10deg,
+  background: linear-gradient(-20deg,
   rgba(5,53,39, 0.9),
-  rgba(67,128,41, 0.9));
+  rgba(67,128,41, 0.8));
   color: gold;
   border-radius: 5px;
   font-weight: 600;
@@ -186,7 +173,7 @@ rgb(5,53,39); -> header/footer
   justify-content: center;
   top: 40px;
   left: 40px;
-  box-shadow: 2px 2px 100px 1px white;
+  box-shadow: 0 0 4px black;
   font-family: 'Open Sans';
 }
 
@@ -722,6 +709,7 @@ rgb(5,53,39); -> header/footer
   position: absolute;
   top: 150px;
   left: 35px;
+  box-shadow: 0 0 4px black;
 }
 
 .creature-coral {
@@ -1288,11 +1276,14 @@ rgb(5,53,39);
   left: 150px;
   top: 75px;
   font-size: 1.5rem;
-  border: rgb(35, 161, 211);
+  border: none;
   border-radius: 5px;
-  background: rgb(35, 161, 211);
+  background: linear-gradient(-35deg,
+  rgba(5,53,39, 0.8) 30%,
+  rgba(67,128,41, 0.8),
+  rgba(97,154,70, 0.8));
   box-shadow: 0 0 4px black;
-  color: white;
+  color: gold;
   width: 200px;
   height: 75px;
   display: flex;

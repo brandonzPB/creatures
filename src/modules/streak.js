@@ -11,11 +11,8 @@ const getAge = (birthTime, string = true) => {
   return string ? `${years} years, and ${Math.round(days)} days old` : minutes;
 }
 
-exports.checkCreatureStreak = (thisDay, creature) => {
-  // checks if streak is broken ('broken', 'constant', or 'increment')
-
-  const streakTimestamp = creature.streak_timestamp;
-  const streakDay = creature.streak_day;
+exports.checkCreatureStreak = (thisDay, streakTimestamp, streakDay) => {
+  // checks if streak is broken, constant, or needs to be incremented
 
   if (streakDay === 6) { // Streak continues if current week day is 0 and less than 24 hours passed
 

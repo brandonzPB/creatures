@@ -11,6 +11,8 @@ const ForgotPassword = () => {
 
   const [error, setError] = useState({ upset: false });
 
+  const [loading, setLoading] = useState({ state: false });
+
   const handleChange = event => {
     const { name, value } = event.target;
 
@@ -28,6 +30,11 @@ const ForgotPassword = () => {
       upset: false
     });
 
+    setLoading({
+      ...loading,
+      state: false
+    });
+
     let emailExists;
 
    if (form.email.trim()) {
@@ -40,6 +47,11 @@ const ForgotPassword = () => {
     }
 
     if (emailExists) {
+      setLoading({
+        ...loading,
+        state: true
+      });
+
       const resetToken = await userService.getResetCode(form.email);
 
       setReset({
@@ -63,6 +75,9 @@ const ForgotPassword = () => {
       <Link to="/">
         <p className="return-home-link">Return Home</p>
       </Link>
+      <div className="loading" style={{ display: loading.state ? 'flex' : 'none' }}>
+        <span className="loading-text">Sending code...</span>
+      </div>
       <form onSubmit={handleSubmit}>
         <div className="email-forgot-input">
           <label>Enter Email: </label>

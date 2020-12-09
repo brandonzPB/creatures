@@ -13,16 +13,22 @@ const userReducer = (state, action) => {
         password: action.user.password,
         db_password: action.user.db_password,
         creatures: action.user.creatures.map(creature => {
-          // updates streaks (if broken) and ages
+          const streakDay = creature.streak_day;
+          const streakTime = creature.streak_timestamp;
+          const streakCount = creature.streak_count;
+          const birthTime = creature.birth_time;
+          const thisDay = (new Date()).getDay();
+
           return {
             ...creature,
-            streak_count: (streak.checkCreatureStreak((action.user.newDay), creature) === 'broken') 
-              ? 0 : creature.streak_count,
-            age: (ages.getAge(creature.birth_time)),
+            streak_count: streak.checkCreatureStreak(thisDay, streakTime, streakDay) === 'broken'
+              ? 0 : streakCount,
+            age: ages.getAge(birthTime)
           }
         }),
         new_day: action.user.newDay,
         new_time: action.user.newTime,
+        local_time: action.user.localTime,
       };
     case 'POST_LOCAL_CREATURES':
       return {

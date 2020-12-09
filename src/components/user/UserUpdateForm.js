@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
@@ -275,6 +275,7 @@ const UserUpdateForm = () => {
 
       <div className="delete-user-container">
         <div className="delete-user-btn-container">
+          <span className="delete-title">Delete User</span>
           <button className="delete-user-btn" onClick={sendDelete}>Delete User</button>
         </div>
 

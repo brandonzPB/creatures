@@ -101,6 +101,7 @@ const UserContextProvider = (props) => {
 
         const newDay = (new Date()).getDay();
         const newTime = Date.now();
+        const localTime = (new Date()).getHours();
 
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
@@ -112,6 +113,7 @@ const UserContextProvider = (props) => {
           creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures,
           newDay,
           newTime,
+          localTime
         }});
 
         console.log('Successfully retrieved user data');

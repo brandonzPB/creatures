@@ -386,5 +386,11 @@ export const otherVersions = [
     versions: [
       'shiny'
     ]
+  },
+  {
+    name: 'psyduck',
+    versions: [
+      'perry'
+    ]
   }
 ];
