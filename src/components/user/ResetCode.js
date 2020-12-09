@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
 import './user.css';
@@ -77,7 +77,11 @@ const ResetCode = () => {
 
   return (
     <div className="reset-code-form">
+      <Link to="/">
+        <p className="return-home-link">Return Home</p>
+      </Link>
       <form onSubmit={handleSubmit}>
+        <label>Enter code below: </label>
         <input 
           type="text"
           name="code"

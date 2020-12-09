@@ -94,6 +94,7 @@ const UserCreateForm = () => {
 
               <div className="create-user-form">
                 <form onSubmit={handleSubmit}>
+                  <span className="create-user-title">Create a New User</span>
                   <div className="username-create">
                     <label>Username: </label>
                     <input 

@@ -88,9 +88,9 @@ const ActionList = () => {
   if (currentId) {
     return (
       <div className="update-container">
-        <div className="return-btn-container">
-          <Link to="/creatures"><button className="return-btn update-return-btn">Return Home</button></Link>
-        </div>
+        <Link to="/creatures">
+          <p className="creatures-return-link-update">Return to Creatures</p>
+        </Link>
 
         <div className="adjacent-creature-container">
           <div className="adjacent-creature-container-fluid">

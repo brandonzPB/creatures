@@ -277,3 +277,59 @@
   
   .objective-container {}
 }
+
+.return-home-link {
+  position: absolute;
+  left: 150px;
+  top: 100px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: rgb(35, 161, 211);
+  border-radius: 5px;
+  background: rgb(35, 161, 211);
+  box-shadow: 0 0 4px black;
+  color: white;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creatures-return-link {
+  position: absolute;
+  left: 150px;
+  top: 100px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: rgb(35, 161, 211);
+  border-radius: 5px;
+  background: rgb(35, 161, 211);
+  box-shadow: 0 0 4px black;
+  color: white;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.creatures-return-link-update {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: rgb(35, 161, 211);
+  border-radius: 5px;
+  background: rgb(35, 161, 211);
+  box-shadow: 0 0 4px black;
+  color: white;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

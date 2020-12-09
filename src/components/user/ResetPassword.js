@@ -87,9 +87,6 @@ const ResetPassword = () => {
 
   return (
     <div className="reset-password-container">
-      <Link to="/">
-        <p className="return-home-link">Return Home</p>
-      </Link>
       <button onClick={cancelRequest} className="cancel-reset-btn">Cancel Reset</button>
 
       <form onSubmit={handleSubmit}>

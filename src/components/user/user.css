@@ -6,6 +6,7 @@
   border: rgb(35, 161, 211);
   border-radius: 5px;
   background: rgb(35, 161, 211);
+  box-shadow: 0 0 4px black;
   color: white;
   width: 200px;
   height: 75px;
@@ -25,9 +26,10 @@
 .logout-btn {
   width: 125px;
   height: 35px;
-  border: rgb(247, 243, 27);
-  background: rgb(247, 243, 27);
+  border: rgb(92, 92, 92);
+  background: rgb(92, 92, 92);
   box-shadow: 0 0 3px black;
+  color: white;
   font-weight: 600;
   font-size: 1rem;
   cursor: pointer;
@@ -43,6 +45,12 @@
   margin: 0 auto;
   text-align: center;
   font-weight: 600;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 30px auto 20px auto; 
 }
 
 .login-form-container form {
@@ -110,7 +118,7 @@
   text-decoration: none;
   width: 100%;
   margin: 0 auto 40px auto;
-  color: rgb(175, 175, 175);
+  color: rgb(214, 213, 213);
 }
 
 .login-form-container a:link,
@@ -178,11 +186,18 @@
 
 .create-error-text {}
 
+.create-user-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 20px auto;
+}
+
 .create-user-form {
   width: 100%;
   height: auto;
   margin: 60px 60px;
   text-align: center;
+  padding: 20px;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -319,7 +334,10 @@
   height: 100px;
   font-size: 2rem;
   font-weight: 600;
-  background-color: rgba(5,53,39, 0.9);
+  background: linear-gradient(-45deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9),
+  rgba(97,154,70, 0.7));
   color: rgb(212,175,55);
   cursor: pointer;
 }
@@ -362,7 +380,9 @@
   justify-content: center;
   font-size: 1.75rem;
   font-weight: 600;
-  background-color: rgba(5,53,39, 0.9);
+  background: linear-gradient(-20deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9));
   color: rgb(212,175,55);
   width: 250px;
   height: 100px;
@@ -384,7 +404,7 @@
   width: 100%;
   height: auto;
   margin: 20px 60px;
-  padding: 0 40px;
+  padding: 10px 40px;
   text-align: center;
   display: flex;
   flex: 1;
@@ -408,10 +428,15 @@
   font-weight: 600;
 }
 
-.form-title {}
+.form-title {
+  margin: 20px auto;
+  display: block;
+}
 
 .user-info-tip {
   font-size: 1rem;
+  margin: 0 auto 40px auto;
+  display: block;
 }
 
 .username-label {
@@ -448,21 +473,16 @@
 
 .password-label label {}
 
-.password-input {
-  margin: 0 auto 40px auto; 
-}
-
 .password-input input {
   font-size: 1.25rem;
-}
-
-.first-password-input {
-  margin: 0 0 0 30px;
+  margin: 0 20px;
+  text-align: center;
 }
 
 .show-password-btn {
   position: relative;
-  left: 30px;
+  left: 20px;
+  font-size: 1.25rem;
 }
 
 .update-user-btn-container {
@@ -486,6 +506,13 @@
   flex: 1;
   flex-wrap: wrap;
   flex-direction: column;
+  background: linear-gradient(-45deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9),
+  rgba(97,154,70, 0.8));
+  width: 400px;
+  height: 600px;
+  border-radius: 5px;
 }
 
 .delete-user-btn-container {
@@ -546,11 +573,12 @@
   background: linear-gradient(-45deg,
   rgba(5,53,39, 0.9),
   rgba(67,128,41, 0.9),
-  rgba(97,154,70, 0.8));
+  rgba(97,154,70, 0.6));
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  box-shadow: 0 0 8px black;
   border-radius: 5px;
   padding: 40px;
   width: 600px;
@@ -571,7 +599,7 @@
 
 .email-forgot-input input {
   margin: 20px auto;
-  font-size: 2rem;
+  font-size: 1.75rem;
 }
 
 .get-reset-code {}
@@ -585,46 +613,174 @@
   font-size: 1.3rem;
   font-weight: 600;
   margin: 30px auto;
+  cursor: pointer;
 }
 
 /* RESET CODE FORM */
 
-.reset-code-form {}
+.reset-code-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  margin: 225px auto 0 auto;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(-45deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9),
+  rgba(97,154,70, 0.6));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  box-shadow: 0 0 8px black;
+  border-radius: 5px;
+  padding: 30px;
+  width: 600px;
+  height: auto;
+}
 
 .reset-code-form form {}
 
-.reset-code-form input {}
+.reset-code-form label {
+}
 
-.submit-code-btn {}
+.reset-code-form input {
+  font-size: 2rem;
+  margin: 20px auto 5px auto;
+  display: block;
+  width: 225px;
+}
+
+.submit-code-btn {
+  width: 175px;
+  height: 40px;
+  background: gold;
+  color: black;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 30px auto;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
 .resend-code {}
 
-.resend-code-text {}
+.resend-code-text {
+  font-size: 1.25rem;
+  margin: 20px 5px;
+}
 
-.resend-code-btn {}
+.resend-code-btn {
+  width: 125px;
+  height: 40px;
+  background: gold;
+  border-radius: 5px;
+  color: black;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 30px 10px;
+  cursor: pointer;
+}
 
 /* RESET PASSWORD FORM */
 
-.reset-password-container {}
+.reset-password-container {
+}
 
-.cancel-reset-btn {}
+.cancel-reset-btn {
+  position: absolute;
+  width: 200px;
+  height: 50px;
+  top: 150px;
+  background: rgb(82, 82, 82);
+  color: white;
+  border: none;
+  font-size: 1.35rem;
+  font-weight: 600;
+  border-radius: 2px;
+  box-shadow: 0 0 4px black;
+}
 
-.reset-password-container form {}
+.reset-password-container form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  margin: 225px auto 0 auto;
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+  background: linear-gradient(-45deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9),
+  rgba(97,154,70, 0.6));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  box-shadow: 0 0 8px black;
+  border-radius: 5px;
+  padding: 70px 50px;
+  width: 600px;
+  height: auto;
+}
 
-.password-input {}
+.password-input {
+  display: block;
+  margin: 0 auto 50px auto;
+  text-align: center;
+}
 
-.password-input label {}
+.password-input label {
+  display: block;
+}
 
-.password-input input {}
+.password-input input {
+  font-size: 1.25rem;
+  margin: 20px auto;
+}
 
-.show-password {}
+.first-password-input input {
+  margin: 20px 0 0 40px;
+}
+
+.show-password {
+  position: relative;
+  left: 40px;
+  width: auto;
+  height: auto;
+  font-size: 1.5rem;
+}
 
 .confirm-password-input {}
 
-.confirm-password-input label {}
+.confirm-password-input label {
+}
 
-.confirm-password-input input {}
+.confirm-password-input input {
+  font-size: 1.25rem;
+  display: block;
+  margin: 20px auto;
+}
 
 .submit-password-reset {}
 
-.submit-reset-btn {}
+.submit-reset-btn {
+  width: 175px;
+  height: 40px;
+  background: gold;
+  color: black;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 30px auto 0 auto;
+  cursor: pointer;
+  border-radius: 5px;
+}

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Link, Route, Redirect } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
@@ -145,7 +145,9 @@ const CreatureUpdateForm = () => {
  
   return (
     <div className="creature-info creature-form">
-      <button onClick={() => showCreatureObjectives('')}>Return Home</button>
+      <Link to="/creatures">
+        <p className="creatures-return-link-update">Return to Creatures</p>
+      </Link>
 
       <div className="creature-update-form">
         <form onSubmit={updateCreature}>

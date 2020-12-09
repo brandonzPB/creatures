@@ -78,6 +78,7 @@ const LoginForm = () => {
   return (
     <div className="login-form-container">
       <form onSubmit={handleSubmit}>
+        <span className="login-title">Login</span>
         <div className="username-login">
           <label>Username: </label>
           <input 

@@ -173,7 +173,9 @@ const CreatureForm = () => {
         !formDisplay ? 
           <Route exact path="/creature/create"> <Redirect to="/creatures" /> </Route> :
           <div className="creature-form-container">
-            <Link to="/creatures"><button className="return-btn">Return Home</button></Link>
+            <Link to="/creatures">
+              <p className="creatures-return-link">Return to Creatures</p>
+            </Link>
             
             <div className="creature-form">
               <form onSubmit={addCreature}>
