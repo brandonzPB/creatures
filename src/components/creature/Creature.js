@@ -141,7 +141,7 @@ const Creature = ({ creature }) => {
   // The selected creature's objectives to be shown
   const displayCreatureObjectives = () => {
     showCreatureObjectives(creature.id);
-    finish('db', null, 'refresh');
+    finish('creature', creature, 'stats');
   }
 
   return (

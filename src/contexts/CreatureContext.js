@@ -60,7 +60,7 @@ const CreatureContextProvider = (props) => {
 
       } else if (done.type === 'db') {
         if (done.method === 'refresh') refreshUser();
-        else if (done.method === 'update' || done.method === 'updatePassword') updateUser(done.method);
+        else if (done.method === 'update' || done.method === 'updatePassword' || done.method === 'creatures') updateUser(done.method);
         else if (done.method === 'delete') logout();
       }
 

@@ -10,6 +10,18 @@ const UserUpdateForm = () => {
   const { user, userDispatch, removeUser, checkUsername } = useContext(UserContext);
   const { finish } = useContext(CreatureContext);
 
+  useEffect(async () => {
+    // Update user (creatures now have different ages and streak counts)
+
+    console.log('user on render', user);
+
+    if (!user.updated) {
+      userDispatch({ type: 'AUTO_UPDATE' });
+      await finish('db', null, 'creatures');
+      console.log('Streaks and ages updated', user);
+    }
+  }, []);
+
   const [update, setUpdate] = useState({
     username: '',
     email: '',

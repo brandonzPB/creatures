@@ -28,7 +28,7 @@ const userReducer = (state, action) => {
         }),
         new_day: action.user.newDay,
         new_time: action.user.newTime,
-        local_time: action.user.localTime,
+        updated: false,
       };
     case 'POST_LOCAL_CREATURES':
       return {
@@ -52,6 +52,11 @@ const userReducer = (state, action) => {
         username: action.user.username,
         email: action.user.email,
         password: action.user.password
+      };
+    case 'AUTO_UPDATE':
+      return {
+        ...state,
+        updated: true
       };
     case 'ADD_CREATURE':
       return {
@@ -259,6 +264,7 @@ const userReducer = (state, action) => {
         new_day: 0,
         new_time: 0,
         refreshed: false,
+        updated: false,
       };
     default:
       return state;

@@ -63,7 +63,7 @@ const UserContextProvider = (props) => {
           password: res.user.password,
           db_id: user.db_id,
           accessToken: user.accessToken,
-          creatures: res.user_creatures
+          creatures: res.user_creatures,
         }});
 
         return res;
@@ -75,7 +75,10 @@ const UserContextProvider = (props) => {
     console.log('Updating user...');
 
     userService.updateUser(method, user.db_id, user, user.accessToken)
-      .then(res => res)
+      .then(res => {
+        console.log('res', res);
+        return res;
+      })
       .catch(err => console.error(err));
   }
 
@@ -101,7 +104,6 @@ const UserContextProvider = (props) => {
 
         const newDay = (new Date()).getDay();
         const newTime = Date.now();
-        const localTime = (new Date()).getHours();
 
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
@@ -113,7 +115,6 @@ const UserContextProvider = (props) => {
           creatures: storedCreatures.length >= 1 ? storedCreatures : response.user_creatures,
           newDay,
           newTime,
-          localTime
         }});
 
         console.log('Successfully retrieved user data');
