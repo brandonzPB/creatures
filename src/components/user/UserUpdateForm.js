@@ -181,7 +181,7 @@ const UserUpdateForm = () => {
       <div className="user-update-form">
         <form onSubmit={handleSubmit}>
           <span className="form-title">Edit User Info</span>
-          <span className="user-info-tip">Leave it blank if you don't want to change it</span>
+          <span className="user-info-tip">Leave any field blank if you don't want to change it</span>
 
           <div className="username-label">
             <label>New Username: </label>
@@ -238,7 +238,7 @@ const UserUpdateForm = () => {
             <label>New Password: </label>
           </div>
 
-          <div className="password-input">
+          <div className="password-input first-password-input">
             <input 
               type={showPassword ? 'text' : 'password'}
               name="password"
@@ -248,7 +248,7 @@ const UserUpdateForm = () => {
                 border: error.ref === 'password' ? '2px solid red' : 'none'
               }}
             />
-            <button onClick={viewPassword}>&#128065;</button>
+            <button className="show-password-btn" onClick={viewPassword}>&#128065;</button>
           </div>
 
           <div className="password-label">
@@ -273,21 +273,25 @@ const UserUpdateForm = () => {
         </form>
       </div>
 
-      <button className="delete-user-btn" onClick={sendDelete}>Delete User</button>
-      
-      <div className="confirm-delete" style={{ display: deleteUser.confirmDelete ? 'flex' : 'none' }}>
-        <label>Please enter your password to confirm</label>
-        <input 
-          type="password"
-          name="confirmDeletePassword"
-          className="delete-user"
-          value={deleteUser.confirmDeletePassword}
-          onChange={handleChange}
-          style={{
-                border: error.ref === 'delete' ? '2px solid red' : 'none'
-          }}
-        />
-        <button className="confirm-delete-user-btn" onClick={sendDelete}>Confirm Delete</button>
+      <div className="delete-user-container">
+        <div className="delete-user-btn-container">
+          <button className="delete-user-btn" onClick={sendDelete}>Delete User</button>
+        </div>
+
+        <div className="confirm-delete" style={{ display: deleteUser.confirmDelete ? 'flex' : 'none' }}>
+          <label>Please enter your password to confirm</label>
+          <input 
+            type="password"
+            name="confirmDeletePassword"
+            className="delete-user"
+            value={deleteUser.confirmDeletePassword}
+            onChange={handleChange}
+            style={{
+                  border: error.ref === 'delete' ? '2px solid red' : 'none'
+            }}
+          />
+          <button className="confirm-delete-user-btn" onClick={sendDelete}>Confirm Delete</button>
+        </div>
       </div>
     </div>
   )

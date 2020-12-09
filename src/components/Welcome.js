@@ -18,7 +18,7 @@ const Welcome = () => {
   if (user.accessToken) {
     return (
       <Route exact path="/">
-        <Redirect to="/user" />
+        <Redirect to="/user/update" />
       </Route>
     )
   }

@@ -17,7 +17,7 @@
 .logout-container {
   position: absolute;
   top: 100px;
-  right: 150px;
+  right: 100px;
 }
 
 .logout-btn-container {}
@@ -30,6 +30,7 @@
   box-shadow: 0 0 3px black;
   font-weight: 600;
   font-size: 1rem;
+  cursor: pointer;
 }
 
 /* LOGIN FORM */
@@ -301,14 +302,13 @@
 /* USER MAIN PAGE */
 
 .user-container {
-  margin: 100px auto 50px auto;
+  margin: 200px auto 50px auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex: 1;
   flex-direction: column;
   width: 100%;
-  border: 2px solid red;
   text-align: center;
 }
 
@@ -319,12 +319,21 @@
   height: 100px;
   font-size: 2rem;
   font-weight: 600;
+  background-color: rgba(5,53,39, 0.9);
+  color: rgb(212,175,55);
+  cursor: pointer;
 }
 
 .edit-user-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 2rem;
   font-weight: 600;
+  background-color: rgba(5,53,39, 0.9);
+  color: rgb(212,175,55);
+  width: 250px;
+  height: 100px;
 }
 
 .user-container a:link,
@@ -335,59 +344,224 @@
 
 /* EDIT USER PAGE */
 
-.user-info {}
+.user-info {
+  margin: 80px auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
-.view-creatures-link {}
+.view-creatures-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+  background-color: rgba(5,53,39, 0.9);
+  color: rgb(212,175,55);
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  left: 150px;
+  top: 40px;
+}
 
-.user-update-form {}
+.user-info a {
+  text-decoration: none;
+}
 
-.user-update-form form {}
+.user-info a:link,
+.user-info a:visited {
+  text-decoration: none;
+}
+
+.user-update-form {
+  width: 100%;
+  height: auto;
+  margin: 20px 60px;
+  padding: 0 40px;
+  text-align: center;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(-45deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9),
+  rgba(97,154,70, 0.8));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: 10px;
+}
+
+.user-update-form form {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
 
 .form-title {}
 
-.user-info-tip {}
+.user-info-tip {
+  font-size: 1rem;
+}
 
-.username-label {}
+.username-label {
+  margin: 20px auto 5px auto;
+}
 
 .username-label label {}
 
-.username-input {}
+.username-input {
+  margin: 0 auto 40px auto;
+}
 
-.username-input input {}
+.username-input input {
+  font-size: 1.25rem;
+}
 
-.email-label {}
+.email-label {
+  margin: 40px auto 5px auto;
+}
 
 .email-label label {}
 
-.email-input {}
+.email-input {
+  margin: 0 auto 40px auto;
+}
 
-.email-input input {}
+.email-input input {
+  font-size: 1.25rem;
+}
 
-.password-label {}
+.password-label {
+  margin: 40px auto 5px auto;
+}
 
 .password-label label {}
 
-.password-input {}
+.password-input {
+  margin: 0 auto 40px auto; 
+}
 
-.password-input input {}
+.password-input input {
+  font-size: 1.25rem;
+}
 
-.update-user-btn-container {}
+.first-password-input {
+  margin: 0 0 0 30px;
+}
 
-.update-user-btn {}
+.show-password-btn {
+  position: relative;
+  left: 30px;
+}
 
-.delete-user-btn {}
+.update-user-btn-container {
+  margin: 40px auto 20px auto;
+}
 
-.confirm-delete {}
+.update-user-btn {
+  width: 125px;
+  height: 30px;
+  background: gold;
+  color: black;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+} 
 
-.confirm-delete label {}
+.delete-user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 
-.confirm-delete input {}
+.delete-user-btn-container {
+  display: block;
+}
 
-.confirm-delete-user-btn {}
+.delete-user-btn {
+  background: rgb(239,161,169);
+  width: 150px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px groove rgb(172, 89, 97);
+}
+
+.confirm-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.confirm-delete label {
+  font-size: 1.35rem;
+  margin: 20px auto 5px auto;
+}
+
+.confirm-delete input {
+  font-size: 1.2rem;
+}
+
+.confirm-delete-user-btn {
+  background: rgb(172, 89, 97);
+  color: white;
+  border: none;
+  margin: 15px auto;
+  width: 125px;
+  height: 30px;
+  font-weight: 600;
+  font-size: .9rem;
+}
 
 /* FORGOT PASWORD FORM */
 
-.forgot-password-form {}
+.forgot-password-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  margin: 275px auto 0 auto;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(-45deg,
+  rgba(5,53,39, 0.9),
+  rgba(67,128,41, 0.9),
+  rgba(97,154,70, 0.8));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: 5px;
+  padding: 40px;
+  width: 600px;
+  height: auto;
+}
+
+.forgot-info {
+  display: block;
+  font-size: 1.25rem;
+  margin: 5px auto 20px auto;
+}
 
 .forgot-password-form form {}
 
@@ -395,11 +569,23 @@
 
 .email-forgot-input label {}
 
-.email-forgot-input input {}
+.email-forgot-input input {
+  margin: 20px auto;
+  font-size: 2rem;
+}
 
 .get-reset-code {}
 
-.get-code-btn {}
+.get-code-btn {
+  width: 175px;
+  height: 40px;
+  background: gold;
+  color: black;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 30px auto;
+}
 
 /* RESET CODE FORM */
 

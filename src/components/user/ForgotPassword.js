@@ -66,6 +66,7 @@ const ForgotPassword = () => {
       <form onSubmit={handleSubmit}>
         <div className="email-forgot-input">
           <label>Enter Email: </label>
+          <span className="forgot-info">Page will redirect once email has been sent</span>
           <input 
             type="text"
             name="email"
