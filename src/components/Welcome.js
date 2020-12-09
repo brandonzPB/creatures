@@ -30,7 +30,7 @@ const Welcome = () => {
 
         <h1 className="create-account-text">Don't have an account?</h1>
         <Link to="/user/create">
-          <p className="create-account-link">Create an Account Here</p>
+          <p className="create-account-link">Create an Account</p>
         </Link>
       </div>
     </div>

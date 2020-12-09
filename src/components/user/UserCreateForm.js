@@ -72,13 +72,12 @@ const UserCreateForm = () => {
 
   return (
     <div className="user-create-page">
-      <div className="create-user-form-container">
-        {
+      {
           createResult.success ?
             <Route exact path="/user/create">
               <Redirect to="/" />
             </Route> :
-            <div className="create-container">
+            <div className="create-user-form-container">
               <Link to="/">
                 <p className="return-home-link">Return Home</p>
               </Link>
@@ -88,6 +87,9 @@ const UserCreateForm = () => {
               </div>
               <div className="email-err" style={{ display: error.ref === 'email' ? 'flex' : 'none'}}>
                 <span className="create-error-text">Email already exists</span>
+              </div>
+              <div className="password-err" style={{ display: error.ref === 'password' ? 'flex' : 'none'}}>
+                <span className="create-error-text">Passwords Do Not Match</span>
               </div>
 
               <div className="create-user-form">
@@ -158,7 +160,6 @@ const UserCreateForm = () => {
               </div>
             </div>
         }
-      </div>
     </div>
   )
 }

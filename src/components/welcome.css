@@ -1,8 +1,8 @@
 .index-container {
-  width: 45%;
+  width: 35%;
   height: auto;
   display: block;
-  margin: 30px auto;
+  margin: 60px auto;
   text-align: center;
   background: linear-gradient(-45deg,
   rgba(5,53,39, 0.9),
@@ -22,8 +22,28 @@
   text-align: center;
 }
 
-.create-account-text {}
+.create-account-text {
+  margin: 40px auto 0 auto;
+  font-size: 1.5rem;
+}
 
 .create-account-link {
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border: 2px solid gold;
+  background: gold;
+  width: 190px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: black;
+  margin: 10px auto 40px auto;
+  border-radius: 5px;
+}
+
+.welcome a {
   text-decoration: none;
 }

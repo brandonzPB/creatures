@@ -120,7 +120,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <Link to="/user/reset/forgot" className="forgot-password-link">
+        <Link to="/user/reset/forgot">
           <p className="forgot-password-link">Forgot Password?</p>
         </Link>
 
