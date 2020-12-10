@@ -29,8 +29,8 @@
 .logout-btn {
   width: 125px;
   height: 35px;
-  border: rgb(92, 92, 92);
-  background: rgb(92, 92, 92);
+  border: rgb(112, 112, 112);
+  background: rgb(112, 112, 112);
   box-shadow: 0 0 3px black;
   color: white;
   font-weight: 600;
@@ -92,6 +92,7 @@
 .username-login label {
   margin: 10px auto;
   display: block;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .username-login input {
@@ -108,6 +109,7 @@
 .email-login label {
   display: block;
   margin: 10px auto;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .email-login input {
@@ -124,6 +126,7 @@
 .password-login label {
   display: block;
   margin: 10px auto;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .password-login input {
@@ -137,7 +140,7 @@
   text-decoration: none;
   width: 100%;
   margin: 0 auto 40px auto;
-  color: rgb(214, 213, 213);
+  color: rgb(241, 241, 241);
 }
 
 .login-form-container a:link,
@@ -149,7 +152,7 @@
   width: 150px;
   height: 40px;
   border-radius: 5px;
-  background-color: gold;
+  background-color: rgb(251,202,99);
   font-weight: 600;
   font-size: 1rem;
   margin: 10px auto;
@@ -157,6 +160,7 @@
   cursor: pointer;
   background-position: center;
   text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .login-btn {
@@ -164,11 +168,11 @@
 }
 
 .login-btn:hover {
-  background: rgb(255, 228, 75) radial-gradient(circle, transparent 1%, rgb(255, 228, 75) 1%) center/15000%;
+  background: rgb(247,210,132) radial-gradient(circle, transparent 1%, rgb(247, 210, 132) 1%) center/15000%;
 }
 
 .login-btn:active {
-  background: rgb(240, 223, 131);
+  background: rgb(248, 235, 158);
   background-size: 100%;
   transition: 0s;
 }
@@ -285,9 +289,10 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(-45deg,
-    rgba(1,0,121, 0.8),
-    rgba(27,115,211, 0.7),
-    rgba(50, 135, 226, 0.6));
+  rgba(107,147,170, 0.9),
+  rgba(134, 172, 194, 0.8),
+  rgba(168, 201, 221, 0.7));
+  box-shadow: 0 0 3px black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -386,7 +391,7 @@
   width: 150px;
   height: 40px;
   border-radius: 5px;
-  background-color: gold;
+  background-color: rgb(251,202,99);
   font-weight: 600;
   font-size: 1rem;
   margin: 20px auto;
@@ -515,7 +520,7 @@
 .user-container a:link,
 .user-container a:visited {
   text-decoration: none;
-  color: gold;
+  color:  rgb(212,175,55);
 }
 
 /* EDIT USER PAGE */
@@ -539,16 +544,16 @@
   font-size: 1.75rem;
   font-weight: 600;
   background: linear-gradient(-20deg,
-  rgba(5,53,39, 0.8),
-  rgba(67,128,41, 0.7));
-  color: rgb(240, 200, 71);
+  rgba(47, 124, 66, 0.9),
+  rgba(111, 167, 125, 0.8));
+  color:  rgb(245, 245, 245);
   width: 250px;
   height: 100px;
   position: absolute;
   left: 150px;
   top: 40px;
   border-radius: 4px;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 3px black;
 }
 
 .user-info a {
@@ -573,15 +578,16 @@
   justify-content: center;
   border-radius: 10px;
   background: linear-gradient(-45deg,
-    rgba(1,0,121, 0.8),
-    rgba(27,115,211, 0.7),
-    rgba(50, 135, 226, 0.6));
+  rgba(107,147,170, 0.9),
+  rgba(134, 172, 194, 0.8),
+  rgba(168, 201, 221, 0.7));
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   border: none;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 3px black;
+  color: rgb(59, 59, 59);
 }
 
 .user-update-form form {
@@ -592,12 +598,14 @@
 .form-title {
   margin: 20px auto;
   display: block;
+  color: rgb(59, 59, 59);
 }
 
 .user-info-tip {
   font-size: 1rem;
   margin: 0 auto 40px auto;
   display: block;
+  color: rgb(59, 59, 59);
 }
 
 .username-label {
@@ -653,7 +661,7 @@
 .update-user-btn {
   width: 125px;
   height: 30px;
-  background: gold;
+  background: rgb(251,202,99);
   color: black;
   border: none;
   font-weight: 600;
@@ -675,7 +683,7 @@
   height: 350px;
   border-radius: 5px;
   border: none;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 3px black;
 }
 
 .delete-title {
@@ -774,16 +782,12 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    background: linear-gradient(-45deg,
-      rgba(1,0,121, 0.8),
-      rgba(27,115,211, 0.7),
-      rgba(50, 135, 226, 0.6));
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     border: none;
-    box-shadow: 0 0 4px black;
+    box-shadow: 0 0 3px black;
   }
   
   .user-update-form form {
@@ -853,7 +857,7 @@
   .update-user-btn {
     width: 125px;
     height: 30px;
-    background: gold;
+    background: rgb(251,202,99);
     color: black;
     border: none;
     font-weight: 600;
@@ -876,7 +880,6 @@
     height: 350px;
     border-radius: 5px;
     border: none;
-    box-shadow: 0 0 4px black;
     margin: 20px auto 30px auto;
   }
   
@@ -894,12 +897,10 @@
   }
   
   .delete-user-btn {
-    background: rgb(173, 70, 80);
     width: 150px;
     height: 40px;
     font-size: 1rem;
     font-weight: 600;
-    border: 2px groove rgb(173, 70, 80);
   }
   
   .confirm-delete {
@@ -922,7 +923,6 @@
   }
   
   .confirm-delete-user-btn {
-    background: rgb(179, 30, 45);
     color: white;
     border: none;
     margin: 15px auto;
@@ -946,14 +946,14 @@
   font-size: 2rem;
   font-weight: 600;
   background: linear-gradient(-45deg,
-    rgba(1,0,121, 0.8),
-    rgba(27,115,211, 0.7),
-    rgba(50, 135, 226, 0.6));
+  rgba(107,147,170, 0.9),
+  rgba(134, 172, 194, 0.8),
+  rgba(168, 201, 221, 0.7));
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  box-shadow: 0 0 8px black;
+  box-shadow: 0 0 3px black;
   border-radius: 5px;
   padding: 40px;
   width: 600px;
@@ -997,7 +997,7 @@
 .get-code-btn {
   width: 175px;
   height: 40px;
-  background: gold;
+  background: rgb(251,202,99);
   color: black;
   border: none;
   font-size: 1.3rem;
@@ -1020,14 +1020,14 @@
     font-size: 2rem;
     font-weight: 600;
     background: linear-gradient(-45deg,
-      rgba(1,0,121, 0.8),
-      rgba(27,115,211, 0.7),
-      rgba(50, 135, 226, 0.6));
+    rgba(107,147,170, 0.9),
+  rgba(134, 172, 194, 0.8),
+  rgba(168, 201, 221, 0.7));
+    box-shadow: 0 0 3px black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    box-shadow: 0 0 8px black;
     border-radius: 5px;
     width: auto;
     height: auto;
@@ -1065,7 +1065,7 @@
   .get-code-btn {
     width: 175px;
     height: 40px;
-    background: gold;
+    background: rgb(251,202,99);
     color: black;
     border: none;
     font-size: 1.3rem;
@@ -1088,14 +1088,14 @@
   font-size: 2rem;
   font-weight: 600;
   background: linear-gradient(-45deg,
-    rgba(1,0,121, 0.8),
-    rgba(27,115,211, 0.7),
-    rgba(50, 135, 226, 0.6));
+  rgba(107,147,170, 0.9),
+  rgba(134, 172, 194, 0.8),
+  rgba(168, 201, 221, 0.7));
+  box-shadow: 0 0 3px black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  box-shadow: 0 0 8px black;
   border-radius: 5px;
   padding: 30px;
   width: 600px;
@@ -1117,7 +1117,7 @@
 .submit-code-btn {
   width: 175px;
   height: 40px;
-  background: gold;
+  background: rgb(251,202,99);
   color: black;
   border: none;
   font-size: 1.3rem;
@@ -1137,7 +1137,7 @@
 .resend-code-btn {
   width: 125px;
   height: 40px;
-  background: gold;
+  background: rgb(251,202,99);
   border-radius: 5px;
   color: black;
   border: none;
@@ -1160,15 +1160,10 @@
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
-    background: linear-gradient(-45deg,
-      rgba(1,0,121, 0.8),
-      rgba(27,115,211, 0.7),
-      rgba(50, 135, 226, 0.6));
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    box-shadow: 0 0 8px black;
     border-radius: 5px;
     width: auto;
     height: auto;
@@ -1189,7 +1184,7 @@
   .submit-code-btn {
     width: 175px;
     height: 40px;
-    background: gold;
+    background: rgb(251,202,99);
     color: black;
     border: none;
     font-size: 1.3rem;
@@ -1209,7 +1204,7 @@
   .resend-code-btn {
     width: 125px;
     height: 40px;
-    background: gold;
+    background: rgb(251,202,99);
     border-radius: 5px;
     color: black;
     border: none;
@@ -1250,14 +1245,14 @@
   font-size: 1.75rem;
   font-weight: 600;
   background: linear-gradient(-45deg,
-    rgba(1,0,121, 0.8),
-    rgba(27,115,211, 0.7),
-    rgba(50, 135, 226, 0.6));
+  rgba(107,147,170, 0.9),
+  rgba(134, 172, 194, 0.8),
+  rgba(168, 201, 221, 0.7));
+  box-shadow: 0 0 3px black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  box-shadow: 0 0 8px black;
   border-radius: 5px;
   padding: 70px 50px;
   width: 600px;
@@ -1307,7 +1302,7 @@
 .submit-reset-btn {
   width: 175px;
   height: 40px;
-  background: gold;
+  background: rgb(251,202,99);
   color: black;
   border: none;
   font-size: 1.3rem;
@@ -1348,15 +1343,10 @@
     text-align: center;
     font-size: 1.75rem;
     font-weight: 600;
-    background: linear-gradient(-45deg,
-      rgba(1,0,121, 0.8),
-      rgba(27,115,211, 0.7),
-      rgba(50, 135, 226, 0.6));
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    box-shadow: 0 0 8px black;
     border-radius: 5px;
     width: 80vw;
     height: auto;
@@ -1411,7 +1401,7 @@
   .submit-reset-btn {
     width: 175px;
     height: 40px;
-    background: gold;
+    background: rgb(251,202,99);
     color: black;
     border: none;
     font-size: 1.3rem;

@@ -14,6 +14,11 @@ code {
     monospace;
 }
 
+/*
+bg: rgb(107,147,170);
+
+*/
+
 html {
   background-image: linear-gradient(25deg,
   rgba(97,154,70, 0.4),
@@ -43,6 +48,7 @@ html {
   font-style: italic;
   font-size: 1.3rem;
   font-family: 'Open Sans', sans-serif;
+  color: rgb(94, 94, 94);
 }
 
 .quote-credit {
@@ -50,6 +56,7 @@ html {
   font-size: 1.1rem;
   display: block;
   font-family: 'Open Sans', sans-serif;
+  color: rgb(94, 94, 94);
 }
 
 .credit {
@@ -58,16 +65,17 @@ html {
   bottom: 5px;
   left: 5px;
   font-family: 'Open Sans', sans-serif;
+  color: rgb(200,220,244);
 }
 
 .github-link,
 .github-link:visited {
-  color: rgb(26,20,189);
+  color: rgb(200,220,244);
   text-decoration: none;
 }
 
 .github-link:hover {
-  color: rgb(66, 60, 241);
+  color: rgb(166, 191, 221);
 }
 
 @media only screen and (max-device-width: 550px) {
@@ -148,7 +156,9 @@ html {
   left: 2.5%;
   top: 2.5%;
   border-radius: 5px;
-  background-color: rgb(42, 136, 184);
+  background: linear-gradient(-20deg,
+  rgba(77, 126, 155, 0.9),
+  rgba(124, 161, 182, 0.8));
   box-shadow: 2px 2px 100px 1px white;
   color: white;
   font-size: 1.15rem;
@@ -159,9 +169,9 @@ html {
   font-size: 1.3rem;
   padding: 20px;
   background: linear-gradient(-20deg,
-  rgba(5,53,39, 0.9),
-  rgba(67,128,41, 0.8));
-  color: gold;
+  rgba(47, 124, 66, 0.9),
+  rgba(111, 167, 125, 0.8));
+  color:  rgb(245, 245, 245);
   border-radius: 5px;
   font-weight: 600;
   width: 150px;
@@ -174,12 +184,8 @@ html {
   justify-content: center;
   top: 40px;
   left: 40px;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 3px black;
   font-family: 'Open Sans';
-}
-
-.create-link-container:hover {
-  background: rgba(8, 87, 64, 0.8);
 }
 
 @media only screen and (max-device-width: 550px) {
@@ -201,10 +207,6 @@ html {
   .create-link {
     font-size: 1.3rem;
     padding: 20px;
-    background: linear-gradient(-20deg,
-    rgba(5,53,39, 0.9),
-    rgba(67,128,41, 0.8));
-    color: gold;
     border-radius: 5px;
     font-weight: 600;
     width: 150px;
@@ -217,7 +219,6 @@ html {
     justify-content: center;
     top: 270px;
     left: 55px;
-    box-shadow: 0 0 4px black;
     font-family: 'Open Sans';
   }
 
@@ -325,10 +326,9 @@ html {
 .max-creatures-msg,
 .creature-form {
   background: linear-gradient(-35deg,
-  rgba(5,53,39, 0.8) 30%,
-  rgba(67,128,41, 0.8),
-  rgba(97,154,70, 0.8));
-  color: rgb(212,175,55);
+  rgba(47, 124, 66, 0.9),
+  rgba(111, 167, 125, 0.9));
+  color: rgb(231, 231, 231);
   font-size: 1.3rem;
   display: flex;
   align-items: center;
@@ -340,6 +340,7 @@ html {
   text-align: center;
   border-radius: 10px;
   font-family: 'Open Sans', sans-serif;
+  box-shadow: 0 0 3px black;
 }
 
 .form-title {
@@ -491,7 +492,7 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: gold;
+  background-color: rgb(251,202,99);
   color: black;
   font-weight: 600;
   border-radius: 5px;
@@ -499,7 +500,6 @@ html {
   width: auto;
   height: 50px;
   border: none;
-  box-shadow: 0 0 4px black;
 }
 
 @media only screen and (max-device-width: 550px) {
@@ -543,8 +543,6 @@ html {
 
   .max-creatures-msg,
   .creature-form {
-    background-color: rgb(5,53,39);
-    color: rgb(212,175,55);
     font-size: 1.33rem;
     display: flex;
     align-items: center;
@@ -703,8 +701,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: gold;
-    color: black;
     border-radius: 5px;
     font-size: 1.125rem;
     height: 50px;
@@ -728,8 +724,10 @@ html {
   font-weight: 600;
   width: 190px;
   height: 80px;
-  color: white;
-  background: rgb(42,136,184);
+  color: rgb(236, 236, 236);
+  background: linear-gradient(-20deg,
+  rgba(77, 126, 155, 0.9),
+  rgba(124, 161, 182, 0.8));
   border: none;
   display: flex;
   align-items: center;
@@ -738,7 +736,7 @@ html {
   position: absolute;
   top: 150px;
   left: 40px;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 3px black;
 }
 
 .creature-coral {
@@ -877,7 +875,9 @@ html {
 }
 
 .kill-btn {
-  background-color: rgb(220,53,69);
+  background-color: rgb(230, 76, 92);
+  box-shadow: 0 0 3px black;
+  border: none;
   font-size: 1rem;
   color: white;
   width: 150px;
@@ -901,11 +901,6 @@ html {
   .user-info a {
     font-size: 1.15rem;
     font-weight: 600;
-    border: rgb(35, 161, 211);
-    border-radius: 5px;
-    background: rgb(35, 161, 211);
-    box-shadow: 0 0 4px black;
-    color: white;
     width: 200px;
     height: 75px;
     display: flex;
@@ -943,7 +938,9 @@ html {
 .delete-btn {
   text-align: center;
   margin-top: 10px;
-  background-color: rgb(158, 27, 40);
+  background-color: rgb(138, 29, 40);
+  border: none;
+  box-shadow: 0 0 3px black;
   color: white;
   height: 30px;
   font-weight: 600;
@@ -983,6 +980,7 @@ html {
   height: 600px;
   margin: 0 auto;
   overflow: auto;
+  box-shadow: 0 0 3px black;
 }
 
 .objectives-list {
@@ -1030,9 +1028,8 @@ html {
   width: auto;
   height: auto;
   font-size: 1.25rem;
-  background: rgba(255, 0, 0, 0.7);
+  background: rgba(243, 58, 58, 0.7);
   border: none;
-  box-shadow: 0 0 4px black;
   color: white;
   font-weight: 600;
   position: relative;
@@ -1076,14 +1073,14 @@ html {
 .complete-obj-btn {
   display: block;
   margin: 0 auto;
-  background-color: rgba(128,229,96, 0.6);
+  background-color: rgba(108, 199, 81, 0.6);
   width: auto;
   height: 50px;
   font-weight: 600;
   font-size: 0.9rem;
   position: relative;
   border: none;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 2px black;
   border-radius: 3px;
 }
 
@@ -1122,9 +1119,10 @@ html {
 
 .objective-form-container {
   margin: 80px auto 0 auto;
-  border: 2px solid black;
+  border: none;
+  box-shadow: 0 0 3px black;
   border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   width: 300px;
   height: auto;
   text-align: center;
@@ -1172,14 +1170,14 @@ html {
 
 .add-obj-btn {
   font-size: 1.2rem;
-  background-color: rgb(5,53,39);
-  color: gold;
+  background-color: rgb(251,202,99);
+  color: black;
   border-radius: 5px;
   margin: 80px auto 30px auto;
   width: 150px;
   height: 50px;
   font-weight: 600;
-  border: 2px groove gold;
+  border: none;
 }
 
 /*
