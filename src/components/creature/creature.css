@@ -7,7 +7,7 @@
   border-radius: 7.5px;
   padding: 0 20px;
   margin: 50px auto;
-  box-shadow: 1px 1px 7px 2px black;
+  box-shadow: 0px 0px 3px black;
 }
 
 .creature-display {
@@ -287,7 +287,7 @@
   rgba(5,53,39, 0.8) 30%,
   rgba(50, 122, 18, 0.8),
   rgba(61, 129, 29, 0.8));
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 3px black;
   color: gold;
   width: 200px;
   height: 75px;
