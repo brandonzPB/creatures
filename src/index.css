@@ -222,21 +222,7 @@ html {
   }
 
   .user-update-link {
-    font-size: 1.5rem;
-    font-weight: 600;
-    width: 190px;
-    height: 80px;
-    color: white;
-    background: rgb(42,136,184);
-    border: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 5px;
-    position: relative;
-    top: 130px;
-    left: 50px;
-    box-shadow: 0 0 4px black;
+    margin: 0 0 0 15px;
   }
 
   .create-btn-container {
@@ -909,7 +895,26 @@ html {
 
 @media only screen and (max-device-width: 550px) {
   .adjacent-creature-container {
-    margin: 130px auto 0 auto;
+    margin: 220px auto 0 auto;
+  }
+
+  .user-info a {
+    font-size: 1.15rem;
+    font-weight: 600;
+    border: rgb(35, 161, 211);
+    border-radius: 5px;
+    background: rgb(35, 161, 211);
+    box-shadow: 0 0 4px black;
+    color: white;
+    width: 200px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    left: 100px;
+    top: 100px;
   }
 }
 
@@ -1240,10 +1245,12 @@ rgb(5,53,39);
   .objective-delete-btn {
     width: auto;
     height: auto;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: white;
-    margin: 0;
-    float: left;
+    margin: 0 auto;
+    position: relative;
+    left: 10px;
+    top: -5px;
   }
   
   .objective-data {
@@ -1332,4 +1339,22 @@ rgb(5,53,39);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* MOBILE CREATURE EDIT */
+
+@media only screen and (max-device-width: 550px) {
+  .creature-info {
+    margin: 350px auto;
+  }
+
+  .creatures-return-link-update {
+    margin: 150px 0 0 65px;
+  }
+
+  .creature-update-form {}
+
+  .creature-update-form form {}
+
+  .form-title {}
 }

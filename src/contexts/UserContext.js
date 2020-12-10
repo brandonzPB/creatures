@@ -1,6 +1,5 @@
 import React, { useState, useReducer, createContext, useEffect } from 'react';
 import userService from '../services/userService';
-import creatureService from '../services/creatureService';
 import userReducer from '../reducers/userReducer';
 
 export const UserContext = createContext();

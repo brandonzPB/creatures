@@ -5,8 +5,8 @@ import { v4 as uuidv4 } from 'uuid';
 import * as obj from '../../modules/objective';
 
 const ObjectiveForm = ({ creatureId }) => {
-  const { dispatch, checkObjectiveText, updateObjectives, currentId, finish } = useContext(CreatureContext);
-  const { user, userDispatch } = useContext(UserContext);
+  const { checkObjectiveText, currentId, finish } = useContext(CreatureContext);
+  const { userDispatch } = useContext(UserContext);
   
   const [objective, setObjective] = useState({
     id: '',

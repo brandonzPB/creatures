@@ -14,7 +14,6 @@ import ForgotPassword from './components/user/ForgotPassword';
 import ResetCode from './components/user/ResetCode';
 import ResetPassword from './components/user/ResetPassword';
 
-import User from './components/user/User';
 import UserUpdateForm from './components/user/UserUpdateForm';
 import LogoutButton from './components/user/LogoutButton';
 

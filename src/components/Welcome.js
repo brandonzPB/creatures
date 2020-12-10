@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
 import LoginForm from './user/LoginForm';
 import { UserContext } from '../contexts/UserContext';
-import { CreatureContext } from '../contexts/CreatureContext';
 import './welcome.css';
 
 const Welcome = () => {

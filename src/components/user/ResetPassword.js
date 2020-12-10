@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
 import './user.css';

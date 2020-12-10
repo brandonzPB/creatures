@@ -10,7 +10,7 @@ import Creature from '../creature/Creature';
 import * as ageMethods from '../../modules/age';
 
 const ActionList = () => {
-  const { dispatch, creatures, currentId, showCreatureObjectives, deleteCreature, postDelete, finish } = useContext(CreatureContext);
+  const { currentId, showCreatureObjectives, postDelete, finish } = useContext(CreatureContext);
   const { confirmDisplay, toggleConfirmDisplay } = useContext(ConfirmDisplayContext);
   const { user, userDispatch } = useContext(UserContext);
 
@@ -89,7 +89,7 @@ const ActionList = () => {
     return (
       <div className="update-container">
         <Link to="/creatures">
-          <p className="creatures-return-link-update">Return to Creatures</p>
+          <p className="creatures-return-link-obj">Return to Creatures</p>
         </Link>
 
         <div className="adjacent-creature-container">

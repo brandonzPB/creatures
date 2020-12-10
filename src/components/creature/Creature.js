@@ -4,7 +4,6 @@ import { UserContext } from '../../contexts/UserContext';
 import * as stats from '../../modules/stats';
 import CreatureDisplay from './CreatureDisplay';
 import './creature.css';
-import * as age from '../../modules/age';
 import * as streakMethods from '../../modules/streak';
 
 const lvlUpMusicSrc = require('../../sounds/level-up.mp3');

@@ -2,22 +2,19 @@ import React, { useState, useContext, useEffect } from 'react';
 import { Link, Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
-import ConfirmDisplay from '../ConfirmDisplay';
 import userService from '../../services/userService';
 import './user.css';
 
 const UserUpdateForm = () => {
-  const { user, userDispatch, removeUser, checkUsername } = useContext(UserContext);
+  const { user, userDispatch, removeUser, } = useContext(UserContext);
   const { finish } = useContext(CreatureContext);
 
-  useEffect(async () => {
+  useEffect(() => {
     // Update user (creatures now have different ages and streak counts)
-
-    console.log('user on render', user);
 
     if (!user.updated) {
       userDispatch({ type: 'AUTO_UPDATE' });
-      await finish('db', null, 'creatures');
+      finish('db', null, 'creatures');
       console.log('Streaks and ages updated', user);
     }
   }, []);

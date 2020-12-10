@@ -3,10 +3,9 @@ import { Link, Route, Redirect } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 import Creature from './Creature';
-import CreateButton from './CreateButton';
 
 const CreatureList = () => {
-  const { creatures, formDisplay, toggleFormDisplay, showCreatureObjectives } = useContext(CreatureContext);
+  const { formDisplay, toggleFormDisplay, showCreatureObjectives } = useContext(CreatureContext);
   const { user } = useContext(UserContext);
 
   useEffect(() => {

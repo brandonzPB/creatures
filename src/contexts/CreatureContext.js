@@ -1,7 +1,6 @@
 import React, { useState, useReducer, useEffect, useContext, createContext } from 'react';
 import creatureReducer from '../reducers/creatureReducer';
 import * as objective from '../modules/objective'
-import * as streakTime from '../modules/age';
 import creatureService from '../services/creatureService';
 import { UserContext } from './UserContext';
 

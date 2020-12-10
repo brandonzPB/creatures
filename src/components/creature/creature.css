@@ -318,7 +318,8 @@
   top: 0;
 }
 
-.creatures-return-link-update {
+.creatures-return-link-update,
+.creatures-return-link-obj {
   position: absolute;
   left: 20px;
   top: 100px;
@@ -335,4 +336,10 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+@media only screen and (max-device-width: 550px) {
+  .creatures-return-link-obj {
+    margin: 30px 0 0 65px;
+  }
 }

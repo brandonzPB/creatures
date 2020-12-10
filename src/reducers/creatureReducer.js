@@ -1,5 +1,3 @@
-import { v4 as uuidv4 } from 'uuid';
-
 const creatureReducer = (state, action) => {
   switch(action.type) {
     case 'ADD_CREATURE':

@@ -1,9 +1,6 @@
-import React, { useContext } from 'react';
-import { CreatureContext } from '../../contexts/CreatureContext';
+import React from 'react';
 
 const CreateButton = () => {
-  const { creatures } = useContext(CreatureContext);
-  
   return (
     <div className="create-btn-container">
       <button className="create-btn">

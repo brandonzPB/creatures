@@ -16,7 +16,7 @@ import pokemon from 'pokemon';
 
 
 const CreatureForm = () => {
-  const { creatures, formDisplay, toggleFormDisplay, dispatch, createCreature, finish } = useContext(CreatureContext);
+  const { formDisplay, toggleFormDisplay, finish } = useContext(CreatureContext);
   const { user, userDispatch } = useContext(UserContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
