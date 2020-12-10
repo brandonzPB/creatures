@@ -167,9 +167,9 @@ const updateUser = (type = 'none', userId, userObject, token) => {
 };
 
 // DELETE user
-const deleteUser = (userId, token) => {
-  const req = axios.delete(`${baseUrl}/${userId}`, 
-  {
+const deleteUser = (userId, userObject, token) => {
+  const req = axios.delete(`${baseUrl}/${userId}`, {
+    params: userObject,
     headers: {
       'Authorization': `Bearer ${token}`
     }
