@@ -157,6 +157,66 @@
   transition: 0s;
 }
 
+/* MOBILE LOGIN PAGE */
+
+@media only screen and (max-device-width: 550px) {
+  .login-form-container {
+  }
+  
+  .login-title { 
+  }
+  
+  .login-form-container form {
+  }
+  
+  .username-login {
+  }
+  
+  .username-login label {
+  }
+  
+  .username-login input {
+    font-size: 1.35rem;
+  }
+  
+  .email-login {
+  }
+  
+  .email-login label {
+  }
+  
+  .email-login input {
+  }
+  
+  .password-login {
+  }
+  
+  .password-login label {
+  }
+  
+  .password-login input {
+  }
+  
+  .forgot-password-link {
+  }
+  
+  .login-form-container a:link,
+  .login-form-container a:visited {
+  }
+  
+  .login-btn {
+  }
+  
+  .login-btn {
+  }
+  
+  .login-btn:hover {
+  }
+  
+  .login-btn:active {
+  }
+}
+
 /* CREATE USER FORM */
 
 .user-create-page {
@@ -315,6 +375,74 @@
   border: none;
   cursor: pointer;
   background-position: center;
+}
+
+/* MOBILE CREATE USER PAGE */
+
+@media only screen and (max-device-width: 550px) {
+  .user-create-page {
+  }
+  
+  .create-user-form-container {
+  }
+  
+  .username-err,
+  .email-err,
+  .password-err {
+  }
+  
+  .create-error-text {}
+  
+  .create-user-title {
+  }
+  
+  .create-user-form {
+  }
+  
+  .create-user-form form {
+  }
+  
+  .username-create {
+  }
+  
+  .username-create label {
+  }
+  
+  .username-create input {
+  }
+  
+  .email-create {
+  }
+  
+  .email-create label {
+  }
+  
+  .email-create input {
+  }
+  
+  .password-create {
+  }
+  
+  .password-create label {
+  }
+  
+  .password-create input {
+  }
+  
+  .confirm-password-create {
+  }
+  
+  .confirm-password-create label {
+  }
+  
+  .confirm-password-create input {
+  }
+  
+  .create-user-btn-container {
+  }
+  
+  .create-user-btn {
+  }
 }
 
 /* USER MAIN PAGE */
@@ -576,6 +704,98 @@
   font-size: .9rem;
 }
 
+/* MOBILE EDIT USER PAGE */
+
+@media only screen and (max-device-width: 550px) {
+  .user-info {
+  }
+  
+  .view-creatures-link {
+  }
+  
+  .user-info a {
+  }
+  
+  .user-info a:link,
+  .user-info a:visited {
+  }
+  
+  .user-update-form {
+  }
+  
+  .user-update-form form {
+  }
+  
+  .form-title {
+  }
+  
+  .user-info-tip {
+  }
+  
+  .username-label {
+  }
+  
+  .username-label label {}
+  
+  .username-input {
+  }
+  
+  .username-input input {
+  }
+  
+  .email-label {
+  }
+  
+  .email-label label {}
+  
+  .email-input {
+  }
+  
+  .email-input input {
+  }
+  
+  .password-label {
+  }
+  
+  .password-label label {}
+  
+  .password-input input {
+  }
+  
+  .show-password-btn {
+  }
+  
+  .update-user-btn-container {
+  }
+  
+  .update-user-btn {
+  } 
+  
+  .delete-user-container {
+  }
+  
+  .delete-title {
+  }
+  
+  .delete-user-btn-container {
+  }
+  
+  .delete-user-btn {
+  }
+  
+  .confirm-delete {
+  }
+  
+  .confirm-delete label {
+  }
+  
+  .confirm-delete input {
+  }
+  
+  .confirm-delete-user-btn {
+  }
+}
+
 /* FORGOT PASWORD FORM */
 
 .forgot-password-form {
@@ -649,6 +869,36 @@
   cursor: pointer;
 }
 
+/* MOBILE FORGOT PASSWORD FORM */
+
+@media only screen and (max-device-width: 550px) {
+  .forgot-password-form {
+  }
+  
+  .forgot-info {
+  }
+  
+  .forgot-password-form form {}
+  
+  .email-forgot-input {}
+  
+  .email-forgot-input label {}
+  
+  .email-forgot-input input {
+  }
+  
+  .get-reset-code {}
+  
+  .loading {
+  }
+  
+  .loading-text {
+  }
+  
+  .get-code-btn {
+  }
+}
+
 /* RESET CODE FORM */
 
 .reset-code-form {
@@ -719,6 +969,32 @@
   font-weight: 600;
   margin: 30px 10px;
   cursor: pointer;
+}
+
+/* MOBILE RESET CODE FORM */  
+
+@media only screen and (max-device-width: 550px) {
+  .reset-code-form {
+  }
+  
+  .reset-code-form form {}
+  
+  .reset-code-form label {
+  }
+  
+  .reset-code-form input {
+  }
+  
+  .submit-code-btn {
+  }
+  
+  .resend-code {}
+  
+  .resend-code-text {
+  }
+  
+  .resend-code-btn {
+  }
 }
 
 /* RESET PASSWORD FORM */
@@ -817,3 +1093,44 @@
   cursor: pointer;
   border-radius: 5px;
 }
+
+/* MOBILE RESET PASSWORD FORM */
+
+@media only screen and (max-device-width: 550px) {
+  .reset-password-container {
+  }
+  
+  .cancel-reset-btn {
+  }
+  
+  .reset-password-container form {
+  }
+  
+  .password-input {
+  }
+  
+  .password-input label {
+  }
+  
+  .password-input input {
+  }
+  
+  .first-password-input input {
+  }
+  
+  .show-password {
+  }
+  
+  .confirm-password-input {}
+  
+  .confirm-password-input label {
+  }
+  
+  .confirm-password-input input {
+  }
+  
+  .submit-password-reset {}
+  
+  .submit-reset-btn {
+  }
+} 

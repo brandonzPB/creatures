@@ -41,7 +41,6 @@ function App() {
 
                 <Route exact path="/" component={Welcome} />
 
-                <Route exact path="/user" component={User} />
                 <Route exact path="/user/create" component={UserCreateForm} />
                 <Route exact path="/user/login" component={LoginForm} />
                 <Route exact path="/user/update" component={UserUpdateForm} />

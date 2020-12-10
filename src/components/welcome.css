@@ -47,3 +47,20 @@
 .welcome a {
   text-decoration: none;
 }
+
+@media only screen and (max-device-width: 550px) {
+  .index-container {
+    display: flex;
+    width: auto;
+    height: auto;
+    margin: 175px auto 0 auto;
+  }
+
+  .welcome {}
+
+  .create-account-text {}
+
+  .create-account-link {}
+
+  .welcome a {}
+}
