@@ -93,9 +93,7 @@ const ForgotPassword = () => {
           />
         </div>
 
-        <div className="get-reset-code">
-          <button className="get-code-btn">Get Code</button>
-        </div>
+        <button className="get-code-btn">Get Code</button>
       </form>
     </div>
   )

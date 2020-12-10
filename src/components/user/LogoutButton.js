@@ -15,11 +15,9 @@ const LogoutButton = () => {
   return (
     <div className="logout-container">
       {
-        user.accessToken ?
-          <div className="logout-btn-container">
-            <button className="logout-btn" onClick={sendLogout}>Log Out</button>
-          </div> :
-          <div className="empty"></div>
+        user.accessToken
+          ? <button className="logout-btn" onClick={sendLogout}>Log Out</button>
+          : <div className="empty"></div>
       }
     </div>
   )

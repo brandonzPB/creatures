@@ -96,8 +96,8 @@ const ResetCode = () => {
 
       <div className="resend-code">
         <span className="resend-code-text">Need a new code?</span>
-        <button onClick={renewCode} className="resend-code-btn">Resend Code</button>
       </div>
+      <button onClick={renewCode} className="resend-code-btn">Resend Code</button>
     </div>
   )
 }

@@ -125,9 +125,7 @@ const LoginForm = () => {
           <p className="forgot-password-link">Forgot Password?</p>
         </Link>
 
-        <div className="login-btn-container">
-          <button className="login-btn">Login</button>
-        </div>
+        <button className="login-btn">Login</button>
       </form>
     </div>
   )
