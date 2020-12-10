@@ -111,7 +111,7 @@ const CreatureUpdateForm = () => {
       ? creature[0].evolutions[3]
       : evolutions[3];
 
-    const name = update.creatureName === creature[0].creature_name
+    const name = update.creatureName === creature[0].creature_name || update.creatureName === ''
       ? creature[0].creature_name
       : update.creatureName
 
