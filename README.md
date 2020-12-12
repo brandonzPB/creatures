@@ -1,38 +1,3 @@
-    Things to add:
-
-
-
-
-
-add choice to limit number of times you can complete an objective in one 24-hour period (PP; restores every 6/12/24 hours)
-
-
-level up reward
-
-evolve levels reward
-
-rewards for each level
-
-exp depreciates over time (faster if at a lower level)
-  each objective records time logged
-  localstorage determines how much time has passed
-  reduces exp based on level, time, and difficulty
-
-things to purchase (IRL)
-
-
-
-
-
-
-
-
-
-#######################################################
-#######################################################
-#######################################################
-
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
