@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b6354e1e31648fc7a58f982ec9540f7d",
+    "revision": "2421b204a785213ee02cebd419fd1dc3",
     "url": "/creatures-frontend/index.html"
   },
   {
-    "revision": "e533570af0b70d5c8bf5",
+    "revision": "d8554ab4713a1aec6e92",
     "url": "/creatures-frontend/static/css/main.92be1c2d.chunk.css"
   },
   {
-    "revision": "d76f7b1f91f6ebb86a13",
-    "url": "/creatures-frontend/static/js/2.a47b404b.chunk.js"
+    "revision": "daaee5e5702cb5348d2c",
+    "url": "/creatures-frontend/static/js/2.b2dabfc5.chunk.js"
   },
   {
     "revision": "8d190e2d02f8e768921a63f56a741895",
-    "url": "/creatures-frontend/static/js/2.a47b404b.chunk.js.LICENSE.txt"
+    "url": "/creatures-frontend/static/js/2.b2dabfc5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e533570af0b70d5c8bf5",
-    "url": "/creatures-frontend/static/js/main.b8542038.chunk.js"
+    "revision": "d8554ab4713a1aec6e92",
+    "url": "/creatures-frontend/static/js/main.4f9e055b.chunk.js"
   },
   {
     "revision": "3b422549d7ee49aaa766",
