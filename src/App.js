@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Route } from 'react-router-dom';
 
 import CreatureContextProvider from './contexts/CreatureContext';
 import ConfirmDisplayContextProvider from './contexts/ConfirmDisplayContext';
@@ -25,7 +25,7 @@ import ObjectiveList from './components/objective/ObjectiveList';
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter basename="/">
       <div className="App">
         <ThemeContextProvider>
           <div className="quote-container">
@@ -63,7 +63,7 @@ function App() {
           </span>
         </ThemeContextProvider>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   )
 }
 
