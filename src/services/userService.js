@@ -1,5 +1,5 @@
 import axios from 'axios';
-const baseUrl = '/dashboard/user';
+const baseUrl = 'https://bz-creatures-of-habit.herokuapp.com/dashboard/user';
 
 // CREATE user
 const createUser = (userObject) => {
