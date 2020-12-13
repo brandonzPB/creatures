@@ -1273,10 +1273,12 @@
 .password-input input {
   font-size: 1.25rem;
   margin: 20px auto;
+  text-align: left;
 }
 
 .first-password-input input {
   margin: 20px 0 0 40px;
+  text-align: center;
 }
 
 .show-password {

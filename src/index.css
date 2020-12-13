@@ -1035,6 +1035,7 @@ html {
   position: relative;
   left: -80px;
   margin: 0 auto;
+  cursor: pointer;
 }
 
 .objective-data {
@@ -1082,6 +1083,7 @@ html {
   border: none;
   box-shadow: 0 0 2px black;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 .time-text {
