@@ -100,6 +100,7 @@
   display: block;
   margin: 10px auto;
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .email-login {
@@ -117,6 +118,7 @@
   display: block;
   margin: 10px auto;
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .password-login {
@@ -134,6 +136,7 @@
   display: block;
   margin: 10px auto;
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .forgot-password-link {
@@ -198,6 +201,7 @@
   
   .username-login input {
     font-size: 1.35rem;
+    text-align: left;
   }
   
   .email-login {
@@ -208,6 +212,7 @@
   
   .email-login input {
     font-size: 1.35rem;
+    text-align: left;
   }
   
   .password-login {
@@ -218,6 +223,7 @@
   
   .password-login input {
     font-size: 1.35rem;
+    text-align: left;
   }
   
   .forgot-password-link {
@@ -327,6 +333,7 @@
   display: block;
   margin: 10px auto;
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .email-create {
@@ -344,6 +351,7 @@
   display: block;
   margin: 10px auto;
   font-size: 1.25rem;
+
 }
 
 .password-create {
@@ -361,6 +369,7 @@
   display: block;
   margin: 10px auto;
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .confirm-password-create {
@@ -378,6 +387,7 @@
   display: block;
   margin: 10px auto;
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .create-user-btn-container {
@@ -621,6 +631,7 @@
 
 .username-input input {
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .email-label {
@@ -635,6 +646,7 @@
 
 .email-input input {
   font-size: 1.25rem;
+  text-align: left;
 }
 
 .password-label {
@@ -646,7 +658,7 @@
 .password-input input {
   font-size: 1.25rem;
   margin: 0 20px;
-  text-align: center;
+  text-align: left;
 }
 
 .show-password-btn {
@@ -726,6 +738,7 @@
 
 .confirm-delete input {
   font-size: 1.2rem;
+  text-align: left;
 }
 
 .confirm-delete-user-btn {

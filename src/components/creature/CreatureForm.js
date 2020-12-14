@@ -205,6 +205,7 @@ const CreatureForm = () => {
                         value={creature.firstCreature}
                       >
                         <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                        <option value="">None</option>
                         {OptionComponents}
                       </select>
                     </div>
@@ -235,6 +236,7 @@ const CreatureForm = () => {
                         value={creature.secondCreature}
                       >
                         <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                        <option value="">None</option>
                         {OptionComponents}
                       </select>
                     </div>
@@ -265,6 +267,7 @@ const CreatureForm = () => {
                         value={creature.thirdCreature}
                       >
                         <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                        <option value="">None</option>
                         {OptionComponents}
                       </select>
                     </div>
@@ -295,6 +298,7 @@ const CreatureForm = () => {
                         value={creature.fourthCreature}
                       >
                         <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                        <option value="">None</option>
                         {OptionComponents}
                       </select>
                     </div>

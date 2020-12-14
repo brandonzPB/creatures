@@ -176,6 +176,7 @@ const CreatureUpdateForm = () => {
                   value={update.firstCreature}
                 >
                   <option defaultValue={true} value="">{creature[0].creature}</option>
+                  <option value="">None</option>
                   {OptionComponents}
                 </select>
               </div>
@@ -211,6 +212,7 @@ const CreatureUpdateForm = () => {
                       creature[0].level >= 15 ? 'Past evolution' : creature[0].evolutions[1]
                     }
                   </option>
+                  <option value="">None</option>
                   {OptionComponents}
                 </select>
               </div>
@@ -246,6 +248,7 @@ const CreatureUpdateForm = () => {
                       creature[0].level >= 30 ? 'Past evolution' : creature[0].evolutions[2]
                     }
                   </option>
+                  <option value="">None</option>
                   {OptionComponents}
                 </select>
               </div>
@@ -281,6 +284,7 @@ const CreatureUpdateForm = () => {
                       creature[0].level >= 50 ? 'Past evolution' : creature[0].evolutions[3]
                     }
                   </option>
+                  <option value="">None</option>
                   {OptionComponents}
                 </select>
               </div>

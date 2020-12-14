@@ -51,8 +51,6 @@ const ObjectiveForm = ({ creatureId }) => {
       }
     });
 
-    finish('objective');
-    
     setObjective({
       id: uuidv4(),
       text: '',
@@ -60,6 +58,8 @@ const ObjectiveForm = ({ creatureId }) => {
       difficulty: 'Medium-Easy',
       factor: '',
     });
+
+    finish('objective');
   }
 
   return (
