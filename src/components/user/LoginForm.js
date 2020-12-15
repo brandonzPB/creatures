@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
 import './user.css';
 
-const LoginForm = ({ loading, setLoading }) => {
+const LoginForm = () => {
   const { getUserInfo } = useContext(UserContext);
 
   const [user, setUser] = useState({
@@ -56,11 +56,7 @@ const LoginForm = ({ loading, setLoading }) => {
       localStorage.removeItem('my-reset');
       localStorage.removeItem('my-user');
 
-      setLoading(!loading);
-
       getUserInfo(loginResult, user.password);
-
-      return setLoading(!loading);
     } else if (loginResult.result === 'Username error') {
       return setError({
         ...error,

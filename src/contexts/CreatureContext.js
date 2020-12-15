@@ -95,6 +95,16 @@ const CreatureContextProvider = (props) => {
     creatureService.createCreature(user.db_id, creatureObject, user.accessToken)
       .then(res => {
         console.log('res', res);
+
+        userDispatch({ type: 'REFRESH_USER', user: {
+          username: res.user.username,
+          email: res.user.email,
+          password: res.user.password,
+          db_id: user.db_id,
+          accessToken: user.accessToken,
+          creatures: res.user_creatures,
+        }});
+        
         finish('db', null, 'refresh');
         return res;
       })

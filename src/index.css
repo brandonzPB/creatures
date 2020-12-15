@@ -124,14 +124,14 @@ html {
   text-align: center;
   margin: 10px auto;
   top: 5%;
-  font-size: 2.75rem;
+  font-size: 2.33rem;
   height: auto;
   display: block;
   font-family: 'Open Sans', sans-serif;
 }
 
 .tutorial {
-  font-size: 2.25rem;
+  font-size: 2rem;
   margin: 0 auto;
   position: relative;
   top: 10%;

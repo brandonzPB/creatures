@@ -5,7 +5,7 @@ import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 
 import * as stats from '../../modules/stats';
-import * as age from '../../modules/age';
+import * as ages from '../../modules/age';
 import * as megaMethods from '../../modules/megas';
 import { otherVersions } from '../../modules/pokemonList';
 
@@ -100,6 +100,10 @@ const CreatureForm = () => {
 
     console.log('evolutions', evolutions);
 
+    const birthTime = Date.now();
+    const birthDate = (new Date()).getDay();
+    const age = ages.getBirthdate(birthTime);
+
     const newCreature = {
       creature: evolutions[0],
       creature_name: creature.creatureName.trim() || 'Anonymous Creature',
@@ -108,7 +112,7 @@ const CreatureForm = () => {
       evolutions: [...evolutions],
       difficulty,
       multiplier,
-      birth_date: age.getBirthdate(),
+      birth_date: ages.getBirthdate(),
       birth_time: Date.now(),
       pokeball_number: 1,
       id: uuidv4(),
@@ -118,7 +122,10 @@ const CreatureForm = () => {
       prev_exp_goal: 1,
       exp_surplus: 0,
       objectives: [],
-      age: 0,
+      age: ages.getBirthdate(birthTime),
+      birth_time: birthTime,
+      birth_date: birthDate,
+      age,
       is_noob: true,
       streak_count: 0,
       streak_timestamp: Date.now(),
@@ -133,9 +140,10 @@ const CreatureForm = () => {
       evolutions: [...evolutions],
       difficulty,
       multiplier,
-      birth_date: age.getBirthdate(),
-      birth_time: Date.now(),
+      birth_date: birthDate,
+      birth_time: birthTime,
       pokeball_number: 1,
+      age,
       id: uuidv4(),
     }});
     
