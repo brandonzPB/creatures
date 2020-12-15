@@ -102,7 +102,7 @@ const CreatureForm = () => {
 
     const birthTime = Date.now();
     const birthDate = (new Date()).getDay();
-    const age = ages.getBirthdate(birthTime);
+    const age = ages.getAge(birthTime);
 
     const newCreature = {
       creature: evolutions[0],

@@ -162,13 +162,15 @@ const CreatureContextProvider = (props) => {
     userDispatch({ type: 'DELETE_CREATURE', id: currentId });
 
     deleteCreature(creatureDbId);
-
-    finish('db', null, 'refresh');
   }
 
   const deleteCreature = (creatureId) => {
     creatureService.deleteCreature(user.db_id, creatureId, user.accessToken)
-      .then(res => res)
+      .then(res => {
+        console.log(res);
+        finish('db', null, 'refresh');
+        return res;
+      })
       .catch(err => console.error(err));
 
     console.log('Successfully deleted creature.');
