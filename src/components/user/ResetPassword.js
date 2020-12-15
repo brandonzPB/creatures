@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
 import './user.css';
+import '../../index.css';
 
 const ResetPassword = () => {
   const { reset, setReset } = useContext(UserContext);

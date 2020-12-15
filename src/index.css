@@ -500,6 +500,7 @@ html {
   width: auto;
   height: 50px;
   border: none;
+  cursor: pointer;
 }
 
 @media only screen and (max-device-width: 550px) {
@@ -712,6 +713,7 @@ html {
 
 .display-container a {
   text-decoration: none;
+  margin-bottom: 40px;
 }
 
 .display-container a:link,

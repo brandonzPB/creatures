@@ -3,6 +3,7 @@ import { Link, Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
 import './user.css';
+import '../../index.css';
 
 const ResetCode = () => {
   const { reset, setReset } = useContext(UserContext);

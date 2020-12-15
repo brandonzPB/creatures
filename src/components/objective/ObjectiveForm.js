@@ -79,7 +79,7 @@ const ObjectiveForm = ({ creatureId }) => {
         <input 
           type="checkbox"
           name="isTimed"
-          checked={objective.isTimed}
+          checked={objective.is_timed}
           onChange={handleChange}
           className="obj-time-input"
         /> 
