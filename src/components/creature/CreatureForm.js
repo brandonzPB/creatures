@@ -98,11 +98,22 @@ const CreatureForm = () => {
       return item;
     });
 
-    console.log('evolutions', evolutions);
-
     const birthTime = Date.now();
     const birthDate = (new Date()).getDay();
     const age = ages.getAge(birthTime);
+
+    const date = (new Date()).getDay();
+    let newDay;
+
+    if (date === 0) {
+      newDay = 4;
+    } else if (date === 1) {
+      newDay = 5;
+    } else {
+      newDay = date - 2;
+    }
+
+    const newTime = Date.now() - 86400000;
 
     const newCreature = {
       creature: evolutions[0],
@@ -128,24 +139,11 @@ const CreatureForm = () => {
       age,
       is_noob: true,
       streak_count: 0,
-      streak_timestamp: Date.now(),
-      streak_day: (new Date()).getDay()
-    }
+      streak_timestamp: newTime,
+      streak_day: newDay,
+    };
 
-    userDispatch({type: 'ADD_CREATURE', creature: {
-      creature: evolutions[0],
-      creature_name: creature.creatureName.trim() || 'Anonymous Creature',
-      purpose: creature.purpose,
-      purpose_name: creature.purposeName.trim() || 'Base Existence',
-      evolutions: [...evolutions],
-      difficulty,
-      multiplier,
-      birth_date: birthDate,
-      birth_time: birthTime,
-      pokeball_number: 1,
-      age,
-      id: uuidv4(),
-    }});
+    userDispatch({type: 'ADD_CREATURE', newCreature });
     
     setCreature({
       ...creature,
