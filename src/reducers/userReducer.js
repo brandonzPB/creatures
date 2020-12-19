@@ -17,7 +17,7 @@ const userReducer = (state, action) => {
           const streakTime = creature.streak_timestamp;
           const streakCount = creature.streak_count;
           const birthTime = creature.birth_time;
-          const thisDay = (new Date()).getDay();
+          const thisDay = action.user.new_day;
 
           return {
             ...creature,
@@ -26,8 +26,8 @@ const userReducer = (state, action) => {
             age: ages.getAge(birthTime)
           }
         }),
-        new_day: action.user.newDay,
-        new_time: action.user.newTime,
+        new_day: action.user.new_day,
+        new_time: action.user.new_time,
         updated: false,
       };
     case 'POST_LOCAL_CREATURES':

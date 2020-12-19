@@ -72,9 +72,6 @@ const UserContextProvider = (props) => {
       .then(response => {
         console.log(response);
 
-        const newDay = (new Date()).getDay();
-        const newTime = Date.now();
-
         userDispatch({ type: 'LOG_IN', user: {
           username: response.user.username,
           email: response.user.email,
@@ -83,8 +80,8 @@ const UserContextProvider = (props) => {
           db_id: res.db_id,
           accessToken: res.accessToken,
           creatures: response.user_creatures,
-          newDay,
-          newTime,
+          new_day: response.new_day,
+          new_time: response.new_time,
         }});
 
         console.log('Successfully retrieved user data');
