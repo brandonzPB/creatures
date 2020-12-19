@@ -102,18 +102,8 @@ const CreatureForm = () => {
     const birthDate = (new Date()).getDay();
     const age = ages.getAge(birthTime);
 
-    const date = (new Date()).getDay();
-    let newDay;
-
-    if (date === 0) {
-      newDay = 4;
-    } else if (date === 1) {
-      newDay = 5;
-    } else {
-      newDay = date - 2;
-    }
-
-    const newTime = Date.now() - 86400000;
+    const newTime = 100000;
+    console.log('newTime', newTime);
 
     const newCreature = {
       creature: evolutions[0],
@@ -140,7 +130,7 @@ const CreatureForm = () => {
       is_noob: true,
       streak_count: 0,
       streak_timestamp: newTime,
-      streak_day: newDay,
+      streak_day: (new Date()).getDay(),
     };
 
     userDispatch({type: 'ADD_CREATURE', newCreature });
