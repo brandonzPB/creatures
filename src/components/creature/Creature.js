@@ -40,8 +40,8 @@ const Creature = ({ creature }) => {
   useEffect(() => { 
     if (!expUpdate) return;
     
-    const streak = streakMethods.checkCreatureStreak(user.newDay, creature);
-    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, userDispatch, finish);
+    const streak = streakMethods.checkCreatureStreak(user.new_day, creature.streak_timestamp, creature);
+    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch, finish);
 
     if (creature.exp >= creature.exp_goal || creature.is_noob) {
       levelUpSound.currentTime = 1;
@@ -56,7 +56,7 @@ const Creature = ({ creature }) => {
       return toggleLevelUpdate();
     }
 
-     toggleExpUpdate();
+    toggleExpUpdate();
   }, [creature.exp]);
 
   // HOOK: NEW LEVEL UPDATES
