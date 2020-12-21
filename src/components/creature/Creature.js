@@ -57,6 +57,7 @@ const Creature = ({ creature }) => {
     }
 
     toggleExpUpdate();
+    finish('db', null, 'refresh');
   }, [creature.exp]);
 
   // HOOK: NEW LEVEL UPDATES
@@ -102,6 +103,8 @@ const Creature = ({ creature }) => {
       }
     }, 100);
 
+    finish('db', null, 'refresh');
+
     return () => clearTimeout(timer);
   }, [levelUpdate]);
 
@@ -132,6 +135,8 @@ const Creature = ({ creature }) => {
 
       finish('creature', creature, 'stats');
 
+      finish('db', null, 'refresh');
+      
       return toggleEvolve();
     }, 800);
   }, [evolve]);
