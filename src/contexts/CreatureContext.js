@@ -123,13 +123,7 @@ const CreatureContextProvider = (props) => {
     const creature = user.creatures.filter(being => being.id === creatureId);
 
     await creatureService.updateCreatureInfo(user.db_id, creature[0]._id, creature[0], user.accessToken)
-      .then(res => {
-        console.log('res', res);
-
-        finish('db', null, 'refresh');
-
-        return res;
-      })
+      .then(res => res)
       .catch(err => console.error(err));
 
     console.log('Successfully updated creature');
