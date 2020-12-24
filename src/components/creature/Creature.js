@@ -41,7 +41,7 @@ const Creature = ({ creature }) => {
     if (!expUpdate) return;
     
     const streak = streakMethods.checkCreatureStreak(user.new_day, creature.streak_timestamp, creature);
-    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch, finish);
+    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch);
 
     if (creature.exp >= creature.exp_goal || creature.is_noob) {
       levelUpSound.currentTime = 1;
@@ -51,10 +51,10 @@ const Creature = ({ creature }) => {
 
       userDispatch({ type: 'LEVEL_UP', creature: { id: creature.id, level: newLevel }});
 
-      finish('creature', creature, 'stats');
-
       return toggleLevelUpdate();
     }
+
+    finish('creature', creature, 'stats');
 
     toggleExpUpdate();
   }, [creature.exp]);
