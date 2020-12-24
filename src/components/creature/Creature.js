@@ -65,8 +65,8 @@ const Creature = ({ creature }) => {
   // HOOK: STREAK UPDATES
   useEffect(() => {
     if (!streakUpdate) return;
-    
-    const streak = streakMethods.checkCreatureStreak(user.new_day, creature.streak_timestamp, creature);
+
+    const streak = streakMethods.checkCreatureStreak(user.new_day, creature.streak_timestamp, creature.streak_day);
     if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch, finish);
 
     toggleStreakUpdate();
