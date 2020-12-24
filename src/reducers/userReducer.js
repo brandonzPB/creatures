@@ -17,7 +17,6 @@ const userReducer = (state, action) => {
           const streakTime = creature.streak_timestamp;
           const streakCount = creature.streak_count;
           const birthTime = creature.birth_time;
-          const thisDay = action.user.new_day;
 
           return {
             ...creature,

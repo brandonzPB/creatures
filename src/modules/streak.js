@@ -16,9 +16,10 @@ exports.checkCreatureStreak = (streakTimestamp, streakCount) => {
 
   const timeDifference = getAge(streakTimestamp, false);
 
-  if (streakCount === 0) return 'increment';
-
-  if (timeDifference > 2500) return 'broken';
+  if (timeDifference > 2500) {
+    if (streakCount === 0) return 'increment';
+    else return 'broken';
+  }
   else if (timeDifference < 1440) return 'constant';
   else return 'increment';
 
