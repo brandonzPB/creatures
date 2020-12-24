@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e717f02fe2730a6b9c650ea14916ce11",
+    "revision": "6984dded33e523cb498a42c0d41c59cd",
     "url": "/creatures/index.html"
   },
   {
-    "revision": "3dff58747248c4137e8b",
+    "revision": "90dab021ccddbfb14f45",
     "url": "/creatures/static/css/main.d98ff021.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/js/2.c84f43e5.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "3dff58747248c4137e8b",
-    "url": "/creatures/static/js/main.273882a6.chunk.js"
+    "revision": "90dab021ccddbfb14f45",
+    "url": "/creatures/static/js/main.1570817f.chunk.js"
   },
   {
     "revision": "c2d80ffb1f0e4c3b19b4",
@@ -572,8 +572,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/media/bellossom.f50331d0.gif"
   },
   {
-    "revision": "65d5732bdc389124e07fa58e40611bf7",
-    "url": "/creatures/static/media/bellsprout.65d5732b.gif"
+    "revision": "089357b9ce531973e53b463384dabd04",
+    "url": "/creatures/static/media/bellsprout.089357b9.gif"
   },
   {
     "revision": "c899e25397bcc0f149aee99ddb6438cd",
