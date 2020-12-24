@@ -18,6 +18,7 @@ const Creature = ({ creature }) => {
 
   const [levelUpdate, setLevelUpdate] = useState(false);
   const [evolve, setEvolve] = useState(false);
+  const [streakUpdate, setStreakUpdate] = useState(false);
 
   const pokeball = (!creature.pokeball_number) ? 13
     : (creature.pokeball_number < 14) ? 13 // pokeball
@@ -34,15 +35,16 @@ const Creature = ({ creature }) => {
     setEvolve(!evolve);
   }
 
+  const toggleStreakUpdate = () => {
+    setStreakUpdate(!streakUpdate);
+  }
+
   /// AUTO-UPDATE HOOKS ///
 
   // HOOK: EXP + STREAK UPDATES
   useEffect(() => { 
     if (!expUpdate) return;
     
-    const streak = streakMethods.checkCreatureStreak(user.new_day, creature.streak_timestamp, creature);
-    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch);
-
     if (creature.exp >= creature.exp_goal || creature.is_noob) {
       levelUpSound.currentTime = 1;
         levelUpSound.play();
@@ -57,7 +59,16 @@ const Creature = ({ creature }) => {
     finish('creature', creature, 'stats');
 
     toggleExpUpdate();
+    toggleStreakUpdate();
   }, [creature.exp]);
+
+  // HOOK: STREAK UPDATES
+  useEffect(() => {
+    const streak = streakMethods.checkCreatureStreak(user.new_day, creature.streak_timestamp, creature);
+    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch, finish);
+
+    toggleStreakUpdate();
+  }, [streakUpdate]);
 
   // HOOK: NEW LEVEL UPDATES
   useEffect(() => {
