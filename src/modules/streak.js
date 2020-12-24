@@ -11,39 +11,47 @@ const getAge = (birthTime, string = true) => {
   return string ? `${years} years, and ${Math.round(days)} days old` : minutes;
 }
 
-exports.checkCreatureStreak = (thisDay, streakTimestamp, streakDay) => {
+exports.checkCreatureStreak = (thisDay, streakTimestamp, streakDay, streakCount) => {
   // checks if streak is broken, constant, or needs to be incremented
 
-  if (streakDay === 6) { // Streak continues if current week day is 0 and less than 24 hours passed
+  const timeDifference = getAge(streakTimestamp, false);
 
-    if (thisDay !== 0 && thisDay !== 6) { // Streak broken
-      return 'broken';
-    } else if (thisDay === 0) { // Next week day
-      // if more than 2 days passed; streak is over
-      // else, increment streak count
+  if (streakCount === 0) return 'increment';
 
-      const minDifference = getAge(streakTimestamp, false);
-      return minDifference > 2880 ? 'broken' : 'increment';
-    } else { // Same day
+  if (timeDifference > 2880) return 'broken';
+  else if (timeDifference < 1440) return 'constant';
+  else return 'increment';
 
-      return 'constant';
-    }
+  // if (streakDay === 6) { // Streak continues if current week day is 0 and less than 24 hours passed
 
-  } else { // Streak continues if current week day is streak.timestamp + 1, and if less than 24 hours passed
+  //   if (thisDay !== 0 && thisDay !== 6) { // Streak broken
+  //     return 'broken';
+  //   } else if (thisDay === 0) { // Next week day
+  //     // if more than 2 days passed; streak is over
+  //     // else, increment streak count
+
+  //     const minDifference = getAge(streakTimestamp, false);
+  //     return minDifference > 2880 ? 'broken' : 'increment';
+  //   } else { // Same day
+
+  //     return 'constant';
+  //   }
+
+  // } else { // Streak continues if current week day is streak.timestamp + 1, and if less than 24 hours passed
     
-    if (thisDay === streakDay + 1) {
-      // if more than 2 days passed; streak is over
-      // else, increment streak count
+  //   if (thisDay === streakDay + 1) {
+  //     // if more than 2 days passed; streak is over
+  //     // else, increment streak count
 
-      const minDifference = getAge(streakTimestamp, false);
-      return minDifference > 2880 ? 'broken' : 'increment';
-    } else if (streakDay === thisDay) { // Same day
+  //     const minDifference = getAge(streakTimestamp, false);
+  //     return minDifference > 2880 ? 'broken' : 'increment';
+  //   } else if (streakDay === thisDay) { // Same day
 
-      return 'constant';
-    } else {
-      return 'broken';
-    }
-  }
+  //     return 'constant';
+  //   } else {
+  //     return 'broken';
+  //   }
+  // }
 }
 
 exports.updateCreatureStreak = (creature, user, userDispatch, finish) => {
