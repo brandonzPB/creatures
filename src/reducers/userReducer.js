@@ -13,7 +13,7 @@ const userReducer = (state, action) => {
         password: action.user.password,
         db_password: action.user.db_password,
         creatures: action.user.creatures.map(creature => {
-          const streakDay = creature.streak_day;
+
           const streakTime = creature.streak_timestamp;
           const streakCount = creature.streak_count;
           const birthTime = creature.birth_time;
@@ -21,7 +21,7 @@ const userReducer = (state, action) => {
 
           return {
             ...creature,
-            streak_count: streak.checkCreatureStreak(thisDay, streakTime, streakDay, streakCount) === 'broken'
+            streak_count: streak.checkCreatureStreak(streakTime, streakCount) === 'broken'
               ? 0 : streakCount,
             age: ages.getAge(birthTime)
           }

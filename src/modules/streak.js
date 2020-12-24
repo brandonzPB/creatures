@@ -11,14 +11,14 @@ const getAge = (birthTime, string = true) => {
   return string ? `${years} years, and ${Math.round(days)} days old` : minutes;
 }
 
-exports.checkCreatureStreak = (thisDay, streakTimestamp, streakDay, streakCount) => {
+exports.checkCreatureStreak = (streakTimestamp, streakCount) => {
   // checks if streak is broken, constant, or needs to be incremented
 
   const timeDifference = getAge(streakTimestamp, false);
 
   if (streakCount === 0) return 'increment';
 
-  if (timeDifference > 2880) return 'broken';
+  if (timeDifference > 2500) return 'broken';
   else if (timeDifference < 1440) return 'constant';
   else return 'increment';
 
