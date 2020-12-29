@@ -69,10 +69,12 @@ const Creature = ({ creature }) => {
   useEffect(() => {
     if (!streakUpdate) return;
 
-    const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
-    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch, finish);
+    // const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
+    // if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch);
 
-    toggleStreakUpdate();
+    // finish('creature', creature, 'stats');
+
+    // toggleStreakUpdate();
   }, [streakUpdate]);
 
   // HOOK: NEW LEVEL UPDATES

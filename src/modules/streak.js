@@ -55,7 +55,7 @@ exports.checkCreatureStreak = (streakTimestamp, streakCount) => {
   // }
 }
 
-exports.updateCreatureStreak = (creature, user, userDispatch, finish) => {
+exports.updateCreatureStreak = (creature, user, userDispatch) => {
   const newCount = creature.streak_count + 1;
   const newTimestamp = user.new_time;
   const newDay = user.new_day;
@@ -66,8 +66,6 @@ exports.updateCreatureStreak = (creature, user, userDispatch, finish) => {
     newTimestamp,
     newDay,
   }});
-
-  finish('creature', creature, 'stats');
 
   return creature;
 }
