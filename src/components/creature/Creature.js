@@ -41,7 +41,7 @@ const Creature = ({ creature }) => {
 
   /// AUTO-UPDATE HOOKS ///
 
-  // HOOK: EXP + STREAK UPDATES
+  // HOOK: EXP UPDATE
   useEffect(() => { 
     if (!expUpdate) return;
     
@@ -53,6 +53,9 @@ const Creature = ({ creature }) => {
 
       userDispatch({ type: 'LEVEL_UP', creature: { id: creature.id, level: newLevel }});
 
+      finish('creature', creature, 'stats');
+
+      toggleStreakUpdate();
       return toggleLevelUpdate();
     }
 
