@@ -1,5 +1,9 @@
 import * as streak from '../modules/streak';
 import * as ages from '../modules/age';
+/*
+streak.checkCreatureStreak(streakTime, streakCount) === 'broken'
+              ? 0 : streakCount,
+*/
 
 const userReducer = (state, action) => {
   switch(action.type) {
@@ -20,8 +24,7 @@ const userReducer = (state, action) => {
 
           return {
             ...creature,
-            streak_count: streak.checkCreatureStreak(streakTime, streakCount) === 'broken'
-              ? 0 : streakCount,
+            streak_count: 0,
             age: ages.getAge(birthTime)
           }
         }),
