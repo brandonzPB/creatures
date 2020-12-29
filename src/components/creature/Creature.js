@@ -69,10 +69,14 @@ const Creature = ({ creature }) => {
   useEffect(() => {
     if (!streakUpdate) return;
 
-    const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
-    if (streak === 'increment' || creature.streak_count === 0) streakMethods.updateCreatureStreak(creature, user, userDispatch);
+    console.log('Checking streak...');
 
-    finish('creature', creature, 'stats');
+    const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
+    if (streak === 'increment') {
+      console.log('Updating streak...');
+      streakMethods.updateCreatureStreak(creature, user, userDispatch);
+      finish('creature', creature, 'stats');
+    }
 
     toggleStreakUpdate();
   }, [streakUpdate]);
