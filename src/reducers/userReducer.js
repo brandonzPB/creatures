@@ -164,7 +164,7 @@ const userReducer = (state, action) => {
             return {
               ...creature,
               streak_count: action.creature.newCount,
-              streak_timestamp: Date.now(),
+              streak_timestamp: action.creature.newTime,
               streak_day: action.creature.newDay,
             }
           }
