@@ -52,16 +52,12 @@ const Creature = ({ creature }) => {
       const newLevel = creature.level + 1;
 
       userDispatch({ type: 'LEVEL_UP', creature: { id: creature.id, level: newLevel }});
-
-      finish('creature', creature, 'stats');
-
-      toggleStreakUpdate();
-      return toggleLevelUpdate();
     }
 
     finish('creature', creature, 'stats');
 
     toggleExpUpdate();
+
     toggleStreakUpdate();
   }, [creature.exp]);
 
@@ -82,6 +78,8 @@ const Creature = ({ creature }) => {
     }
 
     toggleStreakUpdate();
+
+    toggleLevelUpdate();
   }, [streakUpdate]);
 
   // HOOK: NEW LEVEL UPDATES
