@@ -72,6 +72,9 @@ const Creature = ({ creature }) => {
     console.log('Checking streak...');
 
     const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
+
+    console.log('streak', streak);
+
     if (streak === 'increment') {
       console.log('Updating streak...');
       streakMethods.updateCreatureStreak(creature, user, userDispatch);
