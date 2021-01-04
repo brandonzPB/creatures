@@ -42,7 +42,7 @@ const Creature = ({ creature }) => {
     let isNewLevel = false;
 
     // check streak
-    const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
+    const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count, user.new_time);
     console.log('streak', streak);
 
     // update streak

@@ -22,7 +22,7 @@ const userReducer = (state, action) => {
             ...creature,
             streak_count: streak.checkCreatureStreak(streakTime, streakCount) === 'broken'
               ? 0 : streakCount,
-            age: ages.getAge(birthTime)
+            age: ages.getAge(birthTime, action.user.new_time)
           }
         }),
         new_day: action.user.new_day,

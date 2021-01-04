@@ -98,9 +98,9 @@ const CreatureForm = () => {
       return item;
     });
 
-    const birthTime = Date.now();
-    const birthDate = (new Date()).getDay();
-    const age = ages.getAge(birthTime);
+    const birthTime = user.new_time;
+    const birthDate = user.new_day;
+    const age = ages.getAge(birthTime, user.new_time);
 
     const newCreature = {
       creature: evolutions[0],

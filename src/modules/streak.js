@@ -1,8 +1,7 @@
-const getAge = (birthTime, string = true) => {
+const getAge = (birthTime, userTime, string = true) => {
   console.log('birthTime', birthTime);
 
-  const currentTime = Date.now();
-  const difference = currentTime - birthTime;
+  const difference = userTime - birthTime;
 
   console.log('difference', difference);
 
@@ -17,13 +16,13 @@ const getAge = (birthTime, string = true) => {
   return string ? `${years} years, and ${Math.round(days)} days old` : minutes;
 }
 
-exports.checkCreatureStreak = (streakTimestamp, streakCount) => {
+exports.checkCreatureStreak = (streakTimestamp, streakCount, userTime) => {
   // checks if streak is broken, constant, or needs to be incremented
 
   console.log('streakTimestamp', streakTimestamp);
   console.log('streakCount', streakCount);
 
-  const timeDifference = getAge(streakTimestamp, false);
+  const timeDifference = getAge(streakTimestamp, userTime, false);
 
   console.log('timeDifference', timeDifference);
 
