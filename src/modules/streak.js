@@ -1,10 +1,16 @@
 const getAge = (birthTime, string = true) => {
+  console.log('birthTime', birthTime);
+
   const currentTime = Date.now();
   const difference = currentTime - birthTime;
+
+  console.log('difference', difference);
 
   const dayDifference = (difference / 1000) / 86400;
 
   const minutes = dayDifference * 1440;
+  console.log('minutes', minutes);
+  
   const days = dayDifference % 365;
   const years = (dayDifference - days) / 365;
 
