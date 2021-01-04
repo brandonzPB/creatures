@@ -18,7 +18,6 @@ const Creature = ({ creature }) => {
 
   const [levelUpdate, setLevelUpdate] = useState(false);
   const [evolve, setEvolve] = useState(false);
-  const [streakUpdate, setStreakUpdate] = useState(false);
 
   const pokeball = (!creature.pokeball_number) ? 13
     : (creature.pokeball_number < 14) ? 13 // pokeball
@@ -35,16 +34,24 @@ const Creature = ({ creature }) => {
     setEvolve(!evolve);
   }
 
-  const toggleStreakUpdate = () => {
-    setStreakUpdate(!streakUpdate);
-  }
-
   /// AUTO-UPDATE HOOKS ///
 
-  // HOOK: EXP UPDATE
+  // HOOK: EXP + STREAK UPDATE
   useEffect(() => { 
     if (!expUpdate) return;
+    let isNewLevel = false;
+
+    // check streak
+    const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
+    console.log('streak', streak);
+
+    // update streak
+    if (streak === 'increment') {
+      console.log('Updating streak...');
+      streakMethods.updateCreatureStreak(creature, user, userDispatch);
+    }
     
+    // check if new level
     if (creature.exp >= creature.exp_goal || creature.is_noob) {
       levelUpSound.currentTime = 1;
         levelUpSound.play();
@@ -52,35 +59,18 @@ const Creature = ({ creature }) => {
       const newLevel = creature.level + 1;
 
       userDispatch({ type: 'LEVEL_UP', creature: { id: creature.id, level: newLevel }});
+      
+      isNewLevel = true;
     }
-
-    finish('creature', creature, 'stats');
 
     toggleExpUpdate();
 
-    toggleStreakUpdate();
-  }, [creature.exp]);
-
-  // HOOK: STREAK UPDATES
-  useEffect(() => {
-    if (!streakUpdate) return;
-
-    console.log('Checking streak...');
-
-    const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count);
-
-    console.log('streak', streak);
-
-    if (streak === 'increment') {
-      console.log('Updating streak...');
-      streakMethods.updateCreatureStreak(creature, user, userDispatch);
-      finish('creature', creature, 'stats');
+    if (isNewLevel) {
+      return toggleLevelUpdate();
+    } else {
+      return finish('creature', creature, 'stats');
     }
-
-    toggleStreakUpdate();
-
-    toggleLevelUpdate();
-  }, [streakUpdate]);
+  }, [creature.exp]);
 
   // HOOK: NEW LEVEL UPDATES
   useEffect(() => {
@@ -92,8 +82,6 @@ const Creature = ({ creature }) => {
 
       userDispatch({ type: 'UPGRADE_MULTIPLIERS', creature: { id: creature.id, difficulty, multiplier }});
 
-      finish('creature', creature, 'stats');
-
       const prevGoal = (creature.is_noob) ? 1 : creature.exp_goal;
       const newGoal = (creature.is_noob) ? 9 : stats.getExpGoal(creature.level, difficulty);
 
@@ -103,9 +91,6 @@ const Creature = ({ creature }) => {
         newGoal,
       }});
 
-      finish('creature', creature, 'stats');
-
-      toggleExpUpdate();
       toggleLevelUpdate();
 
       if (creature.level === 15 || creature.level === 30 || creature.level === 50 || creature.level == 80) {
@@ -119,9 +104,9 @@ const Creature = ({ creature }) => {
           newPokeball
         }});
 
-        finish('creature', creature, 'stats');
-
         return toggleEvolve();
+      } else {
+        return finish('creature', creature, 'stats');
       }
     }, 100);
 
@@ -156,7 +141,7 @@ const Creature = ({ creature }) => {
       finish('creature', creature, 'stats');
 
       return toggleEvolve();
-    }, 800);
+    }, 300);
   }, [evolve]);
 
   // Sends creature id to context and allows for
