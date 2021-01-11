@@ -3,7 +3,7 @@
   max-width: 250px;
   min-width: 250px;
   height: auto;
-  border: 4px groove rgb(225,193,88);
+  border: 4px groove #FFC15E;
   border-radius: 7.5px;
   padding: 0 20px;
   margin: 50px auto;
@@ -107,7 +107,7 @@
 }
 
 .view-info-btn {
-  background-color:  rgb(253, 219, 106);
+  background-color:  #FFC15E;
   color: black;
   width: auto;
   height: 30px;
@@ -117,11 +117,11 @@
 }
 
 .view-info-btn:hover {
-  background:  rgb(240, 200, 71);
+  background: rgb(247, 211, 95);
 }
 
 .view-info-btn:active {
-  background: rgb(240, 200, 71);
+  background: #FFC15E;
 }
 
 .streak-container {
@@ -283,12 +283,11 @@
   font-weight: 600;
   border: none;
   border-radius: 5px;
-  background: linear-gradient(-35deg,
-  rgba(5,53,39, 0.8) 30%,
-  rgba(50, 122, 18, 0.8),
-  rgba(61, 129, 29, 0.8));
+  background: linear-gradient(-20deg,
+  rgba(97, 83, 204, 0.9),
+  rgba(115, 102, 218, 0.8));
   box-shadow: 0 0 3px black;
-  color: gold;
+  color: rgb(245, 245, 245);
   width: 200px;
   height: 75px;
   display: flex;
