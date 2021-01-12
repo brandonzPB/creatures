@@ -508,8 +508,8 @@
   font-size: 2rem;
   font-weight: 600;
   background: linear-gradient(-20deg,
-  rgba(97, 83, 204, 0.8),
-  rgba(115, 101, 221, 0.7));
+  rgba(47, 124, 66, 0.9),
+  rgba(111, 167, 125, 0.8));
   color: #FFC15E;
   cursor: pointer;
   border-radius: 4px;
@@ -555,9 +555,9 @@
   font-size: 1.75rem;
   font-weight: 600;
   background: linear-gradient(-20deg,
-  rgba(97, 83, 204, 0.9),
-  rgba(115, 102, 218, 0.8));
-  color:  rgb(245, 245, 245);
+  rgba(47, 124, 66, 0.9),
+  rgba(111, 167, 125, 0.8));
+  color:  black;
   width: 250px;
   height: 100px;
   position: absolute;
@@ -598,7 +598,7 @@
   background-attachment: fixed;
   border: none;
   box-shadow: 0 0 3px black;
-  color: rgb(245, 245, 245);
+  color: black;
 }
 
 .user-update-form form {
@@ -609,14 +609,14 @@
 .form-title {
   margin: 20px auto;
   display: block;
-  color:  rgb(223, 221, 221);
+  color:  rgb(51, 51, 51);
 }
 
 .user-info-tip {
   font-size: 1rem;
   margin: 0 auto 40px auto;
   display: block;
-  color: rgb(223, 221, 221);
+  color: rgb(51, 51, 51);
 }
 
 .username-label {
@@ -1280,7 +1280,7 @@
 
 .password-input input {
   font-size: 1.25rem;
-  margin: 20px 0 20px 40px;
+  margin: 20px 0;;
   text-align: left;
 }
 

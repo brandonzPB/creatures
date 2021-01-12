@@ -326,8 +326,8 @@ html {
 .max-creatures-msg,
 .creature-form {
   background: linear-gradient(-20deg,
-  rgba(97, 83, 204, 0.9),
-  rgba(115, 102, 218, 0.8));
+  rgba(76, 62, 179, 0.9),
+  rgba(97, 83, 201, 0.8));
   color: rgb(231, 231, 231);
   font-size: 1.3rem;
   display: flex;
