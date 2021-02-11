@@ -73,55 +73,67 @@ html {
   color: rgb(166, 191, 221);
 }
 
-/* WELCOME */
-
-.display-container {
-  width: 120rem;
-  height: auto;
-  margin: 0 auto;
+.return-home-link {
+  position: absolute;
+  left: 150px;
+  top: 100px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(-20deg,
+  rgba(97, 83, 204, 0.9),
+  rgba(115, 102, 218, 0.8));
+  box-shadow: 0 0 3px black;
+  color: rgb(245, 245, 245);
+  width: 200px;
+  height: 75px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex: 1;
-  flex-wrap: 1;
-  flex-direction: row;
 }
 
-.tutorial-container {
-  margin: 6rem auto 0 auto;
+.creatures-return-link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(-20deg,
+  rgba(77, 126, 155, 0.9),
+  rgba(124, 161, 182, 0.8));
+  box-shadow: 0 0 3px black;
+  color: white;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  width: auto;
-  line-height: 3rem;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.tutorial-header {
-  text-align: center;
-  margin: 1rem auto;
-  top: 5%;
-  font-size: 2.33rem;
-  height: auto;
-  display: block;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.tutorial {
-  font-size: 2rem;
-  margin: 0 auto;
-  position: relative;
-  top: 10%;
-  height: 75%;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.tutorial li {
-  list-style-type: none;
-}
-
-.return-btn-container {
   position: absolute;
-  left: 2.5%;
-  top: 2.5%;
+  left: 85px;
+  top: 0;
+}
+
+.creatures-return-link-update,
+.creatures-return-link-obj {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(-20deg,
+  rgba(77, 126, 155, 0.9),
+  rgba(124, 161, 182, 0.8));
+  box-shadow: 0 0 3px black;
+  color: white;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .return-btn {
@@ -140,65 +152,13 @@ html {
   font-weight: 600;
 }
 
-.create-link {
-  font-size: 1.3rem;
-  padding: 2rem;
-  background: linear-gradient(-20deg,
-  rgba(47, 124, 66, 0.9),
-  rgba(111, 167, 125, 0.8));
-  color:  rgb(245, 245, 245);
-  border-radius: 0.5rem;
-  font-weight: 600;
-  width: 5rem;
-  height: 5rem;
-  margin: 0 auto;
-  text-align: center;
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 4rem;
-  left: 4rem;
-  box-shadow: 0 0 3px black;
-  font-family: 'Open Sans';
-}
-
 @media only screen and (max-device-width: 55rem) {
-  .creature-list-divider {
-    display: inline-block;
-    margin: 0 auto;
-    position: static;
-    top: 0;
-  }
-
   .create-btn {
     height: 10rem;
     width: 27.5rem;
     margin: 5rem auto 0 auto;
     font-size: 1.75rem;
     text-decoration: none;
-  }
-
-  .create-link {
-    font-size: 1.3rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    width: 5rem;
-    height: 5rem;
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 27rem;
-    left: 5.5rem;
-    font-family: 'Open Sans';
-  }
-
-  .user-update-link {
-    margin: 0 0 0 1.5r.5rem
   }
 
   .create-btn-container {
@@ -208,39 +168,6 @@ html {
     left: 12%;
     top: 0;
   }
-
-  .tutorial {
-    font-size: 1.75rem; 
-    margin: 6rem auto 0 auto;
-    padding: 0;
-    width: 27.5rem;
-  }
-
-  .tutorial-container {
-    width: 27.5rem;
-    line-height: 2rem;
-    margin: 0 auto;
-    padding: 0;
-  }
-
-  .tutorial li {
-    margin: 0 auto;
-    padding: 0;
-    width: 27.5rem;
-  }
-
-  .display-container {
-    margin: 90px auto 0 auto;
-    position: relative;
-    left: 2.5%;
-    width: auto;
-    height: auto;
-    display: inline-block;
-  }
-}
-
-.tutorial li {
-  margin: 10rem auto;
 }
 
 .return-btn-container {
@@ -287,196 +214,10 @@ html {
   }
 }
 
-/* Add New Creature Form */
-
-.max-creatures-msg,
-.creature-form {
-  background: linear-gradient(-20deg,
-  rgba(76, 62, 179, 0.9),
-  rgba(97, 83, 201, 0.8));
-  color: rgb(231, 231, 231);
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 100rem;
-  height: auto 70rem;
-  margin: 5rem auto 2rem auto;
-  text-align: center;
-  border-radius: 1rem;
-  font-family: 'Open Sans', sans-serif;
-  box-shadow: 0 0 3px black;
-}
-
-.form-title {
-  font-size: 2.2rem;
-  color: white;
-  display: block;
-  margin: 2rem auto 4rem auto;
-}
-
-.creature-form form {
-  display: block;
-  width: 135rem;
-  height: auto;
-  margin-top: 5rem;
-  font-size: 1.3rem;
-}
-
-.creature-inputs {
-  margin: 0 auto;
-  text-align: center;
-  margin-bottom: 3.5rem;
-}
-
-.creature-input {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.3rem;
-}
-
-.creature-form form label {
-  margin: 0.5rem;
-}
-
-.creature-form form input {
-  font-size: 1.2rem;
-}
-
-.creature-form form select {
-  font-size: 1.2rem;
-  width: auto;
-}
-
-.info {
-  font-size: 0.75em;
-  margin: 0.2rem 0.8rem;
-  display: block;
-}
-
-.select-creature {
-  display: flex;
-  width: 5rem;
-  height: auto;
-}
-
-.select-purpose {}
-
-.creature-label {
-  width: 10rem;
-  height: auto;
-}
-
-.creature-select {
-  font-size: 1.2rem;
-}
-
-.mega-input {
-  width: 30rem;
-  display: flex;
-  flex-wrap: wrap;
-  text-align: center;
-}
-
-.evo-label {
-  display: inline-block;
-  width: 30rem;
-  position: relative;
-  left: 6rem;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.evo-label-text {
-  display: block;
-  width: 30rem;
-  text-align: left;
-  font-size: 1rem;
-}
-
-.label-container {
-  display: inline-block;
-  width: 30rem;
-  position: relative;
-  right: 8rem;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.mega-input-text {
-  display: block;
-  width: 30rem;
-  text-align: right;
-  font-size: 1rem;
-}
-
-.mega {
-  margin: 0.7rem;
-  font-size: 1.2rem;
-  display: block;
-}
-
-.purpose-label {
-  text-align: center;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-
-.purpose-select {
-  margin: 0 auto;
-  margin-bottom: 3.5rem;
-  font-size: 1.2rem;
-}
-
-.name-label {
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-
-.name-input {
-  margin: 0 auto;
-  margin-bottom: 3.5rem;
-  font-size: 1.2rem;
-}
-
-.title-label {
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-
-.title-input {
-  margin: 0 auto;
-  margin-bottom: 4rem;
-  font-size: 1rem;
-}
-
-.submit-form-btn {
-  margin: 0 auto 4rem auto;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgb(251,202,99);
-  color: black;
-  font-weight: 600;
-  border-radius: 0.5rem;
-  font-size: 1.2rem;
-  width: auto;
-  height: 5rem;
-  border: none;
-  cursor: pointer;
-}
-
 @media only screen and (max-device-width: 55rem) {
   .App {
     width: 85vw;
     height: 90vh;
-  }
-
-  .display-container {
-    width: 80vw;
   }
   
   .return-btn-container {
@@ -499,233 +240,15 @@ html {
     text-align: center;
     text-shadow: none;
   }
-
-  .creature-form-container {
-    width: auto;
-    margin: 0 auto;
-    position: absolute;
-    top: 28rem;
-    left: 0;
-  }
-
-  .max-creatures-msg,
-  .creature-form {
-    font-size: 1.33rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    width: auto;
-    height: auto;
-    margin: 11rem auto 4rem auto;
-    text-align: center;
-    border-radius: 1rem;
-  }
-
-  .form-title {
-    font-size: 2rem;
-    color: white;
-    display: block;
-    margin: 1rem auto 2rem auto;
-  }
-
-  .creature-form form {
-    display: block;
-    width: 100%;
-    height: auto;
-    margin: 3rem auto;
-    font-size: 1.25rem;
-  }
-
-  .mega-input-text {
-    display: none;
-  }
-
-  .creature-inputs {
-    margin: 0 auto;
-    text-align: center;
-    margin-bottom: 1rem;
-    float: left;
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    flex: 1;
-    flex-wrap: wrap;
-    flex-direction: column;
-  }
-
-  .creature-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    flex-wrap: wrap;
-    padding: 0.3rem;
-  }
-
-  .creature-form form label {
-    margin: 0.5rem;
-  }
-
-  .creature-form form input {
-    font-size: 1.125rem;
-  }
-
-  .creature-form form select {
-    font-size: 1.125rem;
-    width: auto;
-  }
-
-  .info {
-    font-size: 0.85rem;
-    margin: 0.5rem;
-  }
-
-  .select-creature {
-    display: flex;
-    width: 5rem;
-    height: auto;
-  }
-
-  .select-purpose {}
-
-  .creature-label {
-    width: 10rem;
-    height: auto;
-  }
-
-  .creature-select {
-    font-size: 1.125rem;
-  }
-
-  .mega-input {
-    width: 30rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    flex-wrap: wrap;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .label-container {
-    display: block;
-    width: 30rem;
-    position: relative;
-    left: 6rem;
-    text-align: center;
-    margin: 0 auto;
-  }
-
-  .mega {
-    margin: 0.7rem 0 1rem 2px;
-    width: 25rem;
-    font-size: 1.125rem;
-    display: block;
-  }
-
-  .purpose-label {
-    text-align: center;
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
-
-  .purpose-select {
-    margin: 0 auto;
-    margin-bottom: 2rem;
-  }
-
-  .name-label {
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
-
-  .name-input {
-    margin: 0 auto;
-    margin-bottom: 2rem;
-  }
-
-  .title-label {
-    margin: 0 auto;
-    margin-bottom: 1rem;
-  }
-
-  .title-input {
-    margin: 0 auto;
-    margin-bottom: 1.5rem;
-  }
-
-  .submit-form-btn {
-    margin: 4rem auto 0 auto;
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.5rem;
-    font-size: 1.125rem;
-    height: 5rem;
-    width: 5rem;
-  }
 }
-
-/* Creature List */
-
-.display-container a {
-  text-decoration: none;
-  margin-bottom: 4rem;
-}
-
-.display-container a:link,
-.display-container a:visited {
-  color: white;
-}
-
-.user-update-link {
-  font-size: 1.5rem;
-  font-weight: 600;
-  width: 19rem;
-  height: 8rem;
-  color: rgb(236, 236, 236);
-  background: linear-gradient(-20deg,
-  rgba(77, 126, 155, 0.9),
-  rgba(124, 161, 182, 0.8));
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-  position: absolute;
-  top: 5rem;
-  left: 4rem;
-  box-shadow: 0 0 3px black;
-}
-
-.creature-coral {
-  display: flex;
-  flex: 1;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 0 auto 2rem auto;
-  width: 100rem;
-  height: 70rem;
-} /* ul */
 
 @media only screen and (min-device-width: 120rem) {
-  .creature-coral {
-    white-space: nowrap;
-  }
-
-  .display-container {
-    white-space: nowrap;
-  }
-
   .creature-form {
     white-space: nowrap;
+  }
+
+  .creatures-return-link-obj {
+    margin: 30px 0 0 65px;
   }
 }
 
@@ -736,13 +259,6 @@ html {
     top: 1rem;
     width: 20rem;
     height: 8rem;
-  }
-
-  .creature-coral {
-    width: 95%;
-    display: block;
-    position: absolute;
-    top: 38rem;
   }
 }
 
@@ -973,91 +489,6 @@ html {
   display: none;
 }
 
-/* Objective */
-
-.objective {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  margin: 1rem auto;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-  width: 57.5rem;
-}
-
-.objective-delete-btn {
-  width: auto;
-  height: auto;
-  font-size: 1.25rem;
-  background: rgba(243, 58, 58, 0.7);
-  border: none;
-  color: white;
-  font-weight: 600;
-  position: relative;
-  left: -8rem;
-  margin: 0 auto;
-  cursor: pointer;
-}
-
-.objective-data {
-  margin: 1rem auto 1rem auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex: 1;
-  width: auto;
-  padding: 1.5rem 2.5rem;
-  height: auto;
-  position: relative;
-  left: -3rem;
-}
-
-.objective-text {
-  font-size: 1.1rem;
-}
-
-.objective-difficulty {
-  display: block;
-  font-size: 0.80rem;
-}
-
-/* Complete Objective Form */
-
-.complete-obj-container {}
-
-.complete-obj-form {
-  margin: 0 auto;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.complete-obj-btn {
-  display: block;
-  margin: 0 auto;
-  background-color: rgba(108, 199, 81, 0.6);
-  width: auto;
-  height: 5rem;
-  font-weight: 600;
-  font-size: 0.9rem;
-  position: relative;
-  border: none;
-  box-shadow: 0 0 2px black;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.time-text {
-  display: block;
-  font-size: 0.9rem;
-}
-
-.time-input {
-  width: 5rem;
-}
-
 /* New Objective Form */
 
 .objective-form-container {
@@ -1164,54 +595,8 @@ html {
     margin: 10rem auto;
   }
 
-  .objective {
-    display: flex;
-    flex-direction: row;
-    flex: 1;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin: 0;
-    text-align: center;
-    width: auto;
-    height: auto;
-    padding: 0;
-  }
-  
-  .objective-delete-btn {
-    width: auto;
-    height: auto;
-    font-size: 1.5rem;
-    color: white;
-    margin: 0 auto;
-    position: relative;
-    left: 1rem;
-    top: -5px;
-  }
-  
-  .objective-data {
-    margin: 1rem auto 2rem auto;
-    display: block;
-    width: auto;
-    height: auto;
-  }
-  
-  .objective-text {
-    font-size: 1.3rem;
-  }
-  
-  .objective-difficulty {
-    display: block;
-    font-size: 0.90rem;
-  }
-
   /* Complete Objective Form */
 
-  .objective-complete-form-container {
-    display: block;
-    width: 12.5rem;
-  }
-  
   .objective-complete-form {
     margin: 0 auto;
     display: block;
@@ -1275,19 +660,9 @@ html {
 /* MOBILE CREATURE EDIT */
 
 @media only screen and (max-device-width: 55rem) {
-  .creature-info {
-    margin: 35rem auto;
-  }
-
   .creatures-return-link-update {
     margin: 5rem 0 0 6.5rem;
   }
-
-  .creature-update-form {}
-
-  .creature-update-form form {}
-
-  .form-title {}
 }
 
 /* MOBILE */

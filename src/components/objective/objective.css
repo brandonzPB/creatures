@@ -1,0 +1,104 @@
+/* OBJECTIVE */
+
+.objective {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 1rem auto;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  width: 57.5rem;
+}
+
+.delete-btn-container {}
+
+.objective-delete-btn {
+  width: auto;
+  height: auto;
+  font-size: 1.25rem;
+  background: rgba(243, 58, 58, 0.7);
+  border: none;
+  color: white;
+  font-weight: 600;
+  position: relative;
+  left: -8rem;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.objective-data {
+  margin: 1rem auto 1rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex: 1;
+  width: auto;
+  padding: 1.5rem 2.5rem;
+  height: auto;
+  position: relative;
+  left: -3rem;
+}
+
+.objective-text {
+  font-size: 1.1rem;
+}
+
+.objective-difficulty {
+  display: block;
+  font-size: 0.80rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .objective {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    text-align: center;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  .delete-btn-container {}
+  
+  .objective-delete-btn {
+    width: auto;
+    height: auto;
+    font-size: 1.5rem;
+    color: white;
+    margin: 0 auto;
+    position: relative;
+    left: 1rem;
+    top: -5px;
+  }
+  
+  .objective-data {
+    margin: 1rem auto 2rem auto;
+    display: block;
+    width: auto;
+    height: auto;
+  }
+  
+  .objective-text {
+    font-size: 1.3rem;
+  }
+  
+  .objective-difficulty {
+    display: block;
+    font-size: 0.90rem;
+  }
+
+  .objective-complete-form-container {
+    display: block;
+    width: 12.5rem;
+  }
+}

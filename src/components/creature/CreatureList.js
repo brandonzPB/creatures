@@ -3,6 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 import Creature from './Creature';
+import './creatureList.css';
 
 const CreatureList = () => {
   const { user, link, setDest } = useContext(UserContext);

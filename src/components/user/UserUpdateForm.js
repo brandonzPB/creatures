@@ -3,7 +3,9 @@ import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import userService from '../../services/userService';
+
 import './user.css';
+import './userUpdate.css';
 
 const UserUpdateForm = () => {
   const { user, userDispatch, removeUser, link, setDest } = useContext(UserContext);

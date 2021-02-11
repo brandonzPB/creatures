@@ -4,6 +4,7 @@ import CountUp from 'react-countup';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
 import './creature.css';
+import './creatureDisplay.css';
 
 const CreatureDisplay = ({ creature }) => {
   const { link, setDest } = useContext(UserContext);

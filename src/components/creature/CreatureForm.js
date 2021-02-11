@@ -14,6 +14,7 @@ import CreatureOption from './CreatureOption';
 import { v4 as uuidv4 } from 'uuid';
 import pokemon from 'pokemon';
 
+import './creatureForm.css';
 
 const CreatureForm = () => {
   const { user, userDispatch, link, setDest } = useContext(UserContext);

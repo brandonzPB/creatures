@@ -1,0 +1,13 @@
+.creature-info {}
+
+.creature-update-form {}
+
+.creature-update-form form {}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .creature-info {
+    margin: 35rem auto;
+  }
+}

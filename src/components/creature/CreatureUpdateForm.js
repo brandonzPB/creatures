@@ -10,6 +10,9 @@ import { otherVersions } from '../../modules/pokemonList';
 import pokemon from 'pokemon';
 import * as megaMethods from '../../modules/megas';
 
+import './creatureForm.css';
+import './creatureUpdate.css';
+
 const CreatureUpdateForm = () => {
   const { user, userDispatch, link, setDest } = useContext(UserContext);
   

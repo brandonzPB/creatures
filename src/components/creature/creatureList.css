@@ -1,0 +1,200 @@
+/* CREATURE LIST */
+
+.display-container {
+  width: 120rem;
+  height: auto;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-wrap: 1;
+  flex-direction: row;
+}
+
+.user-update-link {
+  font-size: 1.5rem;
+  font-weight: 600;
+  width: 19rem;
+  height: 8rem;
+  color: rgb(236, 236, 236);
+  background: linear-gradient(-20deg,
+  rgba(77, 126, 155, 0.9),
+  rgba(124, 161, 182, 0.8));
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  position: absolute;
+  top: 5rem;
+  left: 4rem;
+  box-shadow: 0 0 3px black;
+}
+
+.create-link {
+  font-size: 1.3rem;
+  padding: 2rem;
+  background: linear-gradient(-20deg,
+  rgba(47, 124, 66, 0.9),
+  rgba(111, 167, 125, 0.8));
+  color:  rgb(245, 245, 245);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 4rem;
+  left: 4rem;
+  box-shadow: 0 0 3px black;
+  font-family: 'Open Sans';
+}
+
+.tutorial-container {
+  margin: 6rem auto 0 auto;
+  text-align: center;
+  width: auto;
+  line-height: 3rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.tutorial-header {
+  text-align: center;
+  margin: 1rem auto;
+  top: 5%;
+  font-size: 2.33rem;
+  height: auto;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.tutorial {
+  font-size: 2rem;
+  margin: 0 auto;
+  position: relative;
+  top: 10%;
+  height: 75%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.tutorial li {
+  list-style-type: none;
+  margin: 10rem auto;
+}
+
+.return-btn-container {
+  position: absolute;
+  left: 2.5%;
+  top: 2.5%;
+}
+
+.display-container a {
+  text-decoration: none;
+  margin-bottom: 4rem;
+}
+
+.display-container a:link,
+.display-container a:visited {
+  color: white;
+}
+
+.creature-coral {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0 auto 2rem auto;
+  width: 100rem;
+  height: 70rem;
+} /* ul */
+
+@media (min-width: 1200px) {
+  .creature-coral {
+    white-space: nowrap;
+  }
+
+  .display-container {
+    white-space: nowrap;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .display-container {
+    margin: 90px auto 0 auto;
+    position: relative;
+    left: 2.5%;
+    width: auto;
+    height: auto;
+    display: inline-block;
+  }
+
+  .display-container {
+    width: 80vw;
+  }
+
+  .create-link {
+    font-size: 1.3rem;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 27rem;
+    left: 5.5rem;
+    font-family: 'Open Sans';
+  }
+
+  .user-update-link {
+    margin: 0 0 0 1.5r.5rem
+  }
+
+  .creature-list-divider {
+    display: inline-block;
+    margin: 0 auto;
+    position: static;
+    top: 0;
+  }
+
+  .tutorial {
+    font-size: 1.75rem; 
+    margin: 6rem auto 0 auto;
+    padding: 0;
+    width: 27.5rem;
+  }
+
+  .tutorial-container {
+    width: 27.5rem;
+    line-height: 2rem;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .tutorial li {
+    margin: 0 auto;
+    padding: 0;
+    width: 27.5rem;
+  }
+
+  .creature-coral {
+    width: 95%;
+    display: block;
+    position: absolute;
+    top: 38rem;
+  }
+}

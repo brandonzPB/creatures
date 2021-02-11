@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
-import * as stats from '../../modules/stats';
+
 import CreatureDisplay from './CreatureDisplay';
-import './creature.css';
+
+import * as stats from '../../modules/stats';
 import * as streakMethods from '../../modules/streak';
+
+import './creature.css';
 
 const lvlUpMusicSrc = require('../../sounds/level-up.mp3');
 const levelUpSound = new Audio(lvlUpMusicSrc);

@@ -1,0 +1,256 @@
+/* CREATURE DISPLAY */
+
+.creature-display {
+  margin: 0 auto;
+  display: block;
+  height: 375px;
+  max-height: 375px;
+  min-height: 375px;
+  width: auto;
+}
+
+.header-container {
+  height: 75px;
+  position: relative;
+  top: 10px;
+}
+
+.creature-display li {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  line-height: 0.75rem;
+  height: 350px;
+}
+
+.creature-name {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.creature-purpose-name {
+}
+
+.creature-level {}
+
+.creature-sprite {
+  display: block;
+  height: 150px;
+  margin: 30px auto;
+  position: relative;
+  top: 20px;
+}
+
+.footer-container {
+  position: relative;
+  height: 100px;
+  margin: 0 auto;
+  display: block;
+  bottom: 5px;
+}
+
+.exp-container {
+  display: block;
+  position: relative;
+  top: 10px;
+  margin: 25px auto;
+}
+
+.creature-exp {
+  margin: 0 auto -15px auto;
+}
+
+.exp-bar {
+  width: 150px;
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 7px;
+  overflow: hidden;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.exp-filled {
+  height: 100%;
+}
+
+.exp-animation {
+  background-color: rgb(33,140,255);
+  transition: width 0.75s;
+  height: 100%;
+}
+
+.exp-empty {
+  background-color: white;
+  height: 100%;
+}
+
+.view-info-btn-container {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  position: relative;
+  bottom: 0;
+  top: 10px;
+}
+
+.view-info-btn {
+  background-color:  #FFC15E;
+  color: black;
+  width: auto;
+  height: 30px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.view-info-btn:hover {
+  background: rgb(247, 211, 95);
+}
+
+.view-info-btn:active {
+  background: #FFC15E;
+}
+
+.streak-container-fluid {}
+
+.streak-container {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  float: right;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex: 1;
+}
+
+.streak-icon-container {}
+
+.streak-icon {
+  background-image: '../../images/fire.png';
+  background-size: cover;
+  width: 25px;
+  height: auto;
+}
+
+.streak-count-container {
+  margin: 0 2px;
+  position: relative;
+  bottom: -2px;
+}
+
+.streak-count {
+  font-size: 1rem;
+  text-align: right;
+  float: right;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .creature-display {
+    margin: 0 auto;
+    display: block;
+    height: 375px;
+  }
+  
+  .header-container {
+    height: 75px;
+    position: relative;
+    top: 10px;
+  }
+  
+  .creature-display li {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    line-height: 0.75rem;
+    height: 350px;
+  }
+  
+  .creature-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+  }
+  
+  .creature-purpose-name {
+  }
+  
+  .creature-level {
+    font-size: 1.1rem;
+  }
+  
+  .creature-sprite {
+    display: block;
+    height: 150px;
+    margin: 30px auto 15px auto;
+    position: relative;
+    top: 20px;
+  }
+  
+  .footer-container {
+    position: relative;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    bottom: 5px;
+  }
+  
+  .exp-container {
+    display: block;
+    position: relative;
+    top: 10px;
+    margin: 20px auto 30px auto;
+    font-size: 1.1rem;
+  }
+  
+  .creature-exp {
+    margin: 0 auto -15px auto;
+  }
+  
+  .exp-bar {
+    width: 180px;
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 12px;
+    overflow: hidden;
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    margin: 0 auto;
+  }
+  
+  .exp-filled {
+    height: 100%;
+  }
+  
+  .exp-animation {
+    background-color: rgb(33,140,255);
+    transition: width 0.75s;
+    height: 100%;
+  }
+  
+  .exp-empty {
+    background-color: white;
+    height: 100%;
+  }
+  
+  .view-info-btn-container {
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    bottom: 0;
+    top: 10px;
+  }
+  
+  .view-info-btn {
+    width: 100px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}

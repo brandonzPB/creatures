@@ -9,6 +9,8 @@ import ConfirmDisplay from '../ConfirmDisplay';
 import Creature from '../creature/Creature';
 import * as ageMethods from '../../modules/age';
 
+import './objectiveList.css';
+
 const ActionList = () => {
   const { user, userDispatch, link, setDest } = useContext(UserContext);
   

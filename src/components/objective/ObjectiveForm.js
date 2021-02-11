@@ -4,6 +4,8 @@ import { UserContext } from '../../contexts/UserContext';
 import { v4 as uuidv4 } from 'uuid';
 import * as obj from '../../modules/objective';
 
+import './objectiveForm.css';
+
 const ObjectiveForm = ({ creatureId }) => {
   const { checkObjectiveText, currentId, finish } = useContext(CreatureContext);
   const { userDispatch } = useContext(UserContext);

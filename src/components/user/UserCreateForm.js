@@ -2,7 +2,9 @@ import React, { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
+
 import './user.css';
+import './userCreate.css';
 
 const UserCreateForm = () => {
   const { createResult, setCreateResult, link, setDest } = useContext(UserContext);

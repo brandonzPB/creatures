@@ -1,6 +1,8 @@
 import React from 'react';
 import ObjectiveCompleteForm from './ObjectiveCompleteForm';
 
+import './objective.css';
+
 const Objective = ({ objective, creature, sendDeleteObj }) => {
   const difficultyColor = objective.factor === 1 ? 'rgba(142, 104, 199, 0.3)'
     : objective.factor === 2 ? 'rgba(119, 79, 179, 0.4)'

@@ -2,8 +2,9 @@ import React, { useState, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
+
 import './user.css';
-import '../../index.css';
+import './forgotPassword.css';
 
 const ForgotPassword = () => {
   const { reset, setReset, link, setDest } = useContext(UserContext);

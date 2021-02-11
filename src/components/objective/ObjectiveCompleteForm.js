@@ -1,6 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { CreatureContext } from '../../contexts/CreatureContext';
 
+import './objectiveComplete.css';
+
 const ObjectiveCompleteForm = ({ creature, objective }) => {
   const { getExp, play, togglePlay, expUpdate, toggleExpUpdate, finish } = useContext(CreatureContext);
 
