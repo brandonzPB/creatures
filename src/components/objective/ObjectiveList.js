@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, Redirect, Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { ConfirmDisplayContext } from '../../contexts/ConfirmDisplayContext';
 import { UserContext } from '../../contexts/UserContext';
@@ -10,9 +10,11 @@ import Creature from '../creature/Creature';
 import * as ageMethods from '../../modules/age';
 
 const ActionList = () => {
+  const { user, userDispatch, link, setDest } = useContext(UserContext);
+  
   const { currentId, showCreatureObjectives, postDelete, finish } = useContext(CreatureContext);
+
   const { confirmDisplay, toggleConfirmDisplay } = useContext(ConfirmDisplayContext);
-  const { user, userDispatch } = useContext(UserContext);
 
   let creatureInfo;
   let ObjectiveComponents;
@@ -26,7 +28,7 @@ const ActionList = () => {
       creatureId: currentId,
       objectiveId
     });
-   
+
     finish('objective');
   }
 
@@ -34,6 +36,14 @@ const ActionList = () => {
     return (
       <Route exact path="/creature/info">
         <Redirect to="/" />
+      </Route>
+    )
+  }
+
+  if (link.dest === 'creatures') {
+    return (
+      <Route exact path="/creature/info">
+        <Redirect to="/creatures" />
       </Route>
     )
   }
@@ -88,9 +98,7 @@ const ActionList = () => {
   if (currentId) {
     return (
       <div className="update-container">
-        <Link to="/creatures">
-          <p className="creatures-return-link-obj">Return to Creatures</p>
-        </Link>
+        <button className="creatures-return-link-obj" onClick={() => setDest('creatures')}>Return to Creatures</button>
 
         <div className="adjacent-creature-container">
           <div className="adjacent-creature-container-fluid">

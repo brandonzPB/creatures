@@ -14,9 +14,11 @@ const evolveSound = new Audio(evolveMusicSrc);
 
 const Creature = ({ creature }) => {
   const { displayObjectives, showCreatureObjectives, expUpdate, toggleExpUpdate, finish } = useContext(CreatureContext);
+
   const { user, userDispatch } = useContext(UserContext);
 
   const [levelUpdate, setLevelUpdate] = useState(false);
+  
   const [evolve, setEvolve] = useState(false);
 
   const pokeball = (!creature.pokeball_number) ? 13

@@ -19,6 +19,15 @@ const UserContextProvider = (props) => {
     passwordReset: false
   });
 
+  const [link, setLink] = useState({ dest: '' });
+
+  const setDest = req => {
+    setLink({
+      ...link,
+      dest: req
+    });
+  }
+
   useEffect(() => {
     localStorage.setItem('my-user', JSON.stringify(user));
 
@@ -112,15 +121,12 @@ const UserContextProvider = (props) => {
 
   return (
     <UserContext.Provider value={{
-      user,
-      userDispatch,
-      getUserInfo,
-      refreshUser,
+      user,userDispatch,
+      getUserInfo, refreshUser,
       updateUser,
-      createResult,
-      setCreateResult,
-      reset,
-      setReset,
+      link, setDest,
+      createResult, setCreateResult,
+      reset, setReset,
       removeUser,
       logout,
     }}>

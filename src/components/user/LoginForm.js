@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
 import './user.css';
 
 const LoginForm = () => {
-  const { getUserInfo } = useContext(UserContext);
+  const { getUserInfo, link, setDest } = useContext(UserContext);
 
   const [user, setUser] = useState({
     username: '',
@@ -75,6 +75,14 @@ const LoginForm = () => {
     }
   }
 
+  if (link.dest === 'forgot') {
+    return (
+      <Route exact path="/">
+        <Redirect to="/user/reset/forgot" />
+      </Route>
+    )
+  }
+
   return (
     <div className="login-form-container">
       <form onSubmit={handleSubmit}>
@@ -121,9 +129,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <Link to="/user/reset/forgot">
-          <p className="forgot-password-link">Forgot Password?</p>
-        </Link>
+        <button className="forgot-password-link" onClick={() => setDest('forgot')}>Forgot Password?</button>
 
         <button className="login-btn">Login</button>
       </form>

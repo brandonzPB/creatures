@@ -10,30 +10,6 @@ const CreatureContextProvider = (props) => {
   const { user, userDispatch, updateUser, refreshUser, logout } = useContext(UserContext);
 
   const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
-  //   const creatures = localStorage.getItem('my-user');
-  //   const storedCreatures = creatures ? JSON.parse(creatures) : [];
-  //   return storedCreatures.creatures;
-  // });
-
-  /* useEffect(() => {
-    console.log('creatures', creatures)
-
-    dispatch({ type: 'UPDATE_STATE', creatures: { creatures: user.creatures }});
-  }, [])
-
-  useEffect(() => {
-    userDispatch({ type: 'UPDATE_CREATURES', creatures: { creatures: user.creatures }});
-    localStorage.setItem('my-user', JSON.stringify(user));
-  }, [user.creatures]); */
-
-  /* const [creatures, dispatch] = useReducer(creatureReducer, [], () => {
-    const storedCreatures = localStorage.getItem('my-creatures');
-    return storedCreatures ? JSON.parse(storedCreatures) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem('my-creatures', JSON.stringify(creatures));
-  }, [creatures]); */
 
   const [currentId, setCurrentId] = useState('');
   const [play, setPlay] = useState(false);

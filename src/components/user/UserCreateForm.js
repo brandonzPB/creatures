@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import './user.css';
 
 const UserCreateForm = () => {
-  const { createResult, setCreateResult } = useContext(UserContext);
+  const { createResult, setCreateResult, link, setDest } = useContext(UserContext);
 
   const [newUser, setNewUser] = useState({
     username: '',
@@ -70,6 +70,14 @@ const UserCreateForm = () => {
     )
   }
 
+  if (link.dest === 'home') {
+    return (
+      <Route exact path="/user/create">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
+
   return (
     <div className="user-create-page">
       {
@@ -78,9 +86,7 @@ const UserCreateForm = () => {
               <Redirect to="/" />
             </Route> :
             <div className="create-user-form-container">
-              <Link to="/">
-                <p className="return-home-link">Return Home</p>
-              </Link>
+              <button className="return-home-link" onClick={() => setDest('home')}>Return Home</button>
 
               <div className="username-err" style={{ display: error.ref === 'username' ? 'flex' : 'none'}}>
                 <span className="create-error-text">Username already exists</span>

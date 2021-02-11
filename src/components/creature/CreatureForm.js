@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
@@ -16,8 +16,9 @@ import pokemon from 'pokemon';
 
 
 const CreatureForm = () => {
+  const { user, userDispatch, link, setDest } = useContext(UserContext);
+  
   const { formDisplay, toggleFormDisplay, finish } = useContext(CreatureContext);
-  const { user, userDispatch } = useContext(UserContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 
@@ -51,6 +52,14 @@ const CreatureForm = () => {
     return (
       <Route exact path="/creature/create">
         <Redirect to="/" />
+      </Route>
+    )
+  }
+
+  if (link.dest === 'creatures') {
+    return (
+      <Route exact path="/creature/create">
+        <Redirect to="/creatures" />
       </Route>
     )
   }
@@ -166,9 +175,7 @@ const CreatureForm = () => {
         !formDisplay ? 
           <Route exact path="/creature/create"> <Redirect to="/creatures" /> </Route> :
           <div className="creature-form-container">
-            <Link to="/creatures">
-              <p className="creatures-return-link">Return to Creatures</p>
-            </Link>
+            <button className="creatures-return-link" onClick={() => setDest('creatures')}>Return to Creatures</button>
             
             <div className="creature-form">
               <form onSubmit={addCreature}>

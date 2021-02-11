@@ -1,12 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import userService from '../../services/userService';
 import './user.css';
 
 const UserUpdateForm = () => {
-  const { user, userDispatch, removeUser, } = useContext(UserContext);
+  const { user, userDispatch, removeUser, link, setDest } = useContext(UserContext);
+  
   const { finish } = useContext(CreatureContext);
 
   useEffect(() => {
@@ -40,6 +41,14 @@ const UserUpdateForm = () => {
     return (
       <Route exact path="/user/update">
         <Redirect to="/" />
+      </Route>
+    )
+  }
+
+  if (link.dest === 'creatures') {
+    return (
+      <Route exact path="/user/update">
+        <Redirect to="/creatures" />
       </Route>
     )
   }
@@ -183,9 +192,7 @@ const UserUpdateForm = () => {
 
   return (
     <div className="user-info">
-      <Link to="/creatures">
-        <p className="view-creatures-link">View Creatures</p>
-      </Link>
+      <button className="view-creatures-link" onClick={() => setDest('creatures')}>View Creatures</button>
 
       <div className="user-update-form">
         <form onSubmit={handleSubmit}>

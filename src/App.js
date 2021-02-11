@@ -25,7 +25,7 @@ import ObjectiveList from './components/objective/ObjectiveList';
 
 function App() {
   return (
-    <HashRouter basename="/">
+    <BrowserRouter>
       <div className="App">
         <ThemeContextProvider>
           <div className="quote-container">
@@ -63,7 +63,7 @@ function App() {
           </span>
         </ThemeContextProvider>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 

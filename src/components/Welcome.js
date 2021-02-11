@@ -1,11 +1,11 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import { Route, Redirect } from 'react-router-dom';
 import LoginForm from './user/LoginForm';
 import { UserContext } from '../contexts/UserContext';
 import './welcome.css';
 
 const Welcome = () => {
-  const { user, createResult, setCreateResult } = useContext(UserContext);
+  const { user, createResult, setCreateResult, link, setDest } = useContext(UserContext);
 
   useEffect(() => {
     setCreateResult({
@@ -22,15 +22,21 @@ const Welcome = () => {
     )
   }
 
+  if (link.dest === 'create') {
+    return (
+      <Route exact path="/">
+        <Redirect to="/user/create" />
+      </Route>
+    )
+  }
+
   return (
     <div className="index-container">
       <div className="welcome">
         <LoginForm />
 
         <h1 className="create-account-text">Don't have an account?</h1>
-        <Link to="/user/create">
-          <p className="create-account-link">Create an Account</p>
-        </Link>
+        <button className="create-account-link" onClick={() => setDest('create')}>Create an Account</button>
       </div>
     </div>
   )

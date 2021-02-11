@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
@@ -11,7 +11,8 @@ import pokemon from 'pokemon';
 import * as megaMethods from '../../modules/megas';
 
 const CreatureUpdateForm = () => {
-  const { user, userDispatch } = useContext(UserContext);
+  const { user, userDispatch, link, setDest } = useContext(UserContext);
+  
   const { currentId, showCreatureObjectives, finish } = useContext(CreatureContext);
 
   const creature = user.creatures.filter(creature => creature.id === currentId);
@@ -32,6 +33,14 @@ const CreatureUpdateForm = () => {
     return (
       <Route exact path="/creature/update">
         <Redirect to="/" />
+      </Route>
+    )
+  }
+
+  if (link.dest === 'creatures') {
+    return (
+      <Route exact path="/creature/update">
+        <Redirect to="/creatures" />
       </Route>
     )
   }
@@ -145,9 +154,7 @@ const CreatureUpdateForm = () => {
  
   return (
     <div className="creature-info creature-form">
-      <Link to="/creatures">
-        <p className="creatures-return-link-update">Return to Creatures</p>
-      </Link>
+      <button className="creatures-return-link-update" onClick={() => setDest('creatures')}>Return to Creatures</button>
 
       <div className="creature-update-form">
         <form onSubmit={updateCreature}>

@@ -14,11 +14,6 @@ code {
     monospace;
 }
 
-/*
-bg: rgb(107,147,170);
-
-*/
-
 html {
   background-image: linear-gradient(25deg,
   rgba(97,154,70, 0.4),
@@ -28,13 +23,13 @@ html {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
-  font-size: 15x;
+  font-size: 10px;
 }
 
 .App {
-  width: 1450px;
-  height: 850px;
-  margin: 0 auto;
+  width: 100vw;
+  height: 100vh;
+  margin: 1rem auto;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -62,8 +57,8 @@ html {
 .credit {
   text-decoration: none;
   position: fixed;
-  bottom: 5px;
-  left: 5px;
+  bottom: 0.5rem;
+  left: 0.5rem;
   font-family: 'Open Sans', sans-serif;
   color: rgb(200,220,244);
 }
@@ -78,25 +73,10 @@ html {
   color: rgb(166, 191, 221);
 }
 
-@media only screen and (max-device-width: 550px) {
-  .credit {
-    position: absolute;
-    top: 4px;
-  }
-
-  .quote-container {
-    position: absolute;
-    top: 5%;
-    left: 0;
-  }
-
-  .quote {}
-
-  .quote-credit {}
-}
+/* WELCOME */
 
 .display-container {
-  width: 1200px;
+  width: 120rem;
   height: auto;
   margin: 0 auto;
   display: flex;
@@ -108,21 +88,16 @@ html {
 }
 
 .tutorial-container {
-  margin: 60px auto 0 auto;
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center;  */
+  margin: 6rem auto 0 auto;
   text-align: center;
   width: auto;
   line-height: 3rem;
   font-family: 'Open Sans', sans-serif;
-  /* position: relative; */
-  /* left: 17%; */
 }
 
 .tutorial-header {
   text-align: center;
-  margin: 10px auto;
+  margin: 1rem auto;
   top: 5%;
   font-size: 2.33rem;
   height: auto;
@@ -151,15 +126,15 @@ html {
 
 .return-btn {
   width: auto;
-  height: 60px;
+  height: 6rem;
   position: absolute;
   left: 2.5%;
   top: 2.5%;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   background: linear-gradient(-20deg,
   rgba(77, 126, 155, 0.9),
   rgba(124, 161, 182, 0.8));
-  box-shadow: 2px 2px 100px 1px white;
+  box-shadow: 2px 2px 10rem 1px white;
   color: white;
   font-size: 1.15rem;
   font-weight: 600;
@@ -167,28 +142,28 @@ html {
 
 .create-link {
   font-size: 1.3rem;
-  padding: 20px;
+  padding: 2rem;
   background: linear-gradient(-20deg,
   rgba(47, 124, 66, 0.9),
   rgba(111, 167, 125, 0.8));
   color:  rgb(245, 245, 245);
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-weight: 600;
-  width: 150px;
-  height: 50px;
+  width: 5rem;
+  height: 5rem;
   margin: 0 auto;
   text-align: center;
   position: absolute;
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
   box-shadow: 0 0 3px black;
   font-family: 'Open Sans';
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .creature-list-divider {
     display: inline-block;
     margin: 0 auto;
@@ -197,33 +172,33 @@ html {
   }
 
   .create-btn {
-    height: 100px;
-    width: 275px;
-    margin: 150px auto 0 auto;
+    height: 10rem;
+    width: 27.5rem;
+    margin: 5rem auto 0 auto;
     font-size: 1.75rem;
     text-decoration: none;
   }
 
   .create-link {
     font-size: 1.3rem;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 2rem;
+    border-radius: 0.5rem;
     font-weight: 600;
-    width: 150px;
-    height: 50px;
+    width: 5rem;
+    height: 5rem;
     margin: 0 auto;
     text-align: center;
     position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 270px;
-    left: 55px;
+    top: 27rem;
+    left: 5.5rem;
     font-family: 'Open Sans';
   }
 
   .user-update-link {
-    margin: 0 0 0 15px;
+    margin: 0 0 0 1.5r.5rem
   }
 
   .create-btn-container {
@@ -236,13 +211,13 @@ html {
 
   .tutorial {
     font-size: 1.75rem; 
-    margin: 60px auto 0 auto;
+    margin: 6rem auto 0 auto;
     padding: 0;
-    width: 275px;
+    width: 27.5rem;
   }
 
   .tutorial-container {
-    width: 275px;
+    width: 27.5rem;
     line-height: 2rem;
     margin: 0 auto;
     padding: 0;
@@ -251,7 +226,7 @@ html {
   .tutorial li {
     margin: 0 auto;
     padding: 0;
-    width: 275px;
+    width: 27.5rem;
   }
 
   .display-container {
@@ -262,19 +237,10 @@ html {
     height: auto;
     display: inline-block;
   }
-  /* width: 1200px; */
-  /* height: auto; */
-  /* margin: 0 auto; */
-  /* display: flex; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* flex: 1; */
-  /* flex-wrap: 1; */
-  /* flex-direction: row; */
 }
 
 .tutorial li {
-  margin: 100px auto;
+  margin: 10rem auto;
 }
 
 .return-btn-container {
@@ -285,12 +251,12 @@ html {
 
 .team-full {
   width: auto;
-  height: 50px;
+  height: 5rem;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   position: absolute;
-  top: 75px;
-  left: 20px;
+  top: 7.5rem;
+  left: 2rem;
 }
 
 .full-text{
@@ -308,12 +274,12 @@ html {
   font-family: 'Open Sans', sans-serif;
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .team-full {
     text-align: center;
     margin: 0 auto;
     position: absolute;
-    left: 20px;
+    left: 2rem;
   }
 
   .full-text {
@@ -334,11 +300,11 @@ html {
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 1000px;
-  height: auto;
-  margin: 52px auto 20px auto;
+  width: 100rem;
+  height: auto 70rem;
+  margin: 5rem auto 2rem auto;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 1rem;
   font-family: 'Open Sans', sans-serif;
   box-shadow: 0 0 3px black;
 }
@@ -347,32 +313,32 @@ html {
   font-size: 2.2rem;
   color: white;
   display: block;
-  margin: 20px auto 40px auto;
+  margin: 2rem auto 4rem auto;
 }
 
 .creature-form form {
   display: block;
-  width: 1350px;
+  width: 135rem;
   height: auto;
-  margin-top: 50px;
+  margin-top: 5rem;
   font-size: 1.3rem;
 }
 
 .creature-inputs {
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 35px;
+  margin-bottom: 3.5rem;
 }
 
 .creature-input {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3px;
+  padding: 0.3rem;
 }
 
 .creature-form form label {
-  margin: 5px;
+  margin: 0.5rem;
 }
 
 .creature-form form input {
@@ -386,20 +352,20 @@ html {
 
 .info {
   font-size: 0.75em;
-  margin: 2px 8px;
+  margin: 0.2rem 0.8rem;
   display: block;
 }
 
 .select-creature {
   display: flex;
-  width: 150px;
+  width: 5rem;
   height: auto;
 }
 
 .select-purpose {}
 
 .creature-label {
-  width: 100px;
+  width: 10rem;
   height: auto;
 }
 
@@ -408,7 +374,7 @@ html {
 }
 
 .mega-input {
-  width: 300px;
+  width: 30rem;
   display: flex;
   flex-wrap: wrap;
   text-align: center;
@@ -416,38 +382,38 @@ html {
 
 .evo-label {
   display: inline-block;
-  width: 300px;
+  width: 30rem;
   position: relative;
-  left: 60px;
+  left: 6rem;
   text-align: center;
   margin: 0 auto;
 }
 
 .evo-label-text {
   display: block;
-  width: 300px;
+  width: 30rem;
   text-align: left;
   font-size: 1rem;
 }
 
 .label-container {
   display: inline-block;
-  width: 300px;
+  width: 30rem;
   position: relative;
-  right: 80px;
+  right: 8rem;
   text-align: center;
   margin: 0 auto;
 }
 
 .mega-input-text {
   display: block;
-  width: 300px;
+  width: 30rem;
   text-align: right;
   font-size: 1rem;
 }
 
 .mega {
-  margin: 7px;
+  margin: 0.7rem;
   font-size: 1.2rem;
   display: block;
 }
@@ -455,39 +421,39 @@ html {
 .purpose-label {
   text-align: center;
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .purpose-select {
   margin: 0 auto;
-  margin-bottom: 35px;
+  margin-bottom: 3.5rem;
   font-size: 1.2rem;
 }
 
 .name-label {
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .name-input {
   margin: 0 auto;
-  margin-bottom: 35px;
+  margin-bottom: 3.5rem;
   font-size: 1.2rem;
 }
 
 .title-label {
   margin: 0 auto;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .title-input {
   margin: 0 auto;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
   font-size: 1rem;
 }
 
 .submit-form-btn {
-  margin: 0 auto 40px auto;
+  margin: 0 auto 4rem auto;
   text-align: center;
   display: flex;
   align-items: center;
@@ -495,15 +461,15 @@ html {
   background-color: rgb(251,202,99);
   color: black;
   font-weight: 600;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   font-size: 1.2rem;
   width: auto;
-  height: 50px;
+  height: 5rem;
   border: none;
   cursor: pointer;
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .App {
     width: 85vw;
     height: 90vh;
@@ -518,16 +484,16 @@ html {
     float: right;
     left: 21%;
     top: 2%;
-    height: 40px;
+    height: 4rem;
     width: auto;
   }
   
   .return-btn {
-    width: 200px;
-    height: 80px;
+    width: 20rem;
+    height: 8rem;
     position: absolute;
     top: -8%;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     font-weight: 600;
     font-size: 1.75rem;
     text-align: center;
@@ -538,8 +504,8 @@ html {
     width: auto;
     margin: 0 auto;
     position: absolute;
-    top: 280px;
-    left: 0px;
+    top: 28rem;
+    left: 0;
   }
 
   .max-creatures-msg,
@@ -552,39 +518,34 @@ html {
     text-align: center;
     width: auto;
     height: auto;
-    margin: 110px auto 40px auto;
+    margin: 11rem auto 4rem auto;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 1rem;
   }
 
   .form-title {
     font-size: 2rem;
     color: white;
     display: block;
-    margin: 10px auto 20px auto;
+    margin: 1rem auto 2rem auto;
   }
 
   .creature-form form {
     display: block;
     width: 100%;
     height: auto;
-    margin: 30px auto;
+    margin: 3rem auto;
     font-size: 1.25rem;
   }
 
   .mega-input-text {
     display: none;
-    /* width: 150px; */
-    /* text-align: center; */
-    /* font-size: 1rem; */
-    /* position: relative; */
-    /* left: 34%; */
   }
 
   .creature-inputs {
     margin: 0 auto;
     text-align: center;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     float: left;
     display: flex;
     align-content: center;
@@ -600,11 +561,11 @@ html {
     justify-content: center;
     flex: 1;
     flex-wrap: wrap;
-    padding: 3px;
+    padding: 0.3rem;
   }
 
   .creature-form form label {
-    margin: 5px;
+    margin: 0.5rem;
   }
 
   .creature-form form input {
@@ -618,19 +579,19 @@ html {
 
   .info {
     font-size: 0.85rem;
-    margin: 5px;
+    margin: 0.5rem;
   }
 
   .select-creature {
     display: flex;
-    width: 150px;
+    width: 5rem;
     height: auto;
   }
 
   .select-purpose {}
 
   .creature-label {
-    width: 100px;
+    width: 10rem;
     height: auto;
   }
 
@@ -639,7 +600,7 @@ html {
   }
 
   .mega-input {
-    width: 300px;
+    width: 30rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -651,16 +612,16 @@ html {
 
   .label-container {
     display: block;
-    width: 300px;
+    width: 30rem;
     position: relative;
-    left: 60px;
+    left: 6rem;
     text-align: center;
     margin: 0 auto;
   }
 
   .mega {
-    margin: 7px 0 10px 2px;
-    width: 250px;
+    margin: 0.7rem 0 1rem 2px;
+    width: 25rem;
     font-size: 1.125rem;
     display: block;
   }
@@ -668,44 +629,44 @@ html {
   .purpose-label {
     text-align: center;
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
   .purpose-select {
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
   }
 
   .name-label {
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
   .name-input {
     margin: 0 auto;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
   }
 
   .title-label {
     margin: 0 auto;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
   }
 
   .title-input {
     margin: 0 auto;
-    margin-bottom: 15px;
+    margin-bottom: 1.5rem;
   }
 
   .submit-form-btn {
-    margin: 40px auto 0 auto;
+    margin: 4rem auto 0 auto;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
+    border-radius: 0.5rem;
     font-size: 1.125rem;
-    height: 50px;
-    width: 150px;
+    height: 5rem;
+    width: 5rem;
   }
 }
 
@@ -713,7 +674,7 @@ html {
 
 .display-container a {
   text-decoration: none;
-  margin-bottom: 40px;
+  margin-bottom: 4rem;
 }
 
 .display-container a:link,
@@ -724,8 +685,8 @@ html {
 .user-update-link {
   font-size: 1.5rem;
   font-weight: 600;
-  width: 190px;
-  height: 80px;
+  width: 19rem;
+  height: 8rem;
   color: rgb(236, 236, 236);
   background: linear-gradient(-20deg,
   rgba(77, 126, 155, 0.9),
@@ -734,10 +695,10 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   position: absolute;
-  top: 150px;
-  left: 40px;
+  top: 5rem;
+  left: 4rem;
   box-shadow: 0 0 3px black;
 }
 
@@ -749,12 +710,12 @@ html {
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin: 0 auto 20px auto;
-  width: 1000px;
-  height: 700px;
+  margin: 0 auto 2rem auto;
+  width: 100rem;
+  height: 70rem;
 } /* ul */
 
-@media only screen and (min-device-width: 1200px) {
+@media only screen and (min-device-width: 120rem) {
   .creature-coral {
     white-space: nowrap;
   }
@@ -768,20 +729,20 @@ html {
   }
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .update-return-btn {
     position: absolute;
-    left: 2px;
-    top: 10px;
-    width: 200px;
-    height: 80px;
+    left: 0.2rem;
+    top: 1rem;
+    width: 20rem;
+    height: 8rem;
   }
 
   .creature-coral {
     width: 95%;
     display: block;
     position: absolute;
-    top: 380px;
+    top: 38rem;
   }
 }
 
@@ -797,12 +758,12 @@ html {
 }
 
 .objective-modal-content {
-  width: 400px;
-  height: 400px;
+  width: 40rem;
+  height: 40rem;
   background-color: white;
-  border-radius: 4px;
+  border-radius: 0.5rem;
   text-align: center;
-  padding: 20px;
+  padding: 2rem;
   position: relative;
   font-family: 'Open Sans', sans-serif;
 }
@@ -810,7 +771,7 @@ html {
 .close-modal-button {
   position: absolute;
   top: 0;
-  font-size: 40px;
+  font-size: 4rem;
   cursor: pointer;
 }
 
@@ -826,7 +787,7 @@ html {
   width: auto;
   height: auto;
   margin: 0 auto;
-  padding: 0 0 40px 0;
+  padding: 0 0 4rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -835,7 +796,7 @@ html {
   flex-wrap: wrap;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 120rem) {
   .update-container {
     background-color: rgba(5,53,39, 0.3);
     border-radius: 15px;
@@ -843,11 +804,11 @@ html {
   }
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .update-container {
     flex-direction: row;
     position: absolute;
-    top: 100px;
+    top: 10rem;
     left: 0;
   }
 }
@@ -855,8 +816,8 @@ html {
 /* Adjacent Creature Display */
 
 .adjacent-creature-container {
-  margin: 60px auto 0 auto;
-  height: 675px;
+  margin: 6rem auto 0 auto;
+  height: 67.5rem;
 }
 
 .adjacent-creature-container-fluid {
@@ -873,7 +834,7 @@ html {
 
 .kill-btn-container {
   text-align: center;
-  margin: 20px auto;
+  margin: 2rem auto;
 }
 
 .kill-btn {
@@ -882,8 +843,8 @@ html {
   border: none;
   font-size: 1rem;
   color: white;
-  width: 150px;
-  height: 40px;
+  width: 5rem;
+  height: 4rem;
   font-weight: 600;
 }
 
@@ -895,23 +856,23 @@ html {
   background: rgb(97, 26, 33);
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .adjacent-creature-container {
-    margin: 220px auto 0 auto;
+    margin: 22rem auto 0 auto;
   }
 
   .user-info a {
     font-size: 1.15rem;
     font-weight: 600;
-    width: 200px;
-    height: 75px;
+    width: 20rem;
+    height: 7.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: fixed;
-    left: 100px;
-    top: 100px;
+    left: 10rem;
+    top: 10rem;
   }
 }
 
@@ -928,7 +889,7 @@ html {
   display: block;
   width: auto;
   height: auto;
-  margin: 20px auto;
+  margin: 2rem auto;
 }
 
 .delete-form {
@@ -939,16 +900,16 @@ html {
 
 .delete-btn {
   text-align: center;
-  margin-top: 10px;
+  margin-top: 1rem;
   background-color: rgb(138, 29, 40);
   border: none;
   box-shadow: 0 0 3px black;
   color: white;
-  height: 30px;
+  height: 3rem;
   font-weight: 600;
 }
 
-@media (min-width: 1300px) {
+@media (min-width: 130rem) {
   .confirm-delete-modal {
     margin: 0 auto;
     text-align: center;
@@ -958,13 +919,13 @@ html {
 
 /* Objective List */
 
-@media (max-width: 1300px) {
+@media (max-width: 130rem) {
   .objectives-container {
-    margin-top: 80px;
+    margin-top: 8rem;
   }
 }
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .objectives-container {
     margin-top: 0;
   }
@@ -976,18 +937,18 @@ html {
 }
 
 .obj-list-container {
-  border-radius: 10px;
+  border-radius: 1rem;
   background-color: rgba(255, 255, 255, 0.5); 
-  width: 700px;
-  height: 600px;
+  width: 70rem;
+  height: 60rem;
   margin: 0 auto;
   overflow: auto;
   box-shadow: 0 0 3px black;
 }
 
 .objectives-list {
-  height: 490px;
-  width: 525px;
+  height: 49rem;
+  width: 52.5rem;
   text-align: center;
   margin: 0 auto;
 }
@@ -1005,7 +966,7 @@ html {
   width: auto;
   word-break: normal;
   display: block;
-  margin: 100px auto;
+  margin: 10rem auto;
 }
 
 .swipe-text {
@@ -1020,10 +981,10 @@ html {
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  margin: 10px auto;
+  margin: 1rem auto;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
-  width: 575px;
+  width: 57.5rem;
 }
 
 .objective-delete-btn {
@@ -1035,23 +996,23 @@ html {
   color: white;
   font-weight: 600;
   position: relative;
-  left: -80px;
+  left: -8rem;
   margin: 0 auto;
   cursor: pointer;
 }
 
 .objective-data {
-  margin: 10px auto 10px auto;
+  margin: 1rem auto 1rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   flex: 1;
   width: auto;
-  padding: 15px 25px;
+  padding: 1.5rem 2.5rem;
   height: auto;
   position: relative;
-  left: -30px;
+  left: -3rem;
 }
 
 .objective-text {
@@ -1078,7 +1039,7 @@ html {
   margin: 0 auto;
   background-color: rgba(108, 199, 81, 0.6);
   width: auto;
-  height: 50px;
+  height: 5rem;
   font-weight: 600;
   font-size: 0.9rem;
   position: relative;
@@ -1094,40 +1055,18 @@ html {
 }
 
 .time-input {
-  width: 50px;
+  width: 5rem;
 }
-
-/* .objective-complete-form-container { */
-  /* display: block; */
-  /* width: 125px; */
-  /* font-family: 'Open Sans', sans-serif; */
-/* } */
-/*  */
-/* .objective-complete-form { */
-  /* margin: 0 auto; */
-  /* display: block; */
-  /* font-family: 'Open Sans', sans-serif; */
-/* } */
-/*  */
-/* .objective-complete-form form { */
-  /* margin: 0 auto; */
-  /* display: block; */
-/* } */
-/*  */
-/* .objective-complete-form input { */
-  /* display: block; */
-  /* margin: 0 auto 10px auto; */
-/* } */
 
 /* New Objective Form */
 
 .objective-form-container {
-  margin: 80px auto 0 auto;
+  margin: 8rem auto 0 auto;
   border: none;
   box-shadow: 0 0 3px black;
-  border-radius: 10px;
+  border-radius: 1rem;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 300px;
+  width: 30rem;
   height: auto;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
@@ -1147,15 +1086,15 @@ html {
 
 .obj-text-input {
   font-size: 1.125rem;
-  margin: 25px auto;
+  margin: 2.5rem auto;
 }
 
 .obj-time-input {
-  margin: 25px auto;
+  margin: 2.5rem auto;
 }
 
 .obj-time-input-text {
-  margin: 0 auto 0 7px;
+  margin: 0 auto 0 0.7rem;
   font-size: 1.25rem;
   color: white;
 }
@@ -1167,7 +1106,7 @@ html {
 
 .obj-difficulty-select-text {
   font-size: 1.125rem;
-  margin: 20px auto 2px auto;
+  margin: 2rem auto 2px auto;
   display: block;
   color: white;
 }
@@ -1176,26 +1115,21 @@ html {
   font-size: 1.2rem;
   background-color: rgb(251,202,99);
   color: black;
-  border-radius: 5px;
-  margin: 80px auto 30px auto;
-  width: 150px;
-  height: 50px;
+  border-radius: 0.5rem;
+  margin: 8rem auto 3rem auto;
+  width: 5rem;
+  height: 5rem;
   font-weight: 600;
   border: none;
 }
 
-/*
-rgb(67,128,41); -> background
-rgb(5,53,39);
-*/
-
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .obj-list-container {
-    border-radius: 10px;
+    border-radius: 1rem;
     background-color: rgba(255, 255, 255, 0.5); 
     width: 90vw;
     height: auto;
-    margin: 0 auto 40px auto;
+    margin: 0 auto 4rem auto;
     overflow: auto;
   }
 
@@ -1203,14 +1137,14 @@ rgb(5,53,39);
     display: block;
     font-size: 1rem;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 0.5rem;
     color: rgba(0, 0, 0, 0.7);
     font-style: italic;
   }
   
   .objectives-list {
-    height: 490px;
-    width: 525px;
+    height: 49rem;
+    width: 52.5rem;
     text-align: center;
     margin: 0 auto;
   }
@@ -1225,9 +1159,9 @@ rgb(5,53,39);
     text-align: center;
     font-size: 1.5rem;
     color: black;
-    width: 200px;
+    width: 20rem;
     display: block;
-    margin: 100px auto;
+    margin: 10rem auto;
   }
 
   .objective {
@@ -1251,12 +1185,12 @@ rgb(5,53,39);
     color: white;
     margin: 0 auto;
     position: relative;
-    left: 10px;
+    left: 1rem;
     top: -5px;
   }
   
   .objective-data {
-    margin: 10px auto 20px auto;
+    margin: 1rem auto 2rem auto;
     display: block;
     width: auto;
     height: auto;
@@ -1275,7 +1209,7 @@ rgb(5,53,39);
 
   .objective-complete-form-container {
     display: block;
-    width: 125px;
+    width: 12.5rem;
   }
   
   .objective-complete-form {
@@ -1290,7 +1224,7 @@ rgb(5,53,39);
   
   .objective-complete-form input {
     display: block;
-    margin: 0 auto 10px auto;
+    margin: 0 auto 1rem auto;
   }
   
   .time-text {
@@ -1299,7 +1233,7 @@ rgb(5,53,39);
   }
 
   .time-input {
-    width: 75px;
+    width: 7.5rem;
   }
   
   .objective-complete-form button {
@@ -1325,14 +1259,14 @@ rgb(5,53,39);
 
 .return-home-link {
   position: absolute;
-  left: 150px;
-  top: 75px;
+  left: 5rem;
+  top: 7.5rem;
   font-size: 1.5rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   color: gold;
-  width: 200px;
-  height: 75px;
+  width: 20rem;
+  height: 7.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1340,13 +1274,13 @@ rgb(5,53,39);
 
 /* MOBILE CREATURE EDIT */
 
-@media only screen and (max-device-width: 550px) {
+@media only screen and (max-device-width: 55rem) {
   .creature-info {
-    margin: 350px auto;
+    margin: 35rem auto;
   }
 
   .creatures-return-link-update {
-    margin: 150px 0 0 65px;
+    margin: 5rem 0 0 6.5rem;
   }
 
   .creature-update-form {}
@@ -1354,4 +1288,23 @@ rgb(5,53,39);
   .creature-update-form form {}
 
   .form-title {}
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .credit {
+    position: absolute;
+    top: 0.5rem;
+  }
+
+  .quote-container {
+    position: absolute;
+    top: 5%;
+    left: 0;
+  }
+
+  .quote {}
+
+  .quote-credit {}
 }

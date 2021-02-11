@@ -19,7 +19,7 @@ const Objective = ({ objective, creature, sendDeleteObj }) => {
         backgroundColor: difficultyColor,
         borderRadius: '10px',
         width: '300px'
-       }}>
+      }}>
         <span className="objective-text">{objective.text}</span>
         <span className="objective-difficulty">{objective.difficulty}</span>
       </div>

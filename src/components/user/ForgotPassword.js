@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
 import './user.css';
 import '../../index.css';
 
 const ForgotPassword = () => {
-  const { reset, setReset } = useContext(UserContext);
+  const { reset, setReset, link, setDest } = useContext(UserContext);
 
   const [form, setForm] = useState({ email: '' });
 
@@ -38,7 +38,7 @@ const ForgotPassword = () => {
 
     let emailExists;
 
-   if (form.email.trim()) {
+  if (form.email.trim()) {
       emailExists = await userService.postResetRequest(form.email);
     } else {
       return setError({
@@ -71,14 +71,22 @@ const ForgotPassword = () => {
     )
   }
 
+  if (link.dest === 'home') {
+    return (
+      <Route exact path="/user/reset/forgot">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
+
   return (
     <div className="forgot-password-form">
-      <Link to="/">
-        <p className="return-home-link">Return Home</p>
-      </Link>
+      <button className="return-home-link" onClick={() => setDest('home')}>Return Home</button>
+
       <div className="loading" style={{ display: loading.state ? 'flex' : 'none' }}>
         <span className="loading-text">Sending code...</span>
       </div>
+      
       <form onSubmit={handleSubmit}>
         <div className="email-forgot-input">
           <label>Enter Email: </label>

@@ -1,12 +1,12 @@
 import React, { useState, useContext } from 'react';
-import { Link, Route, Redirect } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import userService from '../../services/userService';
 import { UserContext } from '../../contexts/UserContext';
 import './user.css';
 import '../../index.css';
 
 const ResetCode = () => {
-  const { reset, setReset } = useContext(UserContext);
+  const { reset, setReset, link, setDest } = useContext(UserContext);
 
   const [form, setForm] = useState({ code: '' });
 
@@ -76,11 +76,18 @@ const ResetCode = () => {
     )
   }
 
+  if (link.dest === 'home') {
+    return (
+      <Route exact path="/user/reset/code">
+        <Redirect to="/" />
+      </Route>
+    )
+  }
+
   return (
     <div className="reset-code-form">
-      <Link to="/">
-        <p className="return-home-link">Return Home</p>
-      </Link>
+      <button className="return-home-link" onClick={() => setDest('home')}>Return Home</button>
+      
       <form onSubmit={handleSubmit}>
         <label>Enter code below: </label>
         <input 

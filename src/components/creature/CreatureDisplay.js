@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
-import './creature.css';
+import { Route, Redirect } from 'react-router-dom';
 import CountUp from 'react-countup';
 import { CreatureContext } from '../../contexts/CreatureContext';
+import { UserContext } from '../../contexts/UserContext';
+import './creature.css';
 
-const CreatureDisplay = ({ creature, displayCreatureObjectives }) => {
+const CreatureDisplay = ({ creature }) => {
+  const { link, setDest } = useContext(UserContext);
+
   const { currentId } = useContext(CreatureContext);
+
   const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
 
   let fireImg;
@@ -14,6 +18,22 @@ const CreatureDisplay = ({ creature, displayCreatureObjectives }) => {
     fireImg = require('../../images/fire_end.jpg');
   } else {
     fireImg = require('../../images/fire2.jpg');
+  }
+
+  if (link.dest === 'creatureUpdate') {
+    return (
+      <Route exact path="/creatures">
+        <Redirect to="/creature/update" />
+      </Route>
+    )
+  }
+
+  if (link.dest === 'creatureInfo') {
+    return (
+      <Route exact path="/creatures">
+        <Redirect to="/creature/info" />
+      </Route>
+    )
   }
 
   return (
@@ -76,13 +96,9 @@ const CreatureDisplay = ({ creature, displayCreatureObjectives }) => {
 
           <div className="view-info-btn-container">
             {
-              currentId ?
-                <Link to="/creature/update">
-                  <button className="view-info-btn">Edit Creature</button>
-                </Link> :
-                <Link to="/creature/info">
-                  <button className="view-info-btn" onClick={displayCreatureObjectives}>View Info</button>
-                </Link>
+              currentId
+                ? <button className="view-info-btn" onClick={() => setDest('creatureUpdate')}>Edit Creature</button>
+                : <button className="view-info-btn" onClick={() => setDest('creatureInfo')}>View Info</button>
             }
           </div>
         </div>
