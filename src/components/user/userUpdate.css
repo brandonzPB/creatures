@@ -1,0 +1,412 @@
+/* EDIT USER PAGE */
+
+.user-info {
+  margin: 20px auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.view-creatures-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 600;
+  background: linear-gradient(-20deg,
+  rgba(47, 124, 66, 0.9),
+  rgba(111, 167, 125, 0.8));
+  color:  black;
+  width: 250px;
+  height: 100px;
+  position: absolute;
+  left: 150px;
+  top: 40px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px black;
+}
+
+.user-info a {
+  text-decoration: none;
+}
+
+.user-info a:link,
+.user-info a:visited {
+  text-decoration: none;
+}
+
+.user-update-form {
+  width: 100%;
+  height: auto;
+  margin: 20px 60px;
+  padding: 10px 40px;
+  text-align: center;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: linear-gradient(-45deg,
+  rgba(94, 100, 114, 1),
+  rgba(105, 111, 124, 0.8),
+  rgba(122, 128, 139, 0.7));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  border: none;
+  box-shadow: 0 0 3px black;
+  color: black;
+}
+
+.user-update-form form {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.form-title {
+  margin: 20px auto;
+  display: block;
+  color:  rgb(51, 51, 51);
+}
+
+.user-info-tip {
+  font-size: 1rem;
+  margin: 0 auto 40px auto;
+  display: block;
+  color: rgb(51, 51, 51);
+}
+
+.username-label {
+  margin: 20px auto 5px auto;
+}
+
+.username-label label {}
+
+.username-input {
+  margin: 0 auto 40px auto;
+}
+
+.username-input input {
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.email-label {
+  margin: 40px auto 5px auto;
+}
+
+.email-label label {}
+
+.email-input {
+  margin: 0 auto 40px auto;
+}
+
+.email-input input {
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.password-label {
+  margin: 40px auto 0 auto;
+}
+
+.password-label label {}
+
+.password-input input {
+  font-size: 1.25rem;
+  margin: 0 20px;
+  text-align: left;
+}
+
+.show-password-btn {
+  position: relative;
+  left: 20px;
+  font-size: 1.25rem;
+}
+
+.update-user-btn-container {
+  margin: 40px auto 20px auto;
+}
+
+.update-user-btn {
+  width: 125px;
+  height: 30px;
+  background:#FFC15E;
+  color: black;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+} 
+
+.delete-user-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+  background: linear-gradient(-45deg,
+  rgba(255, 255, 255, 0.4),
+  rgba(255, 255, 255, 0.3),
+  rgba(255, 255, 255, 0.2));
+  width: 400px;
+  height: 350px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 0 0 3px black;
+}
+
+.delete-title {
+  margin: 30px auto;
+  display: block;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  color: black;
+}
+
+.delete-user-btn-container {
+  display: block;
+}
+
+.delete-user-btn {
+  background: rgb(173, 70, 80);
+  width: 150px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 2px groove rgb(173, 70, 80);
+}
+
+.confirm-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  margin: 20px auto;
+}
+
+.confirm-delete label {
+  font-size: 1.35rem;
+  margin: 20px auto 5px auto;
+}
+
+.confirm-delete input {
+  font-size: 1.2rem;
+  text-align: left;
+}
+
+.confirm-delete-user-btn {
+  background: rgb(179, 30, 45);
+  color: white;
+  border: none;
+  margin: 15px auto;
+  width: 125px;
+  height: 30px;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .user-info {
+    margin: 350px auto;
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .user-info a {
+    text-decoration: none;
+    width: 0;
+  }
+  
+  .view-creatures-link {
+    position: relative;
+    width: auto;
+    top: 140px;
+    left: 80px;
+  }
+  
+  .user-info a:link,
+  .user-info a:visited {
+    text-decoration: none;
+  }
+  
+  .user-update-form {
+    width: 100%;
+    height: auto;
+    margin: 20px 60px;
+    padding: 10px 40px;
+    text-align: center;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    border: none;
+    box-shadow: 0 0 3px black;
+  }
+  
+  .user-update-form form {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  
+  .form-title {
+    margin: 20px auto;
+    display: block;
+  }
+  
+  .user-info-tip {
+    font-size: 1rem;
+    margin: 0 auto 40px auto;
+    display: block;
+  }
+  
+  .username-label {
+    margin: 20px auto 5px auto;
+  }
+  
+  .username-label label {}
+  
+  .username-input {
+    margin: 0 auto 40px auto;
+  }
+  
+  .username-input input {
+    font-size: 1.25rem;
+  }
+  
+  .email-label {
+    margin: 40px auto 5px auto;
+  }
+  
+  .email-label label {}
+  
+  .email-input {
+    margin: 0 auto 40px auto;
+  }
+  
+  .email-input input {
+    font-size: 1.25rem;
+  }
+  
+  .password-label {
+    margin: 40px auto 0 auto;
+  }
+  
+  .password-label label {}
+  
+  .password-input input {
+    font-size: 1.25rem;
+    margin: 0 20px;
+    text-align: center;
+  }
+  
+  .show-password-btn {
+    display: none;
+  }
+  
+  .update-user-btn-container {
+    margin: 40px auto 20px auto;
+  }
+  
+  .update-user-btn {
+    width: 125px;
+    height: 30px;
+    background: #FFC15E;
+    color: black;
+    border: none;
+    font-weight: 600;
+    font-size: 1rem;
+  } 
+  
+  .delete-user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background: linear-gradient(-45deg,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0.2));
+    width: auto;
+    padding: 10px;
+    height: 350px;
+    border-radius: 5px;
+    border: none;
+    margin: 20px auto 30px auto;
+  }
+  
+  .delete-title {
+    margin: 30px auto;
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+  }
+  
+  .delete-user-btn-container {
+    display: block;
+  }
+  
+  .delete-user-btn {
+    width: 150px;
+    height: 40px;
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .confirm-delete {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20px auto;
+  }
+  
+  .confirm-delete label {
+    font-size: 1.3rem;
+    margin: 20px auto 5px auto;
+  }
+  
+  .confirm-delete input {
+    font-size: 1.25rem;
+  }
+  
+  .confirm-delete-user-btn {
+    color: white;
+    border: none;
+    margin: 15px auto;
+    width: 125px;
+    height: 30px;
+    font-weight: 600;
+    font-size: .9rem;
+  }
+}

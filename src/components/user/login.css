@@ -1,0 +1,190 @@
+/* LOGIN FORM */
+
+.login-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+}
+
+.login-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 30px auto 20px auto; 
+}
+
+.login-form-container form {
+  display: flex;
+  width: 35%;
+  height: auto;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.username-login {
+  margin: 10px auto;
+  text-align: center;
+}
+
+.username-login label {
+  margin: 10px auto;
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.username-login input {
+  display: block;
+  margin: 10px auto;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.email-login {
+  text-align: center;
+  margin: 10px auto;
+}
+
+.email-login label {
+  display: block;
+  margin: 10px auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.email-login input {
+  display: block;
+  margin: 10px auto;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.password-login {
+  text-align: center;
+  margin: 10px auto 0 auto;
+}
+
+.password-login label {
+  display: block;
+  margin: 10px auto;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.password-login input {
+  display: block;
+  margin: 10px auto;
+  font-size: 1.25rem;
+  text-align: left;
+}
+
+.forgot-password-link {
+  font-size: 1rem;
+  text-decoration: none;
+  width: 100%;
+  margin: 0 auto 40px auto;
+  color: rgb(241, 241, 241);
+}
+
+.login-form-container a:link,
+.login-form-container a:visited {
+  color: rgb(18, 18, 206);
+}
+
+.login-btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 5px;
+  background-color:#FFC15E;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 10px auto;
+  border: none;
+  cursor: pointer;
+  background-position: center;
+  text-transform: uppercase;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.login-btn {
+  transition-duration: 0.8s;
+}
+
+.login-btn:hover {
+  background: #ffc972 radial-gradient(circle, transparent 1%, #fdc66c 1%) center/15000%;
+}
+
+.login-btn:active {
+  background: #FFC15E;
+  background-size: 100%;
+  transition: 0s;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .login-form-container {
+  }
+  
+  .login-title { 
+  }
+  
+  .login-form-container form {
+  }
+  
+  .username-login {
+  }
+  
+  .username-login label {
+  }
+  
+  .username-login input {
+    font-size: 1.35rem;
+    text-align: left;
+  }
+  
+  .email-login {
+  }
+  
+  .email-login label {
+  }
+  
+  .email-login input {
+    font-size: 1.35rem;
+    text-align: left;
+  }
+  
+  .password-login {
+  }
+  
+  .password-login label {
+  }
+  
+  .password-login input {
+    font-size: 1.35rem;
+    text-align: left;
+  }
+  
+  .forgot-password-link {
+  }
+  
+  .login-form-container a:link,
+  .login-form-container a:visited {
+  }
+  
+  .login-btn {
+  }
+  
+  .login-btn {
+  }
+  
+  .login-btn:hover {
+  }
+  
+  .login-btn:active {
+  }
+}

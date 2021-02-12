@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { CreatureContext } from '../../contexts/CreatureContext';
-import './user.css';
+
+import './logout.css';
 
 const LogoutButton = () => {
   const { user, logout } = useContext(UserContext);

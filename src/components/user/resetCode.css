@@ -1,0 +1,139 @@
+/* RESET CODE FORM */
+
+.reset-code-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: column;
+  margin: 225px auto 0 auto;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  background: linear-gradient(-45deg,
+  rgba(94, 100, 114, 1),
+  rgba(105, 111, 124, 0.8),
+  rgba(122, 128, 139, 0.7));
+  box-shadow: 0 0 3px black;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  border-radius: 5px;
+  padding: 30px;
+  width: 600px;
+  height: auto;
+}
+
+.reset-code-form form {}
+
+.reset-code-form label {
+}
+
+.reset-code-form input {
+  font-size: 2rem;
+  margin: 20px auto 5px auto;
+  display: block;
+  width: 225px;
+}
+
+.submit-code-btn {
+  width: 175px;
+  height: 40px;
+  background: #FFC15E;
+  color: black;
+  border: none;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 30px auto;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.resend-code {}
+
+.resend-code-text {
+  font-size: 1.25rem;
+  margin: 20px 5px;
+}
+
+.resend-code-btn {
+  width: 125px;
+  height: 40px;
+  background: #FFC15E;
+  border-radius: 5px;
+  color: black;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 30px 10px;
+  cursor: pointer;
+}
+
+/* MOBILE */  
+
+@media (max-width: 900px) {
+  .reset-code-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+    margin: 300px auto 0 auto;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    border-radius: 5px;
+    width: auto;
+    height: auto;
+  }
+  
+  .reset-code-form form {}
+  
+  .reset-code-form label {
+  }
+  
+  .reset-code-form input {
+    font-size: 1.5rem;
+    margin: 20px auto 5px auto;
+    display: block;
+    width: 225px;
+  }
+  
+  .submit-code-btn {
+    width: 175px;
+    height: 40px;
+    background: #FFC15E;
+    color: black;
+    border: none;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 30px auto;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .resend-code {}
+  
+  .resend-code-text {
+    font-size: 1.25rem;
+    margin: 20px 5px;
+  }
+  
+  .resend-code-btn {
+    width: 125px;
+    height: 40px;
+    background: #FFC15E;
+    border-radius: 5px;
+    color: black;
+    border: none;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 30px 10px;
+    cursor: pointer;
+  }
+}

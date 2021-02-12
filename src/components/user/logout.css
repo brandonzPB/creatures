@@ -1,0 +1,30 @@
+.logout-container {
+  position: absolute;
+  top: 120px;
+  right: 100px;
+}
+
+.logout-btn-container {}
+
+.logout-btn {
+  width: 125px;
+  height: 35px;
+  border: rgb(112, 112, 112);
+  background: rgb(112, 112, 112);
+  box-shadow: 0 0 3px black;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .logout-container {
+    right: 127px;
+    top: 170px;
+  }
+
+  .logout-btn {}
+}
