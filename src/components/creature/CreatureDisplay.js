@@ -9,7 +9,7 @@ import './creatureDisplay.css';
 const CreatureDisplay = ({ creature }) => {
   const { link, setDest } = useContext(UserContext);
 
-  const { currentId } = useContext(CreatureContext);
+  const { currentId, showCreatureObjectives } = useContext(CreatureContext);
 
   const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
 
@@ -35,6 +35,11 @@ const CreatureDisplay = ({ creature }) => {
         <Redirect to="/creature/info" />
       </Route>
     )
+  }
+
+  const showInfo = () => {
+    showCreatureObjectives(creature.id);
+    setDest('creatureInfo');
   }
 
   return (
@@ -99,7 +104,7 @@ const CreatureDisplay = ({ creature }) => {
             {
               currentId
                 ? <button className="view-info-btn" onClick={() => setDest('creatureUpdate')}>Edit Creature</button>
-                : <button className="view-info-btn" onClick={() => setDest('creatureInfo')}>View Info</button>
+                : <button className="view-info-btn" onClick={showInfo}>View Info</button>
             }
           </div>
         </div>

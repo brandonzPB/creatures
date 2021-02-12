@@ -12,8 +12,11 @@ const CreatureContextProvider = (props) => {
   const [creatures, dispatch] = useReducer(creatureReducer, user.creatures);
 
   const [currentId, setCurrentId] = useState('');
+
   const [play, setPlay] = useState(false);
+
   const [formDisplay, setFormDisplay] = useState(true);
+
   const [expUpdate, setExpUpdate] = useState(false);
 
   const [done, setDone] = useState({
@@ -192,7 +195,7 @@ const CreatureContextProvider = (props) => {
     setFormDisplay(!formDisplay);
   }
 
-  const showCreatureObjectives = async (id) => {
+  const showCreatureObjectives = id => {
     return setCurrentId(id);
   }
 

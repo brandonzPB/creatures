@@ -13,7 +13,7 @@ import './objectiveList.css';
 import './adjCreature.css';
 import './deleteCreature.css';
 
-const ActionList = () => {
+const ObjectiveList = () => {
   const { user, userDispatch, link, setDest } = useContext(UserContext);
   
   const { currentId, showCreatureObjectives, postDelete, finish } = useContext(CreatureContext);
@@ -165,4 +165,4 @@ const ActionList = () => {
   )
 }
 
-export default ActionList;
+export default ObjectiveList;

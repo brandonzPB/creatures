@@ -161,45 +161,52 @@
 
 @media (max-width: 900px) {
   .display-container {
-    margin: 90px auto 0 auto;
-    position: relative;
-    left: 2.5%;
-    width: auto;
+    margin: 0 auto;
+    width: 100%;
     height: auto;
-    display: inline-block;
+    display: block;
+    height: auto;
   }
 
   .display-container {
-    width: 80vw;
-  }
-
-  .create-link {
-    font-size: 1.3rem;
-    padding: 2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
-    width: 5rem;
-    height: 5rem;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 27rem;
-    left: 5.5rem;
-    font-family: 'Open Sans';
+    display: block;
   }
 
   .user-update-link {
-    margin: 0 0 0 1.5r.5rem
+    font-size: 1.5rem;
+    padding: 2rem 3.8rem;
+    border-radius: 5px;
+    font-weight: 600;
+    width: auto;
+    height: 6rem;
+    margin: 3rem auto;
+    text-align: center;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
+    position: static;
+  }
+
+  .create-link {
+    font-size: 1.5rem;
+    padding: 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    width: auto;
+    height: 6rem;
+    position: static;
+    margin: 3rem auto;
+    text-align: center;
+    display: block;
+    font-family: 'Open Sans', sans-serif;
   }
 
   .creature-list-divider {
-    display: inline-block;
+    display: block;
     margin: 0 auto;
     position: static;
-    top: 0;
   }
 
   .tutorial {
@@ -225,8 +232,6 @@
   .creature-coral {
     width: 95%;
     display: block;
-    position: absolute;
-    top: 38rem;
   }
 
   .team-full {
