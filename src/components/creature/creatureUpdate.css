@@ -4,10 +4,60 @@
 
 .creature-update-form form {}
 
+.update-container {
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  padding: 0 0 4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.creatures-return-link-update {
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(-20deg,
+  rgba(77, 126, 155, 0.9),
+  rgba(124, 161, 182, 0.8));
+  box-shadow: 0 0 3px black;
+  color: white;
+  width: 200px;
+  height: 75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@media (min-width: 120rem) {
+  .update-container {
+    background-color: rgba(5,53,39, 0.3);
+    border-radius: 15px;
+    white-space: nowrap;
+    flex-direction: row;
+    position: absolute;
+    top: 10rem;
+    left: 0;
+  }
+}
+
 /* MOBILE */
 
 @media (max-width: 900px) {
   .creature-info {
     margin: 35rem auto;
+  }
+
+  .creatures-return-link-update {
+    margin: 5rem 0 0 6.5rem;
   }
 }

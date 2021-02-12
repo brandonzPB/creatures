@@ -1,0 +1,48 @@
+.adjacent-creature-container {
+  margin: 6rem auto 0 auto;
+  height: 67.5rem;
+}
+
+.adjacent-creature-container-fluid {
+}
+
+.adjacent-creature-display {
+}
+
+.adjacent-creature-age {
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.kill-btn-container {
+  text-align: center;
+  margin: 2rem auto;
+}
+
+.kill-btn {
+  background-color: rgb(230, 76, 92);
+  box-shadow: 0 0 3px black;
+  border: none;
+  font-size: 1rem;
+  color: white;
+  width: 5rem;
+  height: 4rem;
+  font-weight: 600;
+}
+
+.kill-btn:hover {
+  background: rgb(129, 31, 41);
+}
+
+.kill-btn:active {
+  background: rgb(97, 26, 33);
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .adjacent-creature-container {
+    margin: 22rem auto 0 auto;
+  }
+}

@@ -34,4 +34,48 @@
 
 /* MOBILE */
 
-@media (max-width: 900px) {}
+@media (max-width: 900px) {
+  .objective-complete-form {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .objective-complete-form form {
+    margin: 0 auto;
+    display: block;
+  }
+  
+  .objective-complete-form input {
+    display: block;
+    margin: 0 auto 1rem auto;
+  }
+  
+  .time-text {
+    display: block;
+    font-size: 0.9rem;
+  }
+
+  .time-input {
+    width: 7.5rem;
+  }
+  
+  .objective-complete-form button {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .objective-complete-btn-container {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .objective-complete-btn-container form {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .objective-complete-btn-container button {
+    display: block;
+    margin: 0 auto;
+  }
+}

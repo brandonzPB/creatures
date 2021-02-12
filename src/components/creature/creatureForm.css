@@ -184,6 +184,12 @@
   cursor: pointer;
 }
 
+@media only screen and (min-device-width: 120rem) {
+  .creature-form {
+    white-space: nowrap;
+  }
+}
+
 /* MOBILE */
 
 @media (max-width: 900px) {

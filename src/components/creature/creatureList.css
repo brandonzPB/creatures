@@ -116,6 +116,26 @@
   height: 70rem;
 } /* ul */
 
+.team-full {
+  width: auto;
+  height: 5rem;
+  margin: 0 auto;
+  font-family: 'Open Sans', sans-serif;
+  position: absolute;
+  top: 7.5rem;
+  left: 2rem;
+}
+
+.full-text{
+  font-size: 1.5rem;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.full-text a:link {
+  text-decoration: none;
+  cursor: alias;
+}
+
 @media (min-width: 1200px) {
   .creature-coral {
     white-space: nowrap;
@@ -196,5 +216,16 @@
     display: block;
     position: absolute;
     top: 38rem;
+  }
+
+  .team-full {
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    left: 2rem;
+  }
+
+  .full-text {
+    text-align: center;
   }
 }

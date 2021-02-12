@@ -154,7 +154,7 @@ const CreatureUpdateForm = () => {
 
     showCreatureObjectives(currentId);
   }
- 
+
   return (
     <div className="creature-info creature-form">
       <button className="creatures-return-link-update" onClick={() => setDest('creatures')}>Return to Creatures</button>

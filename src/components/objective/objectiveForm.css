@@ -1,0 +1,62 @@
+.objective-form-container {
+  margin: 8rem auto 0 auto;
+  border: none;
+  box-shadow: 0 0 3px black;
+  border-radius: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 30rem;
+  height: auto;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.add-obj-title {
+  font-size: 2rem;
+  color: white;
+}
+
+.objective-form {
+  font-size: 1.125rem;
+}
+
+.objective-form form {
+}
+
+.obj-text-input {
+  font-size: 1.125rem;
+  margin: 2.5rem auto;
+}
+
+.obj-time-input {
+  margin: 2.5rem auto;
+}
+
+.obj-time-input-text {
+  margin: 0 auto 0 0.7rem;
+  font-size: 1.25rem;
+  color: white;
+}
+
+.obj-difficulty-select {
+  font-size: 1.125rem;
+  margin: 0 auto;
+}
+
+.obj-difficulty-select-text {
+  font-size: 1.125rem;
+  margin: 2rem auto 2px auto;
+  display: block;
+  color: white;
+}
+
+.add-obj-btn {
+  font-size: 1.2rem;
+  background-color: rgb(251,202,99);
+  color: black;
+  border-radius: 0.5rem;
+  margin: 8rem auto 3rem auto;
+  width: 5rem;
+  height: 5rem;
+  font-weight: 600;
+  border: none;
+}
