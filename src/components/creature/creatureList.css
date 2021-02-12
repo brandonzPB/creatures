@@ -1,7 +1,7 @@
 /* CREATURE LIST */
 
 .display-container {
-  width: 120rem;
+  width: 12rem;
   height: auto;
   margin: 0 auto;
   display: flex;
@@ -15,8 +15,8 @@
 .user-update-link {
   font-size: 1.5rem;
   font-weight: 600;
-  width: 19rem;
-  height: 8rem;
+  width: 14rem;
+  height: 5rem;
   color: rgb(236, 236, 236);
   background: linear-gradient(-20deg,
   rgba(77, 126, 155, 0.9),
@@ -27,9 +27,14 @@
   justify-content: center;
   border-radius: 0.5rem;
   position: absolute;
-  top: 5rem;
+  top: 2rem;
   left: 4rem;
   box-shadow: 0 0 3px black;
+  transition: transform 0.3s;
+}
+
+.user-update-link:hover {
+  transform: scale(1.1);
 }
 
 .create-link {
@@ -41,7 +46,7 @@
   color:  rgb(245, 245, 245);
   border-radius: 0.5rem;
   font-weight: 600;
-  width: 5rem;
+  width: 14rem;
   height: 5rem;
   margin: 0 auto;
   text-align: center;
@@ -49,10 +54,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  top: 4rem;
+  top: 8rem;
   left: 4rem;
   box-shadow: 0 0 3px black;
+  border: none;
   font-family: 'Open Sans';
+  transition: transform 0.3s;
+}
+
+.create-link:hover {
+  transform: scale(1.1);
 }
 
 .tutorial-container {

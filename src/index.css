@@ -52,6 +52,17 @@ html {
   display: block;
   font-family: 'Open Sans', sans-serif;
   color: rgb(94, 94, 94);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.quote-credit:link,
+.quote-credit:visited {
+  color: rgb(94, 94, 94);
+}
+
+.quote-credit:hover {
+  color: rgb(255, 255, 255);
 }
 
 .credit {
@@ -134,18 +145,18 @@ html {
 @media (max-width: 900px) {
   .App {
     width: 85vw;
-    height: 90vh;
+    height: 100vh;
   }
 
   .credit {
     position: absolute;
-    top: 0.5rem;
+    top: 1rem;
   }
 
   .quote-container {
-    position: absolute;
-    top: 5%;
-    left: 0;
+    display: block;
+    margin: 4rem auto;
+    width: 100%;
   }
 
   .quote {}

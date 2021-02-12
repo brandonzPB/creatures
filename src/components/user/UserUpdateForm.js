@@ -37,8 +37,6 @@ const UserUpdateForm = () => {
     confirmDeletePassword: '',
   });
 
-  const [showPassword, setShowPassword] = useState(false);
-
   if (!user.accessToken) {
     return (
       <Route exact path="/user/update">
@@ -186,12 +184,6 @@ const UserUpdateForm = () => {
     }
   }
 
-  const viewPassword = (event) => {
-    event.preventDefault();
-
-    setShowPassword(!showPassword);
-  }
-
   return (
     <div className="user-info">
       <button className="view-creatures-link" onClick={() => setDest('creatures')}>View Creatures</button>
@@ -258,7 +250,7 @@ const UserUpdateForm = () => {
 
           <div className="password-input first-password-input">
             <input 
-              type={showPassword ? 'text' : 'password'}
+              type="password"
               name="password"
               value={update.password}
               onChange={handleChange}
@@ -266,7 +258,6 @@ const UserUpdateForm = () => {
                 border: error.ref === 'password' ? '2px solid red' : 'none'
               }}
             />
-            <button className="show-password-btn" onClick={viewPassword}>&#128065;</button>
           </div>
 
           <div className="password-label">
@@ -275,7 +266,7 @@ const UserUpdateForm = () => {
 
           <div className="password-input">
             <input 
-              type={showPassword ? 'text' : 'password'}
+              type="password"
               name="confirmPassword"
               value={update.confirmPassword}
               onChange={handleChange}

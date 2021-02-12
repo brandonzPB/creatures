@@ -55,6 +55,8 @@ const CreatureList = () => {
     <div className="display-container">
       <button className="user-update-link" onClick={() => setDest('userUpdate')}>User Info</button>
 
+      <span id="creature-list-header">Your Creatures of Habit</span>
+
       {
         user.creatures.length < 6 || user.creatures.length === undefined
           ? <button className="create-link" onClick={() => setDest('creatureCreate')}>New Creature</button>

@@ -1,7 +1,7 @@
 .logout-container {
   position: absolute;
-  top: 120px;
-  right: 100px;
+  top: 10rem;
+  right: 10rem;
 }
 
 .logout-btn-container {}
@@ -22,9 +22,12 @@
 
 @media (max-width: 900px) {
   .logout-container {
-    right: 127px;
-    top: 170px;
+    position: static;
+    margin: 0 auto;
+    text-align: center;
   }
 
-  .logout-btn {}
+  .logout-btn {
+    font-size: 1.2rem;
+  }
 }

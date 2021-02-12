@@ -1,8 +1,8 @@
 /* EDIT USER PAGE */
 
 .user-info {
-  margin: 20px auto;
-  width: 70%;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -10,6 +10,7 @@
   flex: 1;
   flex-direction: row;
   flex-wrap: wrap;
+  columns: 3;
 }
 
 .view-creatures-link {
@@ -21,36 +22,30 @@
   background: linear-gradient(-20deg,
   rgba(47, 124, 66, 0.9),
   rgba(111, 167, 125, 0.8));
-  color:  black;
-  width: 250px;
-  height: 100px;
-  position: absolute;
-  left: 150px;
-  top: 40px;
+  color:  white;
+  width: 20rem;
+  height: 7rem;
+  margin-left: auto;
   border-radius: 4px;
   box-shadow: 0 0 3px black;
+  border: none;
+  transition: transform 0.2s;
+  cursor: pointer;
 }
 
-.user-info a {
-  text-decoration: none;
-}
-
-.user-info a:link,
-.user-info a:visited {
-  text-decoration: none;
+.view-creatures-link:hover {
+  background: linear-gradient(-20deg,
+  rgba(72, 161, 95, 0.9),
+  rgba(137, 190, 150, 0.8));
+  transform: scale(1.1);
 }
 
 .user-update-form {
-  width: 100%;
+  width: 30rem;
   height: auto;
-  margin: 20px 60px;
-  padding: 10px 40px;
+  margin: 2rem 6rem;
   text-align: center;
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  display: block;
   border-radius: 10px;
   background: linear-gradient(-45deg,
   rgba(94, 100, 114, 1),
@@ -71,68 +66,62 @@
 }
 
 .form-title {
-  margin: 20px auto;
+  margin: 2rem auto 0 auto;
   display: block;
   color:  rgb(51, 51, 51);
 }
 
 .user-info-tip {
   font-size: 1rem;
-  margin: 0 auto 40px auto;
+  margin: -3rem auto 0 auto;
   display: block;
   color: rgb(51, 51, 51);
 }
 
 .username-label {
-  margin: 20px auto 5px auto;
+  margin: 1.5rem auto 0.5rem auto;
 }
 
-.username-label label {}
-
 .username-input {
-  margin: 0 auto 40px auto;
+  margin: 0 auto;
 }
 
 .username-input input {
   font-size: 1.25rem;
   text-align: left;
+  margin: 0 auto;
 }
 
 .email-label {
-  margin: 40px auto 5px auto;
+  margin: 3rem auto 0.5rem auto;
 }
 
-.email-label label {}
-
 .email-input {
-  margin: 0 auto 40px auto;
+  margin: 0 auto;
 }
 
 .email-input input {
   font-size: 1.25rem;
   text-align: left;
+  margin: 0 auto;
 }
 
 .password-label {
-  margin: 40px auto 0 auto;
+  margin: 3rem auto 0.5rem auto;
 }
 
-.password-label label {}
+.password-input {
+  margin: 0 auto;
+}
 
 .password-input input {
   font-size: 1.25rem;
-  margin: 0 20px;
+  margin: 0 auto;
   text-align: left;
 }
 
-.show-password-btn {
-  position: relative;
-  left: 20px;
-  font-size: 1.25rem;
-}
-
 .update-user-btn-container {
-  margin: 40px auto 20px auto;
+  margin: 3rem auto 2rem auto;
 }
 
 .update-user-btn {
@@ -142,25 +131,32 @@
   color: black;
   border: none;
   font-weight: 600;
-  font-size: 1rem;
-} 
+  font-size: 1.5rem;
+  border-radius: 5px;
+  transition: transform 0.3s;
+  cursor: pointer;
+}
+
+.update-user-btn:hover {
+  background: #ffcb77;
+  transform: scale(1.1);
+}
+
+/* DELETE USER MODAL */
 
 .delete-user-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  flex-wrap: wrap;
-  flex-direction: column;
   background: linear-gradient(-45deg,
   rgba(255, 255, 255, 0.4),
   rgba(255, 255, 255, 0.3),
   rgba(255, 255, 255, 0.2));
-  width: 400px;
-  height: 350px;
+  width: 20rem;
+  height: auto;
   border-radius: 5px;
   border: none;
   box-shadow: 0 0 3px black;
+  display: block;
+  margin-right: auto;
+  padding-bottom: 2rem;
 }
 
 .delete-title {
@@ -220,7 +216,7 @@
 
 @media (max-width: 900px) {
   .user-info {
-    margin: 350px auto;
+    margin: 5rem auto;
     width: 70%;
     display: flex;
     align-items: center;
@@ -237,10 +233,8 @@
   }
   
   .view-creatures-link {
-    position: relative;
-    width: auto;
-    top: 140px;
-    left: 80px;
+    display: block;
+    margin: 0 auto;
   }
   
   .user-info a:link,
@@ -285,77 +279,61 @@
   }
   
   .username-label {
-    margin: 20px auto 5px auto;
   }
   
-  .username-label label {}
+  .username-label label {
+    font-size: 1.6rem;
+  }
   
   .username-input {
-    margin: 0 auto 40px auto;
   }
   
   .username-input input {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   
   .email-label {
-    margin: 40px auto 5px auto;
   }
   
-  .email-label label {}
+  .email-label label {
+    font-size: 1.6rem;
+  }
   
   .email-input {
-    margin: 0 auto 40px auto;
   }
   
   .email-input input {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
   }
   
   .password-label {
-    margin: 40px auto 0 auto;
   }
   
-  .password-label label {}
+  .password-label label {
+    font-size: 1.6rem;
+  }
   
   .password-input input {
-    font-size: 1.25rem;
-    margin: 0 20px;
-    text-align: center;
-  }
-  
-  .show-password-btn {
-    display: none;
+    font-size: 1.5rem;
   }
   
   .update-user-btn-container {
-    margin: 40px auto 20px auto;
   }
   
   .update-user-btn {
-    width: 125px;
-    height: 30px;
-    background: #FFC15E;
-    color: black;
-    border: none;
-    font-weight: 600;
-    font-size: 1rem;
   } 
+
+  /* DELETE USER MODAL */
   
   .delete-user-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    flex-wrap: wrap;
-    flex-direction: column;
+    display: block;
     background: linear-gradient(-45deg,
     rgba(255, 255, 255, 0.4),
     rgba(255, 255, 255, 0.3),
     rgba(255, 255, 255, 0.2));
-    width: auto;
-    padding: 10px;
-    height: 350px;
+    width: 22rem;
+    padding-bottom: 2rem;
+    height: auto;
     border-radius: 5px;
     border: none;
     margin: 20px auto 30px auto;
@@ -388,7 +366,7 @@
     flex: 1;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 20px auto;
+    margin: 2rem auto;
   }
   
   .confirm-delete label {
@@ -407,6 +385,6 @@
     width: 125px;
     height: 30px;
     font-weight: 600;
-    font-size: .9rem;
+    font-size: 1.2rem;
   }
 }

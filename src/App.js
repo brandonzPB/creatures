@@ -30,7 +30,7 @@ function App() {
         <ThemeContextProvider>
           <div className="quote-container">
             <span className="quote">"We are what we repeatedly do. Excellence, then, is a habit, not an act"</span>
-            <span className="quote-credit">—Will Durant</span>
+            <a href="https://en.wikipedia.org/wiki/Will_Durant" target="_blank" rel="noreferrer" className="quote-credit">—Will Durant</a>
           </div>
 
           <UserContextProvider>

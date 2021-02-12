@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 .index-container {
-  width: 25%;
+  width: 30rem;
   height: auto;
   display: block;
-  margin: 4rem auto;
+  margin: 2rem auto;
   text-align: center;
   background: linear-gradient(-45deg,
   rgba(94, 100, 114, 1),
@@ -37,18 +37,25 @@
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: 600;
-  border: 2px solid #FFC15E;
+  border: 0.2rem solid #FFC15E;
   background: #FFC15E;
-  width: 190px;
-  height: 40px;
+  width: 19rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: black;
-  margin: 10px auto 40px auto;
+  margin: 1rem auto 4rem auto;
   border-radius: 5px;
   font-family: 'Open Sans', sans-serif;
+  cursor: pointer;
+  transition: transform 0.4s;
+}
+
+.create-account-link:hover {
+  background: #ffcc74;
+  transform: scale(1.1);
 }
 
 .welcome a {
@@ -57,17 +64,21 @@
 
 @media (max-width: 900px) {
   .index-container {
-    display: flex;
-    width: auto;
+    display: block;
+    width: 100%;
     height: auto;
-    margin: 175px auto 0 auto;
+    margin: 5rem auto 0 auto;
   }
 
-  .welcome {}
+  .welcome {
+    display: block;
+    width: 80%;
+    margin: 0 auto;
+    height: auto;
+    padding-bottom: 0.3rem;
+  }
 
-  .create-account-text {}
-
-  .create-account-link {}
-
-  .welcome a {}
+  .create-account-link {
+    font-size: 1.5rem;
+  }
 }
