@@ -1,12 +1,12 @@
 .adjacent-creature-container {
-  margin: 6rem auto 0 auto;
-  height: 67.5rem;
-}
-
-.adjacent-creature-container-fluid {
+  height: 50rem;
+  width: 30rem;
+  border: 2px solid yellow;
 }
 
 .adjacent-creature-display {
+  height: auto;
+  width: auto;
 }
 
 .adjacent-creature-age {

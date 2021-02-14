@@ -3,13 +3,13 @@ import { Route, Redirect } from 'react-router-dom';
 import CountUp from 'react-countup';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { UserContext } from '../../contexts/UserContext';
-import './creature.css';
+
 import './creatureDisplay.css';
 
-const CreatureDisplay = ({ creature }) => {
+const CreatureDisplay = ({ creature, showObjectives }) => {
   const { link, setDest } = useContext(UserContext);
 
-  const { currentId, showCreatureObjectives } = useContext(CreatureContext);
+  const { currentId } = useContext(CreatureContext);
 
   const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
 
@@ -29,16 +29,8 @@ const CreatureDisplay = ({ creature }) => {
     )
   }
 
-  if (link.dest === 'creatureInfo') {
-    return (
-      <Route exact path="/creatures">
-        <Redirect to="/creature/info" />
-      </Route>
-    )
-  }
-
   const showInfo = () => {
-    showCreatureObjectives(creature.id);
+    showObjectives();
     setDest('creatureInfo');
   }
 

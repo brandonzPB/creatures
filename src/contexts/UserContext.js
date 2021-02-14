@@ -19,13 +19,19 @@ const UserContextProvider = (props) => {
     passwordReset: false
   });
 
-  const [link, setLink] = useState({ dest: '' });
+  const [link, setLink] = useState({ dest: '', loaded: false });
 
-  const setDest = req => {
-    setLink({
-      ...link,
-      dest: req
-    });
+  const setDest = (req = null, showObjectives = false) => {
+    return showObjectives
+      ? setLink({
+        ...link,
+        dest: req,
+        loaded: true
+      })
+      : setLink({
+        ...link,
+        dest: req
+      });
   }
 
   useEffect(() => {

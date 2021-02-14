@@ -51,6 +51,14 @@ const CreatureList = () => {
     )
   }
 
+  if (link.dest === 'creatureInfo') {
+    return (
+      <Route exact path="/creatures">
+        <Redirect to="/creature/info" />
+      </Route>
+    )
+  }
+
   return (
     <div className="display-container">
       <button className="user-update-link" onClick={() => setDest('userUpdate')}>User Info</button>

@@ -1,85 +1,17 @@
 /* OBJECTIVE LIST */
 
-.obj-list-container {
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.5); 
-  width: 90vw;
-  height: auto;
-  margin: 0 auto 4rem auto;
-  overflow: auto;
-}
-
-.obj-list-container {
-  border-radius: 1rem;
-  background-color: rgba(255, 255, 255, 0.5); 
-  width: 70rem;
-  height: 60rem;
+.update-container {
+  width: 90%;
+  height: 90%;
   margin: 0 auto;
-  overflow: auto;
-  box-shadow: 0 0 3px black;
-}
-
-.swipe-text {
-  display: block;
-  font-size: 1rem;
-  text-align: center;
-  margin-bottom: 0.5rem;
-  color: rgba(0, 0, 0, 0.7);
-  font-style: italic;
-}
-
-.objectives-list {
-  height: 49rem;
-  width: 52.5rem;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.objectives-list {
-  height: 49rem;
-  width: 52.5rem;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.obj-list-title {
-  text-align: center;
-  font-size: 1.75rem;
-  color: white;
-}
-
-.obj-list-title {
-  text-align: center;
-  font-size: 2rem;
-  color: white;
-}
-
-.no-obj-text {
-  text-align: center;
-  font-size: 1.5rem;
-  color: black;
-  width: 20rem;
-  display: block;
-  margin: 10rem auto;
-}
-
-.no-obj-text {
-  text-align: center;
-  font-size: 2rem;
-  color: black;
-  width: auto;
-  word-break: normal;
-  display: block;
-  margin: 10rem auto;
-}
-
-.objectives-container {
-  width: auto;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.swipe-text {
-  display: none;
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.438);
+  border-radius: 10px;
 }
 
 .creatures-return-link-obj {
@@ -101,6 +33,60 @@
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.objectives-container {
+  width: 20rem;
+  height: 10rem;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto;
+}
+
+.obj-list-title {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  margin: 0 auto;
+}
+
+.obj-list-container {
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.5); 
+  width: 70rem;
+  height: 60rem;
+  margin: 0 auto 4rem auto;
+  overflow: auto;
+  box-shadow: 0 0 3px black;
+}
+
+.swipe-text {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: rgba(0, 0, 0, 0.7);
+  font-style: italic;
+}
+
+.objectives-list {
+  height: 49rem;
+  width: 52.5rem;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.no-obj-text {
+  text-align: center;
+  font-size: 2rem;
+  color: black;
+  width: auto;
+  word-break: normal;
+  display: block;
+  margin: 10rem auto;
+}
+
+.swipe-text {
+  display: none;
 }
 
 /* MOBILE */

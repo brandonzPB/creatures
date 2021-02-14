@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { CreatureContext } from '../../contexts/CreatureContext';
 import { ConfirmDisplayContext } from '../../contexts/ConfirmDisplayContext';
@@ -105,7 +105,6 @@ const ObjectiveList = () => {
         <button className="creatures-return-link-obj" onClick={() => setDest('creatures')}>Return to Creatures</button>
 
         <div className="adjacent-creature-container">
-          <div className="adjacent-creature-container-fluid">
             <div className="adjacent-creature-display">
               {CreatureComponent}
             </div>
@@ -134,11 +133,12 @@ const ObjectiveList = () => {
               </div>
             </div>
           </div>
-        </div>
 
         <div className="objectives-container">
           <h3 className="obj-list-title">{creatureName}'s Habits</h3>
+          
           <span className="swipe-text">Swipe left/right to see full habit</span>
+          
           <div className="obj-list-container">
             {
               !ObjectiveComponents
