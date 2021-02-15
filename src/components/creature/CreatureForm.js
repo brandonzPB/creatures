@@ -189,7 +189,7 @@ const CreatureForm = () => {
                     </div>
 
                     <div id="evo-input-container">
-                      <div id="first-evo-container">
+                      <div className="evo-input-child-container">
                         <div className="creature-info-container">
                           <span className="evo-description">*First: </span>
                         </div>
@@ -209,7 +209,7 @@ const CreatureForm = () => {
                         </div>
                       </div>
 
-                      <div id="second-evo-container">
+                      <div className="evo-input-child-container">
                         <div className="creature-info-container">
                           <span className="evo-description">Second: </span>
                         </div>
@@ -228,7 +228,7 @@ const CreatureForm = () => {
                         </div>
                       </div>
 
-                      <div id="third-evo-container">
+                      <div className="evo-input-child-container">
                         <div className="creature-info-container">
                           <span className="evo-description">Third: </span>
                         </div>
@@ -247,7 +247,7 @@ const CreatureForm = () => {
                         </div>
                       </div>
 
-                      <div id="fourth-evo-container">
+                      <div className="evo-input-child-container">
                         <div className="creature-info-container">
                           <span className="evo-description">Fourth: </span>
                         </div>
@@ -274,7 +274,7 @@ const CreatureForm = () => {
                     </div>
 
                     <div id="mega-input-container">
-                      <div id="first-mega-container">
+                      <div className="mega-input-child-container">
                         <div className="input-mega-div">
                           <input 
                             disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.firstCreature.toLowerCase()) < 0 }
@@ -288,7 +288,7 @@ const CreatureForm = () => {
                         </div>
                       </div>
 
-                      <div id="second-mega-container">
+                      <div className="mega-input-child-container">
                         <div className="input-mega-div">
                           <input 
                             disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.secondCreature.toLowerCase()) < 0 }
@@ -302,7 +302,7 @@ const CreatureForm = () => {
                         </div>
                       </div>
 
-                      <div id="third-mega-container">
+                      <div className="mega-input-child-container">
                         <div className="input-mega-div">
                           <input
                             disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.thirdCreature.toLowerCase()) < 0 }
@@ -316,7 +316,7 @@ const CreatureForm = () => {
                         </div>
                       </div>
                       
-                      <div id="fourth-mega-container">
+                      <div className="mega-input-child-container">
                         <div className="input-mega-div">
                           <input 
                             disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.fourthCreature.toLowerCase()) < 0 }

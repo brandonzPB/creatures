@@ -10,7 +10,6 @@ import { otherVersions } from '../../modules/pokemonList';
 import pokemon from 'pokemon';
 import * as megaMethods from '../../modules/megas';
 
-import './creatureForm.css';
 import './creatureUpdate.css';
 
 const CreatureUpdateForm = () => {
@@ -161,73 +160,124 @@ const CreatureUpdateForm = () => {
 
       <div className="creature-update-form">
         <form onSubmit={updateCreature}>
-          <h2 className="form-title">Edit Your Creature!</h2>
-
-          <div className="evo-label">
-            <label className="evo-label-text">Creature Evolution Line</label>
-          </div>
-
-          <div className="label-container">
-            <label className="mega-input-text">Choose an alternate version</label>
-          </div>
-
-          <div className="creature-inputs">
-
-            <div className="creature-input">
-              <div className="creature-label">
-                <label>Current: </label>
+          <h2 className="form-title">Edit Your Creature</h2>
+          
+          <div id="update-input-parent-container">
+            <div id="update-evo-parent-container">
+              <div id="update-evo-header-container">
+                <span id="update-evo-header">Creature Evolution Line</span>
               </div>
 
-              <div className="creature-select">
-                <select
-                  className="select-creature"
-                  onChange={handleChange}
-                  name="firstCreature"
-                  value={update.firstCreature}
-                >
-                  <option defaultValue={true} value="">{creature[0].creature}</option>
-                  <option value="">None</option>
-                  {OptionComponents}
-                </select>
-              </div>
+              <div className="update-evo-container">
+                <div className="update-evo-info-container">
+                  <span className="evo-info">Current: </span>
+                </div>
 
-              <div className="mega-input">
-                  <input 
-                    disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.firstCreature.toLowerCase()) < 0 }
-                    type="text"
-                    placeholder="none/mega/megaX/megaY"
-                    className="mega"
-                    name="firstMega"
-                    value={update.firstMega}
+                <div className="evo-input-child-container">
+                  <select
+                    className="select-creature"
                     onChange={handleChange}
-                  />
+                    name="firstCreature"
+                    value={update.firstCreature}
+                  >
+                    <option defaultValue={true} value="">{creature[0].creature}</option>
+                    <option value="">None</option>
+                    {OptionComponents}
+                  </select>
+                </div>
+              </div>
+
+              <div className="update-evo-container">
+                <div className="update-evo-info-container">
+                  <span className="evo-info">Second: </span>
+                </div>
+
+                <div className="evo-input-child-container">
+                  <select
+                    className="select-creature"
+                    onChange={handleChange}
+                    name="secondCreature"
+                    value={update.secondCreature}
+                    disabled={creature[0].level >= 15}
+                  >
+                    <option defaultValue={true} value="">
+                      {
+                        creature[0].level >= 15 ? 'Past evolution' : creature[0].evolutions[1]
+                      }
+                    </option>
+                    <option value="">None</option>
+                    {OptionComponents}
+                  </select>
+                </div>
+              </div>
+
+              <div className="update-evo-container">
+                <div className="update-evo-info-container">
+                  <span className="evo-info">Third: </span>
+                </div>
+
+                <div className="evo-input-child-container">
+                  <select
+                    className="select-creature"
+                    onChange={handleChange}
+                    name="thirdCreature"
+                    value={update.thirdCreature}
+                    disabled={creature[0].level >= 30}
+                  >
+                    <option defaultValue={true} value="">
+                    {
+                        creature[0].level >= 30 ? 'Past evolution' : creature[0].evolutions[2]
+                      }
+                    </option>
+                    <option value="">None</option>
+                    {OptionComponents}
+                  </select>
+                </div>
+              </div>
+
+              <div className="update-evo-container">
+                <div className="update-evo-info-container">
+                  <span className="evo-info">Fourth: </span>
+                </div>
+
+                <div className="evo-input-child-container">
+                  <select
+                    className="select-creature"
+                    onChange={handleChange}
+                    name="fourthCreature"
+                    value={update.fourthCreature}
+                    disabled={creature[0].level >= 50}
+                  >
+                    <option defaultValue={true} value="">
+                    {
+                        creature[0].level >= 50 ? 'Past evolution' : creature[0].evolutions[3]
+                      }
+                    </option>
+                    <option value="">None</option>
+                    {OptionComponents}
+                  </select>
+                </div>
               </div>
             </div>
 
-            <div className="creature-input">
-              <div className="creature-label">
-                <label>Second: </label>
+            <div id="update-mega-parent-container">
+              <div id="mega-header-container">
+                <span id="mega-header">Choose an Alternate Version/Mega</span>
               </div>
 
-              <div className="creature-select">
-                <select
-                  className="select-creature"
+              <div className="update-mega-container">
+                <input 
+                  disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.firstCreature.toLowerCase()) < 0 }
+                  type="text"
+                  placeholder="none/mega/megaX/megaY"
+                  className="mega"
+                  name="firstMega"
+                  value={update.firstMega}
                   onChange={handleChange}
-                  name="secondCreature"
-                  value={update.secondCreature}
-                  disabled={creature[0].level >= 15}
-                >
-                  <option defaultValue={true} value="">
-                    {
-                      creature[0].level >= 15 ? 'Past evolution' : creature[0].evolutions[1]
-                    }
-                  </option>
-                  <option value="">None</option>
-                  {OptionComponents}
-                </select>
+                />
               </div>
 
-              <div className="mega-input">
+              <div className="update-mega-container">
                 <input 
                   disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.secondCreature.toLowerCase()) < 0 }
                   type="text"
@@ -238,32 +288,8 @@ const CreatureUpdateForm = () => {
                   onChange={handleChange}
                 />
               </div>
-            </div>
 
-            <div className="creature-input">
-              <div className="creature-label">
-                <label>Third: </label>
-              </div>
-
-              <div className="creature-select">
-                <select
-                  className="select-creature"
-                  onChange={handleChange}
-                  name="thirdCreature"
-                  value={update.thirdCreature}
-                  disabled={creature[0].level >= 30}
-                >
-                  <option defaultValue={true} value="">
-                  {
-                      creature[0].level >= 30 ? 'Past evolution' : creature[0].evolutions[2]
-                    }
-                  </option>
-                  <option value="">None</option>
-                  {OptionComponents}
-                </select>
-              </div>
-
-              <div className="mega-input">
+              <div className="update-mega-container">
                 <input
                   disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.thirdCreature.toLowerCase()) < 0 }
                   type="text"
@@ -274,32 +300,8 @@ const CreatureUpdateForm = () => {
                   onChange={handleChange}
                 />
               </div>
-            </div>
 
-            <div className="creature-input">
-              <div className="creature-label">
-                <label>Fourth: </label>
-              </div>
-
-              <div className="creature-select">
-                <select
-                  className="select-creature"
-                  onChange={handleChange}
-                  name="fourthCreature"
-                  value={update.fourthCreature}
-                  disabled={creature[0].level >= 50}
-                >
-                  <option defaultValue={true} value="">
-                  {
-                      creature[0].level >= 50 ? 'Past evolution' : creature[0].evolutions[3]
-                    }
-                  </option>
-                  <option value="">None</option>
-                  {OptionComponents}
-                </select>
-              </div>
-
-              <div className="mega-input">
+              <div className="update-mega-container">
                 <input 
                   disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.fourthCreature.toLowerCase()) < 0 }
                   type="text"
@@ -313,11 +315,13 @@ const CreatureUpdateForm = () => {
             </div>
           </div>
 
-          <div className="name-label">
-            <label>Would you like to rename {creature[0].creature_name}?</label>
+          <div className="name-info-container">
+            <span id="name-info">Would you like to rename {creature[0].creature_name}?</span>
           </div>
+
           <div className="name-input">
             <input 
+              id="name"
               type="text"
               placeholder="Socrates"
               name="creatureName"
@@ -325,7 +329,8 @@ const CreatureUpdateForm = () => {
               onChange={handleChange}
             />
           </div>
-          <button className="submit-form-btn">Update Creature</button>
+
+          <button className="update-btn">Update Creature</button>
         </form>
       </div>
     </div>

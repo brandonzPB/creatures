@@ -1,13 +1,13 @@
-.creature-info {}
-
-.creature-update-form {}
-
-.creature-update-form form {}
+.creature-info {
+  display: block;
+  width: 60rem;
+  height: auto;
+}
 
 .creatures-return-link-update {
   position: absolute;
   left: 2rem;
-  top: 10rem;
+  top: 5rem;
   font-size: 1.15rem;
   font-weight: 600;
   border: none;
@@ -19,16 +19,109 @@
   color: white;
   width: 15rem;
   height: 5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
   transition: transform 0.2s;
 }
 
 .creatures-return-link-update:hover {
   transform: scale(1.1);
 }
+
+.creature-update-form {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+}
+
+.creature-update-form form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;  
+  justify-content: center;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+}
+
+.form-title {
+  display: block;
+  margin: 1rem auto;
+}
+
+#update-input-parent-container {
+  display: block;
+  margin: 2rem auto;
+  columns: 2;
+  width: 50rem;
+  height: auto;
+}
+
+#update-evo-parent-container {
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+}
+
+#update-evo-header-container {
+  display: block;
+  margin: 0 auto;
+  text-align: right;
+}
+
+#update-evo-header {
+  margin: 0 auto;
+}
+
+.update-evo-container {
+  columns: 2;
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  height: auto;
+}
+
+.update-evo-info-container {
+  margin: 0 auto;
+  text-align: right;
+}
+
+.evo-info {
+  text-align: right;
+  margin: 0 auto;
+}
+
+.evo-input-child-container {
+  margin: 0 auto;
+}
+
+.select-creature {
+  margin: 0.25rem auto;
+}
+
+#update-mega-parent-container {}
+
+#mega-header-container {}
+
+#mega-header {}
+
+.update-mega-container {}
+
+.mega {
+  margin: 0.10rem auto;
+}
+
+.name-info-container {}
+
+#name-info {}
+
+.name-input {}
+
+#name {}
+
+.update-btn {}
 
 @media (min-width: 120rem) {
   .update-container {
