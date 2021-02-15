@@ -23,7 +23,14 @@ const Objective = ({ objective, creature, sendDeleteObj }) => {
         width: '300px'
       }}>
         <span className="objective-text">{objective.text}</span>
-        <span className="objective-difficulty">{objective.difficulty}</span>
+        <span className="objective-difficulty">
+          {
+            objective.difficulty === 'Medium-Easy' ? 'Relaxed'
+              : objective.difficulty === 'Medium' ? 'Medium'
+              : objective.difficulty === 'Medium-Hard' ? 'Focused'
+              : objective.difficulty === 'Hard' ? 'Like a Roman' : ''
+          }
+        </span>
       </div>
 
       <div className="objective-complete-form-container">

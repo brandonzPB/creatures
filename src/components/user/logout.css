@@ -1,15 +1,15 @@
 .logout-container {
   position: absolute;
-  top: 10rem;
-  right: 10rem;
+  top: 8rem;
+  right: 8rem;
 }
 
 .logout-btn-container {}
 
 .logout-btn {
-  width: 125px;
-  height: 35px;
-  border: rgb(112, 112, 112);
+  width: 10rem;
+  height: 3rem;
+  border: none;
   background: rgb(112, 112, 112);
   box-shadow: 0 0 3px black;
   color: white;

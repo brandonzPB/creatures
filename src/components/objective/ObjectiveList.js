@@ -97,6 +97,15 @@ const ObjectiveList = () => {
     postDelete(creatureId);
 
     showCreatureObjectives('');
+    setDest('creatures');
+  }
+
+  if (link.dest === 'creatures') {
+    return (
+      <Route exact path="/creature/info">
+        <Redirect to="/creatures" />
+      </Route>
+    )
   }
 
   if (currentId) {
@@ -105,39 +114,39 @@ const ObjectiveList = () => {
         <button className="creatures-return-link-obj" onClick={() => setDest('creatures')}>Return to Creatures</button>
 
         <div className="adjacent-creature-container">
-            <div className="adjacent-creature-display">
-              {CreatureComponent}
-            </div>
+          <div className="adjacent-creature-display">
+            {CreatureComponent}
+          </div>
 
-            <div className="adjacent-creature-age">
-              Date of creation: {birthdate}
-              <br />
-              Age: {age}
-            </div>
+          <div className="adjacent-creature-age">
+            Date of creation: {birthdate}
+            <br />
+            Age: {age}
+          </div>
 
-            <div className="kill-btn-container">
-              <button className="kill-btn" onClick={toggleConfirmDisplay} style={{
-                background: confirmDisplay.confirmIsDisplayed ? 'rgb(108,117,125)' : 'rgb(220,53,69)'
-              }}>
-                {
-                  confirmDisplay.confirmIsDisplayed ? 'Cancel' : 'Delete Creature'
-                }
-              </button>
+          <div className="kill-btn-container">
+            <button className="kill-btn" onClick={toggleConfirmDisplay} style={{
+              background: confirmDisplay.confirmIsDisplayed ? 'rgb(108,117,125)' : 'rgb(220,53,69)'
+            }}>
+              {
+                confirmDisplay.confirmIsDisplayed ? 'Cancel' : 'Delete Creature'
+              }
+            </button>
 
-              <div className="confirm-delete-modal" style={{
-                display: confirmDisplay.confirmIsDisplayed ? 'flex' : 'none'
-              }}>
-                <ConfirmDisplay 
-                  sendDelete={sendDelete}
-                />
-              </div>
+            <div className="confirm-delete-modal" style={{
+              display: confirmDisplay.confirmIsDisplayed ? 'flex' : 'none'
+            }}>
+              <ConfirmDisplay 
+                sendDelete={sendDelete}
+              />
             </div>
           </div>
+        </div>
 
         <div className="objectives-container">
           <h3 className="obj-list-title">{creatureName}'s Habits</h3>
           
-          <span className="swipe-text">Swipe left/right to see full habit</span>
+          <span className="swipe-text">Swipe left/right to scroll</span>
           
           <div className="obj-list-container">
             {

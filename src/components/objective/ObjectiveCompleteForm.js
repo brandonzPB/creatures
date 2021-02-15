@@ -49,7 +49,7 @@ const ObjectiveCompleteForm = ({ creature, objective }) => {
             className="time-input"
             placeholder={0}
           />
-          <button className="complete-obj-btn">Complete Habit</button>
+          <button className="complete-obj-btn">Complete</button>
         </form>
       </div>
     )
@@ -58,7 +58,7 @@ const ObjectiveCompleteForm = ({ creature, objective }) => {
   return (
     <div className="complete-obj-container">
       <form onSubmit={completeObjective} className="complete-obj-form">
-        <button className="complete-obj-btn">Complete Habit</button>
+        <button className="complete-obj-btn">Complete</button>
       </form>
     </div>
   )

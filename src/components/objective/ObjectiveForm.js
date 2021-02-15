@@ -74,7 +74,7 @@ const ObjectiveForm = ({ creatureId }) => {
           onChange={handleChange}
           minLength={0}
           maxLength={40}
-          placeholder="Morning Cardio"
+          placeholder="Morning Run"
           className="obj-text-input"
         />
         <br />
@@ -89,11 +89,11 @@ const ObjectiveForm = ({ creatureId }) => {
         <br />
         <span className="obj-difficulty-select-text">Select Difficulty</span>
         <select value={objective.difficulty} onChange={handleChange} name="difficulty" className="obj-difficulty-select">
-          <option disabled>Select a Difficulty</option>
-          <option value="Medium-Easy">Medium-Easy</option>
+          <option disabled>Select Concentration Level</option>
+          <option value="Medium-Easy">Relaxed</option>
           <option value="Medium">Medium</option>
-          <option value="Medium-Hard">Medium-Hard</option>
-          <option value="Hard">Hard</option>
+          <option value="Medium-Hard">Focused</option>
+          <option value="Hard">Like a Roman</option>
         </select>
         <br />
         <button className="add-obj-btn">Add Habit</button>

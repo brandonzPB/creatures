@@ -4,7 +4,7 @@
   box-shadow: 0 0 4px black;
   border-radius: 1rem;
   background-color: rgba(0, 0, 0, 0.5);
-  width: 30rem;
+  width: 25rem;
   height: auto;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
@@ -66,4 +66,80 @@
 .add-obj-btn:hover {
   transform: scale(1.1);
   box-shadow: 0 3px 6px black;
+}
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+  .objective-form-container {
+    border: none;
+    box-shadow: 0 0 4px black;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif;
+    display: block;
+    margin: 4rem auto;
+  }
+  
+  .add-obj-title {
+    font-size: 2.25rem;
+    color: white;
+  }
+  
+  .objective-form {
+    font-size: 1.5rem;
+  }
+  
+  .objective-form form {
+  }
+  
+  .obj-text-input {
+    font-size: 2rem;
+    width: 80%;
+    margin: 2.5rem auto;
+  }
+  
+  .obj-time-input {
+    margin: 2.2rem auto 0 auto;
+  }
+  
+  .obj-time-input-text {
+    margin: 0 auto 0 0.7rem;
+    font-size: 2.25rem;
+    color: white;
+  }
+  
+  .obj-difficulty-select {
+    font-size: 1.8rem;
+    margin: 1rem auto;
+  }
+  
+  .obj-difficulty-select-text {
+    font-size: 1.8rem;
+    margin: 3rem auto 0 auto;
+    display: block;
+    color: white;
+  }
+  
+  .add-obj-btn {
+    font-size: 1.6rem;
+    background-color: rgb(251,202,99);
+    color: black;
+    border-radius: 5px;
+    margin: 3rem auto;
+    width: auto;
+    height: 5rem;
+    padding: 0 2rem;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.2s;
+  }
+  
+  .add-obj-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 3px 6px black;
+  }
 }
