@@ -108,6 +108,14 @@ const ObjectiveList = () => {
     )
   }
 
+  if (link.dest === 'creatureUpdate') {
+    return (
+      <Route exact path="/creature/info">
+        <Redirect to="/creature/update" />
+      </Route>
+    )
+  }
+
   if (currentId) {
     return (
       <div className="update-container">
@@ -146,7 +154,7 @@ const ObjectiveList = () => {
         <div className="objectives-container">
           <h3 className="obj-list-title">{creatureName}'s Habits</h3>
           
-          <span className="swipe-text">Swipe left/right to scroll</span>
+          <span className="swipe-text">Swipe up/down to scroll</span>
           
           <div className="obj-list-container">
             {

@@ -7,7 +7,7 @@ import { UserContext } from '../../contexts/UserContext';
 import './creatureDisplay.css';
 
 const CreatureDisplay = ({ creature, showObjectives }) => {
-  const { link, setDest } = useContext(UserContext);
+  const { setDest } = useContext(UserContext);
 
   const { currentId } = useContext(CreatureContext);
 
@@ -19,14 +19,6 @@ const CreatureDisplay = ({ creature, showObjectives }) => {
     fireImg = require('../../images/fire_end.jpg');
   } else {
     fireImg = require('../../images/fire2.jpg');
-  }
-
-  if (link.dest === 'creatureUpdate') {
-    return (
-      <Route exact path="/creatures">
-        <Redirect to="/creature/update" />
-      </Route>
-    )
   }
 
   const showInfo = () => {

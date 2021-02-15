@@ -78,4 +78,22 @@
     display: block;
     margin: 0 auto;
   }
+
+  .complete-obj-container {
+    display: block;
+    position: relative;
+    left: -2rem;
+    top: 0;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+
+  .complete-obj-btn {
+    position: static;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+  }
 }

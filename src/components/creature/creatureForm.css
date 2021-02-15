@@ -1,8 +1,12 @@
-.create-page {}
+.create-page {
+  width: 100vw;
+  height: auto;
+}
 
-.create-form-container {}
-
-/* CREATURE FORM */
+.creature-form-container {
+  margin: 0 auto;
+  text-align: center;
+}
 
 .max-creatures-msg,
 .creature-form {
@@ -15,9 +19,9 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  width: 100rem;
+  width: 60rem;
   height: auto 70rem;
-  margin: 5rem auto 2rem auto;
+  margin: 2rem auto;
   text-align: center;
   border-radius: 1rem;
   font-family: 'Open Sans', sans-serif;
@@ -25,31 +29,58 @@
 }
 
 .form-title {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
   color: white;
   display: block;
-  margin: 2rem auto 4rem auto;
+  margin: 0 auto 4rem auto;
 }
 
 .creature-form form {
   display: block;
-  width: 135rem;
+  width: auto;
   height: auto;
-  margin-top: 5rem;
+  margin: 5rem auto 0 auto;
   font-size: 1.3rem;
 }
 
-.creature-inputs {
+#form-label-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto;
+  width: auto;
+  height: auto;
+  border: 2px solid white;
+  columns: 2;
+}
+
+.evo-label {
+  margin-left: auto;
+}
+
+.mega-label {
+  margin-right: auto;
+}
+
+.creature-inputs {
+  margin: 0 auto 3.5rem auto;
   text-align: center;
-  margin-bottom: 3.5rem;
+  width: 90%;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .creature-input {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.3rem;
 }
 
 .creature-form form label {
@@ -177,11 +208,16 @@
   color: black;
   font-weight: 600;
   border-radius: 0.5rem;
-  font-size: 1.2rem;
-  width: auto;
+  font-size: 1.5rem;
+  width: 13rem;
   height: 5rem;
   border: none;
   cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.submit-form-btn:hover {
+  transform: scale(1.1);
 }
 
 @media only screen and (min-device-width: 120rem) {

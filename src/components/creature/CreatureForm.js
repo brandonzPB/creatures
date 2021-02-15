@@ -68,7 +68,7 @@ const CreatureForm = () => {
   const handleChange = (event) => {
     const { value, name, className } = event.target;
 
-    if (className === 'select-creature') {
+    if (className === 'select-creature-input') {
       let megaPlace;
 
       if (name === 'firstCreature') {
@@ -181,139 +181,154 @@ const CreatureForm = () => {
             <div className="creature-form">
               <form onSubmit={addCreature}>
                 <h2 className="form-title">Design Your Creature!</h2>
-
-                <div className="evo-label">
-                  <label className="evo-label-text">Creature Evolution Line</label>
-                </div>
-
-                <div className="label-container">
-                  <label className="mega-input-text">Choose an alternate version</label>
-                </div>
-
-                <div className="creature-inputs">
-
-                  <div className="creature-input">
-                    <div className="creature-label">
-                      <label>*First: </label>
+                
+                <div id="input-parent-container">
+                  <div id="evo-input-parent-container">
+                    <div id="evo-input-header">
+                      <span id="evo-info">Creature Evolution Line</span>
                     </div>
 
-                    <div className="creature-select">
-                      <select
-                        className="select-creature"
-                        onChange={handleChange}
-                        name="firstCreature"
-                        required={true}
-                        value={creature.firstCreature}
-                      >
-                        <option disabled={true} defaultValue={true} value="">Select a Creature</option>
-                        <option value="">None</option>
-                        {OptionComponents}
-                      </select>
-                    </div>
+                    <div id="evo-input-container">
+                      <div id="first-evo-container">
+                        <div className="creature-info-container">
+                          <span className="evo-description">*First: </span>
+                        </div>
 
-                    <div className="mega-input">
-                        <input 
-                          disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.firstCreature.toLowerCase()) < 0 }
-                          type="text"
-                          placeholder="none/mega/megaX/megaY"
-                          className="mega"
-                          name="firstMega"
-                          value={creature.firstMega}
-                          onChange={handleChange}
-                        />
-                    </div>
-                  </div>
+                        <div className="creature-select">
+                          <select
+                            className="select-creature-input"
+                            onChange={handleChange}
+                            name="firstCreature"
+                            required={true}
+                            value={creature.firstCreature}
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                            <option value="">None</option>
+                            {OptionComponents}
+                          </select>
+                        </div>
+                      </div>
 
-                  <div className="creature-input">
-                    <div className="creature-label">
-                      <label>Second: </label>
-                    </div>
+                      <div id="second-evo-container">
+                        <div className="creature-info-container">
+                          <span className="evo-description">Second: </span>
+                        </div>
 
-                    <div className="creature-select">
-                      <select
-                        className="select-creature"
-                        onChange={handleChange}
-                        name="secondCreature"
-                        value={creature.secondCreature}
-                      >
-                        <option disabled={true} defaultValue={true} value="">Select a Creature</option>
-                        <option value="">None</option>
-                        {OptionComponents}
-                      </select>
-                    </div>
+                        <div className="creature-select">
+                          <select
+                            className="select-creature-input"
+                            onChange={handleChange}
+                            name="secondCreature"
+                            value={creature.secondCreature}
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                            <option value="">None</option>
+                            {OptionComponents}
+                          </select>
+                        </div>
+                      </div>
 
-                    <div className="mega-input">
-                      <input 
-                        disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.secondCreature.toLowerCase()) < 0 }
-                        type="text"
-                        placeholder="none/mega/megaX/megaY"
-                        className="mega"
-                        name="secondMega"
-                        value={creature.secondMega}
-                        onChange={handleChange}
-                      />
-                    </div>
-                  </div>
+                      <div id="third-evo-container">
+                        <div className="creature-info-container">
+                          <span className="evo-description">Third: </span>
+                        </div>
 
-                  <div className="creature-input">
-                    <div className="creature-label">
-                      <label>Third: </label>
-                    </div>
+                        <div className="creature-select">
+                          <select
+                            className="select-creature-input"
+                            onChange={handleChange}
+                            name="thirdCreature"
+                            value={creature.thirdCreature}
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                            <option value="">None</option>
+                            {OptionComponents}
+                          </select>
+                        </div>
+                      </div>
 
-                    <div className="creature-select">
-                      <select
-                        className="select-creature"
-                        onChange={handleChange}
-                        name="thirdCreature"
-                        value={creature.thirdCreature}
-                      >
-                        <option disabled={true} defaultValue={true} value="">Select a Creature</option>
-                        <option value="">None</option>
-                        {OptionComponents}
-                      </select>
-                    </div>
+                      <div id="fourth-evo-container">
+                        <div className="creature-info-container">
+                          <span className="evo-description">Fourth: </span>
+                        </div>
 
-                    <div className="mega-input">
-                      <input
-                        disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.thirdCreature.toLowerCase()) < 0 }
-                        type="text"
-                        placeholder="none/mega/megaX/megaY"
-                        className="mega"
-                        name="thirdMega"
-                        value={creature.thirdMega}
-                        onChange={handleChange}
-                      />
+                        <div className="creature-select">
+                          <select
+                            className="select-creature-input"
+                            onChange={handleChange}
+                            name="fourthCreature"
+                            value={creature.fourthCreature}
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select a Creature</option>
+                            <option value="">None</option>
+                            {OptionComponents}
+                          </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="creature-input">
-                    <div className="creature-label">
-                      <label>Fourth: </label>
+                  <div id="mega-input-parent-container">
+                    <div id="mega-input-header">
+                      <span id="mega-info">Choose an alternate version/mega</span>
                     </div>
 
-                    <div className="creature-select">
-                      <select
-                        className="select-creature"
-                        onChange={handleChange}
-                        name="fourthCreature"
-                        value={creature.fourthCreature}
-                      >
-                        <option disabled={true} defaultValue={true} value="">Select a Creature</option>
-                        <option value="">None</option>
-                        {OptionComponents}
-                      </select>
-                    </div>
+                    <div id="mega-input-container">
+                      <div id="first-mega-container">
+                        <div className="input-mega-div">
+                          <input 
+                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.firstCreature.toLowerCase()) < 0 }
+                            type="text"
+                            placeholder="none/mega/megaX/megaY"
+                            className="mega-input"
+                            name="firstMega"
+                            value={creature.firstMega}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
 
-                    <div className="mega-input">
-                      <input 
-                        disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.fourthCreature.toLowerCase()) < 0 }
-                        type="text"
-                        placeholder="none/mega/megaX/megaY"
-                        className="mega"
-                        name="fourthMega"
-                        value={creature.fourthMega}
-                        onChange={handleChange}
-                      />
+                      <div id="second-mega-container">
+                        <div className="input-mega-div">
+                          <input 
+                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.secondCreature.toLowerCase()) < 0 }
+                            type="text"
+                            placeholder="none/mega/megaX/megaY"
+                            className="mega-input"
+                            name="secondMega"
+                            value={creature.secondMega}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+
+                      <div id="third-mega-container">
+                        <div className="input-mega-div">
+                          <input
+                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.thirdCreature.toLowerCase()) < 0 }
+                            type="text"
+                            placeholder="none/mega/megaX/megaY"
+                            className="mega-input"
+                            name="thirdMega"
+                            value={creature.thirdMega}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
+                      
+                      <div id="fourth-mega-container">
+                        <div className="input-mega-div">
+                          <input 
+                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.fourthCreature.toLowerCase()) < 0 }
+                            type="text"
+                            placeholder="none/mega/megaX/megaY"
+                            className="mega-input"
+                            name="fourthMega"
+                            value={creature.fourthMega}
+                            onChange={handleChange}
+                          />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
