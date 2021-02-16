@@ -1,12 +1,15 @@
 /* RESET CODE FORM */
 
-.reset-code-form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  flex-direction: column;
-  margin: 225px auto 0 auto;
+.reset-code-container {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.form-container {
+  display: block;
+  margin: 10rem auto 0 auto;
   text-align: center;
   font-size: 2rem;
   font-weight: 600;
@@ -20,120 +23,169 @@
   background-position: center;
   background-attachment: fixed;
   border-radius: 5px;
-  padding: 30px;
-  width: 600px;
+  width: 60rem;
+  padding: 2rem 0;
   height: auto;
 }
 
-.reset-code-form form {}
-
-.reset-code-form label {
+.form-header {
+  color: white;
+  margin: 0 auto;
+  display: block;
 }
 
 .reset-code-form input {
-  font-size: 2rem;
-  margin: 20px auto 5px auto;
+  font-size: 2.2rem;
+  margin: 2rem auto 0.5rem auto;
   display: block;
-  width: 225px;
+  width: 22rem;
+}
+
+#input {
+  font-size: 1.8rem;
+  margin: 2rem auto 0 auto;
 }
 
 .submit-code-btn {
-  width: 175px;
-  height: 40px;
+  width: 17.5rem;
+  height: 4rem;
   background: #FFC15E;
   color: black;
   border: none;
   font-size: 1.3rem;
   font-weight: 600;
-  margin: 30px auto;
   cursor: pointer;
   border-radius: 5px;
+  display: block;
+  margin: 3rem auto;
+  transition: transform 0.2s;
+  box-shadow: 0 0 3px black;
 }
 
-.resend-code {}
+.submit-code-btn:hover {
+  transform: scale(1.1);
+}
+
+.resend-code-container {
+  margin: 2rem auto;
+  display: block;
+  text-align: center;
+  width: 30rem;
+  height: auto;
+}
 
 .resend-code-text {
   font-size: 1.25rem;
-  margin: 20px 5px;
+  margin: 2rem auto;
 }
 
 .resend-code-btn {
-  width: 125px;
-  height: 40px;
+  display: block;
+  margin: 2rem auto;
+  width: 12.5rem;
+  height: 4rem;
   background: #FFC15E;
   border-radius: 5px;
   color: black;
   border: none;
   font-size: 1rem;
   font-weight: 600;
-  margin: 30px 10px;
   cursor: pointer;
+  transition: transform 0.2s;
+  box-shadow: 0 0 3px black;
+}
+
+.resend-code-btn:hover {
+  transform: scale(1.1);
 }
 
 /* MOBILE */  
 
 @media (max-width: 900px) {
-  .reset-code-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex: 1;
-    flex-direction: column;
-    margin: 300px auto 0 auto;
+  .reset-code-container {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  
+  .form-container {
+    display: block;
+    margin: 10rem auto 0 auto;
     text-align: center;
     font-size: 2rem;
     font-weight: 600;
+    background: linear-gradient(-45deg,
+    #315659,
+    #496a6d,
+    #608183);
+    box-shadow: 0 2px 6px black;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     border-radius: 5px;
-    width: auto;
+    width: 100%;
+    padding: 2rem 0;
     height: auto;
   }
   
-  .reset-code-form form {}
-  
-  .reset-code-form label {
+  .form-header {
+    color: white;
+    margin: 0 auto;
+    display: block;
   }
   
   .reset-code-form input {
-    font-size: 1.5rem;
-    margin: 20px auto 5px auto;
+    font-size: 2.2rem;
+    margin: 2rem auto 0.5rem auto;
     display: block;
-    width: 225px;
+    width: 22rem;
+  }
+  
+  #input {
+    font-size: 1.8rem;
+    margin: 2rem auto 0 auto;
   }
   
   .submit-code-btn {
-    width: 175px;
-    height: 40px;
+    width: 17.5rem;
+    height: 4rem;
     background: #FFC15E;
     color: black;
     border: none;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
     font-weight: 600;
-    margin: 30px auto;
-    cursor: pointer;
     border-radius: 5px;
+    display: block;
+    margin: 3rem auto;
+    box-shadow: 0 0 3px black;
   }
   
-  .resend-code {}
+  .resend-code-container {
+    margin: 2rem auto;
+    display: block;
+    text-align: center;
+    width: 30rem;
+    height: auto;
+  }
   
   .resend-code-text {
     font-size: 1.25rem;
-    margin: 20px 5px;
+    margin: 2rem auto;
   }
   
   .resend-code-btn {
-    width: 125px;
-    height: 40px;
+    display: block;
+    margin: 2rem auto;
+    width: 12.5rem;
+    height: 4rem;
     background: #FFC15E;
     border-radius: 5px;
     color: black;
     border: none;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 600;
-    margin: 30px 10px;
-    cursor: pointer;
+    box-shadow: 0 0 3px black;
   }
 }

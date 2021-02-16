@@ -135,7 +135,7 @@
 
 .update-btn {
   margin: 4rem auto 3rem auto;
-  background: gold;
+  background: rgb(251,202,99);
   color: black;
   border: none;
   border-radius: 5px;
@@ -148,7 +148,7 @@
 }
 
 .update-btn:hover {
-  background: rgb(253, 221, 41);
+  background: rgb(248, 224, 85);
   transform: scale(1.1);
 }
 
@@ -308,7 +308,6 @@
   
   .update-btn {
     margin: 4rem auto 3rem auto;
-    background: gold;
     color: black;
     border: none;
     border-radius: 5px;
@@ -318,10 +317,5 @@
     height: 4rem;
     transition: transform 0.2s;
     box-shadow: 0 0 3px black;
-  }
-  
-  .update-btn:hover {
-    background: rgb(253, 221, 41);
-    transform: scale(1.1);
   }
 }

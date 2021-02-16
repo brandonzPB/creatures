@@ -86,27 +86,30 @@ const ResetCode = () => {
   }
 
   return (
-    <div className="reset-code-form">
+    <div className="reset-code-container">
       <button className="return-home-link" onClick={() => setDest('home')}>Return Home</button>
       
-      <form onSubmit={handleSubmit}>
-        <label>Enter code below: </label>
-        <input 
-          type="text"
-          name="code"
-          value={form.code}
-          onChange={handleChange}
-          style={{
-            border: error.upset ? '2px solid red' : 'none'
-          }}
-        />
-        <button className="submit-code-btn">Submit Code</button>
-      </form>
-
-      <div className="resend-code">
-        <span className="resend-code-text">Need a new code?</span>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <span className="form-header">Enter code below: </span>
+          <input 
+            id="input"
+            type="text"
+            name="code"
+            value={form.code}
+            onChange={handleChange}
+            style={{
+              border: error.upset ? '2px solid red' : 'none'
+            }}
+          />
+          <button className="submit-code-btn">Submit Code</button>
+        </form>
       </div>
-      <button onClick={renewCode} className="resend-code-btn">Resend Code</button>
+
+      <div className="resend-code-container">
+        <span className="resend-code-text">Need a new code?</span>
+        <button onClick={renewCode} className="resend-code-btn">Resend Code</button>
+      </div>
     </div>
   )
 }

@@ -81,30 +81,32 @@ const ForgotPassword = () => {
   }
 
   return (
-    <div className="forgot-password-form">
+    <div className="forgot-password-container">
       <button className="return-home-link" onClick={() => setDest('home')}>Return Home</button>
 
       <div className="loading" style={{ display: loading.state ? 'flex' : 'none' }}>
         <span className="loading-text">Sending code...</span>
       </div>
       
-      <form onSubmit={handleSubmit}>
-        <div className="email-forgot-input">
-          <label>Enter Email: </label>
-          <span className="forgot-info">Page will redirect once email has been sent</span>
-          <input 
-            type="text"
-            name="email"
-            value={form.email}
-            onChange={handleChange}
-            style={{
-              border: error.upset ? '2px solid red' : 'none'
-            }}
-          />
-        </div>
+      <div className="forgot-password-form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="email-forgot-input">
+            <span className="input-header">Enter Email: </span>
+            <span className="forgot-info">Page will redirect once email has been sent</span>
+            <input 
+              type="text"
+              name="email"
+              value={form.email}
+              onChange={handleChange}
+              style={{
+                border: error.upset ? '2px solid red' : 'none'
+              }}
+            />
+          </div>
 
-        <button className="get-code-btn">Get Code</button>
-      </form>
+          <button className="get-code-btn">Get Code</button>
+        </form>
+      </div>
     </div>
   )
 }

@@ -346,11 +346,10 @@ const CreatureForm = () => {
                   </select>
                 </div>
 
-                <div className="name-label">
-                  <label>What would you like to name this Creature of Habit?</label>
-                </div>
-                <div className="name-input">
+                <div id="name-container">
+                  <span id="name-label">What would you like to name this Creature of Habit?</span>
                   <input 
+                    id="name-input"
                     type="text"
                     placeholder="Seneca"
                     name="creatureName"
@@ -359,11 +358,10 @@ const CreatureForm = () => {
                   />
                 </div>
 
-                <div className="title-label">
-                  <label>What title would you like to give {creature.creatureName}?</label>
-                </div>
-                <div className="title-input">
+                <div id="title-container">
+                  <span id="title-label">What title would you like to give {creature.creatureName}?</span>
                   <input 
+                    id="title-input"
                     type="text"
                     placeholder="Stoic"
                     name="purposeName"
@@ -371,6 +369,7 @@ const CreatureForm = () => {
                     onChange={handleChange}
                   />
                 </div>
+
                 <button className="submit-form-btn">Create Creature</button>
               </form>
             </div>

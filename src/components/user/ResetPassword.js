@@ -3,7 +3,6 @@ import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import userService from '../../services/userService';
 
-import './user.css';
 import './resetPassword.css';
 
 const ResetPassword = () => {
@@ -91,32 +90,34 @@ const ResetPassword = () => {
     <div className="reset-password-container">
       <button onClick={cancelRequest} className="cancel-reset-btn">Cancel Reset</button>
 
-      <form onSubmit={handleSubmit}>
-        <div className="password-input">
-          <label>New Password: </label>
-          <input 
-            type={showPassword ? 'text' : 'password'}
-            name="password"
-            value={form.password}
-            onChange={handleChange}
-          />
-          <button className="show-password" onClick={viewPassword}>&#128065;</button>
-        </div>
+      <div className="form-container">
+        <form onSubmit={handleSubmit}>
+          <div className="password-container">
+            <span className="input-label">New Password: </span>
+            <input 
+              id="password-input"
+              type={showPassword ? 'text' : 'password'}
+              name="password"
+              value={form.password}
+              onChange={handleChange}
+            />
+          </div>
 
-        <div className="confirm-password-input">
-          <label>Confirm New Password: </label>
-          <input 
-            type={showPassword ? 'text' : 'password'}
-            name="confirmPassword"
-            value={form.confirmPassword}
-            onChange={handleChange}
-          />
-        </div>
+          <div className="password-container">
+            <span className="input-label">Confirm New Password: </span>
+            <input 
+              id="password-input"
+              type={showPassword ? 'text' : 'password'}
+              name="confirmPassword"
+              value={form.confirmPassword}
+              onChange={handleChange}
+            />
+          </div>
+          <button className="show-password" onClick={viewPassword}>Show Password</button>
 
-        <div className="submit-password-reset">
           <button className="submit-reset-btn" onClick={handleSubmit}>Reset Password</button>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   )
 }
