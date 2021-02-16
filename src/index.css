@@ -50,6 +50,8 @@ html {
   font-style: normal;
   font-size: 1.1rem;
   display: block;
+  width: 10rem;
+  margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
   color: rgb(94, 94, 94);
   cursor: pointer;
