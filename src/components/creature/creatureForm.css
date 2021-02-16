@@ -36,9 +36,11 @@
 
 .max-creatures-msg,
 .creature-form {
-  background: linear-gradient(-20deg,
-  rgba(76, 62, 179, 0.9),
-  rgba(97, 83, 201, 0.8));
+  background: linear-gradient(-45deg,
+  #315659,
+  #496a6d,
+  #608183);
+  box-shadow: 0 2px 6px black;
   color: rgb(231, 231, 231);
   font-size: 1.3rem;
   display: flex;
@@ -51,7 +53,6 @@
   text-align: center;
   border-radius: 1rem;
   font-family: 'Open Sans', sans-serif;
-  box-shadow: 0 0 3px black;
 }
 
 .form-title {

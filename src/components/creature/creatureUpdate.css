@@ -8,7 +8,7 @@
   position: absolute;
   left: 2rem;
   top: 5rem;
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   font-weight: 600;
   border: none;
   border-radius: 5px;
@@ -17,7 +17,7 @@
   rgba(124, 161, 182, 0.8));
   box-shadow: 0 0 3px black;
   color: white;
-  width: 15rem;
+  width: 16rem;
   height: 5rem;
   transition: transform 0.2s;
 }
@@ -31,6 +31,11 @@
   margin: 0 auto;
   width: auto;
   height: auto;
+  background: linear-gradient(-45deg,
+  #315659,
+  #496a6d,
+  #608183);
+  box-shadow: 0 2px 6px black;
 }
 
 .creature-update-form form {
@@ -111,17 +116,41 @@
 
 .mega {
   margin: 0.10rem auto;
+  font-size: 1.5rem;
 }
 
-.name-info-container {}
+.name-info-container {
+  margin: 2rem auto;
+}
 
 #name-info {}
 
-.name-input {}
+.name-input {
+  margin: 0 auto;
+}
 
-#name {}
+#name {
+  font-size: 1.5rem;
+}
 
-.update-btn {}
+.update-btn {
+  margin: 4rem auto 3rem auto;
+  background: gold;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  width: 14rem;
+  font-weight: 600;
+  font-size: 1.4rem;
+  height: 3.5rem;
+  transition: transform 0.2s;
+  box-shadow: 0 0 3px black;
+}
+
+.update-btn:hover {
+  background: rgb(253, 221, 41);
+  transform: scale(1.1);
+}
 
 @media (min-width: 120rem) {
   .update-container {

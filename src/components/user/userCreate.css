@@ -48,10 +48,10 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(-45deg,
-  rgba(94, 100, 114, 1),
-  rgba(105, 111, 124, 0.8),
-  rgba(122, 128, 139, 0.7));
-  box-shadow: 0 0 3px black;
+  #315659,
+  #496a6d,
+  #608183);
+  box-shadow: 0 2px 6px black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
