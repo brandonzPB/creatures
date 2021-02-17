@@ -32,7 +32,11 @@ const Welcome = () => {
 
   return (
     <div className="index-container">
-      <div className="welcome">
+      <div id="welcome-header-container">
+        <span id="welcome-header">Welcome to Creatures of Habit</span>
+      </div>
+      
+      <div className="welcome-user-container">
         <LoginForm />
 
         <h1 className="create-account-text">Don't have an account?</h1>

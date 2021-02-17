@@ -1,30 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
 
 .index-container {
-  width: 30rem;
+  width: 45rem;
   height: auto;
   display: block;
-  margin: 2rem auto;
+  margin: 1rem auto;
   text-align: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#welcome-header-container {
+  display: block;
+  margin: 0 auto 2rem auto;
+  width: 40rem;
+  text-align: center;
+}
+
+#welcome-header {
+  color: white;
+  font-weight: 600;
+  font-size: 2.5rem;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+.welcome-user-container {
+  display: flex;
+  flex: 1;
+  width: 30rem;
+  margin: 0 auto;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
   background: linear-gradient(-45deg,
   #315659,
   #496a6d,
   #608183);
+  box-shadow: 0 2px 6px black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
   border-radius: 10px;
-  box-shadow: 0 2px 6px black;
-  font-family: 'Open Sans', sans-serif;
-}
-
-.welcome {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
 }
 
 .create-account-text {
@@ -67,10 +85,21 @@
     display: block;
     width: 100%;
     height: auto;
-    margin: 5rem auto 0 auto;
+    margin: 2rem auto 0 auto;
   }
 
-  .welcome {
+  #welcome-header-container {
+    display: block;
+    width: auto;
+    margin: 0 auto;
+  }
+
+  #welcome-header {
+    font-size: 2.05rem;
+    margin: 2rem auto;
+  }
+
+  .welcome-user-container {
     display: block;
     width: 80%;
     margin: 0 auto;
