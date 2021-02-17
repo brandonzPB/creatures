@@ -154,7 +154,7 @@ const ObjectiveList = () => {
         <div className="objectives-container">
           <h3 className="obj-list-title">{creatureName}'s Habits</h3>
           
-          <span className="swipe-text">Swipe up/down to scroll</span>
+          <span className="swipe-text">Swipe to scroll</span>
           
           <div className="obj-list-container">
             {
