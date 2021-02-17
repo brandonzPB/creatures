@@ -20,6 +20,7 @@ exports.checkCreatureStreak = (streakTimestamp, streakCount, userTime) => {
   // checks if streak is broken, constant, or needs to be incremented
 
   console.log('streakTimestamp', streakTimestamp);
+  console.log('userTime', userTime);
   console.log('streakCount', streakCount);
 
   const timeDifference = getAge(streakTimestamp, userTime, false);
@@ -28,7 +29,7 @@ exports.checkCreatureStreak = (streakTimestamp, streakCount, userTime) => {
 
   if (streakTimestamp === 0 || streakCount === 0) return 'increment';
 
-  if (!timeDifference) return 'increment';
+  if (!timeDifference && timeDifference !== 0) return 'increment';
 
   if (timeDifference > 2500) return 'broken';
   else if (timeDifference < 1440) return 'constant';

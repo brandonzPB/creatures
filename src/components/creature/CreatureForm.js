@@ -160,6 +160,8 @@ const CreatureForm = () => {
     finish('creature', newCreature, 'create');
 
     toggleFormDisplay();
+
+    setDest('creatures');
   }
   
   if (user.creatures.length === 6) {

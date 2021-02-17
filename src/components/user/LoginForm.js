@@ -131,7 +131,7 @@ const LoginForm = () => {
           />
         </div>
 
-        <button className="forgot-password-link" onClick={() => setDest('forgot')}>Forgot Password?</button>
+        <span className="forgot-password-link" onClick={() => setDest('forgot')}>Forgot Password?</span>
 
         <button className="login-btn">Login</button>
       </form>
