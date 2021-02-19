@@ -15,10 +15,6 @@ code {
 }
 
 html {
-  background-image: linear-gradient(25deg,
-  rgba(97,154,70, 0.4),
-  rgba(67,128,41, 0.4)),
-  url('./images/background.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -29,7 +25,7 @@ html {
 .App {
   width: 100vw;
   height: 100vh;
-  margin: 1rem auto;
+  margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
 }
 
@@ -43,7 +39,7 @@ html {
   font-style: italic;
   font-size: 1.3rem;
   font-family: 'Open Sans', sans-serif;
-  color: rgb(94, 94, 94);
+  color: rgba(255, 255, 255, 0.719);
 }
 
 .quote-credit {
@@ -53,14 +49,14 @@ html {
   width: 10rem;
   margin: 0 auto;
   font-family: 'Open Sans', sans-serif;
-  color: rgb(94, 94, 94);
+  color: white;
   cursor: pointer;
   text-decoration: none;
 }
 
 .quote-credit:link,
 .quote-credit:visited {
-  color: rgb(94, 94, 94);
+  color: rgba(255, 255, 255, 0.795);
 }
 
 .quote-credit:hover {

@@ -40,5 +40,44 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      const html = document.documentElement;
+
+      const daySrc = './images/background.jpg';
+      const sunsetSrc = './images/afternoon.jpg';
+      const eveningSrc = './images/evening.jpg';
+
+      const dayStyle = {
+        bg: `linear-gradient(25deg,
+          rgba(97,154,70,0.4),
+          rgba(67,128,41,0.4)),
+          url(${daySrc})`,
+      };
+
+      const sunsetStyle = {
+        bg: `linear-gradient(25deg,
+          rgba(97,154,70,0.4),
+          rgba(67,128,41,0.4)),
+          url(${sunsetSrc})`,
+      };
+
+      const eveningStyle = {
+        bg: `linear-gradient(25deg,
+          rgba(97,154,70,0.4),
+          rgba(67,128,41,0.4)),
+          url(${eveningSrc})`,
+      }
+
+      const date = new Date();
+      const hours = date.getHours();
+
+      if ((hours >= 5 && hours < 7) || (hours > 15 && hours < 17)) {
+        html.style.backgroundImage = sunsetStyle.bg;
+      } else if (hours >= 17 || hours < 5) {
+        html.style.backgroundImage = eveningStyle.bg;
+      } else {
+        html.style.backgroundImage = dayStyle.bg;
+      }
+    </script>
   </body>
 </html>
