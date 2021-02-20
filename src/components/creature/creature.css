@@ -12,7 +12,7 @@
 }
 
 .creature:hover {
-  transform: scale(1.1);
+  transform: scale(1.03);
   box-shadow: 0 4px 10px black;
 }
 

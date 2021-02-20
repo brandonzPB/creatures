@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bc6c4e25ae3faa4520a9c58bfa784904",
+    "revision": "5b231b0241d0f1b67584e6236dd792de",
     "url": "/creatures/index.html"
   },
   {
-    "revision": "fd5a204222c46d213ec9",
-    "url": "/creatures/static/css/main.cb9bc25a.chunk.css"
+    "revision": "e5b1d2a9391eb670f896",
+    "url": "/creatures/static/css/main.59da87d4.chunk.css"
   },
   {
     "revision": "e994a7c7a1162831495e",
@@ -16,7 +16,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/js/2.4389df14.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fd5a204222c46d213ec9",
+    "revision": "e5b1d2a9391eb670f896",
     "url": "/creatures/static/js/main.814b3813.chunk.js"
   },
   {
@@ -478,10 +478,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d085ebe0e639d18c595d590195753798",
     "url": "/creatures/static/media/azurill.d085ebe0.gif"
-  },
-  {
-    "revision": "38e7e2c580a81a866d4a1960ce9822d7",
-    "url": "/creatures/static/media/background.38e7e2c5.jpg"
   },
   {
     "revision": "3dfa0fa7dfdb5d163c8f570be047c6af",
