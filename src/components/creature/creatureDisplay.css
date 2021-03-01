@@ -111,17 +111,19 @@
   border-radius: 5px;
   border: none;
   box-shadow: 0 0 5px black;
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
   text-align: center;
 }
 
 .view-info-btn:hover {
   background: rgb(247, 211, 95);
+  transform: scale(1.05);
 }
 
 .view-info-btn:active {
   background: #FFC15E;
+  transform: scale(0.95);
 }
 
 .streak-container-fluid {}

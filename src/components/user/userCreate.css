@@ -202,9 +202,15 @@
 
 @media (max-width: 900px) {
   .user-create-page {
+    margin: 0 auto;
+    display: block;
+    width: 100%;
   }
   
   .create-user-form-container {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
   }
   
   .username-err,
@@ -218,10 +224,8 @@
   }
   
   .create-user-form {
-    width: auto;
-    position: relative;
-    left: -70px;
-    top: 180px;
+    margin: 3rem auto;
+    display: block;
   }
   
   .create-user-form form {
@@ -234,7 +238,7 @@
   }
   
   .username-create input {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   
   .email-create {
@@ -244,7 +248,7 @@
   }
   
   .email-create input {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   
   .password-create {
@@ -254,7 +258,7 @@
   }
   
   .password-create input {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   
   .confirm-password-create {
@@ -264,7 +268,7 @@
   }
   
   .confirm-password-create input {
-    font-size: 1.35rem;
+    font-size: 1.5rem;
   }
   
   .create-user-btn-container {

@@ -1,7 +1,7 @@
 .creature {
-  width: 20rem;
-  max-width: 20rem;
-  min-width: 20rem;
+  width: 22rem;
+  max-width: 22rem;
+  min-width: 22rem;
   height: auto;
   border: 4px groove #FFC15E;
   border-radius: 7.5px;
