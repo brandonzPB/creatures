@@ -6,6 +6,7 @@ import ConfirmDisplayContextProvider from './contexts/ConfirmDisplayContext';
 import UserContextProvider from './contexts/UserContext';
 import ThemeContextProvider from './contexts/ThemeContext';
 
+import Tutorial from './components/tutorial/Tutorial';
 import Welcome from './components/Welcome';
 import UserCreateForm from './components/user/UserCreateForm';
 import LoginForm from './components/user/LoginForm';
@@ -25,7 +26,7 @@ import ObjectiveList from './components/objective/ObjectiveList';
 
 function App() {
   return (
-    <HashRouter basename="/">
+    <BrowserRouter>
       <div className="App">
         <ThemeContextProvider>
           <div className="quote-container">
@@ -38,7 +39,8 @@ function App() {
               <ConfirmDisplayContextProvider>
                 <LogoutButton />
 
-                <Route exact path="/" component={Welcome} />
+                <Route exact path="/tutorial" component={Tutorial} />
+                <Route exact path="/welcome" component={Welcome} />
 
                 <Route exact path="/user/create" component={UserCreateForm} />
                 <Route exact path="/user/login" component={LoginForm} />
@@ -63,7 +65,7 @@ function App() {
           </span>
         </ThemeContextProvider>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   )
 }
 

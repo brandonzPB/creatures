@@ -16,7 +16,7 @@ const Welcome = () => {
 
   if (user.accessToken) {
     return (
-      <Route exact path="/">
+      <Route exact path="/welcome">
         <Redirect to="/user/update" />
       </Route>
     )
@@ -24,7 +24,7 @@ const Welcome = () => {
 
   if (link.dest === 'create') {
     return (
-      <Route exact path="/">
+      <Route exact path="/welcome">
         <Redirect to="/user/create" />
       </Route>
     )
