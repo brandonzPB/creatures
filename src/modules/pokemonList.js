@@ -2,395 +2,653 @@ export const otherVersions = [
   {
     name: 'abomasnow',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'absol',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'alakazam',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'aerodactyl',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'aggron',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'ampharos',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'banette',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'blastoise',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'blaziken',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'charizard',
     versions: [
-      'megax',
-      'megax-shiny',
-      'megay',
-      'megay-shiny'
+      {
+        value: 'megax',
+        text: 'Mega X'
+      },
+      {
+        value: 'megax-shiny',
+        text: 'Shiny Mega X'
+      },
+      {
+        value: 'megay',
+        text: 'Mega Y'
+      },
+      {
+        value: 'megay-shiny',
+        text: 'Shiny Mega Y'
+      },
     ]
   },
   {
     name: 'garchomp',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'gardevoir',
     versions: [
-      'shiny',
-      'mega',
-      'mega-shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
+      {
+        value: 'mega-shiny',
+        text: 'Shiny Mega'
+      },
     ]
   },
   {
     name: 'gengar',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'houndoom',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'kangaskhan',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'keldeo',
     versions: [
-      'resolute',
+      {
+        value: 'resolute',
+        text: 'Resolute'
+      },
     ]
   },
   {
     name: 'latias',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'latios',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'lucario',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'mawile',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'medicham',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'meloetta',
     versions: [
-      'pirouette',
+      {
+        value: 'pirouette',
+        text: 'Pirouette'
+      },
     ]
   },
   {
     name: 'mewtwo',
     versions: [
-      'megax',
-      'megay',
-      'retro'
+      {
+        value: 'megax',
+        text: 'Mega X'
+      },
+      {
+        value: 'megay',
+        text: 'Mega Y'
+      },
+      {
+        value: 'retro',
+        text: 'Retro'
+      },
     ]
   },
   {
     name: 'pichu',
     versions: [
-      'retro'
+      {
+        value: 'retro',
+        text: 'Retro'
+      },
     ]
   },
   {
     name: 'pikachu',
     versions: [
-      'f',
-      'retro'
+      {
+        value: 'f',
+        text: 'Female'
+      },
+      {
+        value: 'retro',
+        text: 'Retro'
+      },
     ]
   },
   {
     name: 'raichu',
     versions: [
-      'retro'
+      {
+        value: 'retro',
+        text: 'Retro'
+      },
     ]
   },
   {
     name: 'pumpkaboo',
     versions: [
-      'super',
+      {
+        value: 'super',
+        text: 'Super'
+      },
     ]
   },
   {
     name: 'sawsbuck',
     versions: [
-      'autumn',
-      'summer',
-      'winter'
+      {
+        value: 'autumn',
+        text: 'Autumn'
+      },
+      {
+        value: 'summer',
+        text: 'Summer'
+      },
+      {
+        value: 'winter',
+        text: 'Winter'
+      },
     ]
   },
   {
     name: 'scizor',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'shaymin',
     versions: [
-      'sky',
+      {
+        value: 'sky',
+        text: 'Sky'
+      },
     ]
   },
   {
     name: 'shellos',
     versions: [
-      'east',
+      {
+        value: 'east',
+        text: 'East'
+      },
     ]
   },
   {
     name: 'tyranitar',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'venusaur',
     versions: [
-      'mega',
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'vivillon',
     versions: [
-      'elegant',
-      'fancy',
-      'garden',
-      'marine',
-      'monsoon',
-      'ocean',
-      'pokeball',
-      'polar',
-      'sun'
+      {
+        value: 'elegant',
+        text: 'Elegant'
+      },
+      {
+        value: 'fancy',
+        text: 'Fancy'
+      },
+      {
+        value: 'garden',
+        text: 'Garden'
+      },
+      {
+        value: 'marine',
+        text: 'Marine'
+      },
+      {
+        value: 'monsoon',
+        text: 'Monsoon'
+      },
+      {
+        value: 'ocean',
+        text: 'Ocean'
+      },
+      {
+        value: 'pokeball',
+        text: 'Pokeball'
+      },
+      {
+        value: 'polar',
+        text: 'Polar'
+      },
+      {
+        value: 'sun',
+        text: 'Sun'
+      },
     ]
   },
   {
     name: 'xerneas',
     versions: [
-      'active',
+      {
+        value: 'active',
+        text: 'Active'
+      },
     ]
   },
   {
     name: 'giratina',
     versions: [
-      'origin',
-      'origin-shiny'
+      {
+        value: 'origin',
+        text: 'Origin'
+      },
+      {
+        value: 'origin-shiny',
+        text: 'Shiny Origin'
+      },
     ]
   },
   {
     name: 'sceptile',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'swampert',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'steelix',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'slowbro',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'lopunny',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'umbreon',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'gallade',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'beedrill',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'pidgeot',
     versions: [
-      'mega'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
     ]
   },
   {
     name: 'mew',
     versions: [
-      'retro-shiny'
+      {
+        value: 'retro-shiny',
+        text: 'Shiny Retro'
+      },
     ]
   },
   {
     name: 'rayquaza',
     versions: [
-      'shiny',
-      'mega',
-      'mega-shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
+      {
+        value: 'mega-shiny',
+        text: 'Shiny Mega'
+      },
     ]
   },
   {
     name: 'gyarados',
     versions: [
-      'mega',
-      'mega-shiny'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
+      {
+        value: 'mega-shiny',
+        text: 'Shiny Mega'
+      },
     ]
   },
   {
     name: 'salamence',
     versions: [
-      'mega',
-      'mega-shiny'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
+      {
+        value: 'mega-shiny',
+        text: 'Shiny Mega'
+      },
     ]
   },
   {
     name: 'altaria',
     versions: [
-      'mega',
-      'mega-shiny'
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
+      {
+        value: 'mega-shiny',
+        text: 'Shiny Mega'
+      },
     ]
   },
   {
     name: 'ralts',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'kirlia',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'bagon',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'shelgon',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'beldum',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'metang',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'metagross',
     versions: [
-      'shiny',
-      'mega',
-      'mega-shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
+      {
+        value: 'mega',
+        text: 'Mega'
+      },
+      {
+        value: 'mega-shiny',
+        text: 'Shiny Mega'
+      },
     ]
   },
   {
     name: 'porygon',
     versions: [
-      'retro',
-      'shiny'
+      {
+        value: 'retro',
+        text: 'Retro'
+      },
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'porygon2',
     versions: [
-      'retro',
-      'shiny'
+      {
+        value: 'retro',
+        text: 'Retro'
+      },
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
   {
     name: 'porygon-z',
     versions: [
-      'shiny'
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
     ]
   },
-  {
-    name: 'psyduck',
-    versions: [
-      'perry'
-    ]
-  }
 ];

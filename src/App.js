@@ -7,6 +7,10 @@ import UserContextProvider from './contexts/UserContext';
 import ThemeContextProvider from './contexts/ThemeContext';
 
 import Tutorial from './components/tutorial/Tutorial';
+import SampleCreateForm from './components/tutorial/SampleCreateForm';
+import SampleObjectives from './components/tutorial/SampleObjectives';
+import SampleUpdate from './components/tutorial/SampleUpdate';
+
 import Welcome from './components/Welcome';
 import UserCreateForm from './components/user/UserCreateForm';
 import LoginForm from './components/user/LoginForm';
@@ -39,13 +43,16 @@ function App() {
               <ConfirmDisplayContextProvider>
                 <LogoutButton />
 
-                <Route exact path="/tutorial" component={Tutorial} />
-                <Route exact path="/welcome" component={Welcome} />
+                <Route exact path="/" component={Tutorial} />
+                <Route exact path="/tutorial/create" component={SampleCreateForm} />
+                <Route exact path="/tutorial/objectives" component={SampleObjectives} />
+                <Route exact path="/tutorial/update" component={SampleUpdate} />
 
+                <Route exact path="/welcome" component={Welcome} />
                 <Route exact path="/user/create" component={UserCreateForm} />
                 <Route exact path="/user/login" component={LoginForm} />
-                <Route exact path="/user/update" component={UserUpdateForm} />
 
+                <Route exact path="/user/update" component={UserUpdateForm} />
                 <Route exact path="/user/reset/forgot" component={ForgotPassword} />
                 <Route exact path="/user/reset/code" component={ResetCode} />
                 <Route exact path="/user/reset/password" component={ResetPassword} />

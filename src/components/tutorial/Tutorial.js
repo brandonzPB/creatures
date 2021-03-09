@@ -7,6 +7,11 @@ const Tutorial = () => {
   const { user, link, setDest } = useContext(UserContext);
 
   const [complete, setComplete] = useState({ state: false });
+  
+  const [creature, setCreature] = useState({
+    name: '',
+    purpose: '',
+  })
 
   useEffect(() => {
     const storedCompletion = localStorage.getItem('tutorialComplete');
@@ -39,7 +44,7 @@ const Tutorial = () => {
 
   if (link.dest === 'welcome') {
     return (
-      <Route exact path="/tutorial">
+      <Route exact path="/">
         <Redirect to="/welcome" />
       </Route>
     )
@@ -47,7 +52,7 @@ const Tutorial = () => {
 
   if (link.dest === 'tutorialObjectives') {
     return (
-      <Route exact path="/tutorial">
+      <Route exact path="/">
         <Redirect to="/tutorial/objectives" />
       </Route>
     )
@@ -55,7 +60,7 @@ const Tutorial = () => {
 
   if (link.dest === 'tutorialUpdate') {
     return (
-      <Route exact path="/tutorial">
+      <Route exact path="/">
         <Redirect to="/tutorial/update" />
       </Route>
     )
@@ -63,7 +68,7 @@ const Tutorial = () => {
 
   if (link.dest === 'tutorialCreate') {
     return (
-      <Route exact path="/tutorial">
+      <Route exact path="/">
         <Redirect to="/tutorial/create" />
       </Route>
     )
@@ -78,6 +83,18 @@ const Tutorial = () => {
 
   return (
     <div id="tutorial__container">
+      <div id="create-btn__container">
+        {
+          user.creatures.length < 1 || user.creatures.length === undefined
+            ? <button className="create-link" onClick={() => setDest('tutorialCreate')}>New Creature</button>
+            : user.creatures.length === 1 ?
+            <div className="team-full">
+              <span className="full-text">You can create more creatures after the tutorial!</span>
+            </div> :
+            <div className="empty"></div>
+        }
+      </div>
+      
       <div id="skip__container">
         <button id="skip-tutorial-btn" onClick={completeTutorial}>Skip Tutorial</button>
       </div>
