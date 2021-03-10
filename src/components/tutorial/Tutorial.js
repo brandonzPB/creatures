@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import SampleCreature from './SampleCreature';
+import duck from '../../sprites/pkmnXY/porygon2-retro.gif';
 
 const Tutorial = () => {
   const { user, link, setDest } = useContext(UserContext);
@@ -9,28 +10,32 @@ const Tutorial = () => {
   const [complete, setComplete] = useState({ state: false });
   
   const [creature, setCreature] = useState({
+    creature: '',
     name: '',
     purpose: '',
-  })
+    purposeName: '',
+    level: 0,
+    objectives: [],
+    exp: 0,
+    expGoal: 1,
+    prevExp: 0,
+    expSurplus: 0,
+    streak: 0,
+    id: '123abc'
+  });
 
   useEffect(() => {
     const storedCompletion = localStorage.getItem('tutorialComplete');
 
     if (storedCompletion) {
-      return setDest({
-        ...link,
-        dest: 'welcome'
-      });
+      return setDest('welcome');
     }
 
     if (!complete.state) return;
     else {
       localStorage.setItem('tutorialComplete', JSON.stringify(complete));
       
-      return setDest({
-        ...link,
-        dest: 'welcome'
-      });
+      return setDest('welcome');
     }
   }, [complete]);
 

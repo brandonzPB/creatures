@@ -3,7 +3,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import Objective from '../objective/Objective';
 import ObjectiveForm from '../objective/ObjectiveForm';
-import Creature from '../creature/Creature';
+import SampleCreature from './SampleCreature';
 
 import '../objective/objectiveList.css';
 import '../objective/adjCreature.css';
@@ -45,9 +45,7 @@ const ObjectiveList = () => {
     )
   }
 
-  if (sampleId === 'creatureTutorial') {
-    creatureInfo = user.creatures.find(being => being.id === currentId);
-
+  if (id === 'creatureTutorial') {
     ObjectiveComponents = creatureInfo.objectives.length >= 1
       ? creatureInfo.objectives.sort((a, b) => a.factor - b.factor)
       : [];
@@ -64,30 +62,16 @@ const ObjectiveList = () => {
     });
 
     if (creatureInfo.objectives.length < 1) ObjectiveComponents = null;
-
-    CreatureComponent = user.creatures.map(creature => {
-      if (creature.id === currentId) {
-        return (
-          <Creature 
-            key={creature.id}
-            creature={creature}
-          />
-        )
-      }
-      return null;
-    });
-
-    creatureName = creatureInfo.creature_name;
   }
 
-  if (sampleId === 'creatureTutorial') {
+  if (id === 'creatureTutorial') {
     return (
       <div className="update-container">
         <button className="creatures-return-link-obj" onClick={() => setDest('creatures')}>Return to Creatures</button>
 
         <div className="adjacent-creature-container">
           <div className="adjacent-creature-display">
-            {CreatureComponent}
+            <SampleCreature creature={creature} />
           </div>
         </div>
 
