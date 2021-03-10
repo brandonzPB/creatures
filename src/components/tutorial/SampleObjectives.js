@@ -9,17 +9,14 @@ import '../objective/objectiveList.css';
 import '../objective/adjCreature.css';
 import '../objective/deleteCreature.css';
 
-const ObjectiveList = () => {
+const ObjectiveList = ({ sampleCreature }) => {
   const { user, link, setDest } = useContext(UserContext);
   
   const sendDeleteObj = objId => {
     return objId;
   }
 
-  let creatureInfo;
   let ObjectiveComponents;
-  let CreatureComponent;
-  let creatureName;
 
   if (!user.accessToken) {
     return (
@@ -45,9 +42,9 @@ const ObjectiveList = () => {
     )
   }
 
-  if (id === 'creatureTutorial') {
-    ObjectiveComponents = creatureInfo.objectives.length >= 1
-      ? creatureInfo.objectives.sort((a, b) => a.factor - b.factor)
+  if (sampleCreature.id === 'creatureTutorial') {
+    ObjectiveComponents = sampleCreature.objectives.length >= 1
+      ? sampleCreature.objectives.sort((a, b) => a.factor - b.factor)
       : [];
 
     ObjectiveComponents = ObjectiveComponents.map(objective => {
@@ -55,28 +52,28 @@ const ObjectiveList = () => {
         <Objective 
           key={objective.id}
           objective={objective}
-          creature={creatureInfo}
+          creature={sampleCreature}
           sendDeleteObj={sendDeleteObj}
         />
       )
     });
 
-    if (creatureInfo.objectives.length < 1) ObjectiveComponents = null;
+    if (sampleCreature.objectives.length < 1) ObjectiveComponents = null;
   }
 
-  if (id === 'creatureTutorial') {
+  if (sampleCreature.id === 'creatureTutorial') {
     return (
       <div className="update-container">
         <button className="creatures-return-link-obj" onClick={() => setDest('creatures')}>Return to Creatures</button>
 
         <div className="adjacent-creature-container">
           <div className="adjacent-creature-display">
-            <SampleCreature creature={creature} />
+            <SampleCreature creature={sampleCreature} />
           </div>
         </div>
 
         <div className="objectives-container">
-          <h3 className="obj-list-title">{creatureName}'s Habits</h3>
+          <h3 className="obj-list-title">{sampleCreature.name}'s Habits</h3>
           
           <span className="swipe-text">Swipe to scroll</span>
           
@@ -93,7 +90,7 @@ const ObjectiveList = () => {
         
         <div className="objective-form-container">
           <h3 className="add-obj-title">Add a New Habit</h3>
-          <ObjectiveForm creatureId={creatureInfo.id}/>
+          <ObjectiveForm creatureId={sampleCreature.id}/>
         </div>
       </div>
     )

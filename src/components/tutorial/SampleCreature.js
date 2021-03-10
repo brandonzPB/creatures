@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
+import CountUp from 'react-countup';
+import { UserContext } from '../../contexts/UserContext';
 
 const SampleCreature = ({ creature, showObjectives }) => {
   const { link, setDest } = useContext(UserContext);
 
-  const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
+  let spriteSrc = creature.creature.trim()
+    ? require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`)
+    : '';
 
   let fireImg;
   
@@ -90,7 +94,7 @@ const SampleCreature = ({ creature, showObjectives }) => {
 
           <div className="view-info-btn-container">
             {
-              currentId
+              creature.showObjectives
                 ? <button className="view-info-btn" onClick={() => setDest('tutorialUpdate')}>Edit Creature</button>
                 : <button className="view-info-btn" onClick={() => setDest('tutorialObjectives')}>View Info</button>
             }

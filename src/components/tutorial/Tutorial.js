@@ -2,7 +2,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import SampleCreature from './SampleCreature';
-import duck from '../../sprites/pkmnXY/porygon2-retro.gif';
+import SampleObjectives from './SampleObjectives';
+import duckSauce from '../../sprites/pkmnXY/porygon2-retro.gif';
+import { tutorial } from '../../modules/tutorial';
 
 const Tutorial = () => {
   const { user, link, setDest } = useContext(UserContext);
@@ -16,6 +18,7 @@ const Tutorial = () => {
     purposeName: '',
     level: 0,
     objectives: [],
+    showObjectives: false,
     exp: 0,
     expGoal: 1,
     prevExp: 0,
@@ -104,7 +107,17 @@ const Tutorial = () => {
         <button id="skip-tutorial-btn" onClick={completeTutorial}>Skip Tutorial</button>
       </div>
 
-      <SampleCreature />
+      <div id="duck__container">
+        <img src={duckSauce} alt="Gif of the Pokemon Porygon2" />
+      </div>
+
+      <div id="sample-creature__container" style={{ display: creature.creature.trim() ? 'block' : 'none'}} >
+        <SampleCreature creature={creature} />
+      </div>
+
+      <div id="hidden__container">
+        <SampleObjectives creature={creature} />
+      </div>
     </div>
   )
 }

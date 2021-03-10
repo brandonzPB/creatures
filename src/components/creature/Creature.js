@@ -98,10 +98,11 @@ const Creature = ({ creature }) => {
 
       toggleLevelUpdate();
 
-      if (creature.level === 15 || creature.level === 30 || creature.level === 50 || creature.level == 80) {
+      if (creature.level === 15 || creature.level === 30 || creature.level === 50 || creature.level === 80 || creature.level === 100) {
         const newPokeball = (creature.level === 30) ? 14
           : (creature.level === 50) ? 15 
           : (creature.level === 80) ? 16 
+          : (creature.level === 100) ? 100
           : creature.pokeball_number;
 
         userDispatch({ type: 'UPDATE_POKEBALL', creature: {
