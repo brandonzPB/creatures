@@ -5,11 +5,16 @@ import SampleCreature from './SampleCreature';
 import SampleObjectives from './SampleObjectives';
 import duckSauce from '../../sprites/pkmnXY/porygon2-retro.gif';
 import { tutorial } from '../../modules/tutorial';
+import { otherVersions } from '../../modules/pokemonList';
 
 const Tutorial = () => {
   const { user, link, setDest } = useContext(UserContext);
 
   const [complete, setComplete] = useState({ state: false });
+
+  useEffect(() => {
+    console.log('otherVersion', otherVersions.find(pkmn => pkmn.name === 'abomasnow'));
+  }, []);
   
   const [creature, setCreature] = useState({
     creature: '',
@@ -115,7 +120,7 @@ const Tutorial = () => {
         <SampleCreature creature={creature} />
       </div>
 
-      <div id="hidden__container">
+      <div id="hidden__container" style={{ display: 'none' }} >
         <SampleObjectives creature={creature} />
       </div>
     </div>

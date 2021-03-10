@@ -68,7 +68,7 @@ const CreatureForm = () => {
   const handleChange = (event) => {
     const { value, name, className } = event.target;
 
-    if (className === 'select-creature-input') {
+    if (className === 'alt-input') {
       let megaPlace;
 
       if (name === 'firstCreature') {
@@ -205,7 +205,6 @@ const CreatureForm = () => {
                             value={creature.firstCreature}
                           >
                             <option disabled={true} defaultValue={true} value="">Select a Creature</option>
-                            <option value="">None</option>
                             {OptionComponents}
                           </select>
                         </div>
@@ -278,57 +277,105 @@ const CreatureForm = () => {
                     <div id="mega-input-container">
                       <div className="mega-input-child-container">
                         <div className="input-mega-div">
-                          <input 
-                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.firstCreature.toLowerCase()) < 0 }
-                            type="text"
-                            placeholder="none/mega/megaX/megaY"
-                            className="mega-input"
+                          <select
+                            disabled={ !creature.firstCreature.trim() || false }
+                            onChange={handleChange}
+                            className="alt-input"
                             name="firstMega"
                             value={creature.firstMega}
-                            onChange={handleChange}
-                          />
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                            <option value="">None</option>
+                            {
+                              otherVersions.findIndex(pkmn => pkmn.name === creature.firstCreature.toLowerCase()) > -1
+                                ? otherVersions.find(pkmn => pkmn.name === creature.firstCreature.toLowerCase())
+                                  .versions
+                                  .map(version => {
+                                    return (
+                                      <option value={version.value}>{version.text}</option>
+                                    )
+                                  })
+                                : ''
+                            }
+                          </select>
                         </div>
                       </div>
 
                       <div className="mega-input-child-container">
                         <div className="input-mega-div">
-                          <input 
-                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.secondCreature.toLowerCase()) < 0 }
-                            type="text"
-                            placeholder="none/mega/megaX/megaY"
-                            className="mega-input"
+                          <select
+                            disabled={ !creature.secondCreature.trim() || false }
+                            onChange={handleChange}
+                            className="alt-input"
                             name="secondMega"
                             value={creature.secondMega}
-                            onChange={handleChange}
-                          />
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                            <option value="">None</option>
+                            {
+                              otherVersions.findIndex(pkmn => pkmn.name === creature.secondCreature.toLowerCase()) > -1
+                                ? otherVersions.find(pkmn => pkmn.name === creature.secondCreature.toLowerCase())
+                                  .versions
+                                  .map(version => {
+                                    return (
+                                      <option value={version.value}>{version.text}</option>
+                                    )
+                                  })
+                                : ''
+                            }
+                          </select>
                         </div>
                       </div>
 
                       <div className="mega-input-child-container">
                         <div className="input-mega-div">
-                          <input
-                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.thirdCreature.toLowerCase()) < 0 }
-                            type="text"
-                            placeholder="none/mega/megaX/megaY"
-                            className="mega-input"
+                          <select
+                            disabled={ !creature.thirdCreature.trim() || false }
+                            onChange={handleChange}
+                            className="alt-input"
                             name="thirdMega"
                             value={creature.thirdMega}
-                            onChange={handleChange}
-                          />
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                            <option value="">None</option>
+                            {
+                              otherVersions.findIndex(pkmn => pkmn.name === creature.thirdCreature.toLowerCase()) > -1
+                                ? otherVersions.find(pkmn => pkmn.name === creature.thirdCreature.toLowerCase())
+                                  .versions
+                                  .map(version => {
+                                    return (
+                                      <option value={version.value}>{version.text}</option>
+                                    )
+                                  })
+                                : ''
+                            }
+                          </select>
                         </div>
                       </div>
                       
                       <div className="mega-input-child-container">
                         <div className="input-mega-div">
-                          <input 
-                            disabled={ otherVersions.findIndex(pkmn => pkmn.name === creature.fourthCreature.toLowerCase()) < 0 }
-                            type="text"
-                            placeholder="none/mega/megaX/megaY"
-                            className="mega-input"
+                          <select
+                            disabled={ !creature.fourthCreature.trim() || false }
+                            onChange={handleChange}
+                            className="alt-input"
                             name="fourthMega"
                             value={creature.fourthMega}
-                            onChange={handleChange}
-                          />
+                          >
+                            <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                            <option value="">None</option>
+                            {
+                              otherVersions.findIndex(pkmn => pkmn.name === creature.fourthCreature.toLowerCase()) > -1
+                                ? otherVersions.find(pkmn => pkmn.name === creature.fourthCreature.toLowerCase())
+                                  .versions
+                                  .map(version => {
+                                    return (
+                                      <option value={version.value}>{version.text}</option>
+                                    )
+                                  })
+                                : ''
+                            }
+                          </select>
                         </div>
                       </div>
                     </div>
