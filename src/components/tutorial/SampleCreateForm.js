@@ -13,7 +13,7 @@ import pokemon from 'pokemon';
 
 import '../creature/creatureForm.css';
 
-const CreatureForm = () => {
+const SampleCreateForm = ({ sampleCreature, setSampleCreature }) => {
   const { user, link, setDest } = useContext(UserContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
@@ -43,6 +43,10 @@ const CreatureForm = () => {
     purpose: 'hobby',
     purposeName: ''
   });
+
+  useEffect(() => {
+    console.log('creature', creature)
+  }, [creature]);
   
   if (!user.accessToken && link.dest !== 'tutorialCreate') {
     return (
@@ -63,7 +67,7 @@ const CreatureForm = () => {
   const handleChange = (event) => {
     const { value, name, className } = event.target;
 
-    if (className === 'select-creature-input') {
+    if (className === 'alt-input') {
       let megaPlace;
 
       if (name === 'firstCreature') {
@@ -100,20 +104,14 @@ const CreatureForm = () => {
       return item;
     });
 
-    const newCreature = {
+    setSampleCreature({
+      ...sampleCreature,
       creature: evolutions[0],
-      creature_name: creature.creatureName.trim() || 'Anonymous Creature',
+      name: creature.creatureName.trim() || 'Anonymous Creature',
       purpose: creature.purpose,
-      purpose_name: creature.purposeName.trim() || 'Base Existence',
+      purposeName: creature.purposeName.trim() || 'Base Existence',
       evolutions: [...evolutions],
-      id: uuidv4(),
-      level: 1,
-      exp: 0,
-      exp_goal: 1,
-      prev_exp_goal: 1,
-      exp_surplus: 0,
-      objectives: [],
-    };
+    })
     
     setCreature({
       ...creature,
@@ -257,9 +255,9 @@ const CreatureForm = () => {
                             otherVersions.findIndex(pkmn => pkmn.name === creature.firstCreature.toLowerCase()) > -1
                               ? otherVersions.find(pkmn => pkmn.name === creature.firstCreature.toLowerCase())
                                 .versions
-                                .map(version => {
+                                .map((version, index) => {
                                   return (
-                                    <option value={version.value}>{version.text}</option>
+                                    <option value={version.value} key={index}>{version.text}</option>
                                   )
                                 })
                               : ''
@@ -283,9 +281,9 @@ const CreatureForm = () => {
                             otherVersions.findIndex(pkmn => pkmn.name === creature.secondCreature.toLowerCase()) > -1
                               ? otherVersions.find(pkmn => pkmn.name === creature.secondCreature.toLowerCase())
                                 .versions
-                                .map(version => {
+                                .map((version, index) => {
                                   return (
-                                    <option value={version.value}>{version.text}</option>
+                                    <option value={version.value} key={index}>{version.text}</option>
                                   )
                                 })
                               : ''
@@ -309,9 +307,9 @@ const CreatureForm = () => {
                             otherVersions.findIndex(pkmn => pkmn.name === creature.thirdCreature.toLowerCase()) > -1
                               ? otherVersions.find(pkmn => pkmn.name === creature.thirdCreature.toLowerCase())
                                 .versions
-                                .map(version => {
+                                .map((version, index) => {
                                   return (
-                                    <option value={version.value}>{version.text}</option>
+                                    <option value={version.value} key={index}>{version.text}</option>
                                   )
                                 })
                               : ''
@@ -335,9 +333,9 @@ const CreatureForm = () => {
                             otherVersions.findIndex(pkmn => pkmn.name === creature.fourthCreature.toLowerCase()) > -1
                               ? otherVersions.find(pkmn => pkmn.name === creature.fourthCreature.toLowerCase())
                                 .versions
-                                .map(version => {
+                                .map((version, index) => {
                                   return (
-                                    <option value={version.value}>{version.text}</option>
+                                    <option value={version.value} key={index}>{version.text}</option>
                                   )
                                 })
                               : ''
@@ -394,4 +392,4 @@ const CreatureForm = () => {
   )
 }
 
-export default CreatureForm;
+export default SampleCreateForm;

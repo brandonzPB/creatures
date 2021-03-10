@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+
 import SampleCreature from './SampleCreature';
 import SampleObjectives from './SampleObjectives';
+import SampleCreateForm from './SampleCreateForm';
+
 import duckSauce from '../../sprites/pkmnXY/porygon2-retro.gif';
 import { tutorial } from '../../modules/tutorial';
 import { otherVersions } from '../../modules/pokemonList';
@@ -16,11 +19,12 @@ const Tutorial = () => {
     console.log('otherVersion', otherVersions.find(pkmn => pkmn.name === 'abomasnow'));
   }, []);
   
-  const [creature, setCreature] = useState({
+  const [sampleCreature, setSampleCreature] = useState({
     creature: '',
     name: '',
     purpose: '',
     purposeName: '',
+    evolutions: [],
     level: 0,
     objectives: [],
     showObjectives: false,
@@ -29,7 +33,7 @@ const Tutorial = () => {
     prevExp: 0,
     expSurplus: 0,
     streak: 0,
-    id: '123abc'
+    id: 'creatureTutorial'
   });
 
   useEffect(() => {
@@ -116,12 +120,13 @@ const Tutorial = () => {
         <img src={duckSauce} alt="Gif of the Pokemon Porygon2" />
       </div>
 
-      <div id="sample-creature__container" style={{ display: creature.creature.trim() ? 'block' : 'none'}} >
-        <SampleCreature creature={creature} />
+      <div id="sample-creature__container" style={{ display: sampleCreature.creature.trim() ? 'block' : 'none'}} >
+        <SampleCreature creature={sampleCreature} />
       </div>
 
       <div id="hidden__container" style={{ display: 'none' }} >
-        <SampleObjectives creature={creature} />
+        <SampleObjectives sampleCreature={sampleCreature} />
+        <SampleCreateForm sampleCreature={sampleCreature} setSampleCreature={setSampleCreature} />
       </div>
     </div>
   )

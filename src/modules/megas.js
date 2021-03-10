@@ -17,14 +17,17 @@ export const getMegas = creature => {
     // get pokemon info from those that have other versions
     const pkmnInfo = otherVersions.filter(pkmn => pkmn.name === creatureName.toLowerCase());
 
+    // if the pokemon doesn't exist in the array, return
     if (!pkmnInfo[0].name) return selectedVersions.push('normal');
     
     // check if versionInput exists in the pokemon's versions
-    const version = pkmnInfo[0].versions.filter(v => v === versionInput);
+    const version = pkmnInfo[0].versions.filter(version => version.value === versionInput);
 
-    // if it does, length of version is greater than 0
-    if (version.length > 0) {
-      return selectedVersions.push(version);
+    console.log('version')
+
+    // if it does, length of version is truthy (greater than 0)
+    if (version.length) {
+      return selectedVersions.push(version[0].value);
     }
 
     return selectedVersions.push('normal');

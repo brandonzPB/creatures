@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import { CreatureContext } from '../../contexts/CreatureContext';
