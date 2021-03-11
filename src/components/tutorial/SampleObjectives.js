@@ -12,7 +12,7 @@ import '../objective/adjCreature.css';
 import '../objective/deleteCreature.css';
 
 const ObjectiveList = () => {
-  const { link, setDest } = useContext(UserContext);
+  const { user, link, setDest } = useContext(UserContext);
 
   const { sampleCreature, setSampleCreature } = useContext(TutorialContext);
   
@@ -30,6 +30,14 @@ const ObjectiveList = () => {
   let ObjectiveComponents;
 
   const img = require('../../images/pokeballs/13.png');
+
+  if (user.accessToken) {
+    return (
+      <Route exact path="/tutorial/objectives">
+        <Redirect to="/user/update" />
+      </Route>
+    )
+  }
 
   if (link.dest === 'tutorial') {
     return (
@@ -73,10 +81,19 @@ const ObjectiveList = () => {
     });
   }
 
+  const closeObjectives = () => {
+    setSampleCreature({
+      ...sampleCreature,
+      showObjectives: false
+    });
+
+    return setDest('tutorial');
+  }
+
   if (sampleCreature.id === 'creatureTutorial') {
     return (
       <div className="update-container">
-        <button className="creatures-return-link-obj" onClick={() => setDest('tutorial')}>Return to Tutorial</button>
+        <button className="creatures-return-link-obj" onClick={closeObjectives}>Return to Tutorial</button>
 
         <div className="adjacent-creature-container">
           <div className="adjacent-creature-display">

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import { Route, Redirect } from 'react-router-dom';
 import CountUp from 'react-countup';
 import { UserContext } from '../../contexts/UserContext';
 import { TutorialContext } from '../../contexts/TutorialContext';
 
 const SampleCreature = () => {
-  const { link, setDest } = useContext(UserContext);
+  const { setDest } = useContext(UserContext);
 
   const { sampleCreature, setSampleCreature } = useContext(TutorialContext);
   const creature = sampleCreature;
@@ -20,6 +19,15 @@ const SampleCreature = () => {
     fireImg = require('../../images/fire_end.jpg');
   } else {
     fireImg = require('../../images/fire2.jpg');
+  }
+
+  const viewObjectives = () => {
+    setSampleCreature({
+      ...sampleCreature,
+      showObjectives: true
+    });
+
+    return setDest('tutorialObjectives');
   }
 
   return (
@@ -84,7 +92,7 @@ const SampleCreature = () => {
             {
               creature.showObjectives
                 ? <button className="view-info-btn" onClick={() => setDest('tutorialUpdate')}>Edit Creature</button>
-                : <button className="view-info-btn" onClick={() => setDest('tutorialObjectives')}>View Info</button>
+                : <button className="view-info-btn" onClick={viewObjectives}>View Info</button>
             }
           </div>
         </div>

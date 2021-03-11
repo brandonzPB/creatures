@@ -50,6 +50,14 @@ const SampleCreateForm = () => {
   useEffect(() => {
     console.log('creature', creature)
   }, [creature]);
+
+  if (user.accessToken) {
+    return (
+      <Route exact path="/tutorial/create">
+        <Redirect to="/user/update" />
+      </Route>
+    )
+  }
   
   if (!user.accessToken && link.dest !== 'tutorialCreate') {
     return (
