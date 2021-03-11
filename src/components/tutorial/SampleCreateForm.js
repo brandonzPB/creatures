@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
 import { UserContext } from '../../contexts/UserContext';
+import { TutorialContext } from '../../contexts/TutorialContext';
 
 import * as megaMethods from '../../modules/megas';
 import { otherVersions } from '../../modules/pokemonList';
@@ -13,8 +14,10 @@ import pokemon from 'pokemon';
 
 import '../creature/creatureForm.css';
 
-const SampleCreateForm = ({ sampleCreature, setSampleCreature }) => {
+const SampleCreateForm = () => {
   const { user, link, setDest } = useContext(UserContext);
+
+  const { sampleCreature, setSampleCreature } = useContext(TutorialContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 

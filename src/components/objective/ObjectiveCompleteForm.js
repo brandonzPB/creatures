@@ -21,13 +21,18 @@ const ObjectiveCompleteForm = ({ creature, objective }) => {
     console.log('completing objective')
 
     if (!objective.is_timed) {
-      getExp(objective, 1);
-      finish('creature', creature, 'stats');
+      if (creature.id !== 'creatureTutorial') {
+        getExp(objective, 1);
+        finish('creature', creature, 'stats');
+      }
+
       return togglePlay();
     }
 
-    getExp(creature, objective, time);
-    finish('creature', creature, 'stats');
+    if (creature.id !== 'creatureTutorial') {
+      getExp(creature, objective, time);
+      finish('creature', creature, 'stats');
+    }
 
     togglePlay();
     setTime(0);

@@ -1,6 +1,8 @@
-import React, { useContext } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { Redirect, Route } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import { TutorialContext } from '../../contexts/TutorialContext';
+
 import Objective from '../objective/Objective';
 import ObjectiveForm from '../objective/ObjectiveForm';
 import SampleCreature from './SampleCreature';
@@ -9,22 +11,25 @@ import '../objective/objectiveList.css';
 import '../objective/adjCreature.css';
 import '../objective/deleteCreature.css';
 
-const ObjectiveList = ({ sampleCreature }) => {
-  const { user, link, setDest } = useContext(UserContext);
+const ObjectiveList = () => {
+  const { link, setDest } = useContext(UserContext);
+
+  const { sampleCreature, setSampleCreature } = useContext(TutorialContext);
   
   const sendDeleteObj = objId => {
-    return objId;
+    return setSampleCreature({
+      ...sampleCreature,
+      objectives: [...sampleCreature.objectives.filter(obj => obj.id !== objId)]
+    });
   }
+
+  useEffect(() => {
+    console.log('sampleCreature.objectives', sampleCreature.objectives)
+  }, [sampleCreature]);
 
   let ObjectiveComponents;
 
-  if (!user.accessToken) {
-    return (
-      <Route exact path="/tutorial/objectives">
-        <Redirect to="/" />
-      </Route>
-    )
-  }
+  const img = require('../../images/pokeballs/13.png');
 
   if (link.dest === 'tutorial') {
     return (
@@ -61,14 +66,29 @@ const ObjectiveList = ({ sampleCreature }) => {
     if (sampleCreature.objectives.length < 1) ObjectiveComponents = null;
   }
 
+  const addSampleObjective = obj => {
+    return setSampleCreature({
+      ...sampleCreature,
+      objectives: [...sampleCreature.objectives, obj]
+    });
+  }
+
   if (sampleCreature.id === 'creatureTutorial') {
     return (
       <div className="update-container">
-        <button className="creatures-return-link-obj" onClick={() => setDest('creatures')}>Return to Creatures</button>
+        <button className="creatures-return-link-obj" onClick={() => setDest('tutorial')}>Return to Tutorial</button>
 
         <div className="adjacent-creature-container">
           <div className="adjacent-creature-display">
-            <SampleCreature creature={sampleCreature} />
+            <div className="creature" id="sample-creature__container" style={{
+              backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.35)), url(${img})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              display: sampleCreature.creature.trim() ? 'block' : 'none'
+            }}>
+              <SampleCreature />
+            </div>
           </div>
         </div>
 
@@ -90,7 +110,7 @@ const ObjectiveList = ({ sampleCreature }) => {
         
         <div className="objective-form-container">
           <h3 className="add-obj-title">Add a New Habit</h3>
-          <ObjectiveForm creatureId={sampleCreature.id}/>
+          <ObjectiveForm creatureId={sampleCreature.id} addSampleObjective={addSampleObjective} />
         </div>
       </div>
     )

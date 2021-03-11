@@ -5,6 +5,7 @@ import CreatureContextProvider from './contexts/CreatureContext';
 import ConfirmDisplayContextProvider from './contexts/ConfirmDisplayContext';
 import UserContextProvider from './contexts/UserContext';
 import ThemeContextProvider from './contexts/ThemeContext';
+import TutorialContextProvider from './contexts/TutorialContext';
 
 import Tutorial from './components/tutorial/Tutorial';
 import SampleCreateForm from './components/tutorial/SampleCreateForm';
@@ -43,10 +44,12 @@ function App() {
               <ConfirmDisplayContextProvider>
                 <LogoutButton />
 
-                <Route exact path="/" component={Tutorial} />
-                <Route exact path="/tutorial/create" component={SampleCreateForm} />
-                <Route exact path="/tutorial/objectives" component={SampleObjectives} />
-                <Route exact path="/tutorial/update" component={SampleUpdate} />
+                <TutorialContextProvider>
+                  <Route exact path="/" component={Tutorial} />
+                  <Route exact path="/tutorial/create" component={SampleCreateForm} />
+                  <Route exact path="/tutorial/objectives" component={SampleObjectives} />
+                  <Route exact path="/tutorial/update" component={SampleUpdate} />
+                </TutorialContextProvider>
 
                 <Route exact path="/welcome" component={Welcome} />
                 <Route exact path="/user/create" component={UserCreateForm} />

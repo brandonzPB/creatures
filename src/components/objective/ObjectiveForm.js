@@ -6,7 +6,7 @@ import * as obj from '../../modules/objective';
 
 import './objectiveForm.css';
 
-const ObjectiveForm = ({ creatureId }) => {
+const ObjectiveForm = ({ creatureId, addSampleObjective }) => {
   const { checkObjectiveText, currentId, finish } = useContext(CreatureContext);
   const { userDispatch } = useContext(UserContext);
   
@@ -36,23 +36,32 @@ const ObjectiveForm = ({ creatureId }) => {
     event.preventDefault();
 
     if (!objective.text.trim()) return;
-    const objectiveExists = checkObjectiveText(creatureId, objective.text);
-    if (objectiveExists) return;
-    // error message
+
+    if (creatureId !== 'creatureTutorial') {
+      const objectiveExists = checkObjectiveText(creatureId, objective.text);
+      if (objectiveExists) return;
+    }
+    // show error message
 
     const factor = obj.getDifficultyFactor(objective.difficulty);
 
-    userDispatch({ type: 'ADD_OBJECTIVE',
-      id: currentId,
-      objective: {
-        id: uuidv4(),
-        text: objective.text,
-        is_timed: objective.is_timed,
-        difficulty: objective.difficulty,
-        factor
-      }
-    });
+    const objectiveObject = {
+      id: uuidv4(),
+      text: objective.text,
+      is_timed: objective.is_timed,
+      difficulty: objective.difficulty,
+      factor
+    };
 
+    if (creatureId !== 'creatureTutorial') {
+      userDispatch({ type: 'ADD_OBJECTIVE',
+        id: currentId,
+        objective: objectiveObject,
+      });
+    } else {
+      addSampleObjective(objectiveObject);
+    }
+    
     setObjective({
       id: uuidv4(),
       text: '',
@@ -61,7 +70,9 @@ const ObjectiveForm = ({ creatureId }) => {
       factor: '',
     });
 
-    finish('objective');
+    if (creatureId !== 'creatureTutorial') {
+      finish('objective');
+    }
   }
 
   return (

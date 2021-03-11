@@ -2,9 +2,13 @@ import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import CountUp from 'react-countup';
 import { UserContext } from '../../contexts/UserContext';
+import { TutorialContext } from '../../contexts/TutorialContext';
 
-const SampleCreature = ({ creature, showObjectives }) => {
+const SampleCreature = () => {
   const { link, setDest } = useContext(UserContext);
+
+  const { sampleCreature, setSampleCreature } = useContext(TutorialContext);
+  const creature = sampleCreature;
 
   let spriteSrc = creature.creature.trim()
     ? require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`)
@@ -12,26 +16,10 @@ const SampleCreature = ({ creature, showObjectives }) => {
 
   let fireImg;
   
-  if (creature.streak_count === 0) {
+  if (creature.streak === 0) {
     fireImg = require('../../images/fire_end.jpg');
   } else {
     fireImg = require('../../images/fire2.jpg');
-  }
-
-  if (link.dest === 'tutorialObjectives') {
-    return (
-      <Route exact path="/">
-        <Redirect to="/tutorial/objectives" />
-      </Route>
-    )
-  }
-
-  if (link.dest === 'tutorialUpdate') {
-    return (
-      <Route exact path="/">
-        <Redirect to="/tutorial/update" />
-      </Route>
-    )
   }
 
   return (
