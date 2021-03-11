@@ -14,7 +14,7 @@ import '../creature/creatureUpdate.css';
 
 const SampleUpdate = () => {
   const { user, link, setDest } = useContext(UserContext);
-  const { sampleCreature, setSampleCreature } = useContext(TutorialContext); 
+  const { sampleCreature, setSampleCreature, completeTutorial } = useContext(TutorialContext); 
 
   const [update, setUpdate] = useState({
     firstCreature: '', // This represents the creature's current pokemon
@@ -159,6 +159,10 @@ const SampleUpdate = () => {
   return (
     <div className="creature-info creature-form">
       <button className="creatures-return-link-update" onClick={() => setDest('tutorialObjectives')}>Return to Creature</button>
+
+      <div id="skip__container">
+        <button id="skip-tutorial-btn" onClick={completeTutorial}>Skip Tutorial</button>
+      </div>
 
       <div className="creature-update-form">
         <form onSubmit={updateCreature}>

@@ -4,14 +4,14 @@ import { UserContext } from '../../contexts/UserContext';
 import { TutorialContext } from '../../contexts/TutorialContext';
 
 import SampleCreature from './SampleCreature';
+import Duck from './Duck';
 
-import duckSauce from '../../sprites/pkmnXY/porygon2-retro.gif';
-import { tutorial } from '../../modules/tutorial';
+import './tutorial.css';
 
 const Tutorial = () => {
   const { user, link, setDest } = useContext(UserContext);
 
-  const { sampleCreature, setSampleCreature } = useContext(TutorialContext);
+  const { sampleCreature, setSampleCreature, completeTutorial, tutorial, setTutorial, advanceScript } = useContext(TutorialContext);
 
   const [complete, setComplete] = useState({ state: false });
 
@@ -64,13 +64,6 @@ const Tutorial = () => {
     )
   }
 
-  const completeTutorial = () => {
-    return setComplete({
-      ...complete,
-      state: true
-    });
-  }
-
   return (
     <div id="tutorial__container">
       <div id="create-btn__container">
@@ -90,7 +83,7 @@ const Tutorial = () => {
       </div>
 
       <div id="duck__container">
-        <img src={duckSauce} alt="Gif of the Pokemon Porygon2" />
+        <Duck />
       </div>
 
       <div className="creature" id="sample-creature__container" style={{

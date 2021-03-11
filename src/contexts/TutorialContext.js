@@ -17,7 +17,7 @@ const TutorialContextProvider = (props) => {
   //   prevExp: 0,
   //   expSurplus: 0,
   //   streak: 0,
-  //   id: 'creatureTutorial'
+  //   id: 'creatureTutorial',
   // };
 
   // const [sampleCreature, setSampleCreature] = useState(() => {
@@ -45,11 +45,36 @@ const TutorialContextProvider = (props) => {
     prevExp: 0,
     expSurplus: 0,
     streak: 0,
-    id: 'creatureTutorial'
+    id: 'creatureTutorial',
   });
 
+  const [tutorial, setTutorial] = useState({
+    index: 0,
+    complete: false
+  });
+
+  const completeTutorial = () => {
+    return setTutorial({
+      ...tutorial,
+      index: 0,
+      complete: true
+    });
+  }
+
+  const advanceScript = () => {
+    return setTutorial({
+      ...tutorial,
+      index: tutorial.index + 1
+    });
+  }
+
   return (
-    <TutorialContext.Provider value={{ sampleCreature, setSampleCreature, }}>
+    <TutorialContext.Provider value={{ 
+      sampleCreature, setSampleCreature, 
+      completeTutorial,
+      tutorial, setTutorial, 
+      advanceScript 
+    }}>
       {props.children}
     </TutorialContext.Provider>
   )

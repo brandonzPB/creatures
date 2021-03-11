@@ -6,7 +6,7 @@ export const tutorial = [
     text: `For starters, you need a creature! Click on the "New Creature" button in the top left corner.`
   },
   {
-    text: `At the top of the form under, you can choose a creature from the dropdown selection. (For this demo, choose Charizard!)`
+    text: `At the top of the form to the left, you can choose a creature from the dropdown selection. (For this demo, choose Charizard! Also, typing helps)`
   },
   {
     text: `To the right of the creature you selected, if there's an alternate version, you can choose one from the dropdown selection.`
@@ -18,10 +18,10 @@ export const tutorial = [
     text: `Choose a purpose for your creature. This determines how much EXP your creature needs to level up!`
   },
   {
-    text: `Now you can give your creature a name! Could be something witty, serious, or your own name if you like. It'd be hard to beat "duck.js," though.`
+    text: `Now you can give your creature a name! Could be something witty, historic, or your own name if you like. It'd be hard to beat "duck.js," though...`
   },
   {
-    text: `You can then give your creature a title. E.g., "Pianist", "Engineer", or "Student." Then you can click the "Create Creature" button and enjoy your creation!`
+    text: `You can then give your creature a title. E.g., "Pianist", "Engineer", or "Student." Then you can click the "Create Creature" button and see your creation come to life!`
   },
   {
     text: `There it is! Isn't that neat?! Let's add some habits for your creature! Click the gold "View Info" button on your creature's card.`
@@ -31,7 +31,7 @@ export const tutorial = [
       E.g., practicing piano requires more focus than warming up your hands.`
   },
   {
-    text: `Awesome! Now you can complete a habit just by clicking the "Complete" to the right of each habit.`
+    text: `Awesome! Now you can complete a habit just by clicking the "Complete" button to the right of each habit.`
   },
   {
     text: `Aw yeah, level 2! Now your creature can grow with you!`

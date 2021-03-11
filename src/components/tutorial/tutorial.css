@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+
+#tutorial__container {
+  margin: 0 auto;
+  display:flex;
+  flex: 1;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 95%;
+  height: 90vh;
+}
+
+#create-btn__container {}
+
+#skip__container {
+  position: absolute;
+  right: 2rem;
+  top: 4rem;
+  text-align: center;
+}
+
+#skip-tutorial-btn {
+  color: white;
+  background-color: rgb(83, 83, 83);
+  border: none;
+  border-radius: 5px;
+  width: 12rem;
+  height: 3rem;
+  font-weight: 600;
+  transition: transform 0.2s;
+  font-family: 'Open Sans', sans-serif;
+}
+
+#skip-tutorial-btn:hover {
+  background-color: rgb(98, 98, 98);
+  transform: scale(1.05);
+}
+
+#skip-tutorial-btn:active {
+  background-color: rgb(83,83,83);
+  transform: scale(0.95);
+}
+
+#duck__container {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45%;
+  max-width: 45%;
+  height: 70%;
+  max-height: 70%;
+}
+
+#sample-creature__container {
+  width: 53%;
+  margin: 0 auto;
+  text-align: center;
+  border: 2px solid white;
+}

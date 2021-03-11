@@ -3,7 +3,8 @@
   max-width: 22rem;
   min-width: 22rem;
   height: auto;
-  border: 4px groove #FFC15E;
+  border: 4px groove #dbdbdb;
+  /* #FFC15E; */
   border-radius: 7.5px;
   padding: 0 2rem;
   margin: 5rem 2rem;

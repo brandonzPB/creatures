@@ -8,6 +8,7 @@ import * as megaMethods from '../../modules/megas';
 import { otherVersions } from '../../modules/pokemonList';
 
 import CreatureOption from '../creature/CreatureOption';
+import Duck from './Duck';
 
 import { v4 as uuidv4 } from 'uuid';
 import pokemon from 'pokemon';
@@ -17,7 +18,7 @@ import '../creature/creatureForm.css';
 const SampleCreateForm = () => {
   const { user, link, setDest } = useContext(UserContext);
 
-  const { sampleCreature, setSampleCreature } = useContext(TutorialContext);
+  const { sampleCreature, setSampleCreature, completeTutorial } = useContext(TutorialContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 
@@ -155,6 +156,14 @@ const SampleCreateForm = () => {
       <Route exact path="/creature/create"> <Redirect to="/creatures" /> </Route> :
         <div className="creature-form-container">
           <button className="creatures-return-link" onClick={() => setDest('creatures')}>Return to Tutorial</button>
+
+          <div id="skip__container">
+            <button id="skip-tutorial-btn" onClick={completeTutorial}>Skip Tutorial</button>
+          </div>
+
+          <div id="duck-create__container">
+            <Duck />
+          </div>
           
           <div className="creature-form">
             <form onSubmit={addCreature}>

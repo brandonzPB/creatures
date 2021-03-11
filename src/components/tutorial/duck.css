@@ -1,0 +1,45 @@
+#duck {
+}
+
+#duck-img {}
+
+#duck-text__container {
+  text-align: center;
+}
+
+#duck-text {
+  font-size: 1.5rem;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+}
+
+#text-btn {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 4px;
+  background-color: rgb(36, 114, 153);
+  color: white;
+  border: none;
+  box-shadow: 0 0 3px solid;
+  transition: transform 0.2s;
+  width: 6rem;
+  height: 3rem;
+  font-weight: 600;
+}
+
+#text-btn:hover {
+  background-color: rgb(50, 132, 173);
+  transform: scale(1.05);
+}
+
+#text-btn:active {
+  background-color: rgb(28, 103, 141);
+  transform: scale(0.95);
+}
+
+#duck-objectives__container {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  max-width: 50%;
+}
