@@ -56,6 +56,20 @@ const ObjectiveList = () => {
     )
   }
 
+  const completeSample = () => {
+    setSampleCreature({
+      ...sampleCreature,
+      level: 2,
+      exp: 1,
+      expGoal: 9,
+      prevExp: 0,
+      expSurplus: 0,
+      streak: 1,
+    });
+
+    // disable complete button OR auto redirect to tutorial index
+  }
+
   if (sampleCreature.id === 'creatureTutorial') {
     ObjectiveComponents = sampleCreature.objectives.length >= 1
       ? sampleCreature.objectives.sort((a, b) => a.factor - b.factor)
@@ -68,6 +82,7 @@ const ObjectiveList = () => {
           objective={objective}
           creature={sampleCreature}
           sendDeleteObj={sendDeleteObj}
+          completeSample={completeSample}
         />
       )
     });

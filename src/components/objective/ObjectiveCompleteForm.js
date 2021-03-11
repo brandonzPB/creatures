@@ -3,7 +3,7 @@ import { CreatureContext } from '../../contexts/CreatureContext';
 
 import './objectiveComplete.css';
 
-const ObjectiveCompleteForm = ({ creature, objective }) => {
+const ObjectiveCompleteForm = ({ creature, objective, completeSample }) => {
   const { getExp, play, togglePlay, expUpdate, toggleExpUpdate, finish } = useContext(CreatureContext);
 
   const [time, setTime] = useState(0);
@@ -24,6 +24,8 @@ const ObjectiveCompleteForm = ({ creature, objective }) => {
       if (creature.id !== 'creatureTutorial') {
         getExp(objective, 1);
         finish('creature', creature, 'stats');
+      } else {
+        completeSample();
       }
 
       return togglePlay();

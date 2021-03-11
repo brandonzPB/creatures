@@ -3,7 +3,7 @@ import ObjectiveCompleteForm from './ObjectiveCompleteForm';
 
 import './objective.css';
 
-const Objective = ({ objective, creature, sendDeleteObj }) => {
+const Objective = ({ objective, creature, sendDeleteObj, completeSample }) => {
   const difficultyColor = objective.factor === 1 ? 'rgba(142, 104, 199, 0.3)'
     : objective.factor === 2 ? 'rgba(119, 79, 179, 0.4)'
     : objective.factor === 3 ? 'rgba(101, 62, 158, 0.6)'
@@ -37,6 +37,7 @@ const Objective = ({ objective, creature, sendDeleteObj }) => {
         <ObjectiveCompleteForm 
         objective={objective}
         creature={creature}
+        completeSample={completeSample}
         />
       </div>
     </div>

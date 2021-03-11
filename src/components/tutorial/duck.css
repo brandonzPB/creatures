@@ -37,7 +37,21 @@
   transform: scale(0.95);
 }
 
+#duck-create__container {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  max-width: 50%;
+}
+
 #duck-objectives__container {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+  max-width: 50%;
+}
+
+#duck-update__container {
   margin: 0 auto;
   text-align: center;
   width: 50%;
