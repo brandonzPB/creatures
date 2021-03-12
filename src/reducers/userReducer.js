@@ -245,6 +245,24 @@ const userReducer = (state, action) => {
           return creature;
         })
       };
+    case 'MAX_LEVEL':
+      return {
+        ...state,
+        creatures: state.creatures.map(creature => {
+          if (creature.id === action.creature.id) {
+            return {
+              ...creature,
+              level: 100,
+              exp: action.creature.expTotal,
+              exp_goal: action.creature.expTotal,
+              prev_exp_goal: action.creature.expTotal,
+              exp_surplus: action.creature.expTotal,
+            }
+          }
+
+          return creature;
+        })
+      };
     case 'DELETE_CREATURE':
       return {
         ...state,

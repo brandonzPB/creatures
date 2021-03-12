@@ -156,6 +156,13 @@ const CreatureContextProvider = (props) => {
     console.log('Successfully deleted creature.');
   }
 
+  const maxLevel = (creature, expTotal) => {
+    return userDispatch({ type: 'MAX_LEVEL', creature: {
+      id: creature.id,
+      expTotal
+    }});
+  }
+
   const getExp = (habit, time) => { 
     const creature = user.creatures.filter(creature => creature.id === currentId);
 
@@ -170,6 +177,7 @@ const CreatureContextProvider = (props) => {
 
     if (creature[0].level === 99 && newTotal >= creature[0].exp_goal) {
       newTotal = stats.getExpGoal(creature[0].level + 1, creature[0].difficulty);
+      return maxLevel(creature[0], newTotal);
     }
 
     const newSurplus = (newTotal >= creature[0].exp_goal) ? 

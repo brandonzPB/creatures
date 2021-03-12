@@ -14,9 +14,11 @@ const CreatureDisplay = ({ creature, showObjectives }) => {
   const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
 
   let fireImg;
-  
+
   if (creature.streak_count === 0) {
     fireImg = require('../../images/fire_end.jpg');
+  } else if (creature.level === 100) {
+    fireImg = require('../../images/fire2.jpg');
   } else {
     fireImg = require('../../images/fire2.jpg');
   }
