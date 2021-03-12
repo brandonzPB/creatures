@@ -57,3 +57,55 @@
   width: 50%;
   max-width: 50%;
 }
+
+@media screen and (max-width: 650px) {
+  #duck {
+  }
+  
+  #duck-img {}
+  
+  #duck-text__container {
+    text-align: center;
+  }
+  
+  #duck-text {
+    font-size: 1.7rem;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+  }
+  
+  #text-btn {
+    display: block;
+    margin: 1rem auto;
+    border-radius: 4px;
+    background-color: rgb(36, 114, 153);
+    color: white;
+    border: none;
+    box-shadow: 0 0 3px solid;
+    width: 8rem;
+    height: 5rem;
+    font-weight: 600;
+    font-size: 1.8rem;
+  }
+  
+  #duck-create__container {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  #duck-objectives__container {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }
+  
+  #duck-update__container {
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    max-width: 100%;
+  }  
+}

@@ -67,15 +67,15 @@ const UserCreateForm = () => {
   if (createResult.success) {
     return (
       <Route exact path="/user/create">
-        <Redirect to="/" />
+        <Redirect to="/welcome" />
       </Route>
     )
   }
 
-  if (link.dest === 'home') {
+  if (link.dest === 'welcome') {
     return (
       <Route exact path="/user/create">
-        <Redirect to="/" />
+        <Redirect to="/welcome" />
       </Route>
     )
   }
@@ -88,7 +88,7 @@ const UserCreateForm = () => {
               <Redirect to="/" />
             </Route> :
             <div className="create-user-form-container">
-              <button className="return-home-link" onClick={() => setDest('home')}>Return Home</button>
+              <button className="return-home-link" onClick={() => setDest('welcome')}>Return Home</button>
 
               <div className="username-err" style={{ display: error.ref === 'username' ? 'flex' : 'none'}}>
                 <span className="create-error-text">Username already exists</span>

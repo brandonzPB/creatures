@@ -13,28 +13,11 @@ const Tutorial = () => {
 
   const { sampleCreature, completeTutorial, tutorial } = useContext(TutorialContext);
 
-  const [complete, setComplete] = useState({ state: false });
-
   const img = require('../../images/pokeballs/13.png');
-
-  // useEffect(() => {
-  //   const storedCompletion = localStorage.getItem('tutorialComplete');
-
-  //   if (storedCompletion) {
-  //     return setDest('welcome');
-  //   }
-
-  //   if (!tutorial.complete) return;
-  //   else {
-  //     localStorage.setItem('tutorialComplete', JSON.stringify(complete));
-      
-  //     return setDest('welcome');
-  //   }
-  // }, [tutorial]);
 
   if (tutorial.complete) {
     return (
-      <Route exact path="/tutorial">
+      <Route exact path="/">
         <Redirect to="/welcome" />
       </Route>
     )
@@ -42,7 +25,7 @@ const Tutorial = () => {
 
   if (user.accessToken) {
     return (
-      <Route exact path="/tutorial">
+      <Route exact path="/">
         <Redirect to="/user/update" />
       </Route>
     )

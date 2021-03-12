@@ -64,3 +64,53 @@
   text-align: center;
   border: 2px solid white;
 }
+
+@media screen and (max-width: 650px) {
+  #tutorial__container {
+    margin: 0 auto;
+    display: block;
+    width: 95%;
+    height: 90vh;
+  }
+  
+  #create-btn__container {}
+  
+  #skip__container {
+    position: static;
+    text-align: center;
+    padding: 2rem 0;
+  }
+  
+  #skip-tutorial-btn {
+    color: white;
+    background-color: rgb(83, 83, 83);
+    border: none;
+    border-radius: 5px;
+    width: 12rem;
+    height: 4rem;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  #duck__container {
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    height: 50%;
+    max-height: 50%;
+  }
+  
+  #sample-creature__container {
+    width: 53%;
+    margin: 0 auto;
+    text-align: center;
+    border: 2px solid white;
+  }
+}

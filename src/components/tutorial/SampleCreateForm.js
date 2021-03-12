@@ -161,7 +161,7 @@ const SampleCreateForm = () => {
 
   return (
     <div className="create-page">
-      <Route exact path="/creature/create"> <Redirect to="/creatures" /> </Route> :
+      <Route exact path="/creature/create"> <Redirect to="/creatures" /> </Route>
         <div className="creature-form-container">
           <button className="creatures-return-link" onClick={() => setDest('creatures')}>Return to Tutorial</button>
 
