@@ -266,51 +266,99 @@ const CreatureUpdateForm = () => {
               </div>
 
               <div className="update-mega-container">
-                <input 
-                  disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.firstCreature.toLowerCase()) < 0 }
-                  type="text"
-                  placeholder="none/mega/megaX/megaY"
+                <select
+                  disabled={ !update.firstCreature.trim() || false }
+                  onChange={handleChange}
                   className="mega"
                   name="firstMega"
                   value={update.firstMega}
-                  onChange={handleChange}
-                />
+                >
+                  <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                  <option value="">None</option>
+                  {
+                    otherVersions.findIndex(pkmn => pkmn.name === update.firstCreature.toLowerCase()) > -1
+                      ? otherVersions.find(pkmn => pkmn.name === update.firstCreature.toLowerCase())
+                        .versions
+                        .map((version, index) => {
+                          return (
+                            <option value={version.value} key={index}>{version.text}</option>
+                          )
+                        })
+                      : ''
+                  }
+                </select>
               </div>
 
               <div className="update-mega-container">
-                <input 
-                  disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.secondCreature.toLowerCase()) < 0 }
-                  type="text"
-                  placeholder="none/mega/megaX/megaY"
+                <select
+                  disabled={ !update.secondCreature.trim() || false }
+                  onChange={handleChange}
                   className="mega"
                   name="secondMega"
                   value={update.secondMega}
-                  onChange={handleChange}
-                />
+                >
+                  <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                  <option value="">None</option>
+                  {
+                    otherVersions.findIndex(pkmn => pkmn.name === update.secondCreature.toLowerCase()) > -1
+                      ? otherVersions.find(pkmn => pkmn.name === update.secondCreature.toLowerCase())
+                        .versions
+                        .map((version, index) => {
+                          return (
+                            <option value={version.value} key={index}>{version.text}</option>
+                          )
+                        })
+                      : ''
+                  }
+                </select>
               </div>
 
               <div className="update-mega-container">
-                <input
-                  disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.thirdCreature.toLowerCase()) < 0 }
-                  type="text"
-                  placeholder="none/mega/megaX/megaY"
+                <select
+                  disabled={ !update.thirdCreature.trim() || false }
+                  onChange={handleChange}
                   className="mega"
                   name="thirdMega"
                   value={update.thirdMega}
-                  onChange={handleChange}
-                />
+                >
+                  <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                  <option value="">None</option>
+                  {
+                    otherVersions.findIndex(pkmn => pkmn.name === update.thirdCreature.toLowerCase()) > -1
+                      ? otherVersions.find(pkmn => pkmn.name === update.thirdCreature.toLowerCase())
+                        .versions
+                        .map((version, index) => {
+                          return (
+                            <option value={version.value} key={index}>{version.text}</option>
+                          )
+                        })
+                      : ''
+                  }
+                </select>
               </div>
 
               <div className="update-mega-container">
-                <input 
-                  disabled={ otherVersions.findIndex(pkmn => pkmn.name === update.fourthCreature.toLowerCase()) < 0 }
-                  type="text"
-                  placeholder="none/mega/megaX/megaY"
+                <select
+                  disabled={ !update.fourthCreature.trim() || false }
+                  onChange={handleChange}
                   className="mega"
                   name="fourthMega"
                   value={update.fourthMega}
-                  onChange={handleChange}
-                />
+                >
+                  <option disabled={true} defaultValue={true} value="">Select an Alternate Version</option>
+                  <option value="">None</option>
+                  {
+                    otherVersions.findIndex(pkmn => pkmn.name === update.fourthCreature.toLowerCase()) > -1
+                      ? otherVersions.find(pkmn => pkmn.name === update.fourthCreature.toLowerCase())
+                        .versions
+                        .map((version, index) => {
+                          return (
+                            <option value={version.value} key={index}>{version.text}</option>
+                          )
+                        })
+                      : ''
+                  }
+                </select>
               </div>
             </div>
           </div>

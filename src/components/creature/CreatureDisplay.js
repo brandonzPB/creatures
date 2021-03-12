@@ -59,7 +59,8 @@ const CreatureDisplay = ({ creature, showObjectives }) => {
                 start={creature.prev_exp_goal}
                 end={creature.exp}
                 duration={1.00}
-              /> / <CountUp 
+              /> / 
+              <CountUp 
                 start={creature.prev_exp_goal}
                 end={creature.exp_goal}
                 duration={1.00}

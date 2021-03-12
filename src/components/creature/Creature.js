@@ -26,6 +26,7 @@ const Creature = ({ creature }) => {
 
   const pokeball = (!creature.pokeball_number) ? 13
     : (creature.pokeball_number < 14) ? 13 // pokeball
+    : (creature.pokeball_number === 100) ? 100 // ancient pokeball
     : (creature.pokeball_number === 14) ? 1 // greatball
     : (creature.pokeball_number === 15) ? 0 : 11; // ultraball : masterball
 

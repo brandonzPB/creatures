@@ -1,6 +1,7 @@
 import React, { useState, useReducer, useEffect, useContext, createContext } from 'react';
 import creatureReducer from '../reducers/creatureReducer';
 import * as objective from '../modules/objective'
+import * as stats from '../modules/stats';
 import creatureService from '../services/creatureService';
 import { UserContext } from './UserContext';
 
@@ -159,11 +160,17 @@ const CreatureContextProvider = (props) => {
     const creature = user.creatures.filter(creature => creature.id === currentId);
 
     if (creature[0].is_noob) return getFirstExp(creature[0]);
+    if (creature[0].level === 100) return;
 
     const streakCount = creature[0].streak_count;
 
     const newExp = objective.calcExp(creature[0].multiplier, streakCount, habit.difficulty, time);
-    const newTotal = creature[0].exp + newExp;
+
+    let newTotal = creature[0].exp + newExp;
+
+    if (creature[0].level === 99 && newTotal >= creature[0].exp_goal) {
+      newTotal = stats.getExpGoal(creature[0].level + 1, creature[0].difficulty);
+    }
 
     const newSurplus = (newTotal >= creature[0].exp_goal) ? 
       newTotal - creature[0].exp_goal :
