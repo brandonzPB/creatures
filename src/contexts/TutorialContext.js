@@ -31,6 +31,23 @@ const TutorialContextProvider = (props) => {
   //   localStorage.setItem('tutorial', JSON.stringify(sampleCreature));
   // }, [sampleCreature]);
 
+  const [tutorial, setTutorial] = useState({
+    index: 0,
+    complete: false
+  });
+
+  const [complete, setComplete] = useState(() => {
+    const storedResult = localStorage.getItem('tutorial');
+
+    return storedResult ? JSON.parse(storedResult) : { state: false }
+  });
+
+  useEffect(() => {
+    if (!tutorial.complete || !complete.state) return;
+
+    localStorage.setItem('tutorial', JSON.stringify(tutorial));
+  }, [tutorial]);
+
   const [sampleCreature, setSampleCreature] = useState({
     creature: '',
     name: '',
@@ -48,12 +65,12 @@ const TutorialContextProvider = (props) => {
     id: 'creatureTutorial',
   });
 
-  const [tutorial, setTutorial] = useState({
-    index: 0,
-    complete: false
-  });
-
-  const completeTutorial = () => {
+  const completeTutorial = () => {    
+    setComplete({
+      ...complete,
+      state: true
+    });
+    
     return setTutorial({
       ...tutorial,
       index: 0,
@@ -62,6 +79,10 @@ const TutorialContextProvider = (props) => {
   }
 
   const advanceScript = () => {
+    if (tutorial.index === 15) {
+      return completeTutorial();
+    }
+
     return setTutorial({
       ...tutorial,
       index: tutorial.index + 1

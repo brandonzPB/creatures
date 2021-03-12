@@ -15,7 +15,7 @@ import '../objective/deleteCreature.css';
 const ObjectiveList = () => {
   const { user, link, setDest } = useContext(UserContext);
 
-  const { sampleCreature, setSampleCreature, completeTutorial } = useContext(TutorialContext);
+  const { sampleCreature, setSampleCreature, completeTutorial, tutorial } = useContext(TutorialContext);
   
   const sendDeleteObj = objId => {
     return setSampleCreature({
@@ -31,6 +31,14 @@ const ObjectiveList = () => {
   let ObjectiveComponents;
 
   const img = require('../../images/pokeballs/13.png');
+
+  if (tutorial.complete) {
+    return (
+      <Route exact path="/tutorial/objectives">
+        <Redirect to="/welcome" />
+      </Route>
+    )
+  }
 
   if (user.accessToken) {
     return (

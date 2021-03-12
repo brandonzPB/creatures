@@ -18,7 +18,7 @@ import '../creature/creatureForm.css';
 const SampleCreateForm = () => {
   const { user, link, setDest } = useContext(UserContext);
 
-  const { sampleCreature, setSampleCreature, completeTutorial } = useContext(TutorialContext);
+  const { sampleCreature, setSampleCreature, completeTutorial, tutorial } = useContext(TutorialContext);
 
   const pkmnArr = pokemon.all().sort((a, b) => {
     return a > b ? 1 : 
@@ -51,6 +51,14 @@ const SampleCreateForm = () => {
   useEffect(() => {
     console.log('creature', creature)
   }, [creature]);
+
+  if (tutorial.complete) {
+    return (
+      <Route exact path="/tutorial/create">
+        <Redirect to="/welcome" />
+      </Route>
+    )
+  }
 
   if (user.accessToken) {
     return (

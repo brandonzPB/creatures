@@ -11,26 +11,34 @@ import './tutorial.css';
 const Tutorial = () => {
   const { user, link, setDest } = useContext(UserContext);
 
-  const { sampleCreature, setSampleCreature, completeTutorial, tutorial, setTutorial, advanceScript } = useContext(TutorialContext);
+  const { sampleCreature, completeTutorial, tutorial } = useContext(TutorialContext);
 
   const [complete, setComplete] = useState({ state: false });
 
   const img = require('../../images/pokeballs/13.png');
 
-  useEffect(() => {
-    const storedCompletion = localStorage.getItem('tutorialComplete');
+  // useEffect(() => {
+  //   const storedCompletion = localStorage.getItem('tutorialComplete');
 
-    if (storedCompletion) {
-      return setDest('welcome');
-    }
+  //   if (storedCompletion) {
+  //     return setDest('welcome');
+  //   }
 
-    if (!complete.state) return;
-    else {
-      localStorage.setItem('tutorialComplete', JSON.stringify(complete));
+  //   if (!tutorial.complete) return;
+  //   else {
+  //     localStorage.setItem('tutorialComplete', JSON.stringify(complete));
       
-      return setDest('welcome');
-    }
-  }, [complete]);
+  //     return setDest('welcome');
+  //   }
+  // }, [tutorial]);
+
+  if (tutorial.complete) {
+    return (
+      <Route exact path="/tutorial">
+        <Redirect to="/welcome" />
+      </Route>
+    )
+  }
 
   if (user.accessToken) {
     return (

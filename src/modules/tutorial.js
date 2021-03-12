@@ -40,10 +40,15 @@ export const tutorial = [
     text: `Creatures evolve at levels 15, 30, and 50.`
   },
   {
-    text: `If you want to edit your creature, you can do so from the habits page. Just click the gold "Edit Creature" button on your creature's card.`
+    text: `If you want to edit your creature, you can do so from this same page. Just click the gold "Edit Creature" button on your creature's card.`
   },
   {
     text: `This page is really similar to the create form. If you can't change a creature in the evolution line, that's because it already passed. 
       Can't change the past, can we?`
   },
+  {
+    text: `That's it for the tutorial! 
+    Click "next" below or "Skip Tutorial" at the top right to create an account and make some new creatures!
+    (we won't sell your data or track you)`
+  }
 ];

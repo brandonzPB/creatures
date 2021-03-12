@@ -15,7 +15,7 @@ import '../creature/creatureUpdate.css';
 
 const SampleUpdate = () => {
   const { user, link, setDest } = useContext(UserContext);
-  const { sampleCreature, setSampleCreature, completeTutorial } = useContext(TutorialContext); 
+  const { sampleCreature, setSampleCreature, completeTutorial, tutorial } = useContext(TutorialContext); 
 
   const [update, setUpdate] = useState({
     firstCreature: '', // This represents the creature's current pokemon
@@ -28,6 +28,14 @@ const SampleUpdate = () => {
     fourthMega: '',
     creatureName: ''
   });
+
+  if (tutorial.complete) {
+    return (
+      <Route exact path="/tutorial/update">
+        <Redirect to="/welcome" />
+      </Route>
+    )
+  }
 
   if (user.accessToken) {
     return (
