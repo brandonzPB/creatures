@@ -157,10 +157,12 @@ const CreatureContextProvider = (props) => {
   }
 
   const maxLevel = (creature, expTotal) => {
-    return userDispatch({ type: 'MAX_LEVEL', creature: {
+    userDispatch({ type: 'MAX_LEVEL', creature: {
       id: creature.id,
       expTotal
     }});
+
+    return finish('creature', creature, 'stats');
   }
 
   const getExp = (habit, time) => { 

@@ -46,7 +46,7 @@ const Creature = ({ creature }) => {
   useEffect(() => { 
     if (!expUpdate) return;
     let isNewLevel = false;
-    if (creature.level === 100) return finish('creature', creature, 'stats');
+    if (creature.level === 100) return;
 
     // check streak
     const streak = streakMethods.checkCreatureStreak(creature.streak_timestamp, creature.streak_count, user.new_time);
