@@ -20,24 +20,22 @@ const ObjectiveCompleteForm = ({ creature, objective, completeSample }) => {
 
     console.log('completing objective')
 
+    if (creature.id === 'creatureTutorial') {
+      return completeSample();
+    }
+
     if (!objective.is_timed) {
-      if (creature.id !== 'creatureTutorial') {
-        getExp(objective, 1);
-        finish('creature', creature, 'stats');
-      } else {
-        return completeSample();
-      }
-
-      togglePlay();
-    }
-
-    if (creature.id !== 'creatureTutorial') {
-      getExp(creature, objective, time);
+      getExp(creature, objective, 1);
       finish('creature', creature, 'stats');
+
+      return togglePlay();
     }
+
+    getExp(creature, objective, time);
+    finish('creature', creature, 'stats');
 
     togglePlay();
-    setTime(0);
+    return setTime(0);
   }
 
   if (objective.is_timed) {

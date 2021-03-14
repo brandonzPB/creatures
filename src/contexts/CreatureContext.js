@@ -165,26 +165,26 @@ const CreatureContextProvider = (props) => {
     return finish('creature', creature, 'stats');
   }
 
-  const getExp = (habit, time) => { 
-    const creature = user.creatures.filter(creature => creature.id === currentId);
+  const getExp = (creature, creatureObjective, time) => { 
+    // const creature = user.creatures.filter(creature => creature.id === currentId);
 
-    if (creature[0].is_noob) return getFirstExp(creature[0]);
-    if (creature[0].level === 100) return;
+    if (creature.is_noob) return getFirstExp(creature);
+    if (creature.level === 100) return;
 
-    const streakCount = creature[0].streak_count;
+    const streakCount = creature.streak_count;
 
-    const newExp = objective.calcExp(creature[0].multiplier, streakCount, habit.difficulty, time);
+    const newExp = objective.calcExp(creature.multiplier, streakCount, creatureObjective.difficulty, time);
 
-    let newTotal = creature[0].exp + newExp;
+    let newTotal = creature.exp + newExp;
 
-    if (creature[0].level === 99 && newTotal >= creature[0].exp_goal) {
-      newTotal = stats.getExpGoal(creature[0].level + 1, creature[0].difficulty);
-      return maxLevel(creature[0], newTotal);
+    if (creature.level === 99 && newTotal >= creature.exp_goal) {
+      newTotal = stats.getExpGoal(creature.level + 1, creature.difficulty);
+      return maxLevel(creature, newTotal);
     }
 
-    const newSurplus = (newTotal >= creature[0].exp_goal) ? 
-      newTotal - creature[0].exp_goal :
-      creature[0].exp_surplus + newExp;
+    const newSurplus = (newTotal >= creature.exp_goal) ? 
+      newTotal - creature.exp_goal :
+      creature.exp_surplus + newExp;
 
     userDispatch({ type: 'ADD_EXP', creature: {
       id: currentId,
