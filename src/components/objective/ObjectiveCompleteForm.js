@@ -25,10 +25,10 @@ const ObjectiveCompleteForm = ({ creature, objective, completeSample }) => {
         getExp(objective, 1);
         finish('creature', creature, 'stats');
       } else {
-        completeSample();
+        return completeSample();
       }
 
-      return togglePlay();
+      togglePlay();
     }
 
     if (creature.id !== 'creatureTutorial') {
