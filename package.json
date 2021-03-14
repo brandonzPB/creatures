@@ -1,6 +1,6 @@
 {
   "name": "creatures-of-habit",
-  "proxy": "http://localhost:3001",
+  "homepage": "https://brandonzpb.github.io/creatures/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

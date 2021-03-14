@@ -1,6 +1,5 @@
 import axios from 'axios';
-// const baseUrl = 'https://bz-creatures-of-habit.herokuapp.com/dashboard/user';
-const baseUrl = '/dashboard/user';
+const baseUrl = 'https://bz-creatures-of-habit.herokuapp.com/dashboard/user';
 
 // GET all creatures
 const getAll = (userId, token) => {
