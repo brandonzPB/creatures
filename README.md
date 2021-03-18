@@ -1,4 +1,4 @@
-###Welcometo Creatures of Habit!
+Welcometo Creatures of Habit!
 
 Ever wanted to track your progress and growth in areas that are difficult to measure? This app does just that! And it's *completely* free. 
 It even includes a tutorial once you open the main page at https://brandonzpb.github.io/creatures
