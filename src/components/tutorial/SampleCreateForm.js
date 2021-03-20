@@ -67,14 +67,6 @@ const SampleCreateForm = () => {
       </Route>
     )
   }
-  
-  if (!user.accessToken && link.dest !== 'tutorialCreate') {
-    return (
-      <Route exact path="/tutorial/create">
-        <Redirect to="/" />
-      </Route>
-    )
-  }
 
   if (link.dest === 'tutorial') {
     return (
@@ -149,14 +141,6 @@ const SampleCreateForm = () => {
     });
 
     setDest('tutorial');
-  }
-  
-  if (user.creatures.length === 6) {
-    return (
-      <Route exact path="/tutorial/create">
-        <Redirect to="/" />
-      </Route>
-    )
   }
 
   return (

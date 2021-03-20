@@ -74,8 +74,6 @@ const ObjectiveList = () => {
       expSurplus: 0,
       streak: 1,
     });
-
-    // disable complete button OR auto redirect to tutorial index
   }
 
   if (sampleCreature.id === 'creatureTutorial') {
