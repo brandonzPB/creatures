@@ -147,7 +147,7 @@ const SampleCreateForm = () => {
     <div className="create-page">
       <Route exact path="/creature/create"> <Redirect to="/creatures" /> </Route>
         <div className="creature-form-container">
-          <button className="creatures-return-link" onClick={() => setDest('creatures')}>Return to Tutorial</button>
+          <button className="creatures-return-link" onClick={() => setDest('tutorial')}>Return to Tutorial</button>
 
           <div id="skip__container">
             <button id="skip-tutorial-btn" onClick={completeTutorial}>Skip Tutorial</button>
