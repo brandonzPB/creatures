@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7eb04c86203f790281797cf6f677b237",
+    "revision": "eabd3e7e8ea0bc9ff47c5c809faa76da",
     "url": "/creatures/index.html"
   },
   {
-    "revision": "451164081e1ce165fbf9",
+    "revision": "98d0e755aaada899b732",
     "url": "/creatures/static/css/main.506b3fcc.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/js/2.86fd3c28.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "451164081e1ce165fbf9",
-    "url": "/creatures/static/js/main.2b6a94d2.chunk.js"
+    "revision": "98d0e755aaada899b732",
+    "url": "/creatures/static/js/main.57f9264b.chunk.js"
   },
   {
     "revision": "c2d80ffb1f0e4c3b19b4",
@@ -4822,6 +4822,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "6e7e4b98c573cd5bd731e8be191d9a22",
     "url": "/creatures/static/media/tyranitar-mega.6e7e4b98.gif"
+  },
+  {
+    "revision": "53b95b9b9a44874efbf9181313daf81f",
+    "url": "/creatures/static/media/tyranitar-recolor.53b95b9b.png"
   },
   {
     "revision": "9d19dbf1c0035a00706e1a05e8c6577c",
