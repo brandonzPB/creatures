@@ -325,6 +325,10 @@ export const otherVersions = [
         value: 'mega',
         text: 'Mega'
       },
+      {
+        value: 'recolor',
+        text: 'Recolor'
+      },
     ]
   },
   {

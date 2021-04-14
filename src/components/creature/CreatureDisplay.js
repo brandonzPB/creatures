@@ -11,7 +11,9 @@ const CreatureDisplay = ({ creature, showObjectives }) => {
 
   const { currentId } = useContext(CreatureContext);
 
-  const spriteSrc = require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
+  const spriteSrc = (creature.creature === 'tyranitar-recolor')
+    ? require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.png`)
+    : require(`../../sprites/pkmnXY/${creature.creature.toLowerCase()}.gif`);
 
   let fireImg;
 
