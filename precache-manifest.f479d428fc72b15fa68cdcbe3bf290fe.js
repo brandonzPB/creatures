@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "eabd3e7e8ea0bc9ff47c5c809faa76da",
+    "revision": "9364cd0db4caf5499d0a73dbcd4f3b13",
     "url": "/creatures/index.html"
   },
   {
-    "revision": "98d0e755aaada899b732",
+    "revision": "0e230ce019b683ffc55b",
     "url": "/creatures/static/css/main.506b3fcc.chunk.css"
   },
   {
-    "revision": "6c46d751e573b8aefe5c",
-    "url": "/creatures/static/js/2.86fd3c28.chunk.js"
+    "revision": "cbb2dd030dce6edf5e69",
+    "url": "/creatures/static/js/2.90766ecd.chunk.js"
   },
   {
     "revision": "8d190e2d02f8e768921a63f56a741895",
-    "url": "/creatures/static/js/2.86fd3c28.chunk.js.LICENSE.txt"
+    "url": "/creatures/static/js/2.90766ecd.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "98d0e755aaada899b732",
-    "url": "/creatures/static/js/main.57f9264b.chunk.js"
+    "revision": "0e230ce019b683ffc55b",
+    "url": "/creatures/static/js/main.70992724.chunk.js"
   },
   {
     "revision": "c2d80ffb1f0e4c3b19b4",
@@ -1204,6 +1204,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/media/deoxys-defense.6aeca082.gif"
   },
   {
+    "revision": "308a62ca960bbb07b669cd06081e4004",
+    "url": "/creatures/static/media/deoxys-shiny.308a62ca.gif"
+  },
+  {
     "revision": "f878ecee8b2f8fcd08fa6a5b9e8e7329",
     "url": "/creatures/static/media/deoxys-speed.f878ecee.gif"
   },
@@ -1836,6 +1840,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/media/gardevoir.d59fd3d0.gif"
   },
   {
+    "revision": "0facc429a1ce326e68b8b4733a0facdb",
+    "url": "/creatures/static/media/gastly-shiny.0facc429.gif"
+  },
+  {
     "revision": "f0ad756ded0b150faf0d67ee50440e37",
     "url": "/creatures/static/media/gastly.f0ad756d.gif"
   },
@@ -1846,6 +1854,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7b5af1a1471b3e8adafaa4edd94efe93",
     "url": "/creatures/static/media/gastrodon.7b5af1a1.gif"
+  },
+  {
+    "revision": "7eaff8ccaadcecaa808ffd5e37950ff9",
+    "url": "/creatures/static/media/genesect-shiny.7eaff8cc.gif"
   },
   {
     "revision": "54c93b1b5c5474310759693374283d78",
@@ -1860,8 +1872,16 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/media/gengar-3.493d2833.gif"
   },
   {
+    "revision": "6c7966332e8c349703cc51e8b5e6c493",
+    "url": "/creatures/static/media/gengar-mega-shiny.6c796633.gif"
+  },
+  {
     "revision": "45c3ad953ca7c8cfe48e230444bc598a",
     "url": "/creatures/static/media/gengar-mega.45c3ad95.gif"
+  },
+  {
+    "revision": "6b6dd314308c11dd41df35b861d863a3",
+    "url": "/creatures/static/media/gengar-shiny.6b6dd314.gif"
   },
   {
     "revision": "22ef559d51edd6c1d72c0be132650c8b",
@@ -2104,6 +2124,14 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/creatures/static/media/grotle.e92ad272.gif"
   },
   {
+    "revision": "68b756688c6cec122615c489afe98a64",
+    "url": "/creatures/static/media/groudon-primal-shiny.68b75668.gif"
+  },
+  {
+    "revision": "e6a62649dde231d08fa006a2205c608c",
+    "url": "/creatures/static/media/groudon-primal.e6a62649.gif"
+  },
+  {
     "revision": "1172c7fe58a2f74a82f95c95884c715f",
     "url": "/creatures/static/media/groudon.1172c7fe.gif"
   },
@@ -2170,6 +2198,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "d0d455d277086e33eef368a7d3daee98",
     "url": "/creatures/static/media/haunter-3.d0d455d2.gif"
+  },
+  {
+    "revision": "8ae90a95b309f134c3c1ead6fe7c19fe",
+    "url": "/creatures/static/media/haunter-shiny.8ae90a95.gif"
   },
   {
     "revision": "b339b816da675b5b208ee3575ef52ef7",
