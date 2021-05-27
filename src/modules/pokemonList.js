@@ -131,8 +131,34 @@ export const otherVersions = [
     name: 'gengar',
     versions: [
       {
+        value: 'shiny',
+        text: 'Shiny'
+      },
+      {
         value: 'mega',
         text: 'Mega'
+      },
+      {
+        value: 'mega-shiny',
+        text: 'Shiny Mega'
+      }
+    ]
+  },
+  {
+    name: 'gastly',
+    versions: [
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
+    ]
+  },
+  {
+    name: 'haunter',
+    versions: [
+      {
+        value: 'shiny',
+        text: 'Shiny'
       },
     ]
   },
@@ -155,12 +181,55 @@ export const otherVersions = [
     ]
   },
   {
+    name: 'deoxys',
+    versions: [
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      },
+      {
+        value: 'attack',
+        text: 'Attack'
+      },
+      {
+        value: 'defense',
+        text: 'Defense'
+      },
+      {
+        value: 'speed',
+        text: 'Speed'
+      },
+    ]
+  },
+  {
+    name: 'genesect',
+    versions: [
+      {
+        value: 'shiny',
+        text: 'Shiny'
+      }
+    ]
+  },
+  {
     name: 'keldeo',
     versions: [
       {
         value: 'resolute',
         text: 'Resolute'
       },
+    ]
+  },
+  {
+    name: 'groudon',
+    versions: [
+      {
+        value: 'primal-shiny',
+        text: 'Shiny Primal'
+      },
+      {
+        value: 'primal',
+        text: 'Primal'
+      }
     ]
   },
   {
